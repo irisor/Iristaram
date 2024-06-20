@@ -2,7 +2,7 @@
   "name": "vite-react-proj",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://irisor.github.io/Iristagram/",
+  "homepage": "https://irisor.github.io/trello/",
   "type": "module",
   "scripts": {
     "dev": "vite",
