@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router'
-import {useSelector} from 'react-redux'
+import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/user.actions'
 import { LoginSignup } from './LoginSignup.jsx'
@@ -41,15 +41,11 @@ export function AppHeader() {
         <header className="app-header">
             <nav>
                 <NavLink to="">Home 🏠</NavLink>
-                <NavLink to="about">About</NavLink>
-                <NavLink to="car">Cars</NavLink>
-                <NavLink to="chat">Chat</NavLink>
-                <NavLink to="review">Review</NavLink>
-                <NavLink to="board">Boards</NavLink>
+                <NavLink to="/boards">Boards</NavLink>
 
                 {user &&
                     <span className="user-info">
-                        <Link to={`user/${user._id}`}>
+                        <Link to={`/user/${user._id}`}>
                             {user.imgUrl && <img src={user.imgUrl} />}
                             {user.fullname}
                         </Link>

@@ -2,10 +2,10 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import { useSelector } from 'react-redux'
-import { loadBoards, addBoard, updateBoard, removeBoard, addBoardMsg } from '../store/board.actions'
+import { loadBoards, addBoard, updateBoard, removeBoard } from '../store/board.actions'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
-import { userService } from '../services/user.service'
+// import { userService } from '../services/user.service'
 import { boardService } from '../services/board.service.local'
 
 export function BoardIndex() {
@@ -51,11 +51,12 @@ export function BoardIndex() {
 
 
     function shouldShowActionBtns(board) {
+        if (!board) return false
         return true
-        const user = userService.getLoggedinUser()
-        if (!user) return false
-        if (user.isAdmin) return true
-        return board.owner?._id === user._id
+        // const user = userService.getLoggedinUser()
+        // if (!user) return false
+        // if (user.isAdmin) return true
+        // return board.owner?._id === user._id
     }
 
     return (

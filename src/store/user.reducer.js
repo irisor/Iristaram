@@ -47,6 +47,7 @@ export function userReducer(state = initialState, action) {
             newState = { ...state, user: { ...state.user, score: action.score } }
             break
         default:
+            return state
     }
     // For debug:
     // window.userState = newState
