@@ -34,9 +34,9 @@ export function BoardDetails() {
           {board.title}
         </h3>
         <section className="group-container">
-          {board.groups.map(group =>
+          {board?.groups?.map(group =>
             <section key={group.id} className="group">
-              {group.tasks.map(task =>
+              {group.tasks?.map(task =>
                 <article key={task.id} className="task">
                   <Link to={`group/${group.id}/task/${task.id}`}>
                     <h4>{task.title}</h4>

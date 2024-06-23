@@ -11,7 +11,6 @@ export const boardService = {
     save,
     remove,
     getEmptyBoard,
-    getDemoBoard,
     addBoardMsg,
     updateTask,
     getTaskEditCmps
@@ -51,7 +50,7 @@ async function save(board) {
         savedBoard = await storageService.put(STORAGE_KEY, boardToUpdate)
     } else {
         // Later, owner is set by the backend
-        board.owner = userService.getLoggedinUser()
+        // board.owner = userService.getLoggedinUser()
         savedBoard = await storageService.post(STORAGE_KEY, board)
     }
     return savedBoard
@@ -127,9 +126,9 @@ function getEmptyBoard() {
     }
 }
 
-function getDemoBoard() {
-    return structuredClone(board)
-}
+// function getDemoBoard() {
+//     return structuredClone(board)
+// }
 
 function _createActivity(title, task, group = null) {
     return {
