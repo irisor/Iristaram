@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux'
 import { loadBoards, addBoard, updateBoard, removeBoard } from '../store/board.actions'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
-// import { userService } from '../services/user.service'
 import { boardService } from '../services/board.service.local'
 
 export function BoardIndex() {
@@ -26,7 +25,7 @@ export function BoardIndex() {
     }
 
     async function onAddBoard() {
-        const board = boardService.getDemoBoard()
+        const board = boardService.getEmptyBoard()
         board.title = prompt('Title?')
         try {
             const savedBoard = await addBoard(board)
@@ -70,8 +69,7 @@ export function BoardIndex() {
                             <Link to={`${board._id}`}>
                                 <h4>{board.title}</h4>
                            </Link>
-                            <h1>⛐</h1>
-                            <p>Owner: <span>{board.owner && board.owner.fullname}</span></p>
+                           
                             <hr />
  
                             {shouldShowActionBtns(board) && <div>
