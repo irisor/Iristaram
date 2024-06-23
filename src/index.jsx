@@ -20,3 +20,5 @@ root.render(
 // // unregister() to register() below. Note this comes with some pitfalls.
 // // Learn more about service workers: https://cra.link/PWA
 // serviceWorkerRegistration.register()
+
+//Comment to check if push works
