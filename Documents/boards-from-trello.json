@@ -1,0 +1,4718 @@
+{
+	"id": "66747fa142248ea3880dd980",
+	"nodeId": "ari:cloud:trello::board/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd980",
+	"name": "Agile Board Template | Trello",
+	"desc": "Use this board to get things done. It isn’t just about shipping a product, or checking off items on a list, or even about marking a project as Done. Getting things done is a process: it’s a way of thinking that involves planning, execution, iteration, and reflection.\n\nLearn more here: https://blog.trello.com/how-to-scrum-and-trello-for-teams-at-work",
+	"descData": null,
+	"closed": false,
+	"dateClosed": null,
+	"idOrganization": "66743103c53f5c58c7fc53ef",
+	"idEnterprise": null,
+	"limits": {
+		"attachments": {
+			"perBoard": {
+				"status": "ok",
+				"disableAt": 36000,
+				"warnAt": 28800
+			},
+			"perCard": {
+				"status": "ok",
+				"disableAt": 1000,
+				"warnAt": 800
+			}
+		},
+		"boards": {
+			"totalMembersPerBoard": {
+				"status": "ok",
+				"disableAt": 1600,
+				"warnAt": 1280
+			},
+			"totalAccessRequestsPerBoard": {
+				"status": "ok",
+				"disableAt": 4000,
+				"warnAt": 3200
+			}
+		},
+		"cards": {
+			"openPerBoard": {
+				"status": "ok",
+				"disableAt": 5000,
+				"warnAt": 4000
+			},
+			"openPerList": {
+				"status": "ok",
+				"disableAt": 5000,
+				"warnAt": 4000
+			},
+			"totalPerBoard": {
+				"status": "ok",
+				"disableAt": 2000000,
+				"warnAt": 1600000
+			},
+			"totalPerList": {
+				"status": "ok",
+				"disableAt": 1000000,
+				"warnAt": 800000
+			}
+		},
+		"checklists": {
+			"perBoard": {
+				"status": "ok",
+				"disableAt": 1800000,
+				"warnAt": 1440000
+			},
+			"perCard": {
+				"status": "ok",
+				"disableAt": 500,
+				"warnAt": 400
+			}
+		},
+		"checkItems": {
+			"perChecklist": {
+				"status": "ok",
+				"disableAt": 200,
+				"warnAt": 160
+			}
+		},
+		"customFields": {
+			"perBoard": {
+				"status": "ok",
+				"disableAt": 50,
+				"warnAt": 40
+			}
+		},
+		"customFieldOptions": {
+			"perField": {
+				"status": "ok",
+				"disableAt": 50,
+				"warnAt": 40
+			}
+		},
+		"labels": {
+			"perBoard": {
+				"status": "ok",
+				"disableAt": 1000,
+				"warnAt": 800
+			}
+		},
+		"lists": {
+			"openPerBoard": {
+				"status": "ok",
+				"disableAt": 500,
+				"warnAt": 400
+			},
+			"totalPerBoard": {
+				"status": "ok",
+				"disableAt": 3000,
+				"warnAt": 2400
+			}
+		},
+		"stickers": {
+			"perCard": {
+				"status": "ok",
+				"disableAt": 70,
+				"warnAt": 56
+			}
+		},
+		"reactions": {
+			"perAction": {
+				"status": "ok",
+				"disableAt": 900,
+				"warnAt": 720
+			},
+			"uniquePerAction": {
+				"status": "ok",
+				"disableAt": 17,
+				"warnAt": 14
+			}
+		}
+	},
+	"pinned": false,
+	"starred": false,
+	"url": "https://trello.com/b/xczozTZx/agile-board-template-trello",
+	"prefs": {
+		"permissionLevel": "org",
+		"hideVotes": false,
+		"voting": "disabled",
+		"comments": "members",
+		"invitations": "members",
+		"selfJoin": true,
+		"cardCovers": true,
+		"cardCounts": false,
+		"isTemplate": false,
+		"cardAging": "regular",
+		"calendarFeedEnabled": false,
+		"hiddenPluginBoardButtons": [],
+		"switcherViews": [
+			{
+				"viewType": "Board",
+				"enabled": true
+			},
+			{
+				"viewType": "Table",
+				"enabled": true
+			},
+			{
+				"viewType": "Calendar",
+				"enabled": false
+			},
+			{
+				"viewType": "Dashboard",
+				"enabled": false
+			},
+			{
+				"viewType": "Timeline",
+				"enabled": false
+			},
+			{
+				"viewType": "Map",
+				"enabled": false
+			}
+		],
+		"background": "54c9404f266fc5499138400b",
+		"backgroundColor": null,
+		"backgroundImage": "https://trello-backgrounds.s3.amazonaws.com/53baf533e697a982248cd73f/4200x4200/48dbf0b5a546541e847e267a5dcd2201/shutterstock_134707556.jpg",
+		"backgroundTile": false,
+		"backgroundBrightness": "dark",
+		"sharedSourceUrl": null,
+		"backgroundImageScaled": [
+			{
+				"width": 140,
+				"height": 100,
+				"url": "https://trello-backgrounds.s3.amazonaws.com/53baf533e697a982248cd73f/140x100/6eab501206dcefb7481f43c783247d36/shutterstock_134707556.jpg"
+			},
+			{
+				"width": 256,
+				"height": 192,
+				"url": "https://trello-backgrounds.s3.amazonaws.com/53baf533e697a982248cd73f/256x192/b2ffcdd02026a264e454afa9ed093adf/shutterstock_134707556.jpg"
+			},
+			{
+				"width": 480,
+				"height": 480,
+				"url": "https://trello-backgrounds.s3.amazonaws.com/53baf533e697a982248cd73f/480x480/96406688eb291c869064290cfb9b0c80/shutterstock_134707556.jpg"
+			},
+			{
+				"width": 960,
+				"height": 960,
+				"url": "https://trello-backgrounds.s3.amazonaws.com/53baf533e697a982248cd73f/960x960/4b4c1f7c6678833b87f3719d90a92d67/shutterstock_134707556.jpg"
+			},
+			{
+				"width": 1024,
+				"height": 1024,
+				"url": "https://trello-backgrounds.s3.amazonaws.com/53baf533e697a982248cd73f/1024x1024/0cef9f5b83f22bd910e3f528dfac01c0/shutterstock_134707556.jpg"
+			},
+			{
+				"width": 1280,
+				"height": 1280,
+				"url": "https://trello-backgrounds.s3.amazonaws.com/53baf533e697a982248cd73f/1280x1280/b1bfc2f211e11d35cd7faf1f58a41d1d/shutterstock_134707556.jpg"
+			},
+			{
+				"width": 1920,
+				"height": 1920,
+				"url": "https://trello-backgrounds.s3.amazonaws.com/53baf533e697a982248cd73f/1920x1920/50c43401f7d28b15a414fdd6ac68d94a/shutterstock_134707556.jpg"
+			},
+			{
+				"width": 2048,
+				"height": 2048,
+				"url": "https://trello-backgrounds.s3.amazonaws.com/53baf533e697a982248cd73f/2048x2048/22ec03aab9d36ea49139c569a62bb079/shutterstock_134707556.jpg"
+			},
+			{
+				"width": 2560,
+				"height": 1600,
+				"url": "https://trello-backgrounds.s3.amazonaws.com/53baf533e697a982248cd73f/2560x1600/e2a9f6205a29cdba36f3e2ab83c57b20/shutterstock_134707556.jpg"
+			},
+			{
+				"width": 4200,
+				"height": 4200,
+				"url": "https://trello-backgrounds.s3.amazonaws.com/53baf533e697a982248cd73f/4200x4200/48dbf0b5a546541e847e267a5dcd2201/shutterstock_134707556.jpg"
+			}
+		],
+		"backgroundBottomColor": "#f85f6c",
+		"backgroundTopColor": "#bda8b9",
+		"canBePublic": true,
+		"canBeEnterprise": true,
+		"canBeOrg": true,
+		"canBePrivate": true,
+		"canInvite": true
+	},
+	"shortLink": "xczozTZx",
+	"subscribed": false,
+	"labelNames": {
+		"green": "Marketing",
+		"yellow": "Day",
+		"orange": "Remarket",
+		"red": "",
+		"purple": "Demand Marketing",
+		"blue": "Partners",
+		"sky": "Government",
+		"lime": "Planning",
+		"pink": "Happiness",
+		"black": "OEM",
+		"green_dark": "",
+		"yellow_dark": "",
+		"orange_dark": "",
+		"red_dark": "",
+		"purple_dark": "",
+		"blue_dark": "",
+		"sky_dark": "",
+		"lime_dark": "",
+		"pink_dark": "",
+		"black_dark": "",
+		"green_light": "",
+		"yellow_light": "",
+		"orange_light": "",
+		"red_light": "",
+		"purple_light": "",
+		"blue_light": "",
+		"sky_light": "",
+		"lime_light": "",
+		"pink_light": "",
+		"black_light": ""
+	},
+	"powerUps": [],
+	"dateLastActivity": "2024-06-20T21:55:30.001Z",
+	"dateLastView": "2024-06-23T10:30:41.379Z",
+	"shortUrl": "https://trello.com/b/xczozTZx",
+	"idTags": [],
+	"datePluginDisable": null,
+	"creationMethod": null,
+	"ixUpdate": "58",
+	"templateGallery": null,
+	"enterpriseOwned": false,
+	"idBoardSource": "54c93f6f836da7c4865460d2",
+	"premiumFeatures": [
+		"additionalBoardBackgrounds",
+		"additionalStickers",
+		"customBoardBackgrounds",
+		"customEmoji",
+		"customStickers",
+		"plugins"
+	],
+	"idMemberCreator": "667430a3a7b9278edb55fd69",
+	"type": null,
+	"actions": [
+		{
+			"id": "6674a552c0ca58c23836630b",
+			"idMemberCreator": "667430a3a7b9278edb55fd69",
+			"data": {
+				"plugin": {
+					"id": "55a5d916446f517774210004",
+					"idOrganizationOwner": "5a999cd36066c584c097f193",
+					"author": "Trello Inc",
+					"capabilities": [
+						"authorization-status",
+						"attachment-sections",
+						"attachment-thumbnail",
+						"board-buttons",
+						"callback",
+						"card-badges",
+						"card-buttons",
+						"card-detail-badges",
+						"card-from-url",
+						"format-url",
+						"show-authorization",
+						"show-settings"
+					],
+					"capabilitiesOptions": [],
+					"categories": [
+						"developer-tools",
+						"it-project-management"
+					],
+					"iframeConnectorUrl": "https://github.trello.services/index.html?ver=73beb17586d0",
+					"name": "GitHub",
+					"privacyUrl": "https://trello.com/privacy",
+					"public": true,
+					"moderatedState": null,
+					"supportEmail": "https://trello.com/contact#/",
+					"url": "https://github.trello.services/manifest.json",
+					"tags": [
+						"made-by-trello"
+					],
+					"claimedDomains": [],
+					"icon": {
+						"url": "https://github.trello.services/images/github.png"
+					},
+					"listing": {
+						"name": "GitHub",
+						"locale": "en-US",
+						"description": "The GitHub Power-Up for Trello let’s teams track everything that’s going on in GitHub directly from their Trello boards.  Bring perspective to your codebase by attaching pull requests, issues, branches, and more directly to their respective cards.  In a glance, see whether a PR has been merged, the status of checks, who’s assigned to a PR, and more. Checks will also display as visual badges on the front of cards color coded to their status.\n\n- Attach branches, commits, issues and pull requests directly to cards.\n- See the status of pull requests on the front of cards.\n- Identify cards that have not passed their checks with color coded badges that display on the front of cards.\n- Developers and managers can easily jump into GitHub to work on assigned tasks in a single click.\n- Associate one or more GitHub repositories with a board.\n- The GitHub Power-Up supports both GitHub and GitHub Enterprise instances.\n\n![screenshot](https://github.trello.services/images/screenshots/GitHub_1.jpg)\n![screenshot](https://github.trello.services/images/screenshots/GitHub_2.jpg)\n![screenshot](https://github.trello.services/images/screenshots/GitHub_3.jpg)",
+						"overview": "Attach branches, commits, issues, & pull requests to cards, and see the status of pull requests on your boards."
+					},
+					"isCompliantWithPrivacyStandards": null,
+					"usageBrackets": {
+						"boards": 250000
+					}
+				},
+				"board": {
+					"id": "66747fa142248ea3880dd980",
+					"name": "Agile Board Template | Trello",
+					"shortLink": "xczozTZx"
+				}
+			},
+			"appCreator": null,
+			"type": "enablePlugin",
+			"date": "2024-06-20T21:55:30.010Z",
+			"limits": null,
+			"memberCreator": {
+				"id": "667430a3a7b9278edb55fd69",
+				"activityBlocked": false,
+				"avatarHash": "f5804071dedef8a4a79ae2b66d40d8b2",
+				"avatarUrl": "https://trello-members.s3.amazonaws.com/667430a3a7b9278edb55fd69/f5804071dedef8a4a79ae2b66d40d8b2",
+				"fullName": "iror",
+				"idMemberReferrer": null,
+				"initials": "I",
+				"nonPublic": {
+					"fullName": "iris oron",
+					"initials": "IO",
+					"avatarHash": null
+				},
+				"nonPublicAvailable": true,
+				"username": "irisoron"
+			}
+		},
+		{
+			"id": "66749478a74783ac73880ce9",
+			"idMemberCreator": "667430a3a7b9278edb55fd69",
+			"data": {
+				"board": {
+					"id": "66747fa142248ea3880dd980",
+					"name": "Agile Board Template | Trello",
+					"shortLink": "xczozTZx"
+				},
+				"card": {
+					"id": "66747fa142248ea3880dd9e5",
+					"name": "Google Adwords list of referrers",
+					"idShort": 7,
+					"shortLink": "nT4FYo5m"
+				},
+				"checklist": {
+					"id": "6674943cbea0c476b9f74c43",
+					"name": "Checklist1"
+				},
+				"checkItem": {
+					"id": "6674943cbea0c476b9f74c44",
+					"name": "item1",
+					"state": "complete",
+					"textData": {
+						"emoji": {}
+					}
+				}
+			},
+			"appCreator": null,
+			"type": "updateCheckItemStateOnCard",
+			"date": "2024-06-20T20:43:36.896Z",
+			"limits": null,
+			"memberCreator": {
+				"id": "667430a3a7b9278edb55fd69",
+				"activityBlocked": false,
+				"avatarHash": "f5804071dedef8a4a79ae2b66d40d8b2",
+				"avatarUrl": "https://trello-members.s3.amazonaws.com/667430a3a7b9278edb55fd69/f5804071dedef8a4a79ae2b66d40d8b2",
+				"fullName": "iror",
+				"idMemberReferrer": null,
+				"initials": "I",
+				"nonPublic": {
+					"fullName": "iris oron",
+					"initials": "IO",
+					"avatarHash": null
+				},
+				"nonPublicAvailable": true,
+				"username": "irisoron"
+			}
+		},
+		{
+			"id": "6674943cbea0c476b9f74c5b",
+			"idMemberCreator": "667430a3a7b9278edb55fd69",
+			"data": {
+				"card": {
+					"id": "66747fa142248ea3880dd9e5",
+					"name": "Google Adwords list of referrers",
+					"idShort": 7,
+					"shortLink": "nT4FYo5m"
+				},
+				"checklist": {
+					"id": "6674943cbea0c476b9f74c43",
+					"name": "Checklist1"
+				},
+				"board": {
+					"id": "66747fa142248ea3880dd980",
+					"name": "Agile Board Template | Trello",
+					"shortLink": "xczozTZx"
+				}
+			},
+			"appCreator": null,
+			"type": "addChecklistToCard",
+			"date": "2024-06-20T20:42:36.539Z",
+			"limits": null,
+			"memberCreator": {
+				"id": "667430a3a7b9278edb55fd69",
+				"activityBlocked": false,
+				"avatarHash": "f5804071dedef8a4a79ae2b66d40d8b2",
+				"avatarUrl": "https://trello-members.s3.amazonaws.com/667430a3a7b9278edb55fd69/f5804071dedef8a4a79ae2b66d40d8b2",
+				"fullName": "iror",
+				"idMemberReferrer": null,
+				"initials": "I",
+				"nonPublic": {
+					"fullName": "iris oron",
+					"initials": "IO",
+					"avatarHash": null
+				},
+				"nonPublicAvailable": true,
+				"username": "irisoron"
+			}
+		},
+		{
+			"id": "6674942af38e88526a69bd0d",
+			"idMemberCreator": "667430a3a7b9278edb55fd69",
+			"data": {
+				"card": {
+					"dueComplete": true,
+					"id": "66747fa142248ea3880dd9e5",
+					"name": "Google Adwords list of referrers",
+					"idShort": 7,
+					"shortLink": "nT4FYo5m"
+				},
+				"old": {
+					"dueComplete": false
+				},
+				"board": {
+					"id": "66747fa142248ea3880dd980",
+					"name": "Agile Board Template | Trello",
+					"shortLink": "xczozTZx"
+				},
+				"list": {
+					"id": "66747fa142248ea3880dd982",
+					"name": "Current Sprint"
+				}
+			},
+			"appCreator": null,
+			"type": "updateCard",
+			"date": "2024-06-20T20:42:18.669Z",
+			"limits": null,
+			"memberCreator": {
+				"id": "667430a3a7b9278edb55fd69",
+				"activityBlocked": false,
+				"avatarHash": "f5804071dedef8a4a79ae2b66d40d8b2",
+				"avatarUrl": "https://trello-members.s3.amazonaws.com/667430a3a7b9278edb55fd69/f5804071dedef8a4a79ae2b66d40d8b2",
+				"fullName": "iror",
+				"idMemberReferrer": null,
+				"initials": "I",
+				"nonPublic": {
+					"fullName": "iris oron",
+					"initials": "IO",
+					"avatarHash": null
+				},
+				"nonPublicAvailable": true,
+				"username": "irisoron"
+			}
+		},
+		{
+			"id": "66749428211f959fd1248c52",
+			"idMemberCreator": "667430a3a7b9278edb55fd69",
+			"data": {
+				"card": {
+					"dueComplete": false,
+					"id": "66747fa142248ea3880dd9e5",
+					"name": "Google Adwords list of referrers",
+					"idShort": 7,
+					"shortLink": "nT4FYo5m"
+				},
+				"old": {
+					"dueComplete": true
+				},
+				"board": {
+					"id": "66747fa142248ea3880dd980",
+					"name": "Agile Board Template | Trello",
+					"shortLink": "xczozTZx"
+				},
+				"list": {
+					"id": "66747fa142248ea3880dd982",
+					"name": "Current Sprint"
+				}
+			},
+			"appCreator": null,
+			"type": "updateCard",
+			"date": "2024-06-20T20:42:16.776Z",
+			"limits": null,
+			"memberCreator": {
+				"id": "667430a3a7b9278edb55fd69",
+				"activityBlocked": false,
+				"avatarHash": "f5804071dedef8a4a79ae2b66d40d8b2",
+				"avatarUrl": "https://trello-members.s3.amazonaws.com/667430a3a7b9278edb55fd69/f5804071dedef8a4a79ae2b66d40d8b2",
+				"fullName": "iror",
+				"idMemberReferrer": null,
+				"initials": "I",
+				"nonPublic": {
+					"fullName": "iris oron",
+					"initials": "IO",
+					"avatarHash": null
+				},
+				"nonPublicAvailable": true,
+				"username": "irisoron"
+			}
+		},
+		{
+			"id": "667494275a996920e3f2d21c",
+			"idMemberCreator": "667430a3a7b9278edb55fd69",
+			"data": {
+				"card": {
+					"dueComplete": true,
+					"id": "66747fa142248ea3880dd9e5",
+					"name": "Google Adwords list of referrers",
+					"idShort": 7,
+					"shortLink": "nT4FYo5m"
+				},
+				"old": {
+					"dueComplete": false
+				},
+				"board": {
+					"id": "66747fa142248ea3880dd980",
+					"name": "Agile Board Template | Trello",
+					"shortLink": "xczozTZx"
+				},
+				"list": {
+					"id": "66747fa142248ea3880dd982",
+					"name": "Current Sprint"
+				}
+			},
+			"appCreator": null,
+			"type": "updateCard",
+			"date": "2024-06-20T20:42:15.905Z",
+			"limits": null,
+			"memberCreator": {
+				"id": "667430a3a7b9278edb55fd69",
+				"activityBlocked": false,
+				"avatarHash": "f5804071dedef8a4a79ae2b66d40d8b2",
+				"avatarUrl": "https://trello-members.s3.amazonaws.com/667430a3a7b9278edb55fd69/f5804071dedef8a4a79ae2b66d40d8b2",
+				"fullName": "iror",
+				"idMemberReferrer": null,
+				"initials": "I",
+				"nonPublic": {
+					"fullName": "iris oron",
+					"initials": "IO",
+					"avatarHash": null
+				},
+				"nonPublicAvailable": true,
+				"username": "irisoron"
+			}
+		},
+		{
+			"id": "66749426f41923379e7d10bb",
+			"idMemberCreator": "667430a3a7b9278edb55fd69",
+			"data": {
+				"card": {
+					"dueComplete": false,
+					"id": "66747fa142248ea3880dd9e5",
+					"name": "Google Adwords list of referrers",
+					"idShort": 7,
+					"shortLink": "nT4FYo5m"
+				},
+				"old": {
+					"dueComplete": true
+				},
+				"board": {
+					"id": "66747fa142248ea3880dd980",
+					"name": "Agile Board Template | Trello",
+					"shortLink": "xczozTZx"
+				},
+				"list": {
+					"id": "66747fa142248ea3880dd982",
+					"name": "Current Sprint"
+				}
+			},
+			"appCreator": null,
+			"type": "updateCard",
+			"date": "2024-06-20T20:42:14.522Z",
+			"limits": null,
+			"memberCreator": {
+				"id": "667430a3a7b9278edb55fd69",
+				"activityBlocked": false,
+				"avatarHash": "f5804071dedef8a4a79ae2b66d40d8b2",
+				"avatarUrl": "https://trello-members.s3.amazonaws.com/667430a3a7b9278edb55fd69/f5804071dedef8a4a79ae2b66d40d8b2",
+				"fullName": "iror",
+				"idMemberReferrer": null,
+				"initials": "I",
+				"nonPublic": {
+					"fullName": "iris oron",
+					"initials": "IO",
+					"avatarHash": null
+				},
+				"nonPublicAvailable": true,
+				"username": "irisoron"
+			}
+		},
+		{
+			"id": "66749425e51bf93758daf1ed",
+			"idMemberCreator": "667430a3a7b9278edb55fd69",
+			"data": {
+				"card": {
+					"dueComplete": true,
+					"id": "66747fa142248ea3880dd9e5",
+					"name": "Google Adwords list of referrers",
+					"idShort": 7,
+					"shortLink": "nT4FYo5m"
+				},
+				"old": {
+					"dueComplete": false
+				},
+				"board": {
+					"id": "66747fa142248ea3880dd980",
+					"name": "Agile Board Template | Trello",
+					"shortLink": "xczozTZx"
+				},
+				"list": {
+					"id": "66747fa142248ea3880dd982",
+					"name": "Current Sprint"
+				}
+			},
+			"appCreator": null,
+			"type": "updateCard",
+			"date": "2024-06-20T20:42:13.065Z",
+			"limits": null,
+			"memberCreator": {
+				"id": "667430a3a7b9278edb55fd69",
+				"activityBlocked": false,
+				"avatarHash": "f5804071dedef8a4a79ae2b66d40d8b2",
+				"avatarUrl": "https://trello-members.s3.amazonaws.com/667430a3a7b9278edb55fd69/f5804071dedef8a4a79ae2b66d40d8b2",
+				"fullName": "iror",
+				"idMemberReferrer": null,
+				"initials": "I",
+				"nonPublic": {
+					"fullName": "iris oron",
+					"initials": "IO",
+					"avatarHash": null
+				},
+				"nonPublicAvailable": true,
+				"username": "irisoron"
+			}
+		},
+		{
+			"id": "6674941b6b4889ae0d501fc0",
+			"idMemberCreator": "667430a3a7b9278edb55fd69",
+			"data": {
+				"card": {
+					"due": "2024-06-09T19:50:00.000Z",
+					"id": "66747fa142248ea3880dd9e5",
+					"name": "Google Adwords list of referrers",
+					"idShort": 7,
+					"shortLink": "nT4FYo5m"
+				},
+				"old": {
+					"due": null
+				},
+				"board": {
+					"id": "66747fa142248ea3880dd980",
+					"name": "Agile Board Template | Trello",
+					"shortLink": "xczozTZx"
+				},
+				"list": {
+					"id": "66747fa142248ea3880dd982",
+					"name": "Current Sprint"
+				}
+			},
+			"appCreator": null,
+			"type": "updateCard",
+			"date": "2024-06-20T20:42:03.921Z",
+			"limits": null,
+			"memberCreator": {
+				"id": "667430a3a7b9278edb55fd69",
+				"activityBlocked": false,
+				"avatarHash": "f5804071dedef8a4a79ae2b66d40d8b2",
+				"avatarUrl": "https://trello-members.s3.amazonaws.com/667430a3a7b9278edb55fd69/f5804071dedef8a4a79ae2b66d40d8b2",
+				"fullName": "iror",
+				"idMemberReferrer": null,
+				"initials": "I",
+				"nonPublic": {
+					"fullName": "iris oron",
+					"initials": "IO",
+					"avatarHash": null
+				},
+				"nonPublicAvailable": true,
+				"username": "irisoron"
+			}
+		},
+		{
+			"id": "6674941b6b4889ae0d501fb1",
+			"idMemberCreator": "667430a3a7b9278edb55fd69",
+			"data": {
+				"card": {
+					"dueReminder": 1440,
+					"id": "66747fa142248ea3880dd9e5",
+					"name": "Google Adwords list of referrers",
+					"idShort": 7,
+					"shortLink": "nT4FYo5m"
+				},
+				"old": {
+					"dueReminder": null
+				},
+				"board": {
+					"id": "66747fa142248ea3880dd980",
+					"name": "Agile Board Template | Trello",
+					"shortLink": "xczozTZx"
+				},
+				"list": {
+					"id": "66747fa142248ea3880dd982",
+					"name": "Current Sprint"
+				}
+			},
+			"appCreator": null,
+			"type": "updateCard",
+			"date": "2024-06-20T20:42:03.882Z",
+			"limits": null,
+			"memberCreator": {
+				"id": "667430a3a7b9278edb55fd69",
+				"activityBlocked": false,
+				"avatarHash": "f5804071dedef8a4a79ae2b66d40d8b2",
+				"avatarUrl": "https://trello-members.s3.amazonaws.com/667430a3a7b9278edb55fd69/f5804071dedef8a4a79ae2b66d40d8b2",
+				"fullName": "iror",
+				"idMemberReferrer": null,
+				"initials": "I",
+				"nonPublic": {
+					"fullName": "iris oron",
+					"initials": "IO",
+					"avatarHash": null
+				},
+				"nonPublicAvailable": true,
+				"username": "irisoron"
+			}
+		},
+		{
+			"id": "66748b7b031ebc6ac7b0ec3f",
+			"idMemberCreator": "667430a3a7b9278edb55fd69",
+			"data": {
+				"card": {
+					"id": "66747fa142248ea3880dd9e1",
+					"name": "Going live with server deployment",
+					"idShort": 5,
+					"shortLink": "BXA9VWBN"
+				},
+				"checklist": {
+					"id": "66748b7b031ebc6ac7b0ec38",
+					"name": "Checklist1"
+				},
+				"board": {
+					"id": "66747fa142248ea3880dd980",
+					"name": "Agile Board Template | Trello",
+					"shortLink": "xczozTZx"
+				}
+			},
+			"appCreator": null,
+			"type": "addChecklistToCard",
+			"date": "2024-06-20T20:05:15.133Z",
+			"limits": null,
+			"memberCreator": {
+				"id": "667430a3a7b9278edb55fd69",
+				"activityBlocked": false,
+				"avatarHash": "f5804071dedef8a4a79ae2b66d40d8b2",
+				"avatarUrl": "https://trello-members.s3.amazonaws.com/667430a3a7b9278edb55fd69/f5804071dedef8a4a79ae2b66d40d8b2",
+				"fullName": "iror",
+				"idMemberReferrer": null,
+				"initials": "I",
+				"nonPublic": {
+					"fullName": "iris oron",
+					"initials": "IO",
+					"avatarHash": null
+				},
+				"nonPublicAvailable": true,
+				"username": "irisoron"
+			}
+		},
+		{
+			"id": "667487feaf765de49e45c2a8",
+			"idMemberCreator": "667430a3a7b9278edb55fd69",
+			"data": {
+				"card": {
+					"due": "2024-06-23T19:50:00.000Z",
+					"id": "66747fa142248ea3880dd9e1",
+					"name": "Going live with server deployment",
+					"idShort": 5,
+					"shortLink": "BXA9VWBN"
+				},
+				"old": {
+					"due": null
+				},
+				"board": {
+					"id": "66747fa142248ea3880dd980",
+					"name": "Agile Board Template | Trello",
+					"shortLink": "xczozTZx"
+				},
+				"list": {
+					"id": "66747fa142248ea3880dd982",
+					"name": "Current Sprint"
+				}
+			},
+			"appCreator": null,
+			"type": "updateCard",
+			"date": "2024-06-20T19:50:22.057Z",
+			"limits": null,
+			"memberCreator": {
+				"id": "667430a3a7b9278edb55fd69",
+				"activityBlocked": false,
+				"avatarHash": "f5804071dedef8a4a79ae2b66d40d8b2",
+				"avatarUrl": "https://trello-members.s3.amazonaws.com/667430a3a7b9278edb55fd69/f5804071dedef8a4a79ae2b66d40d8b2",
+				"fullName": "iror",
+				"idMemberReferrer": null,
+				"initials": "I",
+				"nonPublic": {
+					"fullName": "iris oron",
+					"initials": "IO",
+					"avatarHash": null
+				},
+				"nonPublicAvailable": true,
+				"username": "irisoron"
+			}
+		},
+		{
+			"id": "667487feaf765de49e45c298",
+			"idMemberCreator": "667430a3a7b9278edb55fd69",
+			"data": {
+				"card": {
+					"dueReminder": 1440,
+					"id": "66747fa142248ea3880dd9e1",
+					"name": "Going live with server deployment",
+					"idShort": 5,
+					"shortLink": "BXA9VWBN"
+				},
+				"old": {
+					"dueReminder": null
+				},
+				"board": {
+					"id": "66747fa142248ea3880dd980",
+					"name": "Agile Board Template | Trello",
+					"shortLink": "xczozTZx"
+				},
+				"list": {
+					"id": "66747fa142248ea3880dd982",
+					"name": "Current Sprint"
+				}
+			},
+			"appCreator": null,
+			"type": "updateCard",
+			"date": "2024-06-20T19:50:22.010Z",
+			"limits": null,
+			"memberCreator": {
+				"id": "667430a3a7b9278edb55fd69",
+				"activityBlocked": false,
+				"avatarHash": "f5804071dedef8a4a79ae2b66d40d8b2",
+				"avatarUrl": "https://trello-members.s3.amazonaws.com/667430a3a7b9278edb55fd69/f5804071dedef8a4a79ae2b66d40d8b2",
+				"fullName": "iror",
+				"idMemberReferrer": null,
+				"initials": "I",
+				"nonPublic": {
+					"fullName": "iris oron",
+					"initials": "IO",
+					"avatarHash": null
+				},
+				"nonPublicAvailable": true,
+				"username": "irisoron"
+			}
+		},
+		{
+			"id": "6674812ea965a7ad4cb37d93",
+			"idMemberCreator": "667430a3a7b9278edb55fd69",
+			"data": {
+				"idMember": "667430a3a7b9278edb55fd69",
+				"card": {
+					"id": "66747fa142248ea3880dd9e5",
+					"name": "Google Adwords list of referrers",
+					"idShort": 7,
+					"shortLink": "nT4FYo5m"
+				},
+				"board": {
+					"id": "66747fa142248ea3880dd980",
+					"name": "Agile Board Template | Trello",
+					"shortLink": "xczozTZx"
+				},
+				"member": {
+					"id": "667430a3a7b9278edb55fd69",
+					"name": "iris oron"
+				}
+			},
+			"appCreator": null,
+			"type": "addMemberToCard",
+			"date": "2024-06-20T19:21:18.322Z",
+			"limits": null,
+			"member": {
+				"id": "667430a3a7b9278edb55fd69",
+				"activityBlocked": false,
+				"avatarHash": "f5804071dedef8a4a79ae2b66d40d8b2",
+				"avatarUrl": "https://trello-members.s3.amazonaws.com/667430a3a7b9278edb55fd69/f5804071dedef8a4a79ae2b66d40d8b2",
+				"fullName": "iror",
+				"idMemberReferrer": null,
+				"initials": "I",
+				"nonPublic": {
+					"fullName": "iris oron",
+					"initials": "IO",
+					"avatarHash": null
+				},
+				"nonPublicAvailable": true,
+				"username": "irisoron"
+			},
+			"memberCreator": {
+				"id": "667430a3a7b9278edb55fd69",
+				"activityBlocked": false,
+				"avatarHash": "f5804071dedef8a4a79ae2b66d40d8b2",
+				"avatarUrl": "https://trello-members.s3.amazonaws.com/667430a3a7b9278edb55fd69/f5804071dedef8a4a79ae2b66d40d8b2",
+				"fullName": "iror",
+				"idMemberReferrer": null,
+				"initials": "I",
+				"nonPublic": {
+					"fullName": "iris oron",
+					"initials": "IO",
+					"avatarHash": null
+				},
+				"nonPublicAvailable": true,
+				"username": "irisoron"
+			}
+		},
+		{
+			"id": "6674811fc0ca58c238fd03a7",
+			"idMemberCreator": "667430a3a7b9278edb55fd69",
+			"data": {
+				"idMember": "667430a3a7b9278edb55fd69",
+				"card": {
+					"id": "66747fa142248ea3880dd9e1",
+					"name": "Going live with server deployment",
+					"idShort": 5,
+					"shortLink": "BXA9VWBN"
+				},
+				"board": {
+					"id": "66747fa142248ea3880dd980",
+					"name": "Agile Board Template | Trello",
+					"shortLink": "xczozTZx"
+				},
+				"member": {
+					"id": "667430a3a7b9278edb55fd69",
+					"name": "iris oron"
+				}
+			},
+			"appCreator": null,
+			"type": "addMemberToCard",
+			"date": "2024-06-20T19:21:03.735Z",
+			"limits": null,
+			"member": {
+				"id": "667430a3a7b9278edb55fd69",
+				"activityBlocked": false,
+				"avatarHash": "f5804071dedef8a4a79ae2b66d40d8b2",
+				"avatarUrl": "https://trello-members.s3.amazonaws.com/667430a3a7b9278edb55fd69/f5804071dedef8a4a79ae2b66d40d8b2",
+				"fullName": "iror",
+				"idMemberReferrer": null,
+				"initials": "I",
+				"nonPublic": {
+					"fullName": "iris oron",
+					"initials": "IO",
+					"avatarHash": null
+				},
+				"nonPublicAvailable": true,
+				"username": "irisoron"
+			},
+			"memberCreator": {
+				"id": "667430a3a7b9278edb55fd69",
+				"activityBlocked": false,
+				"avatarHash": "f5804071dedef8a4a79ae2b66d40d8b2",
+				"avatarUrl": "https://trello-members.s3.amazonaws.com/667430a3a7b9278edb55fd69/f5804071dedef8a4a79ae2b66d40d8b2",
+				"fullName": "iror",
+				"idMemberReferrer": null,
+				"initials": "I",
+				"nonPublic": {
+					"fullName": "iris oron",
+					"initials": "IO",
+					"avatarHash": null
+				},
+				"nonPublicAvailable": true,
+				"username": "irisoron"
+			}
+		},
+		{
+			"id": "6674808a50be90e18f56d1f9",
+			"idMemberCreator": "667430a3a7b9278edb55fd69",
+			"data": {
+				"card": {
+					"id": "6674808a50be90e18f56d1f0",
+					"name": "נהייעי",
+					"idShort": 1,
+					"shortLink": "CWBruYfN"
+				},
+				"list": {
+					"id": "66747fa142248ea3880dd982",
+					"name": "Current Sprint"
+				},
+				"board": {
+					"id": "66747fa142248ea3880dd980",
+					"name": "Agile Board Template | Trello",
+					"shortLink": "xczozTZx"
+				}
+			},
+			"appCreator": null,
+			"type": "createCard",
+			"date": "2024-06-20T19:18:34.866Z",
+			"limits": null,
+			"memberCreator": {
+				"id": "667430a3a7b9278edb55fd69",
+				"activityBlocked": false,
+				"avatarHash": "f5804071dedef8a4a79ae2b66d40d8b2",
+				"avatarUrl": "https://trello-members.s3.amazonaws.com/667430a3a7b9278edb55fd69/f5804071dedef8a4a79ae2b66d40d8b2",
+				"fullName": "iror",
+				"idMemberReferrer": null,
+				"initials": "I",
+				"nonPublic": {
+					"fullName": "iris oron",
+					"initials": "IO",
+					"avatarHash": null
+				},
+				"nonPublicAvailable": true,
+				"username": "irisoron"
+			}
+		},
+		{
+			"id": "66747fa242248ea3880ddcaa",
+			"idMemberCreator": "667430a3a7b9278edb55fd69",
+			"data": {
+				"board": {
+					"id": "66747fa142248ea3880dd980",
+					"name": "Agile Board Template | Trello",
+					"shortLink": "xczozTZx"
+				},
+				"organization": {
+					"id": "66743103c53f5c58c7fc53ef",
+					"name": "Trello Workspace"
+				}
+			},
+			"appCreator": null,
+			"type": "addToOrganizationBoard",
+			"date": "2024-06-20T19:14:42.823Z",
+			"limits": null,
+			"memberCreator": {
+				"id": "667430a3a7b9278edb55fd69",
+				"activityBlocked": false,
+				"avatarHash": "f5804071dedef8a4a79ae2b66d40d8b2",
+				"avatarUrl": "https://trello-members.s3.amazonaws.com/667430a3a7b9278edb55fd69/f5804071dedef8a4a79ae2b66d40d8b2",
+				"fullName": "iror",
+				"idMemberReferrer": null,
+				"initials": "I",
+				"nonPublic": {
+					"fullName": "iris oron",
+					"initials": "IO",
+					"avatarHash": null
+				},
+				"nonPublicAvailable": true,
+				"username": "irisoron"
+			}
+		},
+		{
+			"id": "66747fa242248ea3880ddca4",
+			"idMemberCreator": "667430a3a7b9278edb55fd69",
+			"data": {
+				"board": {
+					"id": "66747fa142248ea3880dd980",
+					"name": "Agile Board Template | Trello",
+					"shortLink": "xczozTZx"
+				},
+				"boardSource": {
+					"id": "54c93f6f836da7c4865460d2",
+					"prefs": {
+						"isTemplate": true
+					},
+					"templateCategory": "project-management"
+				}
+			},
+			"appCreator": null,
+			"type": "copyBoard",
+			"date": "2024-06-20T19:14:42.815Z",
+			"limits": null,
+			"memberCreator": {
+				"id": "667430a3a7b9278edb55fd69",
+				"activityBlocked": false,
+				"avatarHash": "f5804071dedef8a4a79ae2b66d40d8b2",
+				"avatarUrl": "https://trello-members.s3.amazonaws.com/667430a3a7b9278edb55fd69/f5804071dedef8a4a79ae2b66d40d8b2",
+				"fullName": "iror",
+				"idMemberReferrer": null,
+				"initials": "I",
+				"nonPublic": {
+					"fullName": "iris oron",
+					"initials": "IO",
+					"avatarHash": null
+				},
+				"nonPublicAvailable": true,
+				"username": "irisoron"
+			}
+		},
+		{
+			"id": "66747fa242248ea3880ddc76",
+			"idMemberCreator": "667430a3a7b9278edb55fd69",
+			"data": {
+				"plugin": {
+					"id": "55a5d917446f517774210011",
+					"idOrganizationOwner": "5a999cd36066c584c097f193",
+					"author": "Trello Inc",
+					"capabilities": [],
+					"capabilitiesOptions": [],
+					"categories": [
+						"board-utilities",
+						"communication-collaboration"
+					],
+					"iframeConnectorUrl": "https://calendar.trello.services/",
+					"name": "Calendar Power-Up",
+					"privacyUrl": "https://trello.com/privacy",
+					"public": true,
+					"moderatedState": null,
+					"supportEmail": "https://trello.com/contact#/",
+					"url": "https://calendar.trello.services/manifest.json",
+					"tags": [
+						"staff-pick",
+						"made-by-trello"
+					],
+					"heroImageUrl": {
+						"@2x": "https://trello-attachments.s3.amazonaws.com/5b56280b7694ac008082fe38/5b5628c7fcbdca04e2d6334c/4025fdb1f203e43f2cd5997b29e53e65/calendar%402x.jpg",
+						"_id": "5b5629bd96d94a97675090c7",
+						"@1x": "https://trello-attachments.s3.amazonaws.com/5b56280b7694ac008082fe38/5b5628c7fcbdca04e2d6334c/f52b4188bdca53cf13a9036efb95eced/calendar.jpg"
+					},
+					"claimedDomains": [],
+					"icon": {
+						"url": "https://calendar.trello.services/images/calendar-icon.svg"
+					},
+					"listing": {
+						"name": "Calendar Power-Up",
+						"locale": "en-US",
+						"description": "Bring perspective to due dates with the Calendar Power-Up for Trello. Whether you are planning a conference, managing an editorial calendar, or organizing a family vacation, the Calendar Power-Up let’s you display cards with due dates in a weekly or monthly calendar view. Easily prioritize cards by dragging and dropping them on the calendar to automatically update their due dates, and export your Trello calendar to third party apps with an iCalendar link.\n\n- Display and filter cards with due dates in a weekly or monthly calendar view.\n\n- Manage due dates by dragging and dropping cards on the calendar.\n\n- Easily see completed tasks by marking due dates complete.\n\n- Export a board’s calendar to third party calendars with each board’s unique iCalendar link.\n\n- The Calendar Power-Up is supported on the web and iOS and Android mobile devices.\n\n![screenshot](https://calendar.trello.services/images/Calendar_1.jpg)\n![screenshot](https://calendar.trello.services/images/Calendar_2.jpg)\n![screenshot](https://calendar.trello.services/images/Calendar_3.jpg)\n![screenshot](https://calendar.trello.services/images/Calendar_4.jpg)",
+						"overview": "Visualize Trello cards in a calendar view."
+					},
+					"isCompliantWithPrivacyStandards": null,
+					"usageBrackets": {
+						"boards": 11000000
+					}
+				},
+				"board": {
+					"id": "66747fa142248ea3880dd980",
+					"name": "Agile Board Template | Trello",
+					"shortLink": "xczozTZx"
+				}
+			},
+			"appCreator": null,
+			"type": "enablePlugin",
+			"date": "2024-06-20T19:14:42.758Z",
+			"limits": null,
+			"memberCreator": {
+				"id": "667430a3a7b9278edb55fd69",
+				"activityBlocked": false,
+				"avatarHash": "f5804071dedef8a4a79ae2b66d40d8b2",
+				"avatarUrl": "https://trello-members.s3.amazonaws.com/667430a3a7b9278edb55fd69/f5804071dedef8a4a79ae2b66d40d8b2",
+				"fullName": "iror",
+				"idMemberReferrer": null,
+				"initials": "I",
+				"nonPublic": {
+					"fullName": "iris oron",
+					"initials": "IO",
+					"avatarHash": null
+				},
+				"nonPublicAvailable": true,
+				"username": "irisoron"
+			}
+		}
+	],
+	"cards": [
+		{
+			"id": "66747fa142248ea3880dd9d9",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": false,
+				"attachments": 0,
+				"fogbugz": "",
+				"checkItems": 0,
+				"checkItemsChecked": 0,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": null,
+				"dueComplete": false,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": false,
+			"dateLastActivity": "2024-06-20T19:14:41.404Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": null,
+			"due": null,
+			"dueReminder": null,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4jdcfmog6x4mchjt+2gazva83bf@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [],
+			"idLabels": [
+				"66747fa142248ea3880dda19"
+			],
+			"idList": "66747fa142248ea3880dd981",
+			"idMemberCreator": null,
+			"idMembers": [],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 1,
+			"idAttachmentCover": null,
+			"labels": [
+				{
+					"id": "66747fa142248ea3880dda19",
+					"idBoard": "66747fa142248ea3880dd980",
+					"name": "Demand Marketing",
+					"color": "purple",
+					"uses": 160
+				}
+			],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "Review Tech partner pages",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd9d9",
+			"pos": 65535,
+			"shortLink": "yrFGQAdE",
+			"shortUrl": "https://trello.com/c/yrFGQAdE",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": false,
+			"url": "https://trello.com/c/yrFGQAdE/1-review-tech-partner-pages",
+			"cover": {
+				"idAttachment": null,
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "light",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [],
+			"pluginData": [],
+			"customFieldItems": []
+		},
+		{
+			"id": "66747fa142248ea3880dd9db",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": false,
+				"attachments": 0,
+				"fogbugz": "",
+				"checkItems": 0,
+				"checkItemsChecked": 0,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": null,
+				"dueComplete": false,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": false,
+			"dateLastActivity": "2024-06-20T19:14:41.453Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": null,
+			"due": null,
+			"dueReminder": null,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4jdcfmog6x4mchjv+29y2o4i0d4@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [],
+			"idLabels": [],
+			"idList": "66747fa142248ea3880dd981",
+			"idMemberCreator": null,
+			"idMembers": [],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 2,
+			"idAttachmentCover": null,
+			"labels": [],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "Make sure sponsors are indicated for Tech Talk",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd9db",
+			"pos": 131071,
+			"shortLink": "81d19OOm",
+			"shortUrl": "https://trello.com/c/81d19OOm",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": false,
+			"url": "https://trello.com/c/81d19OOm/2-make-sure-sponsors-are-indicated-for-tech-talk",
+			"cover": {
+				"idAttachment": null,
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "dark",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [],
+			"pluginData": [],
+			"customFieldItems": []
+		},
+		{
+			"id": "66747fa142248ea3880dd9dd",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": false,
+				"attachments": 0,
+				"fogbugz": "",
+				"checkItems": 0,
+				"checkItemsChecked": 0,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": null,
+				"dueComplete": false,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": false,
+			"dateLastActivity": "2024-06-20T19:14:41.479Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": null,
+			"due": null,
+			"dueReminder": null,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4jdcfmog6x4mchjx+2ov3ewhrna@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [],
+			"idLabels": [
+				"66747fa142248ea3880dda1f"
+			],
+			"idList": "66747fa142248ea3880dd981",
+			"idMemberCreator": null,
+			"idMembers": [],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 3,
+			"idAttachmentCover": null,
+			"labels": [
+				{
+					"id": "66747fa142248ea3880dda1f",
+					"idBoard": "66747fa142248ea3880dd980",
+					"name": "Planning",
+					"color": "lime",
+					"uses": 43
+				}
+			],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "Top 10 Trends list - Forbes",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd9dd",
+			"pos": 196607,
+			"shortLink": "RJ37Stg4",
+			"shortUrl": "https://trello.com/c/RJ37Stg4",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": false,
+			"url": "https://trello.com/c/RJ37Stg4/3-top-10-trends-list-forbes",
+			"cover": {
+				"idAttachment": null,
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "light",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [],
+			"pluginData": [],
+			"customFieldItems": []
+		},
+		{
+			"id": "66747fa142248ea3880dd9df",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": false,
+				"attachments": 0,
+				"fogbugz": "",
+				"checkItems": 0,
+				"checkItemsChecked": 0,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": null,
+				"dueComplete": false,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": false,
+			"dateLastActivity": "2024-06-20T19:14:41.498Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": null,
+			"due": null,
+			"dueReminder": null,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4jdcfmog6x4mchjz+1t1yf983ao@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [],
+			"idLabels": [],
+			"idList": "66747fa142248ea3880dd981",
+			"idMemberCreator": null,
+			"idMembers": [],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 4,
+			"idAttachmentCover": null,
+			"labels": [],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "TBC Webinar: Ship Now, Not Later",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd9df",
+			"pos": 262143,
+			"shortLink": "W3vBf7s4",
+			"shortUrl": "https://trello.com/c/W3vBf7s4",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": false,
+			"url": "https://trello.com/c/W3vBf7s4/4-tbc-webinar-ship-now-not-later",
+			"cover": {
+				"idAttachment": null,
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "dark",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [],
+			"pluginData": [],
+			"customFieldItems": []
+		},
+		{
+			"id": "66747fa142248ea3880dd9e3",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": false,
+				"attachments": 0,
+				"fogbugz": "",
+				"checkItems": 0,
+				"checkItemsChecked": 0,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": null,
+				"dueComplete": false,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": false,
+			"dateLastActivity": "2024-06-20T19:14:41.535Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": null,
+			"due": null,
+			"dueReminder": null,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4jdcfmog6x4mchk3+2obumn0djf@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [],
+			"idLabels": [
+				"66747fa142248ea3880dda16"
+			],
+			"idList": "66747fa142248ea3880dd981",
+			"idMemberCreator": null,
+			"idMembers": [],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 6,
+			"idAttachmentCover": null,
+			"labels": [
+				{
+					"id": "66747fa142248ea3880dda16",
+					"idBoard": "66747fa142248ea3880dd980",
+					"name": "Happiness",
+					"color": "pink",
+					"uses": 16
+				}
+			],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "1:1 Nancy",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd9e3",
+			"pos": 327679,
+			"shortLink": "ad7en7h7",
+			"shortUrl": "https://trello.com/c/ad7en7h7",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": false,
+			"url": "https://trello.com/c/ad7en7h7/6-11-nancy",
+			"cover": {
+				"idAttachment": null,
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "dark",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [],
+			"pluginData": [],
+			"customFieldItems": []
+		},
+		{
+			"id": "66747fa142248ea3880dda09",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": false,
+				"attachments": 0,
+				"fogbugz": "",
+				"checkItems": 0,
+				"checkItemsChecked": 0,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": null,
+				"dueComplete": false,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": false,
+			"dateLastActivity": "2024-06-20T19:14:42.023Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": null,
+			"due": null,
+			"dueReminder": null,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4jdcfmog6x4mchl5+0frl2mnyx2@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [],
+			"idLabels": [],
+			"idList": "66747fa142248ea3880dd981",
+			"idMemberCreator": null,
+			"idMembers": [],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 25,
+			"idAttachmentCover": null,
+			"labels": [],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "Lead Gen Mandrill stats",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dda09",
+			"pos": 393215,
+			"shortLink": "c0yh57LV",
+			"shortUrl": "https://trello.com/c/c0yh57LV",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": false,
+			"url": "https://trello.com/c/c0yh57LV/25-lead-gen-mandrill-stats",
+			"cover": {
+				"idAttachment": null,
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "dark",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [],
+			"pluginData": [],
+			"customFieldItems": []
+		},
+		{
+			"id": "66747fa142248ea3880dd9e1",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": true,
+				"attachments": 0,
+				"fogbugz": "",
+				"checkItems": 1,
+				"checkItemsChecked": 0,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": "2024-06-23T19:50:00.000Z",
+				"dueComplete": false,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": false,
+			"dateLastActivity": "2024-06-20T20:08:56.179Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": null,
+			"due": "2024-06-23T19:50:00.000Z",
+			"dueReminder": 1440,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4jdcfmog6x4mchk1+04mrz3y7ri@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [
+				"66748b7b031ebc6ac7b0ec38"
+			],
+			"idLabels": [
+				"66747fa142248ea3880dda22",
+				"66747fa142248ea3880dda1f",
+				"66747fa142248ea3880dda0d"
+			],
+			"idList": "66747fa142248ea3880dd982",
+			"idMemberCreator": null,
+			"idMembers": [
+				"667430a3a7b9278edb55fd69"
+			],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 5,
+			"idAttachmentCover": null,
+			"labels": [
+				{
+					"id": "66747fa142248ea3880dda22",
+					"idBoard": "66747fa142248ea3880dd980",
+					"name": "Government",
+					"color": "sky",
+					"uses": 6
+				},
+				{
+					"id": "66747fa142248ea3880dda1f",
+					"idBoard": "66747fa142248ea3880dd980",
+					"name": "Planning",
+					"color": "lime",
+					"uses": 43
+				},
+				{
+					"id": "66747fa142248ea3880dda0d",
+					"idBoard": "66747fa142248ea3880dd980",
+					"name": "Marketing",
+					"color": "green",
+					"uses": 86
+				}
+			],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "Going live with server deployment",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd9e1",
+			"pos": 65535.5,
+			"shortLink": "BXA9VWBN",
+			"shortUrl": "https://trello.com/c/BXA9VWBN",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": true,
+			"url": "https://trello.com/c/BXA9VWBN/5-going-live-with-server-deployment",
+			"cover": {
+				"idAttachment": null,
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "dark",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [],
+			"pluginData": [],
+			"customFieldItems": []
+		},
+		{
+			"id": "66747fa142248ea3880dd9e5",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": true,
+				"attachments": 0,
+				"fogbugz": "",
+				"checkItems": 2,
+				"checkItemsChecked": 1,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": "2024-06-09T19:50:00.000Z",
+				"dueComplete": true,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [
+				{
+					"idCheckItem": "6674943cbea0c476b9f74c44",
+					"state": "complete"
+				}
+			],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": true,
+			"dateLastActivity": "2024-06-20T20:43:36.932Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": null,
+			"due": "2024-06-09T19:50:00.000Z",
+			"dueReminder": 1440,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4jdcfmog6x4mchk5+10na5hv8z6@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [
+				"6674943cbea0c476b9f74c43"
+			],
+			"idLabels": [],
+			"idList": "66747fa142248ea3880dd982",
+			"idMemberCreator": null,
+			"idMembers": [
+				"667430a3a7b9278edb55fd69"
+			],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 7,
+			"idAttachmentCover": null,
+			"labels": [],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "Google Adwords list of referrers",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd9e5",
+			"pos": 131071,
+			"shortLink": "nT4FYo5m",
+			"shortUrl": "https://trello.com/c/nT4FYo5m",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": true,
+			"url": "https://trello.com/c/nT4FYo5m/7-google-adwords-list-of-referrers",
+			"cover": {
+				"idAttachment": null,
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "dark",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [],
+			"pluginData": [],
+			"customFieldItems": []
+		},
+		{
+			"id": "66747fa142248ea3880dd9eb",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": false,
+				"attachments": 0,
+				"fogbugz": "",
+				"checkItems": 0,
+				"checkItemsChecked": 0,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": null,
+				"dueComplete": false,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": false,
+			"dateLastActivity": "2024-06-20T19:14:41.616Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": null,
+			"due": null,
+			"dueReminder": null,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4jdcfmog6x4mchkb+2c3e8avqvr@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [],
+			"idLabels": [],
+			"idList": "66747fa142248ea3880dd982",
+			"idMemberCreator": null,
+			"idMembers": [],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 10,
+			"idAttachmentCover": null,
+			"labels": [],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "Q3 Webinar Content Planning",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd9eb",
+			"pos": 262143,
+			"shortLink": "YQ2ETdmz",
+			"shortUrl": "https://trello.com/c/YQ2ETdmz",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": false,
+			"url": "https://trello.com/c/YQ2ETdmz/10-q3-webinar-content-planning",
+			"cover": {
+				"idAttachment": null,
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "dark",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [],
+			"pluginData": [],
+			"customFieldItems": []
+		},
+		{
+			"id": "66747fa142248ea3880dd9e9",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": false,
+				"attachments": 1,
+				"fogbugz": "",
+				"checkItems": 0,
+				"checkItemsChecked": 0,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": null,
+				"dueComplete": false,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": false,
+			"dateLastActivity": "2024-06-20T19:14:42.663Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": null,
+			"due": null,
+			"dueReminder": null,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4jdcfmog6x4mchk9+207xpv59k6@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [],
+			"idLabels": [],
+			"idList": "66747fa142248ea3880dd982",
+			"idMemberCreator": null,
+			"idMembers": [],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 9,
+			"idAttachmentCover": "66747fa242248ea3880ddbed",
+			"labels": [],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "IT Solutions page",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd9e9",
+			"pos": 294911,
+			"shortLink": "xFqEAn0U",
+			"shortUrl": "https://trello.com/c/xFqEAn0U",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": false,
+			"url": "https://trello.com/c/xFqEAn0U/9-it-solutions-page",
+			"cover": {
+				"idAttachment": "66747fa242248ea3880ddbed",
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "dark",
+				"scaled": [
+					{
+						"id": "66747fa242248ea3880ddbee",
+						"_id": "66747fa242248ea3880ddbee",
+						"scaled": false,
+						"url": "https://trello.com/1/cards/66747fa142248ea3880dd9e9/attachments/66747fa242248ea3880ddbed/previews/66747fa242248ea3880ddbee/download/shutterstock_190800527222.jpg.png",
+						"bytes": 4543,
+						"height": 50,
+						"width": 70
+					},
+					{
+						"id": "66747fa242248ea3880ddbf0",
+						"_id": "66747fa242248ea3880ddbf0",
+						"scaled": true,
+						"url": "https://trello.com/1/cards/66747fa142248ea3880dd9e9/attachments/66747fa242248ea3880ddbed/previews/66747fa242248ea3880ddbf0/download/shutterstock_190800527222.jpg",
+						"bytes": 8504,
+						"height": 150,
+						"width": 150
+					},
+					{
+						"id": "66747fa242248ea3880ddbef",
+						"_id": "66747fa242248ea3880ddbef",
+						"scaled": false,
+						"url": "https://trello.com/1/cards/66747fa142248ea3880dd9e9/attachments/66747fa242248ea3880ddbed/previews/66747fa242248ea3880ddbef/download/shutterstock_190800527222.jpg.png",
+						"bytes": 20681,
+						"height": 150,
+						"width": 250
+					},
+					{
+						"id": "66747fa242248ea3880ddbf1",
+						"_id": "66747fa242248ea3880ddbf1",
+						"scaled": true,
+						"url": "https://trello.com/1/cards/66747fa142248ea3880dd9e9/attachments/66747fa242248ea3880ddbed/previews/66747fa242248ea3880ddbf1/download/shutterstock_190800527222.jpg",
+						"bytes": 24144,
+						"height": 300,
+						"width": 300
+					},
+					{
+						"id": "66747fa242248ea3880ddbf2",
+						"_id": "66747fa242248ea3880ddbf2",
+						"scaled": true,
+						"url": "https://trello.com/1/cards/66747fa142248ea3880dd9e9/attachments/66747fa242248ea3880ddbed/previews/66747fa242248ea3880ddbf2/download/shutterstock_190800527222.jpg",
+						"bytes": 58862,
+						"height": 600,
+						"width": 600
+					},
+					{
+						"id": "66747fa242248ea3880ddbf3",
+						"_id": "66747fa242248ea3880ddbf3",
+						"scaled": true,
+						"url": "https://trello.com/1/cards/66747fa142248ea3880dd9e9/attachments/66747fa242248ea3880ddbed/previews/66747fa242248ea3880ddbf3/download/shutterstock_190800527222.jpg",
+						"bytes": 794341,
+						"height": 1000,
+						"width": 1000
+					}
+				],
+				"edgeColor": "#ecf4f4",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [
+				{
+					"id": "66747fa242248ea3880ddbed",
+					"bytes": 794341,
+					"date": "2015-01-28T20:28:03.808Z",
+					"edgeColor": "#ecf4f4",
+					"idMember": "66747fa242248ea3880ddbec",
+					"isUpload": true,
+					"mimeType": null,
+					"name": "shutterstock_190800527222.jpg",
+					"previews": [
+						{
+							"id": "66747fa242248ea3880ddbee",
+							"_id": "66747fa242248ea3880ddbee",
+							"scaled": false,
+							"url": "https://trello.com/1/cards/66747fa142248ea3880dd9e9/attachments/66747fa242248ea3880ddbed/previews/66747fa242248ea3880ddbee/download/shutterstock_190800527222.jpg.png",
+							"bytes": 4543,
+							"height": 50,
+							"width": 70
+						},
+						{
+							"id": "66747fa242248ea3880ddbef",
+							"_id": "66747fa242248ea3880ddbef",
+							"scaled": false,
+							"url": "https://trello.com/1/cards/66747fa142248ea3880dd9e9/attachments/66747fa242248ea3880ddbed/previews/66747fa242248ea3880ddbef/download/shutterstock_190800527222.jpg.png",
+							"bytes": 20681,
+							"height": 150,
+							"width": 250
+						},
+						{
+							"id": "66747fa242248ea3880ddbf0",
+							"_id": "66747fa242248ea3880ddbf0",
+							"scaled": true,
+							"url": "https://trello.com/1/cards/66747fa142248ea3880dd9e9/attachments/66747fa242248ea3880ddbed/previews/66747fa242248ea3880ddbf0/download/shutterstock_190800527222.jpg",
+							"bytes": 8504,
+							"height": 150,
+							"width": 150
+						},
+						{
+							"id": "66747fa242248ea3880ddbf1",
+							"_id": "66747fa242248ea3880ddbf1",
+							"scaled": true,
+							"url": "https://trello.com/1/cards/66747fa142248ea3880dd9e9/attachments/66747fa242248ea3880ddbed/previews/66747fa242248ea3880ddbf1/download/shutterstock_190800527222.jpg",
+							"bytes": 24144,
+							"height": 300,
+							"width": 300
+						},
+						{
+							"id": "66747fa242248ea3880ddbf2",
+							"_id": "66747fa242248ea3880ddbf2",
+							"scaled": true,
+							"url": "https://trello.com/1/cards/66747fa142248ea3880dd9e9/attachments/66747fa242248ea3880ddbed/previews/66747fa242248ea3880ddbf2/download/shutterstock_190800527222.jpg",
+							"bytes": 58862,
+							"height": 600,
+							"width": 600
+						},
+						{
+							"id": "66747fa242248ea3880ddbf3",
+							"_id": "66747fa242248ea3880ddbf3",
+							"scaled": true,
+							"url": "https://trello.com/1/cards/66747fa142248ea3880dd9e9/attachments/66747fa242248ea3880ddbed/previews/66747fa242248ea3880ddbf3/download/shutterstock_190800527222.jpg",
+							"bytes": 794341,
+							"height": 1000,
+							"width": 1000
+						}
+					],
+					"url": "https://trello.com/1/cards/66747fa142248ea3880dd9e9/attachments/66747fa242248ea3880ddbed/download/shutterstock_190800527222.jpg",
+					"pos": 16384,
+					"fileName": "shutterstock_190800527222.jpg"
+				}
+			],
+			"pluginData": [],
+			"customFieldItems": []
+		},
+		{
+			"id": "66747fa142248ea3880dd9ed",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": false,
+				"attachments": 0,
+				"fogbugz": "",
+				"checkItems": 0,
+				"checkItemsChecked": 0,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": null,
+				"dueComplete": false,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": false,
+			"dateLastActivity": "2024-06-20T19:14:41.639Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": null,
+			"due": null,
+			"dueReminder": null,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4jdcfmog6x4mchkd+0mblh28zfd@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [],
+			"idLabels": [
+				"66747fa142248ea3880dda19"
+			],
+			"idList": "66747fa142248ea3880dd982",
+			"idMemberCreator": null,
+			"idMembers": [],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 11,
+			"idAttachmentCover": null,
+			"labels": [
+				{
+					"id": "66747fa142248ea3880dda19",
+					"idBoard": "66747fa142248ea3880dd980",
+					"name": "Demand Marketing",
+					"color": "purple",
+					"uses": 160
+				}
+			],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "Email campaign - February",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd9ed",
+			"pos": 327679,
+			"shortLink": "eVq24rmw",
+			"shortUrl": "https://trello.com/c/eVq24rmw",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": false,
+			"url": "https://trello.com/c/eVq24rmw/11-email-campaign-february",
+			"cover": {
+				"idAttachment": null,
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "dark",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [],
+			"pluginData": [],
+			"customFieldItems": []
+		},
+		{
+			"id": "6674808a50be90e18f56d1f0",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": false,
+				"attachments": 0,
+				"fogbugz": "",
+				"checkItems": 0,
+				"checkItemsChecked": 0,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": null,
+				"dueComplete": false,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": false,
+			"dateLastActivity": "2024-06-20T19:18:34.844Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": {
+				"emoji": {}
+			},
+			"due": null,
+			"dueReminder": null,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4k2jqi927bjlqoz4+1ki21sbb1c@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [],
+			"idLabels": [],
+			"idList": "66747fa142248ea3880dd982",
+			"idMemberCreator": "667430a3a7b9278edb55fd69",
+			"idMembers": [],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 1,
+			"idAttachmentCover": null,
+			"labels": [],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "נהייעי",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/6674808a50be90e18f56d1f0",
+			"pos": 393215,
+			"shortLink": "CWBruYfN",
+			"shortUrl": "https://trello.com/c/CWBruYfN",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": false,
+			"url": "https://trello.com/c/CWBruYfN/1-%D7%A0%D7%94%D7%99%D7%99%D7%A2%D7%99",
+			"cover": {
+				"idAttachment": null,
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "dark",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [],
+			"pluginData": [],
+			"customFieldItems": []
+		},
+		{
+			"id": "66747fa142248ea3880dd9e7",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": false,
+				"attachments": 0,
+				"fogbugz": "",
+				"checkItems": 0,
+				"checkItemsChecked": 0,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": null,
+				"dueComplete": false,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": false,
+			"dateLastActivity": "2024-06-20T19:14:41.580Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": null,
+			"due": null,
+			"dueReminder": null,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4jdcfmog6x4mchk7+05588a8oku@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [],
+			"idLabels": [
+				"66747fa142248ea3880dda13"
+			],
+			"idList": "66747fa142248ea3880dd983",
+			"idMemberCreator": null,
+			"idMembers": [],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 8,
+			"idAttachmentCover": null,
+			"labels": [
+				{
+					"id": "66747fa142248ea3880dda13",
+					"idBoard": "66747fa142248ea3880dd980",
+					"name": "Remarket",
+					"color": "orange",
+					"uses": 21
+				}
+			],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "Android App new landing page",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd9e7",
+			"pos": 196607,
+			"shortLink": "PXrElicw",
+			"shortUrl": "https://trello.com/c/PXrElicw",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": false,
+			"url": "https://trello.com/c/PXrElicw/8-android-app-new-landing-page",
+			"cover": {
+				"idAttachment": null,
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "dark",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [],
+			"pluginData": [],
+			"customFieldItems": []
+		},
+		{
+			"id": "66747fa142248ea3880dda05",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": false,
+				"attachments": 0,
+				"fogbugz": "",
+				"checkItems": 0,
+				"checkItemsChecked": 0,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": null,
+				"dueComplete": false,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": false,
+			"dateLastActivity": "2024-06-20T19:14:41.980Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": null,
+			"due": null,
+			"dueReminder": null,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4jdcfmog6x4mchl1+1go5bg8sok@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [],
+			"idLabels": [],
+			"idList": "66747fa142248ea3880dd983",
+			"idMemberCreator": null,
+			"idMembers": [],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 23,
+			"idAttachmentCover": null,
+			"labels": [],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "Analytics",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dda05",
+			"pos": 229375,
+			"shortLink": "QCcBIf20",
+			"shortUrl": "https://trello.com/c/QCcBIf20",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": false,
+			"url": "https://trello.com/c/QCcBIf20/23-analytics",
+			"cover": {
+				"idAttachment": null,
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "dark",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [],
+			"pluginData": [],
+			"customFieldItems": []
+		},
+		{
+			"id": "66747fa142248ea3880dd9ef",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": false,
+				"attachments": 0,
+				"fogbugz": "",
+				"checkItems": 0,
+				"checkItemsChecked": 0,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": null,
+				"dueComplete": false,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": false,
+			"dateLastActivity": "2024-06-20T19:14:41.659Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": null,
+			"due": null,
+			"dueReminder": null,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4jdcfmog6x4mchkf+2h351wpq85@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [],
+			"idLabels": [
+				"66747fa142248ea3880dda13",
+				"66747fa142248ea3880dda1c"
+			],
+			"idList": "66747fa142248ea3880dd983",
+			"idMemberCreator": null,
+			"idMembers": [],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 12,
+			"idAttachmentCover": null,
+			"labels": [
+				{
+					"id": "66747fa142248ea3880dda13",
+					"idBoard": "66747fa142248ea3880dd980",
+					"name": "Remarket",
+					"color": "orange",
+					"uses": 21
+				},
+				{
+					"id": "66747fa142248ea3880dda1c",
+					"idBoard": "66747fa142248ea3880dd980",
+					"name": "Partners",
+					"color": "blue",
+					"uses": 73
+				}
+			],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "Branding guidelines",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd9ef",
+			"pos": 262143,
+			"shortLink": "sXq4ovbM",
+			"shortUrl": "https://trello.com/c/sXq4ovbM",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": false,
+			"url": "https://trello.com/c/sXq4ovbM/12-branding-guidelines",
+			"cover": {
+				"idAttachment": null,
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "dark",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [],
+			"pluginData": [],
+			"customFieldItems": []
+		},
+		{
+			"id": "66747fa142248ea3880dd9f1",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": false,
+				"attachments": 0,
+				"fogbugz": "",
+				"checkItems": 0,
+				"checkItemsChecked": 0,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": null,
+				"dueComplete": false,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": false,
+			"dateLastActivity": "2024-06-20T19:14:41.684Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": null,
+			"due": null,
+			"dueReminder": null,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4jdcfmog6x4mchkh+1k06nzcfu7@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [],
+			"idLabels": [
+				"66747fa142248ea3880dda1c"
+			],
+			"idList": "66747fa142248ea3880dd984",
+			"idMemberCreator": null,
+			"idMembers": [],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 13,
+			"idAttachmentCover": null,
+			"labels": [
+				{
+					"id": "66747fa142248ea3880dda1c",
+					"idBoard": "66747fa142248ea3880dd980",
+					"name": "Partners",
+					"color": "blue",
+					"uses": 73
+				}
+			],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "CSS Rules",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd9f1",
+			"pos": 65535,
+			"shortLink": "d2eAnsNG",
+			"shortUrl": "https://trello.com/c/d2eAnsNG",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": false,
+			"url": "https://trello.com/c/d2eAnsNG/13-css-rules",
+			"cover": {
+				"idAttachment": null,
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "dark",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [],
+			"pluginData": [],
+			"customFieldItems": []
+		},
+		{
+			"id": "66747fa142248ea3880dd9f3",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": false,
+				"attachments": 0,
+				"fogbugz": "",
+				"checkItems": 0,
+				"checkItemsChecked": 0,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": null,
+				"dueComplete": false,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": false,
+			"dateLastActivity": "2024-06-20T19:14:41.746Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": null,
+			"due": null,
+			"dueReminder": null,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4jdcfmog6x4mchkj+1k2i8sj5nq@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [],
+			"idLabels": [
+				"66747fa142248ea3880dda16"
+			],
+			"idList": "66747fa142248ea3880dd984",
+			"idMemberCreator": null,
+			"idMembers": [],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 14,
+			"idAttachmentCover": null,
+			"labels": [
+				{
+					"id": "66747fa142248ea3880dda16",
+					"idBoard": "66747fa142248ea3880dd980",
+					"name": "Happiness",
+					"color": "pink",
+					"uses": 16
+				}
+			],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "Retail order",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd9f3",
+			"pos": 131071,
+			"shortLink": "jo7yZB1L",
+			"shortUrl": "https://trello.com/c/jo7yZB1L",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": false,
+			"url": "https://trello.com/c/jo7yZB1L/14-retail-order",
+			"cover": {
+				"idAttachment": null,
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "dark",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [],
+			"pluginData": [],
+			"customFieldItems": []
+		},
+		{
+			"id": "66747fa142248ea3880dda07",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": false,
+				"attachments": 0,
+				"fogbugz": "",
+				"checkItems": 0,
+				"checkItemsChecked": 0,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": null,
+				"dueComplete": false,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": false,
+			"dateLastActivity": "2024-06-20T19:14:42.002Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": null,
+			"due": null,
+			"dueReminder": null,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4jdcfmog6x4mchl3+14xtb5g1zf@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [],
+			"idLabels": [],
+			"idList": "66747fa142248ea3880dd984",
+			"idMemberCreator": null,
+			"idMembers": [],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 24,
+			"idAttachmentCover": null,
+			"labels": [],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "Mobile UI reboot",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dda07",
+			"pos": 262143,
+			"shortLink": "Fm50o5v7",
+			"shortUrl": "https://trello.com/c/Fm50o5v7",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": false,
+			"url": "https://trello.com/c/Fm50o5v7/24-mobile-ui-reboot",
+			"cover": {
+				"idAttachment": null,
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "dark",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [],
+			"pluginData": [],
+			"customFieldItems": []
+		},
+		{
+			"id": "66747fa142248ea3880dd9f5",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": false,
+				"attachments": 1,
+				"fogbugz": "",
+				"checkItems": 0,
+				"checkItemsChecked": 0,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": null,
+				"dueComplete": false,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": false,
+			"dateLastActivity": "2024-06-20T19:14:42.521Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": null,
+			"due": null,
+			"dueReminder": null,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4jdcfmog6x4mchkl+0p3q8rqtly@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [],
+			"idLabels": [],
+			"idList": "66747fa142248ea3880dd984",
+			"idMemberCreator": null,
+			"idMembers": [],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 15,
+			"idAttachmentCover": "66747fa242248ea3880ddbf5",
+			"labels": [],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "Google Analytics data - Q1",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd9f5",
+			"pos": 327679,
+			"shortLink": "gUPPxiCv",
+			"shortUrl": "https://trello.com/c/gUPPxiCv",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": false,
+			"url": "https://trello.com/c/gUPPxiCv/15-google-analytics-data-q1",
+			"cover": {
+				"idAttachment": "66747fa242248ea3880ddbf5",
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "light",
+				"scaled": [
+					{
+						"id": "66747fa242248ea3880ddbf6",
+						"_id": "66747fa242248ea3880ddbf6",
+						"scaled": false,
+						"url": "https://trello.com/1/cards/66747fa142248ea3880dd9f5/attachments/66747fa242248ea3880ddbf5/previews/66747fa242248ea3880ddbf6/download/shutterstock_15708843222.jpg.png",
+						"bytes": 7799,
+						"height": 50,
+						"width": 70
+					},
+					{
+						"id": "66747fa242248ea3880ddbf8",
+						"_id": "66747fa242248ea3880ddbf8",
+						"scaled": true,
+						"url": "https://trello.com/1/cards/66747fa142248ea3880dd9f5/attachments/66747fa242248ea3880ddbf5/previews/66747fa242248ea3880ddbf8/download/shutterstock_15708843222.jpg",
+						"bytes": 9551,
+						"height": 106,
+						"width": 150
+					},
+					{
+						"id": "66747fa242248ea3880ddbf7",
+						"_id": "66747fa242248ea3880ddbf7",
+						"scaled": false,
+						"url": "https://trello.com/1/cards/66747fa142248ea3880dd9f5/attachments/66747fa242248ea3880ddbf5/previews/66747fa242248ea3880ddbf7/download/shutterstock_15708843222.jpg.png",
+						"bytes": 49267,
+						"height": 150,
+						"width": 250
+					},
+					{
+						"id": "66747fa242248ea3880ddbf9",
+						"_id": "66747fa242248ea3880ddbf9",
+						"scaled": true,
+						"url": "https://trello.com/1/cards/66747fa142248ea3880dd9f5/attachments/66747fa242248ea3880ddbf5/previews/66747fa242248ea3880ddbf9/download/shutterstock_15708843222.jpg",
+						"bytes": 28008,
+						"height": 212,
+						"width": 300
+					},
+					{
+						"id": "66747fa242248ea3880ddbfa",
+						"_id": "66747fa242248ea3880ddbfa",
+						"scaled": true,
+						"url": "https://trello.com/1/cards/66747fa142248ea3880dd9f5/attachments/66747fa242248ea3880ddbf5/previews/66747fa242248ea3880ddbfa/download/shutterstock_15708843222.jpg",
+						"bytes": 81379,
+						"height": 424,
+						"width": 600
+					},
+					{
+						"id": "66747fa242248ea3880ddbfb",
+						"_id": "66747fa242248ea3880ddbfb",
+						"scaled": true,
+						"url": "https://trello.com/1/cards/66747fa142248ea3880dd9f5/attachments/66747fa242248ea3880ddbf5/previews/66747fa242248ea3880ddbfb/download/shutterstock_15708843222.jpg",
+						"bytes": 817574,
+						"height": 454,
+						"width": 642
+					}
+				],
+				"edgeColor": "#f6fcfa",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [
+				{
+					"id": "66747fa242248ea3880ddbf5",
+					"bytes": 817574,
+					"date": "2015-01-28T20:28:32.687Z",
+					"edgeColor": "#f6fcfa",
+					"idMember": "66747fa242248ea3880ddbf4",
+					"isUpload": true,
+					"mimeType": null,
+					"name": "shutterstock_15708843222.jpg",
+					"previews": [
+						{
+							"id": "66747fa242248ea3880ddbf6",
+							"_id": "66747fa242248ea3880ddbf6",
+							"scaled": false,
+							"url": "https://trello.com/1/cards/66747fa142248ea3880dd9f5/attachments/66747fa242248ea3880ddbf5/previews/66747fa242248ea3880ddbf6/download/shutterstock_15708843222.jpg.png",
+							"bytes": 7799,
+							"height": 50,
+							"width": 70
+						},
+						{
+							"id": "66747fa242248ea3880ddbf7",
+							"_id": "66747fa242248ea3880ddbf7",
+							"scaled": false,
+							"url": "https://trello.com/1/cards/66747fa142248ea3880dd9f5/attachments/66747fa242248ea3880ddbf5/previews/66747fa242248ea3880ddbf7/download/shutterstock_15708843222.jpg.png",
+							"bytes": 49267,
+							"height": 150,
+							"width": 250
+						},
+						{
+							"id": "66747fa242248ea3880ddbf8",
+							"_id": "66747fa242248ea3880ddbf8",
+							"scaled": true,
+							"url": "https://trello.com/1/cards/66747fa142248ea3880dd9f5/attachments/66747fa242248ea3880ddbf5/previews/66747fa242248ea3880ddbf8/download/shutterstock_15708843222.jpg",
+							"bytes": 9551,
+							"height": 106,
+							"width": 150
+						},
+						{
+							"id": "66747fa242248ea3880ddbf9",
+							"_id": "66747fa242248ea3880ddbf9",
+							"scaled": true,
+							"url": "https://trello.com/1/cards/66747fa142248ea3880dd9f5/attachments/66747fa242248ea3880ddbf5/previews/66747fa242248ea3880ddbf9/download/shutterstock_15708843222.jpg",
+							"bytes": 28008,
+							"height": 212,
+							"width": 300
+						},
+						{
+							"id": "66747fa242248ea3880ddbfa",
+							"_id": "66747fa242248ea3880ddbfa",
+							"scaled": true,
+							"url": "https://trello.com/1/cards/66747fa142248ea3880dd9f5/attachments/66747fa242248ea3880ddbf5/previews/66747fa242248ea3880ddbfa/download/shutterstock_15708843222.jpg",
+							"bytes": 81379,
+							"height": 424,
+							"width": 600
+						},
+						{
+							"id": "66747fa242248ea3880ddbfb",
+							"_id": "66747fa242248ea3880ddbfb",
+							"scaled": true,
+							"url": "https://trello.com/1/cards/66747fa142248ea3880dd9f5/attachments/66747fa242248ea3880ddbf5/previews/66747fa242248ea3880ddbfb/download/shutterstock_15708843222.jpg",
+							"bytes": 817574,
+							"height": 454,
+							"width": 642
+						}
+					],
+					"url": "https://trello.com/1/cards/66747fa142248ea3880dd9f5/attachments/66747fa242248ea3880ddbf5/download/shutterstock_15708843222.jpg",
+					"pos": 16384,
+					"fileName": "shutterstock_15708843222.jpg"
+				}
+			],
+			"pluginData": [],
+			"customFieldItems": []
+		},
+		{
+			"id": "66747fa142248ea3880dd9f7",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": false,
+				"attachments": 0,
+				"fogbugz": "",
+				"checkItems": 0,
+				"checkItemsChecked": 0,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": null,
+				"dueComplete": false,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": false,
+			"dateLastActivity": "2024-06-20T19:14:41.790Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": null,
+			"due": null,
+			"dueReminder": null,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4jdcfmog6x4mchkn+1vbutvr8ou@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [],
+			"idLabels": [],
+			"idList": "66747fa142248ea3880dd985",
+			"idMemberCreator": null,
+			"idMembers": [],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 16,
+			"idAttachmentCover": null,
+			"labels": [],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "Data Analytics podcast",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd9f7",
+			"pos": 65535,
+			"shortLink": "T3atJ7xk",
+			"shortUrl": "https://trello.com/c/T3atJ7xk",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": false,
+			"url": "https://trello.com/c/T3atJ7xk/16-data-analytics-podcast",
+			"cover": {
+				"idAttachment": null,
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "dark",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [],
+			"pluginData": [],
+			"customFieldItems": []
+		},
+		{
+			"id": "66747fa142248ea3880dd9f9",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": false,
+				"attachments": 0,
+				"fogbugz": "",
+				"checkItems": 0,
+				"checkItemsChecked": 0,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": null,
+				"dueComplete": false,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": false,
+			"dateLastActivity": "2024-06-20T19:14:41.817Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": null,
+			"due": null,
+			"dueReminder": null,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4jdcfmog6x4mchkp+25fpocnrtv@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [],
+			"idLabels": [],
+			"idList": "66747fa142248ea3880dd985",
+			"idMemberCreator": null,
+			"idMembers": [],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 17,
+			"idAttachmentCover": null,
+			"labels": [],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "PR Firm outreach",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd9f9",
+			"pos": 131071,
+			"shortLink": "HiLdq4bK",
+			"shortUrl": "https://trello.com/c/HiLdq4bK",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": false,
+			"url": "https://trello.com/c/HiLdq4bK/17-pr-firm-outreach",
+			"cover": {
+				"idAttachment": null,
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "dark",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [],
+			"pluginData": [],
+			"customFieldItems": []
+		},
+		{
+			"id": "66747fa142248ea3880dd9fb",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": false,
+				"attachments": 0,
+				"fogbugz": "",
+				"checkItems": 0,
+				"checkItemsChecked": 0,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": null,
+				"dueComplete": false,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": false,
+			"dateLastActivity": "2024-06-20T19:14:41.837Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": null,
+			"due": null,
+			"dueReminder": null,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4jdcfmog6x4mchkr+1dfqyfd3cz@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [],
+			"idLabels": [],
+			"idList": "66747fa142248ea3880dd985",
+			"idMemberCreator": null,
+			"idMembers": [],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 18,
+			"idAttachmentCover": null,
+			"labels": [],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "List of vendors for banquets",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd9fb",
+			"pos": 196607,
+			"shortLink": "y1zyHz7I",
+			"shortUrl": "https://trello.com/c/y1zyHz7I",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": false,
+			"url": "https://trello.com/c/y1zyHz7I/18-list-of-vendors-for-banquets",
+			"cover": {
+				"idAttachment": null,
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "dark",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [],
+			"pluginData": [],
+			"customFieldItems": []
+		},
+		{
+			"id": "66747fa142248ea3880dd9fd",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": false,
+				"attachments": 0,
+				"fogbugz": "",
+				"checkItems": 0,
+				"checkItemsChecked": 0,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": null,
+				"dueComplete": false,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": false,
+			"dateLastActivity": "2024-06-20T19:14:41.861Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": null,
+			"due": null,
+			"dueReminder": null,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4jdcfmog6x4mchkt+0aupc8igh2@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [],
+			"idLabels": [],
+			"idList": "66747fa142248ea3880dd985",
+			"idMemberCreator": null,
+			"idMembers": [],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 19,
+			"idAttachmentCover": null,
+			"labels": [],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "Google Adwords best practices",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd9fd",
+			"pos": 262143,
+			"shortLink": "U3cBiylC",
+			"shortUrl": "https://trello.com/c/U3cBiylC",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": false,
+			"url": "https://trello.com/c/U3cBiylC/19-google-adwords-best-practices",
+			"cover": {
+				"idAttachment": null,
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "dark",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [],
+			"pluginData": [],
+			"customFieldItems": []
+		},
+		{
+			"id": "66747fa142248ea3880dd9ff",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": false,
+				"attachments": 0,
+				"fogbugz": "",
+				"checkItems": 0,
+				"checkItemsChecked": 0,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": null,
+				"dueComplete": false,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": false,
+			"dateLastActivity": "2024-06-20T19:14:41.883Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": null,
+			"due": null,
+			"dueReminder": null,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4jdcfmog6x4mchkv+0qphzlq8i2@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [],
+			"idLabels": [],
+			"idList": "66747fa142248ea3880dd986",
+			"idMemberCreator": null,
+			"idMembers": [],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 20,
+			"idAttachmentCover": null,
+			"labels": [],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "How do you adjust the canvas size in Illustrator?",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd9ff",
+			"pos": 65535,
+			"shortLink": "ymCQY31a",
+			"shortUrl": "https://trello.com/c/ymCQY31a",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": false,
+			"url": "https://trello.com/c/ymCQY31a/20-how-do-you-adjust-the-canvas-size-in-illustrator",
+			"cover": {
+				"idAttachment": null,
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "dark",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [],
+			"pluginData": [],
+			"customFieldItems": []
+		},
+		{
+			"id": "66747fa142248ea3880dda01",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": false,
+				"attachments": 0,
+				"fogbugz": "",
+				"checkItems": 0,
+				"checkItemsChecked": 0,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": null,
+				"dueComplete": false,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": false,
+			"dateLastActivity": "2024-06-20T19:14:41.905Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": null,
+			"due": null,
+			"dueReminder": null,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4jdcfmog6x4mchkx+2phvf1yo7s@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [],
+			"idLabels": [],
+			"idList": "66747fa142248ea3880dd986",
+			"idMemberCreator": null,
+			"idMembers": [],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 21,
+			"idAttachmentCover": null,
+			"labels": [],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "Does Screenhero have a trial period?",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dda01",
+			"pos": 131071,
+			"shortLink": "uQoJGPKs",
+			"shortUrl": "https://trello.com/c/uQoJGPKs",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": false,
+			"url": "https://trello.com/c/uQoJGPKs/21-does-screenhero-have-a-trial-period",
+			"cover": {
+				"idAttachment": null,
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "dark",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [],
+			"pluginData": [],
+			"customFieldItems": []
+		},
+		{
+			"id": "66747fa142248ea3880dda03",
+			"address": null,
+			"badges": {
+				"attachmentsByType": {
+					"trello": {
+						"board": 0,
+						"card": 0
+					}
+				},
+				"externalSource": null,
+				"location": false,
+				"votes": 0,
+				"viewingMemberVoted": false,
+				"subscribed": false,
+				"attachments": 0,
+				"fogbugz": "",
+				"checkItems": 0,
+				"checkItemsChecked": 0,
+				"checkItemsEarliestDue": null,
+				"comments": 0,
+				"description": false,
+				"due": null,
+				"dueComplete": false,
+				"lastUpdatedByAi": false,
+				"start": null
+			},
+			"checkItemStates": [],
+			"closed": false,
+			"coordinates": null,
+			"creationMethod": null,
+			"dueComplete": false,
+			"dateLastActivity": "2024-06-20T19:14:41.939Z",
+			"dateViewedByCreator": null,
+			"desc": "",
+			"descData": null,
+			"due": null,
+			"dueReminder": null,
+			"email": "irisoron+32o2umkrqibnezkr78p+32o4jdcfmog6x4mchkz+1ed9k7evbw@boards.trello.com",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idChecklists": [],
+			"idLabels": [],
+			"idList": "66747fa142248ea3880dd986",
+			"idMemberCreator": null,
+			"idMembers": [],
+			"idMembersVoted": [],
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"idShort": 22,
+			"idAttachmentCover": null,
+			"labels": [],
+			"limits": {
+				"attachments": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 1000,
+						"warnAt": 800
+					}
+				},
+				"checklists": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 500,
+						"warnAt": 400
+					}
+				},
+				"stickers": {
+					"perCard": {
+						"status": "ok",
+						"disableAt": 70,
+						"warnAt": 56
+					}
+				}
+			},
+			"locationName": null,
+			"manualCoverAttachment": false,
+			"name": "When does the new subway fare hike increase - before or after remote week?",
+			"nodeId": "ari:cloud:trello::card/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dda03",
+			"pos": 196607,
+			"shortLink": "9nUJXaMM",
+			"shortUrl": "https://trello.com/c/9nUJXaMM",
+			"sourceEmail": null,
+			"staticMapUrl": null,
+			"start": null,
+			"subscribed": false,
+			"url": "https://trello.com/c/9nUJXaMM/22-when-does-the-new-subway-fare-hike-increase-before-or-after-remote-week",
+			"cover": {
+				"idAttachment": null,
+				"color": null,
+				"idUploadedBackground": null,
+				"size": "normal",
+				"brightness": "dark",
+				"idPlugin": null
+			},
+			"isTemplate": false,
+			"cardRole": null,
+			"attachments": [],
+			"pluginData": [],
+			"customFieldItems": []
+		}
+	],
+	"labels": [
+		{
+			"id": "66747fa142248ea3880dda10",
+			"idBoard": "66747fa142248ea3880dd980",
+			"name": "Day",
+			"color": "yellow",
+			"uses": 186
+		},
+		{
+			"id": "66747fa142248ea3880dda19",
+			"idBoard": "66747fa142248ea3880dd980",
+			"name": "Demand Marketing",
+			"color": "purple",
+			"uses": 160
+		},
+		{
+			"id": "66747fa142248ea3880dda0d",
+			"idBoard": "66747fa142248ea3880dd980",
+			"name": "Marketing",
+			"color": "green",
+			"uses": 86
+		},
+		{
+			"id": "66747fa142248ea3880dda1c",
+			"idBoard": "66747fa142248ea3880dd980",
+			"name": "Partners",
+			"color": "blue",
+			"uses": 73
+		},
+		{
+			"id": "66747fa142248ea3880dda1f",
+			"idBoard": "66747fa142248ea3880dd980",
+			"name": "Planning",
+			"color": "lime",
+			"uses": 43
+		},
+		{
+			"id": "66747fa142248ea3880dda13",
+			"idBoard": "66747fa142248ea3880dd980",
+			"name": "Remarket",
+			"color": "orange",
+			"uses": 21
+		},
+		{
+			"id": "66747fa142248ea3880dda16",
+			"idBoard": "66747fa142248ea3880dd980",
+			"name": "Happiness",
+			"color": "pink",
+			"uses": 16
+		},
+		{
+			"id": "66747fa142248ea3880dda25",
+			"idBoard": "66747fa142248ea3880dd980",
+			"name": "OEM",
+			"color": "black",
+			"uses": 10
+		},
+		{
+			"id": "66747fa142248ea3880dda22",
+			"idBoard": "66747fa142248ea3880dd980",
+			"name": "Government",
+			"color": "sky",
+			"uses": 6
+		}
+	],
+	"lists": [
+		{
+			"id": "66747fa142248ea3880dd981",
+			"name": "Done",
+			"closed": false,
+			"color": null,
+			"idBoard": "66747fa142248ea3880dd980",
+			"pos": 65535.5,
+			"subscribed": false,
+			"softLimit": null,
+			"creationMethod": null,
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"limits": {
+				"cards": {
+					"openPerList": {
+						"status": "ok",
+						"disableAt": 5000,
+						"warnAt": 4000
+					},
+					"totalPerList": {
+						"status": "ok",
+						"disableAt": 1000000,
+						"warnAt": 800000
+					}
+				}
+			},
+			"nodeId": "ari:cloud:trello::list/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd981"
+		},
+		{
+			"id": "66747fa142248ea3880dd982",
+			"name": "Current Sprint",
+			"closed": false,
+			"color": null,
+			"idBoard": "66747fa142248ea3880dd980",
+			"pos": 131071,
+			"subscribed": false,
+			"softLimit": null,
+			"creationMethod": null,
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"limits": {
+				"cards": {
+					"openPerList": {
+						"status": "ok",
+						"disableAt": 5000,
+						"warnAt": 4000
+					},
+					"totalPerList": {
+						"status": "ok",
+						"disableAt": 1000000,
+						"warnAt": 800000
+					}
+				}
+			},
+			"nodeId": "ari:cloud:trello::list/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd982"
+		},
+		{
+			"id": "66747fa142248ea3880dd983",
+			"name": "In Progress",
+			"closed": false,
+			"color": null,
+			"idBoard": "66747fa142248ea3880dd980",
+			"pos": 163839,
+			"subscribed": false,
+			"softLimit": null,
+			"creationMethod": null,
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"limits": {
+				"cards": {
+					"openPerList": {
+						"status": "ok",
+						"disableAt": 5000,
+						"warnAt": 4000
+					},
+					"totalPerList": {
+						"status": "ok",
+						"disableAt": 1000000,
+						"warnAt": 800000
+					}
+				}
+			},
+			"nodeId": "ari:cloud:trello::list/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd983"
+		},
+		{
+			"id": "66747fa142248ea3880dd984",
+			"name": "On Hold",
+			"closed": false,
+			"color": null,
+			"idBoard": "66747fa142248ea3880dd980",
+			"pos": 196607,
+			"subscribed": false,
+			"softLimit": null,
+			"creationMethod": null,
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"limits": {
+				"cards": {
+					"openPerList": {
+						"status": "ok",
+						"disableAt": 5000,
+						"warnAt": 4000
+					},
+					"totalPerList": {
+						"status": "ok",
+						"disableAt": 1000000,
+						"warnAt": 800000
+					}
+				}
+			},
+			"nodeId": "ari:cloud:trello::list/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd984"
+		},
+		{
+			"id": "66747fa142248ea3880dd985",
+			"name": "Next-up",
+			"closed": false,
+			"color": null,
+			"idBoard": "66747fa142248ea3880dd980",
+			"pos": 262143,
+			"subscribed": false,
+			"softLimit": null,
+			"creationMethod": null,
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"limits": {
+				"cards": {
+					"openPerList": {
+						"status": "ok",
+						"disableAt": 5000,
+						"warnAt": 4000
+					},
+					"totalPerList": {
+						"status": "ok",
+						"disableAt": 1000000,
+						"warnAt": 800000
+					}
+				}
+			},
+			"nodeId": "ari:cloud:trello::list/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd985"
+		},
+		{
+			"id": "66747fa142248ea3880dd986",
+			"name": "Questions",
+			"closed": false,
+			"color": null,
+			"idBoard": "66747fa142248ea3880dd980",
+			"pos": 270335,
+			"subscribed": false,
+			"softLimit": null,
+			"creationMethod": null,
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"limits": {
+				"cards": {
+					"openPerList": {
+						"status": "ok",
+						"disableAt": 5000,
+						"warnAt": 4000
+					},
+					"totalPerList": {
+						"status": "ok",
+						"disableAt": 1000000,
+						"warnAt": 800000
+					}
+				}
+			},
+			"nodeId": "ari:cloud:trello::list/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd986"
+		},
+		{
+			"id": "66747fa142248ea3880dd987",
+			"name": "Marketing Ideas - Icebox",
+			"closed": false,
+			"color": null,
+			"idBoard": "66747fa142248ea3880dd980",
+			"pos": 278527,
+			"subscribed": false,
+			"softLimit": null,
+			"creationMethod": null,
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"limits": {
+				"cards": {
+					"openPerList": {
+						"status": "ok",
+						"disableAt": 5000,
+						"warnAt": 4000
+					},
+					"totalPerList": {
+						"status": "ok",
+						"disableAt": 1000000,
+						"warnAt": 800000
+					}
+				}
+			},
+			"nodeId": "ari:cloud:trello::list/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd987"
+		},
+		{
+			"id": "66747fa142248ea3880dd988",
+			"name": "Junk Drawer",
+			"closed": false,
+			"color": null,
+			"idBoard": "66747fa142248ea3880dd980",
+			"pos": 329727,
+			"subscribed": false,
+			"softLimit": null,
+			"creationMethod": null,
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"limits": {
+				"cards": {
+					"openPerList": {
+						"status": "ok",
+						"disableAt": 5000,
+						"warnAt": 4000
+					},
+					"totalPerList": {
+						"status": "ok",
+						"disableAt": 1000000,
+						"warnAt": 800000
+					}
+				}
+			},
+			"nodeId": "ari:cloud:trello::list/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd988"
+		},
+		{
+			"id": "66747fa142248ea3880dd989",
+			"name": "Room for Improvement",
+			"closed": false,
+			"color": null,
+			"idBoard": "66747fa142248ea3880dd980",
+			"pos": 345087,
+			"subscribed": false,
+			"softLimit": null,
+			"creationMethod": null,
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"limits": {
+				"cards": {
+					"openPerList": {
+						"status": "ok",
+						"disableAt": 5000,
+						"warnAt": 4000
+					},
+					"totalPerList": {
+						"status": "ok",
+						"disableAt": 1000000,
+						"warnAt": 800000
+					}
+				}
+			},
+			"nodeId": "ari:cloud:trello::list/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd989"
+		},
+		{
+			"id": "66747fa142248ea3880dd98a",
+			"name": "Content Ideas",
+			"closed": false,
+			"color": null,
+			"idBoard": "66747fa142248ea3880dd980",
+			"pos": 350207,
+			"subscribed": false,
+			"softLimit": null,
+			"creationMethod": null,
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"limits": {
+				"cards": {
+					"openPerList": {
+						"status": "ok",
+						"disableAt": 5000,
+						"warnAt": 4000
+					},
+					"totalPerList": {
+						"status": "ok",
+						"disableAt": 1000000,
+						"warnAt": 800000
+					}
+				}
+			},
+			"nodeId": "ari:cloud:trello::list/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd98a"
+		},
+		{
+			"id": "66747fa142248ea3880dd98b",
+			"name": "Awesome Things - WINS!",
+			"closed": false,
+			"color": null,
+			"idBoard": "66747fa142248ea3880dd980",
+			"pos": 360447,
+			"subscribed": false,
+			"softLimit": null,
+			"creationMethod": null,
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"limits": {
+				"cards": {
+					"openPerList": {
+						"status": "ok",
+						"disableAt": 5000,
+						"warnAt": 4000
+					},
+					"totalPerList": {
+						"status": "ok",
+						"disableAt": 1000000,
+						"warnAt": 800000
+					}
+				}
+			},
+			"nodeId": "ari:cloud:trello::list/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd98b"
+		},
+		{
+			"id": "66747fa142248ea3880dd98c",
+			"name": "Would Love to Do - Manifest",
+			"closed": false,
+			"color": null,
+			"idBoard": "66747fa142248ea3880dd980",
+			"pos": 491519,
+			"subscribed": false,
+			"softLimit": null,
+			"creationMethod": null,
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"limits": {
+				"cards": {
+					"openPerList": {
+						"status": "ok",
+						"disableAt": 5000,
+						"warnAt": 4000
+					},
+					"totalPerList": {
+						"status": "ok",
+						"disableAt": 1000000,
+						"warnAt": 800000
+					}
+				}
+			},
+			"nodeId": "ari:cloud:trello::list/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd98c"
+		},
+		{
+			"id": "66747fa142248ea3880dd98d",
+			"name": "Resources",
+			"closed": false,
+			"color": null,
+			"idBoard": "66747fa142248ea3880dd980",
+			"pos": 622591,
+			"subscribed": false,
+			"softLimit": null,
+			"creationMethod": null,
+			"idOrganization": "66743103c53f5c58c7fc53ef",
+			"limits": {
+				"cards": {
+					"openPerList": {
+						"status": "ok",
+						"disableAt": 5000,
+						"warnAt": 4000
+					},
+					"totalPerList": {
+						"status": "ok",
+						"disableAt": 1000000,
+						"warnAt": 800000
+					}
+				}
+			},
+			"nodeId": "ari:cloud:trello::list/workspace/66743103c53f5c58c7fc53ef/66747fa142248ea3880dd98d"
+		}
+	],
+	"members": [
+		{
+			"id": "667430a3a7b9278edb55fd69",
+			"aaId": "557058:f7170165-1611-4541-9e8e-d2b4ec3ba1c8",
+			"activityBlocked": false,
+			"avatarHash": "f5804071dedef8a4a79ae2b66d40d8b2",
+			"avatarUrl": "https://trello-members.s3.amazonaws.com/667430a3a7b9278edb55fd69/f5804071dedef8a4a79ae2b66d40d8b2",
+			"bio": "",
+			"bioData": null,
+			"confirmed": true,
+			"fullName": "iror",
+			"idEnterprise": null,
+			"idEnterprisesDeactivated": [],
+			"idMemberReferrer": null,
+			"idPremOrgsAdmin": [],
+			"initials": "I",
+			"memberType": "normal",
+			"nonPublic": {
+				"fullName": "iris oron",
+				"initials": "IO",
+				"avatarHash": null
+			},
+			"nonPublicAvailable": true,
+			"products": [],
+			"url": "https://trello.com/irisoron",
+			"username": "irisoron",
+			"status": "disconnected"
+		}
+	],
+	"checklists": [
+		{
+			"id": "66748b7b031ebc6ac7b0ec38",
+			"name": "Checklist1",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idCard": "66747fa142248ea3880dd9e1",
+			"pos": 16384,
+			"limits": {
+				"checkItems": {
+					"perChecklist": {
+						"status": "ok",
+						"disableAt": 200,
+						"warnAt": 160
+					}
+				}
+			},
+			"checkItems": [
+				{
+					"id": "66748b8943aa49314c82828b",
+					"name": "item1",
+					"nameData": {
+						"emoji": {}
+					},
+					"pos": 17131,
+					"state": "incomplete",
+					"due": null,
+					"dueReminder": null,
+					"idMember": null,
+					"idChecklist": "66748b7b031ebc6ac7b0ec38"
+				}
+			],
+			"creationMethod": null
+		},
+		{
+			"id": "6674943cbea0c476b9f74c43",
+			"name": "Checklist1",
+			"idBoard": "66747fa142248ea3880dd980",
+			"idCard": "66747fa142248ea3880dd9e5",
+			"pos": 16384,
+			"limits": {
+				"checkItems": {
+					"perChecklist": {
+						"status": "ok",
+						"disableAt": 200,
+						"warnAt": 160
+					}
+				}
+			},
+			"checkItems": [
+				{
+					"id": "6674943cbea0c476b9f74c44",
+					"name": "item1",
+					"nameData": {
+						"emoji": {}
+					},
+					"pos": 17131,
+					"state": "complete",
+					"due": null,
+					"dueReminder": null,
+					"idMember": null,
+					"idChecklist": "6674943cbea0c476b9f74c43"
+				},
+				{
+					"id": "66749446cfae85a017f0c5db",
+					"name": ":thumbsup: item2",
+					"nameData": {
+						"emoji": {}
+					},
+					"pos": 34209,
+					"state": "incomplete",
+					"due": null,
+					"dueReminder": null,
+					"idMember": null,
+					"idChecklist": "6674943cbea0c476b9f74c43"
+				}
+			],
+			"creationMethod": null
+		}
+	],
+	"customFields": [],
+	"memberships": [
+		{
+			"id": "66747fa142248ea3880dda56",
+			"idMember": "667430a3a7b9278edb55fd69",
+			"memberType": "admin",
+			"unconfirmed": false,
+			"deactivated": false
+		}
+	],
+	"pluginData": [
+		{
+			"id": "667487df7fe7aa013b13982f",
+			"idPlugin": "5935cab6b26816f9d49fd814",
+			"scope": "board",
+			"idModel": "66747fa142248ea3880dd980",
+			"value": "{\"commands\":\"᭣㰱Ƭ஀ፐ᜸ːỠ䬡氠‫䀶Ŭ塠რᎼ怱䒠䘠氫伮㈥㠽⴨⢀䘠೤䁓䬨䁺ݱʄ妛禡疆-䛀ᶠ֠ᦠƤ坩✚¼l䴠ᱍ琢娍ӣ⭙ေ䧝竹箫㏞罓㊸പɠݐረ䕥勒㈰挣±䡀ʷ⎀ƥ摴ぱἠǺ᢯Ⅳ撦䔑摌Җ᝕ܡ਍琨ؘʺ¾ዡ⤥ቾ䇣䇢⭰㣱⨺ᴣᆩ峪殃㣛Ɇঔ⡲桹ഴ⊦✼䉐冄࠸๦⌠៲中ձრ憑Ѹ࣒ōଠφ!㌄:恡慐ࢠᖦ☈哎ʧ㲨Ǟ⭠ㆸ嘣ⷥԘłର䡨䤮र⦑Ⴔ桁䴔䍑䪄墌㭃䴅㡜⼯伆検ୖ俅桉炴⌳঩䢲⊳┰@嘃ӄご媨⣀絒䋁ⅴ㖏匹掃䶘ᗁ斒ᘾ⾳櫋ၜ䢂᦬ȩ劸䍲獚ㆈ操䴕䑃ᇩ孽䴯娽䝛㔎㪴圻圀̉  \"}",
+			"access": "shared",
+			"dateLastUpdated": "2024-06-20T20:08:42.426Z"
+		}
+	]
+}
