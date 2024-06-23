@@ -3,141 +3,7 @@ import { storageService } from './async-storage.service'
 import { utilService } from './util.service'
 import { userService } from './user.service'
 
-const STORAGE_KEY = 'board'
-
-const board = {
-    title: "Robot dev proj",
-    isStarred: false,
-    archivedAt: 1589983468418,
-    createdBy: {
-        "_id": "u101",
-        "fullname": "Abi Abambi",
-        "imgUrl": "http://some-img"
-    },
-    style: {
-        backgroundImage: ""
-    },
-    labels: [
-        {
-            "id": "l101",
-            "title": "Done",
-            "color": "#61bd4f"
-        },
-        {
-            "id": "l102",
-            "title": "Progress",
-            "color": "#61bd33"
-        }
-    ],
-    members: [
-        {
-            "_id": "u101",
-            "fullname": "Tal Taltal",
-            "imgUrl": "https://www.google.com"
-        },
-        {
-            "_id": "u102",
-            "fullname": "Josh Ga",
-            "imgUrl": "https://www.google.com"
-        }
-    ],
-    groups: [
-        {
-            "id": "g101",
-            "title": "Group 1",
-            "archivedAt": 1589983468418,
-            "tasks": [
-                {
-                    "id": "c101",
-                    "title": "Replace logo"
-                },
-                {
-                    "id": "c102",
-                    "title": "Add Samples"
-                }
-            ],
-            "style": {}
-        },
-        {
-            "id": "g102",
-            "title": "Group 2",
-            "tasks": [
-                {
-                    "id": "c103",
-                    "title": "Do that",
-                    "archivedAt": 1589983468418,
-                },
-                {
-                    "id": "c104",
-                    "title": "Help me",
-                    "status": "inProgress", // monday / both
-                    "priority": "high",  // monday / both
-                    "dueDate": "2024-09-24",
-                    "description": "description",
-                    "comments": [ // in Trello this is easier implemented as an activity
-                        {
-                            "id": "ZdPnm",
-                            "title": "also @yaronb please CR this",
-                            "createdAt": 1590999817436,
-                            "byMember": {
-                                "_id": "u101",
-                                "fullname": "Tal Tarablus",
-                                "imgUrl": ""
-                            }
-                        }
-                    ],
-                    "checklists": [
-                        {
-                            "id": "YEhmF",
-                            "title": "Checklist",
-                            "todos": [
-                                {
-                                    "id": "212jX",
-                                    "title": "To Do 1",
-                                    "isDone": false
-                                }
-                            ]
-                        }
-                    ],
-                    "memberIds": ["u101"],
-                    "labelIds": ["l101", "l102"],
-                    "byMember": {
-                        "_id": "u101",
-                        "fullname": "Tal Tarablus",
-                        "imgUrl": ""
-                    },
-                    "style": {
-                        "backgroundColor": "#26de81"
-                    }
-                }
-            ],
-            "style": {}
-        }
-    ],
-    activities: [
-        {
-            "id": "a101",
-            "title": "Changed Color",
-            "createdAt": 154514,
-            "byMember": {
-                "_id": "u101",
-                "fullname": "Abi Abambi",
-                "imgUrl": "http://some-img"
-            },
-            "group": {
-                "id": "g101",
-                "title": "Urgent Stuff"
-            },
-            "task": {
-                "id": "c101",
-                "title": "Replace Logo"
-            }
-        }
-    ],
-
-    // For Monday draggable columns (optional)
-    cmpsOrder: ["StatusPicker", "MemberPicker", "DatePicker"]
-}
+const STORAGE_KEY = 'boardDB'
 
 export const boardService = {
     query,
@@ -152,6 +18,8 @@ export const boardService = {
 }
 window.boardSer = boardService
 
+_createBoards()
+
 
 async function query(filterBy = { title: '' }) {
     var boards = await storageService.query(STORAGE_KEY)
@@ -160,7 +28,7 @@ async function query(filterBy = { title: '' }) {
         boards = boards.filter(board => regex.test(board.title))
     }
     // Return just preview info about the boards
-    boards = boards.map(({ _id, title, owner }) => ({ _id, title, owner }))
+    boards = boards.map(({ _id, title, isStarred }) => ({ _id, title, isStarred }))
     return boards
 }
 
@@ -284,6 +152,309 @@ function _toMiniGroup(group) {
 
 function _toMiniTask(task) {
     return { id: task.id, title: task.title }
+}
+
+function _createBoards() {
+    let boards = utilService.loadFromStorage(STORAGE_KEY)
+    if (!boards || !boards.length) {
+
+        const boardString = `
+        [{
+        "_id": "b101",
+        "title": "Website Redesign Project",
+        "isStarred": true,
+        "archivedAt": null,
+        "createdBy": {
+            "_id": "u101",
+            "fullname": "John Doe",
+            "imgUrl": "http://example.com/john-doe.jpg"
+        },
+        "style": {
+            "backgroundImage": "https://example.com/background-image.jpg"
+        },
+        "labels": [
+            {
+            "id": "l101",
+            "title": "High Priority",
+            "color": "#ff0000"
+            },
+            {
+            "id": "l102",
+            "title": "Medium Priority",
+            "color": "#ffff00"
+            },
+            {
+            "id": "l103",
+            "title": "Low Priority",
+            "color": "#00ff00"
+            },
+            {
+            "id": "l104",
+            "title": "Bug",
+            "color": "#ff00ff"
+            },
+            {
+            "id": "l105",
+            "title": "Feature",
+            "color": "#00ffff"
+            }
+        ],
+        "members": [
+            {
+            "_id": "u101",
+            "fullname": "John Doe",
+            "imgUrl": "http://example.com/john-doe.jpg"
+            },
+            {
+            "_id": "u102",
+            "fullname": "Jane Smith",
+            "imgUrl": "http://example.com/jane-smith.jpg"
+            },
+            {
+            "_id": "u103",
+            "fullname": "Bob Johnson",
+            "imgUrl": "http://example.com/bob-johnson.jpg"
+            },
+            {
+            "_id": "u104",
+            "fullname": "Alice Brown",
+            "imgUrl": "http://example.com/alice-brown.jpg"
+            }
+        ],
+        "groups": [
+            {
+            "id": "g101",
+            "title": "Backlog",
+            "tasks": [
+                {
+                "id": "t101",
+                "title": "Conduct user research",
+                "status": "todo",
+                "priority": "high",
+                "description": "Gather insights from current users to inform redesign",
+                "memberIds": ["u101", "u102"],
+                "labelIds": ["l101", "l105"]
+                },
+                {
+                "id": "t102",
+                "title": "Create wireframes",
+                "status": "todo",
+                "priority": "medium",
+                "description": "Design initial wireframes for key pages",
+                "memberIds": ["u102"],
+                "labelIds": ["l102", "l105"]
+                },
+                {
+                "id": "t103",
+                "title": "Define color palette",
+                "status": "todo",
+                "priority": "low",
+                "description": "Choose colors that align with brand guidelines",
+                "memberIds": ["u102"],
+                "labelIds": ["l103"]
+                }
+            ]
+            },
+            {
+            "id": "g102",
+            "title": "To Do",
+            "tasks": [
+                {
+                "id": "t104",
+                "title": "Update homepage layout",
+                "status": "todo",
+                "priority": "high",
+                "description": "Redesign homepage based on new wireframes",
+                "memberIds": ["u102"],
+                "labelIds": ["l101", "l105"]
+                },
+                {
+                "id": "t105",
+                "title": "Optimize images",
+                "status": "todo",
+                "priority": "medium",
+                "description": "Compress and optimize all images for web",
+                "memberIds": ["u103"],
+                "labelIds": ["l102"]
+                },
+                {
+                "id": "t106",
+                "title": "Implement responsive design",
+                "status": "todo",
+                "priority": "high",
+                "description": "Ensure website is mobile-friendly",
+                "memberIds": ["u101", "u103"],
+                "labelIds": ["l101", "l105"]
+                }
+            ]
+            },
+            {
+            "id": "g103",
+            "title": "In Progress",
+            "tasks": [
+                {
+                "id": "t107",
+                "title": "Develop new navigation menu",
+                "status": "inProgress",
+                "priority": "high",
+                "description": "Create responsive navigation menu",
+                "memberIds": ["u103"],
+                "labelIds": ["l101", "l105"]
+                },
+                {
+                "id": "t108",
+                "title": "Implement search functionality",
+                "status": "inProgress",
+                "priority": "medium",
+                "description": "Add search feature to website",
+                "memberIds": ["u101"],
+                "labelIds": ["l102", "l105"]
+                },
+                {
+                "id": "t109",
+                "title": "Create custom icons",
+                "status": "inProgress",
+                "priority": "low",
+                "description": "Design and create custom icons for website",
+                "memberIds": ["u102"],
+                "labelIds": ["l103"]
+                }
+            ]
+            },
+            {
+            "id": "g104",
+            "title": "Review",
+            "tasks": [
+                {
+                "id": "t110",
+                "title": "Review homepage design",
+                "status": "review",
+                "priority": "high",
+                "description": "Team to review and provide feedback on new homepage design",
+                "memberIds": ["u101", "u102", "u103", "u104"],
+                "labelIds": ["l101"]
+                },
+                {
+                "id": "t111",
+                "title": "Test cross-browser compatibility",
+                "status": "review",
+                "priority": "medium",
+                "description": "Ensure website works on all major browsers",
+                "memberIds": ["u103", "u104"],
+                "labelIds": ["l102"]
+                }
+            ]
+            },
+            {
+            "id": "g105",
+            "title": "QA",
+            "tasks": [
+                {
+                "id": "t112",
+                "title": "Perform usability testing",
+                "status": "qa",
+                "priority": "high",
+                "description": "Conduct usability tests with sample users",
+                "memberIds": ["u104"],
+                "labelIds": ["l101", "l105"]
+                },
+                {
+                "id": "t113",
+                "title": "Check for broken links",
+                "status": "qa",
+                "priority": "medium",
+                "description": "Ensure all links are working correctly",
+                "memberIds": ["u103"],
+                "labelIds": ["l102"]
+                },
+                {
+                "id": "t114",
+                "title": "Validate HTML and CSS",
+                "status": "qa",
+                "priority": "low",
+                "description": "Ensure code meets W3C standards",
+                "memberIds": ["u101"],
+                "labelIds": ["l103"]
+                }
+            ]
+            },
+            {
+            "id": "g106",
+            "title": "Done",
+            "tasks": [
+                {
+                "id": "t115",
+                "title": "Finalize project scope",
+                "status": "done",
+                "priority": "high",
+                "description": "Define and document project requirements",
+                "memberIds": ["u101", "u104"],
+                "labelIds": ["l101"]
+                },
+                {
+                "id": "t116",
+                "title": "Set up development environment",
+                "status": "done",
+                "priority": "medium",
+                "description": "Prepare local and staging environments",
+                "memberIds": ["u103"],
+                "labelIds": ["l102"]
+                }
+            ]
+            },
+            {
+            "id": "g107",
+            "title": "Archived",
+            "tasks": [
+                {
+                "id": "t117",
+                "title": "Old homepage design",
+                "status": "archived",
+                "priority": "low",
+                "description": "Previous version of homepage design",
+                "memberIds": ["u102"],
+                "labelIds": ["l103"]
+                }
+            ]
+            }
+        ],
+        "activities": [
+            {
+            "id": "a101",
+            "title": "Added new task",
+            "createdAt": 1623456789,
+            "byMember": {
+                "_id": "u101",
+                "fullname": "John Doe",
+                "imgUrl": "http://example.com/john-doe.jpg"
+            },
+            "task": {
+                "id": "t104",
+                "title": "Update homepage layout"
+            }
+            },
+            {
+            "id": "a102",
+            "title": "Moved task to In Progress",
+            "createdAt": 1623456790,
+            "byMember": {
+                "_id": "u103",
+                "fullname": "Bob Johnson",
+                "imgUrl": "http://example.com/bob-johnson.jpg"
+            },
+            "task": {
+                "id": "t107",
+                "title": "Develop new navigation menu"
+            }
+            }
+        ],
+        "cmpsOrder": ["StatusPicker", "MemberPicker", "DatePicker"]
+        }]
+        `
+        boards = JSON.parse(boardString)
+        utilService.saveToStorage(STORAGE_KEY, boards)
+    }
+    return boards
 }
 
 
