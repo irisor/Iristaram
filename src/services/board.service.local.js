@@ -11,7 +11,7 @@ export const boardService = {
     save,
     remove,
     getEmptyBoard,
-    addBoardMsg,
+    addGroup,
     updateTask,
     getTaskEditCmps
 }
@@ -21,7 +21,7 @@ _createBoards()
 
 
 async function query(filterBy = { title: '' }) {
-    var boards = await storageService.query(STORAGE_KEY)
+    let boards = await storageService.query(STORAGE_KEY)
     if (filterBy.title) {
         const regex = new RegExp(filterBy.title, 'i')
         boards = boards.filter(board => regex.test(board.title))
@@ -41,7 +41,7 @@ async function remove(boardId) {
 }
 
 async function save(board) {
-    var savedBoard
+    let savedBoard
     if (board._id) {
         const boardToUpdate = {
             _id: board._id,
@@ -56,21 +56,17 @@ async function save(board) {
     return savedBoard
 }
 
-async function addBoardMsg(boardId, txt) {
+async function addGroup(boardId, group) {
 
     // Later, this is all done by the backend
     const board = await getById(boardId)
-    if (!board.msgs) board.msgs = []
+    if (!board.groups) board.groups = []
+    group.id = utilService.makeId()
 
-    const msg = {
-        id: utilService.makeId(),
-        by: userService.getLoggedinUser(),
-        txt
-    }
-    board.msgs.push(msg)
+    board.groups.push(group)
     await storageService.put(STORAGE_KEY, board)
 
-    return msg
+    return group
 }
 
 async function updateTask(boardId, groupId, task, activityTitle) {

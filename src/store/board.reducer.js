@@ -5,11 +5,13 @@ export const ADD_BOARD = 'ADD_BOARD'
 export const UPDATE_BOARD = 'UPDATE_BOARD'
 export const ADD_BOARD_MSG = 'ADD_BOARD_MSG'
 export const UPDATE_TASK = 'UPDATE_TASK'
+export const ADD_GROUP = 'ADD_GROUP'
 
 const initialState = {
     board: null,
     boards: [],
 }
+let board
 
 export function boardReducer(state = initialState, action) {
     var newState = state
@@ -32,11 +34,8 @@ export function boardReducer(state = initialState, action) {
             boards = state.boards.map(board => (board._id === action.board._id) ? action.board : board)
             newState = { ...state, boards }
             break
-        case ADD_BOARD_MSG:
-            newState = { ...state, board: {...state.board, msgs: [...state.board.msgs || [], action.msg]} }
-            break
         case UPDATE_TASK:
-            const board = {...state.board}
+            board = {...state.board}
             board.groups = state.board.groups.map(g => {
                 if (g.id !== action.groupId) return g
                 const group = {...g}
@@ -45,6 +44,9 @@ export function boardReducer(state = initialState, action) {
             })
             board.activities = [...board.activities, action.activity]
             newState = { ...state, board }
+            break
+        case ADD_GROUP:
+            newState = { ...state, board: {...state.board, groups: [...state.board.groups || [], action.group]}}
             break
     
         default:

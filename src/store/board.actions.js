@@ -1,6 +1,6 @@
 import { boardService } from '../services/board.service.local'
 import { store } from '../store/store'
-import { ADD_BOARD, REMOVE_BOARD, SET_BOARDS, SET_BOARD, UPDATE_BOARD, ADD_BOARD_MSG, UPDATE_TASK } from './board.reducer'
+import { ADD_BOARD, REMOVE_BOARD, SET_BOARDS, SET_BOARD, UPDATE_BOARD, ADD_GROUP, UPDATE_TASK } from './board.reducer'
 
 export async function loadBoards() {
     try {
@@ -58,14 +58,14 @@ export async function updateBoard(board) {
     }
 }
 
-export async function addBoardMsg(boardId, txt) {
+export async function addGroup(boardId, group) {
     try {
-        const msg = await boardService.addBoardMsg(boardId, txt)
-        console.log('Added Board message', msg)
-        store.dispatch(getCmdAddBoardMsg(msg))
-        return msg
+        const savedBoard = await boardService.addGroup(boardId, group)
+        console.log('Added Group', group)
+        store.dispatch(getCmdAddGroup(savedBoard))
+        return savedBoard
     } catch (err) {
-        console.log('Cannot add board msg', err)
+        console.log('Cannot add group', err)
         throw err
     }
 }
@@ -118,10 +118,10 @@ function getCmdSetBoard(board) {
     }
 }
 
-function getCmdAddBoardMsg(msg) {
+function getCmdAddGroup(board) {
     return {
-        type: ADD_BOARD_MSG,
-        msg
+        type: ADD_GROUP,
+        board
     }
 }
 
@@ -136,17 +136,17 @@ function getCmdUpdateTask(groupId, task, activity) {
 
 
 
-// unitTestActions()
-async function unitTestActions() {
-    await loadBoards()
-    await addBoard(boardService.getEmptyBoard())
-    await updateBoard({
-        _id: 'm1oC7',
-        title: 'Board-Good',
-    })
-    await removeBoard('m1oC7')
-    // TODO unit test loadBoard
-    // TODO unit test addBoardMsg
-    // TODO unit test updateTask
-}
+// // unitTestActions()
+// async function unitTestActions() {
+//     await loadBoards()
+//     await addBoard(boardService.getEmptyBoard())
+//     await updateBoard({
+//         _id: 'm1oC7',
+//         title: 'Board-Good',
+//     })
+//     await removeBoard('m1oC7')
+//     // TODO unit test loadBoard
+//     // TODO unit test addBoardMsg
+//     // TODO unit test updateTask
+// }
 
