@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { Link, Outlet } from 'react-router-dom'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 
-import { loadBoard, addGroup } from '../store/board.actions'
+import { loadBoard, addGroup, updateBoard } from '../store/board.actions'
 
 
 export function BoardDetails() {
@@ -32,6 +32,16 @@ export function BoardDetails() {
       showSuccessMsg(`Group added`)
     } catch (err) {
       showErrorMsg('Cannot add group')
+    }
+  }
+
+  async function onRemoveGroup(groupId) {
+    try {
+      const newBoard = { ...board, groups: board.groups.filter(group => group.id !== groupId) }
+      await updateBoard(newBoard)
+      showSuccessMsg(`Group removed`)
+    } catch (err) {
+      showErrorMsg('Cannot remove group')
     }
   }
 
@@ -66,6 +76,7 @@ export function BoardDetails() {
                   </p>
                 </article>
               })}
+              <button onClick={() => { onRemoveGroup(group?.id) }}>X</button>
             </section>
           )}
           {newGroup &&

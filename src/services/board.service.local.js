@@ -43,11 +43,7 @@ async function remove(boardId) {
 async function save(board) {
     let savedBoard
     if (board._id) {
-        const boardToUpdate = {
-            _id: board._id,
-            title: board.title
-        }
-        savedBoard = await storageService.put(STORAGE_KEY, boardToUpdate)
+        savedBoard = await storageService.put(STORAGE_KEY, board)
     } else {
         // Later, owner is set by the backend
         // board.owner = userService.getLoggedinUser()
