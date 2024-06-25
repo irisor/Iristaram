@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Link, Outlet } from 'react-router-dom'
+import { EditableTitle } from '../cmps/EditableTitle'
+
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 
 import { loadBoard, addGroup, updateBoard } from '../store/board.actions'
@@ -45,6 +47,16 @@ export function BoardDetails() {
     }
   }
 
+  async function onUpdateTitle(groupId, updatedTitle) { 
+    try {
+      const newBoard = { ...board, groups: board.groups.map(group => group.id === groupId ? { ...group, title: updatedTitle } : group) }
+      await updateBoard(newBoard)
+      showSuccessMsg(`Group title updated`)
+    } catch (err) {
+      showErrorMsg('Cannot update group title')
+    }
+  }
+
   function onChangeTitle(title) {
     setNewGroup({ ...newGroup, title })
   }
@@ -60,7 +72,10 @@ export function BoardDetails() {
         <section className="group-container">
           {board?.groups?.map(group =>
             <section key={group?.id} className="group">
-              <h2 className="group-title">{group?.title} {group?.id}</h2>
+              <EditableTitle
+                initialTitle={group?.title}
+                onUpdate={(updatedTitle) => onUpdateTitle(group.id, updatedTitle)}
+              />
               {group?.tasks?.map(task => {
                 if (!task) {
                   console.log(board, task)
