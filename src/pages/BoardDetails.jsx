@@ -6,7 +6,7 @@ import { EditableTitle } from '../cmps/EditableTitle'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 
-import { loadBoard, addGroup, updateBoard } from '../store/board.actions'
+import { loadBoard, addGroup, updateBoard, removeGroup } from '../store/board.actions'
 
 
 export function BoardDetails() {
@@ -37,10 +37,9 @@ export function BoardDetails() {
     }
   }
 
-  async function onRemoveGroup(groupId) {
+  async function onRemoveGroup(boardId, groupId) {
     try {
-      const newBoard = { ...board, groups: board.groups.filter(group => group.id !== groupId) }
-      await updateBoard(newBoard)
+      await removeGroup(boardId, groupId)
       showSuccessMsg(`Group removed`)
     } catch (err) {
       showErrorMsg('Cannot remove group')
@@ -91,7 +90,7 @@ export function BoardDetails() {
                   </p>
                 </article>
               })}
-              <button onClick={() => { onRemoveGroup(group?.id) }}>X</button>
+              <button onClick={() => { onRemoveGroup(boardId, group?.id) }}>X</button>
             </section>
           )}
           {newGroup &&

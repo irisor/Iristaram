@@ -12,6 +12,7 @@ export const boardService = {
     remove,
     getEmptyBoard,
     addGroup,
+    removeGroup,
     updateTask,
     getTaskEditCmps
 }
@@ -43,7 +44,11 @@ async function remove(boardId) {
 async function save(board) {
     let savedBoard
     if (board._id) {
-        savedBoard = await storageService.put(STORAGE_KEY, board)
+        const boardToUpdate = {
+            _id: board._id,
+            title: board.title
+        }
+        savedBoard = await storageService.put(STORAGE_KEY, boardToUpdate)
     } else {
         // Later, owner is set by the backend
         // board.owner = userService.getLoggedinUser()
@@ -63,6 +68,14 @@ async function addGroup(boardId, group) {
     await storageService.put(STORAGE_KEY, board)
 
     return group
+}
+
+async function removeGroup(boardId, groupId) {
+    // Later, this is all done by the backend
+    const board = await getById(boardId)
+    const groupIdx = board.groups.findIndex(g => g.id === groupId)
+    board.groups.splice(groupIdx, 1)
+    await storageService.put(STORAGE_KEY, board)
 }
 
 async function updateTask(boardId, groupId, task, activityTitle) {
