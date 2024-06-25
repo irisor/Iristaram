@@ -46,7 +46,9 @@ export function boardReducer(state = initialState, action) {
             newState = { ...state, board }
             break
         case ADD_GROUP:
-            newState = { ...state, board: {...state.board, groups: [...state.board.groups || [], action.group]}}
+            board = {...state.board}
+            board.groups = [...state.board.groups, action.group]
+            newState = { ...state, board }
             break
     
         default:

@@ -118,10 +118,10 @@ function getCmdSetBoard(board) {
     }
 }
 
-function getCmdAddGroup(board) {
+function getCmdAddGroup(group) {
     return {
         type: ADD_GROUP,
-        board
+        group
     }
 }
 
