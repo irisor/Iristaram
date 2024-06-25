@@ -13,6 +13,7 @@ export const boardService = {
     getEmptyBoard,
     addGroup,
     removeGroup,
+    updateGroup,
     updateTask,
     getTaskEditCmps
 }
@@ -76,6 +77,15 @@ async function removeGroup(boardId, groupId) {
     const groupIdx = board.groups.findIndex(g => g.id === groupId)
     board.groups.splice(groupIdx, 1)
     await storageService.put(STORAGE_KEY, board)
+}
+
+async function updateGroup(boardId, group) {
+    // Later, this is all done by the backend
+    const board = await getById(boardId)
+    const groupIdx = board.groups.findIndex(g => g.id === group.id)
+    board.groups[groupIdx] = group
+    await storageService.put(STORAGE_KEY, board)
+    return group
 }
 
 async function updateTask(boardId, groupId, task, activityTitle) {

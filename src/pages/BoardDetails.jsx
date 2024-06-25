@@ -6,7 +6,7 @@ import { EditableTitle } from '../cmps/EditableTitle'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 
-import { loadBoard, addGroup, updateBoard, removeGroup } from '../store/board.actions'
+import { loadBoard, addGroup, removeGroup, updateGroup } from '../store/board.actions'
 
 
 export function BoardDetails() {
@@ -46,10 +46,10 @@ export function BoardDetails() {
     }
   }
 
-  async function onUpdateTitle(groupId, updatedTitle) { 
+  async function onUpdateTitle(group, updatedTitle) { 
     try {
-      const newBoard = { ...board, groups: board.groups.map(group => group.id === groupId ? { ...group, title: updatedTitle } : group) }
-      await updateBoard(newBoard)
+      const newGroup = { ...group, title: updatedTitle }
+      await updateGroup(boardId, newGroup)
       showSuccessMsg(`Group title updated`)
     } catch (err) {
       showErrorMsg('Cannot update group title')
@@ -73,7 +73,7 @@ export function BoardDetails() {
             <section key={group?.id} className="group">
               <EditableTitle
                 initialTitle={group?.title}
-                onUpdate={(updatedTitle) => onUpdateTitle(group.id, updatedTitle)}
+                onUpdate={(updatedTitle) => onUpdateTitle(group, updatedTitle)}
               />
               {group?.tasks?.map(task => {
                 if (!task) {

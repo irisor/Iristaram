@@ -1,6 +1,6 @@
 import { boardService } from '../services/board.service.local'
 import { store } from '../store/store'
-import { ADD_BOARD, REMOVE_BOARD, SET_BOARDS, SET_BOARD, UPDATE_BOARD, ADD_GROUP, REMOVE_GROUP, UPDATE_TASK } from './board.reducer'
+import { ADD_BOARD, REMOVE_BOARD, SET_BOARDS, SET_BOARD, UPDATE_BOARD, ADD_GROUP, UPDATE_GROUP,REMOVE_GROUP, UPDATE_TASK } from './board.reducer'
 
 export async function loadBoards() {
     try {
@@ -81,6 +81,18 @@ export async function removeGroup(boardId, groupId) {
     }
 }
 
+export async function updateGroup(boardId, group) {
+    try {
+        const savedBoard = await boardService.updateGroup(boardId, group)
+        console.log('Updated Task', group)
+        store.dispatch(getCmdUpdateGroup(boardId, group))
+        return savedBoard
+    } catch (err) {
+        console.log('Cannot update task', err)
+        throw err
+    }
+}
+
 export async function updateTask(boardId, groupId, task, activityTitle) {
     try {
         const [savedTask, activity] = await boardService.updateTask(boardId, groupId, task, activityTitle)
@@ -141,6 +153,14 @@ function getCmdRemoveGroup(boardId, groupId) {
         type: REMOVE_GROUP,
         boardId,
         groupId
+    }
+}
+
+function getCmdUpdateGroup(boardId, group) {
+    return {
+        type: UPDATE_GROUP,
+        boardId,
+        group
     }
 }
 
