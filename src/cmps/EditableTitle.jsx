@@ -1,33 +1,48 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
-export function EditableTitle({ initialTitle, onUpdate }) {
-  const [title, setTitle] = useState(initialTitle);
-  const [isEditing, setIsEditing] = useState(false);
+export function EditableTitle({ initialTitle, onUpdateTitle }) {
+  const [title, setTitle] = useState(initialTitle)
+  const [isEditing, setIsEditing] = useState(false)
+  const inputRef = useRef()
 
-  const handleTitleClick = () => {
-    setIsEditing(true);
-  };
+  useEffect(() => {
+    if (isEditing) {
+      inputRef.current.focus()
+    }
+  }, [isEditing])
 
-  const handleInputChange = (e) => {
-    setTitle(e.target.value);
-  };
+  function handleTitleClick(ev) {
+    console.log("EditableTitle title click event", ev)
+    ev.stopPropagation()
+    ev.preventDefault()
+    setIsEditing(true)
+  }
 
-  const handleInputBlur = () => {
-    setIsEditing(false);
-    onUpdate(title);
-  };
+  function handleInputChange(ev) {
+    setTitle(ev.target.value)
+  }
+
+  function handleInputBlur(ev) {
+    console.log("EditableTitle blur event", ev)
+    ev.stopPropagation()
+    ev.preventDefault()
+    setIsEditing(false)
+    onUpdateTitle(title)
+  }
 
   return (
-    <div>
+    <div className='editable-title'>
       {isEditing ? (
         <input
+          onKeyDown={ev => ev.key === 'Enter' && handleInputBlur(ev)}
           type="text"
           value={title}
-          onChange={handleInputChange}
-          onBlur={handleInputBlur}
+          onChange={(ev) => handleInputChange(ev)}
+          onBlur={ev => handleInputBlur(ev)}
+          ref={inputRef}
         />
       ) : (
-        <h2 onClick={handleTitleClick}>{title}</h2>
+        <h2 onClick={ev => handleTitleClick(ev)}>{title}</h2>
       )}
     </div>
   );
