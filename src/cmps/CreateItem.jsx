@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 
-export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Add', className = '', insideRef = null }) {
+export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Add', className = '', insideRef = null, groupId=null }) {
 	const [newItem, setNewItem] = useState(null)
 	const board = useSelector(storeState => storeState.boardModule.board)
 	const inputRef = useRef(null)
@@ -34,8 +34,15 @@ export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Ad
 		setNewItem({ ...newItem, title })
 	}
 
-	function handleAddItem(boardId, newItem) {
-		onAddItem(boardId, newItem)
+	function handleAddItem(newItem) {
+		if (groupId) {
+			// For tasks, include groupId
+			onAddItem(board._id, groupId, newItem)
+		} else {
+			// For groups, omit groupId
+			onAddItem(board._id, newItem)
+		}
+
 		setNewItem(null)
 	}
 
@@ -45,17 +52,18 @@ export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Ad
 				(
 					<section key='new-item' className={className}>
 						<h2 className="item-title">{newItem?.title} - new</h2>
-						<input type="text" 
-							value={newItem.title} 
+						<input type="text"
+							value={newItem.title}
 							onChange={ev => onChangeTitle(ev.target.value)}
-							onKeyDown={ev => ev.key === 'Enter' && handleAddItem(board?._id, newItem)}
+							onKeyDown={ev => ev.key === 'Enter' && handleAddItem(newItem)}
 							ref={inputRef}
 						/>
-						<button onClick={() => { handleAddItem(board?._id, newItem) }}>{addBtnLabel}</button>
+						<button onClick={() => { handleAddItem(newItem) }}>{addBtnLabel}</button>
+						<button onClick={() => { setNewItem(null) }}>X</button>
 					</section>
 				)
 			}
-			{!newItem && <button onClick={ ev => { onAddEmptyGroup(ev) }}>{initialBtnLbl}</button>}
+			{!newItem && <button onClick={ev => { onAddEmptyGroup(ev) }}>{initialBtnLbl}</button>}
 		</>
 	)
 }
