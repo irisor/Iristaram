@@ -5,15 +5,19 @@ export const ADD_BOARD = 'ADD_BOARD'
 export const UPDATE_BOARD = 'UPDATE_BOARD'
 export const ADD_BOARD_MSG = 'ADD_BOARD_MSG'
 export const UPDATE_TASK = 'UPDATE_TASK'
+export const ADD_GROUP = 'ADD_GROUP'
+export const UPDATE_GROUP = 'UPDATE_GROUP'
+export const REMOVE_GROUP = 'REMOVE_GROUP'
 
 const initialState = {
     board: null,
     boards: [],
 }
+let board
 
 export function boardReducer(state = initialState, action) {
-    var newState = state
-    var boards
+    let newState = state
+    let boards
     switch (action.type) {
         case SET_BOARDS:
             newState = { ...state, boards: action.boards }
@@ -32,11 +36,8 @@ export function boardReducer(state = initialState, action) {
             boards = state.boards.map(board => (board._id === action.board._id) ? action.board : board)
             newState = { ...state, boards }
             break
-        case ADD_BOARD_MSG:
-            newState = { ...state, board: {...state.board, msgs: [...state.board.msgs || [], action.msg]} }
-            break
         case UPDATE_TASK:
-            const board = {...state.board}
+            board = {...state.board}
             board.groups = state.board.groups.map(g => {
                 if (g.id !== action.groupId) return g
                 const group = {...g}
@@ -44,6 +45,21 @@ export function boardReducer(state = initialState, action) {
                 return group
             })
             board.activities = [...board.activities, action.activity]
+            newState = { ...state, board }
+            break
+        case ADD_GROUP:
+            board = {...state.board}
+            board.groups = [...state.board.groups, action.group]
+            newState = { ...state, board }
+            break
+        case UPDATE_GROUP:
+            board = {...state.board}
+            board.groups = board.groups.map(g => (g.id === action.group.id) ? action.group : g)
+            newState = { ...state, board }
+            break
+        case REMOVE_GROUP:
+            board = {...state.board}
+            board.groups = board.groups.filter(g => g.id !== action.groupId)
             newState = { ...state, board }
             break
     

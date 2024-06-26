@@ -1,10 +1,12 @@
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { Link, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
+import { GroupList } from '../cmps/GroupList'
+
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 
-import { loadBoard, addBoardMsg } from '../store/board.actions'
+import { loadBoard, addGroup, removeGroup, updateGroup } from '../store/board.actions'
 
 
 export function BoardDetails() {
@@ -12,20 +14,44 @@ export function BoardDetails() {
   const { boardId } = useParams()
   const board = useSelector(storeState => storeState.boardModule.board)
 
+  console.log('board.details:', board, boardId)
+
   useEffect(() => {
+    console.log('BoardDetails useEffect: ', boardId)
     loadBoard(boardId)
   }, [boardId])
 
-  async function onAddBoardMsg(boardId) {
+  async function onAddGroup(boardId, newGroup) {
+    if (!newGroup.title) return
     try {
-      await addBoardMsg(boardId, 'bla bla ' + parseInt(Math.random() * 10))
-      showSuccessMsg(`Board msg added`)
+      await addGroup(boardId, newGroup)
+      showSuccessMsg(`Group added`)
     } catch (err) {
-      showErrorMsg('Cannot add board msg')
+      showErrorMsg('Cannot add group')
+    }
+  }
+
+  async function onRemoveGroup(boardId, groupId) {
+    try {
+      await removeGroup(boardId, groupId)
+      showSuccessMsg(`Group removed`)
+    } catch (err) {
+      showErrorMsg('Cannot remove group')
+    }
+  }
+
+  async function onUpdateTitle(group, updatedTitle) {
+    try {
+      const newGroup = { ...group, title: updatedTitle }
+      await updateGroup(boardId, newGroup)
+      showSuccessMsg(`Group title updated`)
+    } catch (err) {
+      showErrorMsg('Cannot update group title')
     }
   }
 
 
+  if (!board || !boardId || boardId !== board._id) return <section>Loading...</section>
   return (
     <section className="board-details">
       <h1>Board Details</h1>
@@ -33,33 +59,12 @@ export function BoardDetails() {
         <h3>
           {board.title}
         </h3>
-        <section className="group-container">
-          {board?.groups?.map(group =>
-            <section key={group.id} className="group">
-              {group.tasks?.map(task =>
-                <article key={task.id} className="task">
-                  <Link to={`group/${group.id}/task/${task.id}`}>
-                    <h4>{task.title}</h4>
-                  </Link>
-                  <p>
-                    Status: {task.status} | Due: {task.dueDate}
-                    | MemberIds: {task.memberIds?.join()}
-                  </p>
-                </article>
-              )}
-            </section>
-          )}
-        </section>
-        <button onClick={() => { onAddBoardMsg(board._id) }}>Add board msg</button>
-        <details>
-          <summary>Msgs</summary>
-          <pre> {JSON.stringify(board.msgs, null, 2)} </pre>
-        </details>
-        <details>
-          <summary>Goups</summary>
-          <pre> {JSON.stringify(board.groups, null, 2)} </pre>
-        </details>
-
+        <GroupList
+          onRemoveGroup={onRemoveGroup}
+          onUpdateTitle={onUpdateTitle}
+          onAddGroup={onAddGroup}
+          >
+        </GroupList>
       </div>
       }
       <Outlet />

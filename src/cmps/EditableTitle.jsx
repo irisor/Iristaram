@@ -1,0 +1,49 @@
+import { useState, useRef, useEffect } from 'react';
+
+export function EditableTitle({ initialTitle, onUpdateTitle }) {
+  const [title, setTitle] = useState(initialTitle)
+  const [isEditing, setIsEditing] = useState(false)
+  const inputRef = useRef()
+
+  useEffect(() => {
+    if (isEditing) {
+      inputRef.current.focus()
+    }
+  }, [isEditing])
+
+  function handleTitleClick(ev) {
+    console.log("EditableTitle title click event", ev)
+    ev.stopPropagation()
+    ev.preventDefault()
+    setIsEditing(true)
+  }
+
+  function handleInputChange(ev) {
+    setTitle(ev.target.value)
+  }
+
+  function handleInputBlur(ev) {
+    console.log("EditableTitle blur event", ev)
+    ev.stopPropagation()
+    ev.preventDefault()
+    setIsEditing(false)
+    onUpdateTitle(title)
+  }
+
+  return (
+    <div className='editable-title'>
+      {isEditing ? (
+        <input
+          onKeyDown={ev => ev.key === 'Enter' && handleInputBlur(ev)}
+          type="text"
+          value={title}
+          onChange={(ev) => handleInputChange(ev)}
+          onBlur={ev => handleInputBlur(ev)}
+          ref={inputRef}
+        />
+      ) : (
+        <h2 onClick={ev => handleTitleClick(ev)}>{title}</h2>
+      )}
+    </div>
+  );
+}
