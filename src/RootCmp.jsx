@@ -3,8 +3,6 @@ import { Routes, Route } from 'react-router'
 import { HomePage } from './pages/HomePage'
 import { BoardIndex } from './pages/BoardIndex.jsx'
 
-
-import { UserDetails } from './pages/UserDetails'
 import { BoardDetails } from './pages/BoardDetails'
 import { TaskDetails } from './pages/TaskDetails'
 
@@ -19,7 +17,6 @@ export function RootCmp() {
                     <Route path="" element={<HomePage />} />
                     <Route path="/boards" element={<BoardIndex />}></Route>
                     <Route path="/boards/:boardId" element={<BoardDetails />} />
-                    <Route path="/user/:id" element={<UserDetails />} />
                     <Route path="/task" element={<TaskDetails />} />
                 </Routes>
             </main>
