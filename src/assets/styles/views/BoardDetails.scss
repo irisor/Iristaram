@@ -1,12 +1,41 @@
 .board-details {
-    .group {
-        background-color: $gray1;
-        padding: 1em;
-        margin: 1em;
+    background-color: var(--clr-background-default-1);
+    display: grid;
+    grid-template-areas:
+        "sidebar header"
+        "sidebar main";
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto 1fr auto;
+    height: 100%;
+    position: relative;
+
+    @include grid-borders;
+
+    .board-details-sidebar {
+        background-color: var(--clr-background-default-2);
+        color: var(--clr-text-3);
+        grid-area: sidebar;
+        z-index: 2;
     }
-    .task {
-        background-color: $gray3;
-        padding: 1em;
-        margin: 1em;
+
+    .board-details-header {
+        background-color: var(--clr-background-header);
+        color: var(--clr-text-1);
+        grid-area: header;
+    }
+
+    .board-details-main {
+        grid-area: main;
+        overflow-x: auto;
+    }
+
+    .board-details-menu {
+        background-color: var(--clr-background-menu);
+        height: 100%;
+        inset-block-start: var(--height-header);
+        inset-inline-end: 0;
+        position: fixed;
+        width: 339px;
+        z-index: 1;
     }
 }

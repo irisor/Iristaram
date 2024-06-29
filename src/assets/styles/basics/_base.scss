@@ -2,24 +2,33 @@
     box-sizing: border-box;
 }
 
-::selection {
-    background-color: $clr1;
-    color: $clr6;
-}
+// ::selection {
+//     background-color: $clr1;
+//     color: $clr6;
+// }
 
-html {
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
-}
+html {}
 
 body {
-    
+    color: var(--clr-text-2);
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
+    font-size: rem(14px);
+    font-weight: 400;
+    line-height: rem(20px);
+    margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-   
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+h2 {
+    font-size: rem(14px);
 }
 
 img {
@@ -27,5 +36,29 @@ img {
 }
 
 a {
+    color: inherit;
     text-decoration: none;
+}
+
+textarea {
+    background-color: var(--clr-background-editable);
+    border: none;
+    border-radius: 8px;
+    box-shadow: inset 0 0 0 2px var(--clr-selected-border);
+    color: var(--clr-text-2);
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
+    font-size: rem(14px);
+    font-weight: bold;
+    display: block;
+    letter-spacing: inherit;
+    height: 32px;
+    line-height: rem(20px);
+    outline: none;
+    overflow-wrap: break-word;
+    padding: 6px 8px 6px 12px;
+    resize: none;
+    text-wrap: wrap;
+    transition-duration: 85ms;
+    transition-property: background-color, border-color, box-shadow;
+    transition-timing-function: ease;
 }

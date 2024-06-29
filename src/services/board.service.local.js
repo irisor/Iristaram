@@ -1,7 +1,6 @@
 
 import { storageService } from './async-storage.service'
 import { utilService } from './util.service'
-import { userService } from './user.service'
 
 const STORAGE_KEY = 'boardDB'
 
@@ -149,7 +148,7 @@ function _createActivity(title, task, group = null) {
     return {
         id: utilService.makeId(),
         createdAt: Date.now(),
-        byMember: userService.getLoggedinUser(),
+        // byMember: userService.getLoggedinUser(),
         title,
         task,
         group
