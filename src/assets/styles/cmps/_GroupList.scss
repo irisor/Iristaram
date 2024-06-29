@@ -1,10 +1,10 @@
 .group-list {
-	&__list {
-		align-items: start;
-		grid-auto-flow: column;
-        grid-auto-columns: 284px;
-        grid-template-rows: 1fr;
-        display: grid;
-        width: fit-content;
-	}
+	align-items: start;
+	display: grid;
+    gap: 12px;
+	grid-auto-flow: column;
+	grid-auto-columns: 284px;
+	grid-template-rows: 1fr;
+	padding: 12px;
+	width: fit-content;
 }

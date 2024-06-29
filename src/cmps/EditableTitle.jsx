@@ -12,7 +12,6 @@ export function EditableTitle({ initialTitle, onUpdateTitle }) {
   }, [isEditing])
 
   function handleTitleClick(ev) {
-    console.log("EditableTitle title click event", ev)
     ev.stopPropagation()
     ev.preventDefault()
     setIsEditing(true)
@@ -23,7 +22,6 @@ export function EditableTitle({ initialTitle, onUpdateTitle }) {
   }
 
   function handleInputBlur(ev) {
-    console.log("EditableTitle blur event", ev)
     ev.stopPropagation()
     ev.preventDefault()
     setIsEditing(false)
@@ -32,8 +30,8 @@ export function EditableTitle({ initialTitle, onUpdateTitle }) {
 
   return (
     <div className='editable-title'>
-      {isEditing ? (
-        <input
+      { false || isEditing ? (
+        <textarea className='editable-title__input'
           onKeyDown={ev => ev.key === 'Enter' && handleInputBlur(ev)}
           type="text"
           value={title}
@@ -42,7 +40,7 @@ export function EditableTitle({ initialTitle, onUpdateTitle }) {
           ref={inputRef}
         />
       ) : (
-        <h2 onClick={ev => handleTitleClick(ev)}>{title}</h2>
+        <h2 className='editable-title__fixed' onClick={ev => handleTitleClick(ev)}>{title}</h2>
       )}
     </div>
   );

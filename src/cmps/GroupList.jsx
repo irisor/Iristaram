@@ -10,12 +10,10 @@ export function GroupList({ onRemoveGroup, onUpdateTitle, onAddGroup }) {
 
 	return (
 		<section className="group-list" ref={insideRef}>
-			<section className='group-list__list'>
 				{board?.groups?.map(group =>
 					<GroupPreview key={group.id} group={group} onRemoveGroup={onRemoveGroup} onUpdateTitle={onUpdateTitle} />
 				)}
 				<CreateItem onAddItem={onAddGroup} initialBtnLbl='Add list' addBtnLabel='Add another list' className="group" insideRef={insideRef}/>
-			</section>
 		</section >
 	)
 }

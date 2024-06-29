@@ -6,14 +6,13 @@ export function GroupPreview({ group, onRemoveGroup, onUpdateTitle }) {
 
 	return (
 
-		<section key={group.id} className="group">
-			<h2 className="group-title">
-				{console.log("before EditableTitle", group.title)}
+		<section key={group.id} className="group-preview">
+			<div className="group-title">
 				<EditableTitle
 					initialTitle={group.title}
 					onUpdateTitle={(title) => onUpdateTitle(group, title)}
 				/>
-			</h2>
+			</div>
 			{group?.tasks?.map(task =>
 				<article key={task.id} className="task">
 					<Link to={`group/${group.id}/task/${task.id}`}>
