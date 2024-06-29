@@ -3,6 +3,9 @@ import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Outlet } from 'react-router-dom'
 import { GroupList } from '../cmps/GroupList'
+import { BoardSidebar } from '../cmps/BoardSidebar'
+import { BoardMenu } from '../cmps/BoardMenu'
+import { BoardHeader } from '../cmps/BoardHeader'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 
@@ -54,18 +57,25 @@ export function BoardDetails() {
   if (!board || !boardId || boardId !== board._id) return <section>Loading...</section>
   return (
     <section className="board-details">
-      <h1>Board Details</h1>
-      {board && <div>
-        <h3>
-          {board.title}
-        </h3>
-        <GroupList
-          onRemoveGroup={onRemoveGroup}
-          onUpdateTitle={onUpdateTitle}
-          onAddGroup={onAddGroup}
+      {board && <>
+        <BoardSidebar>
+        </BoardSidebar>
+
+        <BoardHeader>
+        </BoardHeader>
+
+        <main className="board-details-main">
+          <GroupList
+            onRemoveGroup={onRemoveGroup}
+            onUpdateTitle={onUpdateTitle}
+            onAddGroup={onAddGroup}
           >
-        </GroupList>
-      </div>
+          </GroupList>
+        </main>
+
+        <BoardMenu>
+        </BoardMenu>
+      </>
       }
       <Outlet />
     </section>

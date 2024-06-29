@@ -60,9 +60,8 @@ export function BoardIndex() {
 
     return (
         <section className="board-index">
-            <h3>Boards App</h3>
-            <main>
-                <button onClick={onAddBoard}>Add Board ⛐</button>
+            <main className="board-list-container">
+                <button onClick={onAddBoard}>Add Board</button>
                 <ul className="board-list">
                     {boards.map(board =>
                         <li className="board-preview" key={board._id}>

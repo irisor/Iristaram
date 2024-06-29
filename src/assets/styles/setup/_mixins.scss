@@ -56,3 +56,39 @@
         }
     }
   }
+
+  // Grid borders
+  @mixin grid-borders {
+    overflow: hidden;
+    // gap: var(--grid-border-width);
+    position: relative;
+
+    >* {
+        border-bottom: 1px solid var(--clr-grid-border);
+        border-right: 1px solid var(--clr-grid-border);
+        // border: var(--grid-border-width) solid var(--clr-grid-border);
+        // position: relative;
+
+        // &::before,
+        // &::after {
+        //     content: '';
+        //     position: absolute;
+        //     background-color: var(--clr-grid-border);
+        //     // z-index: 1;
+        // }
+
+        // &::before {
+        //     inline-size: var(--grid-border-width);
+        //     block-size: 100vh;
+        //     inset-block-start: 0;
+        //     inset-inline-start: calc(var(--grid-border-offset) * -1);
+        // }
+
+        // &::after {
+        //     inline-size: 100vw;
+        //     block-size: var(--grid-border-width);
+        //     inset-inline-start: 0;
+        //     inset-block-start: calc(var(--grid-border-offset) * -1)
+        // }
+    }
+}

@@ -1,0 +1,10 @@
+.group-list {
+	&__list {
+		align-items: start;
+		grid-auto-flow: column;
+        grid-auto-columns: 284px;
+        grid-template-rows: 1fr;
+        display: grid;
+        width: fit-content;
+	}
+}

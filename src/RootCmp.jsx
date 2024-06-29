@@ -10,9 +10,9 @@ import { AppHeader } from './cmps/AppHeader'
 
 export function RootCmp() {
     return (
-        <div>
+        <div className='app'> 
             <AppHeader />
-            <main>
+            <main className='app-main'>
                 <Routes>
                     <Route path="" element={<HomePage />} />
                     <Route path="/boards" element={<BoardIndex />}></Route>
