@@ -30,7 +30,7 @@ export function EditableTitle({ initialTitle, onUpdateTitle }) {
 
   return (
     <div className='editable-title'>
-      { false || isEditing ? (
+      { isEditing ? (
         <textarea className='editable-title__input'
           onKeyDown={ev => ev.key === 'Enter' && handleInputBlur(ev)}
           type="text"

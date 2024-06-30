@@ -6,7 +6,6 @@
 // Basics
 @import "basics/layout";
 @import "basics/base";
-@import "basics/forms";
 
 
 // Views
@@ -15,11 +14,14 @@
 @import "views/TaskDetails";
 
 // Components
+@import "cmps/EditableTitle";
+@import "cmps/CreateItem";
 @import "cmps/AppHeader";
 @import "cmps/UserMsg";
 @import "cmps/GroupList";
 @import "cmps/GroupPreview";
-@import "cmps/EditableTitle";
+@import "cmps/BoardHeader";
+@import "cmps/BoardMenu";
 
 
 

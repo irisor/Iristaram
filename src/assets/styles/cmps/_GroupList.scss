@@ -7,4 +7,29 @@
 	grid-template-rows: 1fr;
 	padding: 12px;
 	width: fit-content;
+
+	textarea {
+		background-color: var(--clr-background-editable);
+		border-radius: 8px;
+		box-shadow: inset 0 0 0 2px var(--clr-selected-border);
+		color: var(--clr-text-2);
+		height: 32px;
+		line-height: rem(20px);
+		padding: 6px 8px 6px 12px;
+	}
+
+	.create-item.non-edit {
+		background-color: var(--clr-background-new-group);
+		border-radius: 12px;
+		color: var(--clr-text-1);
+
+		@include hover-supported {
+			background-color: var(--clr-background-hover-new-group);
+		}
+	}
+
+	.create-item.edit {
+		@include group-style;
+		padding: 8px;
+	}
 }

@@ -61,7 +61,7 @@ export function BoardIndex() {
     return (
         <section className="board-index">
             <main className="board-list-container">
-                <button onClick={onAddBoard}>Add Board</button>
+                <button className="btn" onClick={onAddBoard}>Add Board</button>
                 <ul className="board-list">
                     {boards.map(board =>
                         <li className="board-preview" key={board._id}>
@@ -72,8 +72,8 @@ export function BoardIndex() {
                             <hr />
  
                             {shouldShowActionBtns(board) && <div>
-                                <button onClick={() => { onRemoveBoard(board._id) }}>x</button>
-                                <button onClick={() => { onUpdateBoard(board) }}>Edit</button>
+                                <button className="btn" onClick={() => { onRemoveBoard(board._id) }}>x</button>
+                                <button className="btn" onClick={() => { onUpdateBoard(board) }}>Edit</button>
                             </div>}
                         </li>)
                     }

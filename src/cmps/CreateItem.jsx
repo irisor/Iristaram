@@ -1,7 +1,11 @@
 import { useState, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
+import { IconContext } from "react-icons";
+import { HiOutlinePlus } from "react-icons/hi";
+import { AiOutlineClose } from "react-icons/ai";
 
-export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Add', className = '', insideRef = null, groupId=null }) {
+
+export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Add', placeholder = 'Enter title...', insideRef = null, groupId = null }) {
 	const [newItem, setNewItem] = useState(null)
 	const board = useSelector(storeState => storeState.boardModule.board)
 	const inputRef = useRef(null)
@@ -34,7 +38,9 @@ export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Ad
 		setNewItem({ ...newItem, title })
 	}
 
-	function handleAddItem(newItem) {
+	function handleAddItem(newItem, ev) {
+		ev?.preventDefault()
+
 		if (groupId) {
 			// For tasks, include groupId
 			onAddItem(board._id, groupId, newItem)
@@ -46,24 +52,39 @@ export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Ad
 		setNewItem(null)
 	}
 
+	function onClose (ev) {
+		ev.preventDefault()
+		setNewItem(null)
+	}
+
 	return (
 		<>
 			{newItem &&
 				(
-					<section key='new-item' className={className}>
-						<h2 className="item-title">{newItem?.title} - new</h2>
-						<input type="text"
+					<form key="new-item" className="create-item edit">
+						<textarea type="text"
+							className="item-title-input"
 							value={newItem.title}
 							onChange={ev => onChangeTitle(ev.target.value)}
 							onKeyDown={ev => ev.key === 'Enter' && handleAddItem(newItem)}
+							placeholder={placeholder}
 							ref={inputRef}
 						/>
-						<button onClick={() => { handleAddItem(newItem) }}>{addBtnLabel}</button>
-						<button onClick={() => { setNewItem(null) }}>X</button>
-					</section>
+						<button className="btn new-item-save btn-blue" onClick={ev => { handleAddItem(newItem, ev) }}>{addBtnLabel}</button>
+						<button className="btn icon new-item-close" onClick={ev => { onClose(ev) }}>
+							<IconContext.Provider value={{ color: 'inherit' }}>
+								<AiOutlineClose />
+							</IconContext.Provider>
+						</button>
+					</form>
 				)
 			}
-			{!newItem && <button onClick={ev => { onAddEmptyGroup(ev) }}>{initialBtnLbl}</button>}
+			{!newItem && <button className="btn create-item non-edit" onClick={ev => { onAddEmptyGroup(ev) }}>
+				<div className="icon">
+					<HiOutlinePlus />
+				</div>
+				{initialBtnLbl}
+			</button>}
 		</>
 	)
 }
