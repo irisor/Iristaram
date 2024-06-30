@@ -58,12 +58,12 @@ export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Ad
 							onKeyDown={ev => ev.key === 'Enter' && handleAddItem(newItem)}
 							ref={inputRef}
 						/>
-						<button onClick={() => { handleAddItem(newItem) }}>{addBtnLabel}</button>
-						<button onClick={() => { setNewItem(null) }}>X</button>
+						<button className="btn"onClick={() => { handleAddItem(newItem) }}>{addBtnLabel}</button>
+						<button className="btn" onClick={() => { setNewItem(null) }}>X</button>
 					</section>
 				)
 			}
-			{!newItem && <button onClick={ev => { onAddEmptyGroup(ev) }}>{initialBtnLbl}</button>}
+			{!newItem && <button className="btn" onClick={ev => { onAddEmptyGroup(ev) }}>{initialBtnLbl}</button>}
 		</>
 	)
 }

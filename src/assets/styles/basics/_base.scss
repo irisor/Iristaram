@@ -27,6 +27,12 @@ h6 {
     margin: 0;
 }
 
+h1 {
+    font-size: rem(18px);
+    font-weight: 700;
+    line-height: rem(32px);
+}
+
 h2 {
     font-size: rem(14px);
 }
@@ -63,8 +69,25 @@ textarea {
     transition-timing-function: ease;
 }
 
-button {
+.btn {
+    background-color: transparent;
+    border: none;
+    border-radius: 3px;
     color: inherit;
+    cursor: pointer;
     display: grid;
+    line-height: rem(20px);
+    padding: 6px;
+    outline: none;
     place-content: center;
+    transition: 0.1s ease;
+
+    @include hover-supported {
+        background-color: var(--clr-background-hover-1);
+    }
+}
+
+.icon {
+    height: 32px;
+    width: 32px;
 }

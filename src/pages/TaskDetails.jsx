@@ -71,7 +71,7 @@ export function TaskDetails() {
     return (
         <dialog className="task-details" ref={dialog}>
             <Link to={`/board/${boardId}`}>
-                <button>X</button>
+                <button className="btn">X</button>
             </Link>
             <h1>Task Details</h1>
             {task && <div>

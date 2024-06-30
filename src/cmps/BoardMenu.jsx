@@ -4,7 +4,7 @@ import { AiOutlineClose } from "react-icons/ai";
 export function BoardMenu({ toggleMenu }) {
 	return (
 		<div className="board-menu">
-			<button className="board-btn-close-menu" onClick={() => toggleMenu()}>
+			<button className="board-btn-close-menu btn icon" onClick={() => toggleMenu()}>
 				<IconContext.Provider value={{ color: 'inherit' }}>
 					<AiOutlineClose />
 				</IconContext.Provider>

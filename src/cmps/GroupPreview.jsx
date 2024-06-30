@@ -24,7 +24,7 @@ export function GroupPreview({ group, onRemoveGroup, onUpdateTitle }) {
 					</p>
 				</article>
 			)}
-			<button onClick={() => { onRemoveGroup(board._id, group?.id) }}>X</button>
+			<button className="btn" onClick={() => { onRemoveGroup(board._id, group?.id) }}>X</button>
 		</section>
 	)
 }

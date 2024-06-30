@@ -66,7 +66,7 @@ export function BoardDetails() {
         <BoardSidebar>
         </BoardSidebar>
 
-        <BoardHeader toggleMenu={toggleMenu}>
+        <BoardHeader toggleMenu={toggleMenu} isMenuOpen={isMenuOpen}>
         </BoardHeader>
 
         <main className="board-main">
