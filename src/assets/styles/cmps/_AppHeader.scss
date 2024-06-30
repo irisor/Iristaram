@@ -15,18 +15,27 @@
         justify-content: start;
     }
 
-    .logo {
-        background-image: url('/img/trello-logo-static.gif');
-        background-size: contain;
+    .app-header-logo {
         display: block;
         filter: var(--logo-filter);
-        height: 16px;
-        padding: 8px 0;
-        width: 75px;
+        padding: 8px;
+        
+        .logo-img {
+            background-image: url('/img/trello-logo-static.gif');
+            background-size: contain;
+            background-position: center;
+            height: 16px;
+            width: 75px;
 
-        &:hover {
-            background-image: url('/img/trello-logo-animation.gif');
+            &:hover {
+                background-image: url('/img/trello-logo-animation.gif');
+            }
         }
+    }
+
+    .app-header-nav-link {
+        filter: var(--logo-filter);
+        padding: 6px 10px 6px 12px;
     }
 
 
