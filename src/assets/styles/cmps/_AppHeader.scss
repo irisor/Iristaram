@@ -1,12 +1,42 @@
 .app-header {
     background-color: var(--clr-background-default-2);
     color: var(--clr-text-3);
-    height: 48px;
     display: grid;
+    font-weight: 500;
     grid-auto-flow: column;
+    height: 48px;
+    padding: 8px 8px 8px 48px;
 
-    nav {
-
+    .app-header-nav {
+        align-items: center;
+        display: grid;
+        gap: 20px;
+        grid-auto-flow: column;
+        justify-content: start;
     }
+
+    .app-header-logo {
+        display: block;
+        filter: var(--logo-filter);
+        padding: 8px;
+        
+        .logo-img {
+            background-image: url('/img/trello-logo-static.gif');
+            background-size: contain;
+            background-position: center;
+            height: 16px;
+            width: 75px;
+
+            &:hover {
+                background-image: url('/img/trello-logo-animation.gif');
+            }
+        }
+    }
+
+    .app-header-nav-link {
+        filter: var(--logo-filter);
+        padding: 6px 10px 6px 12px;
+    }
+
 
 }
