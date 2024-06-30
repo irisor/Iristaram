@@ -17,4 +17,19 @@
 		line-height: rem(20px);
 		padding: 6px 8px 6px 12px;
 	}
+
+	.create-item.non-edit {
+		background-color: var(--clr-background-new-group);
+		border-radius: 12px;
+		color: var(--clr-text-1);
+
+		@include hover-supported {
+			background-color: var(--clr-background-hover-new-group);
+		}
+	}
+
+	.create-item.edit {
+		@include group-style;
+		padding: 8px;
+	}
 }
