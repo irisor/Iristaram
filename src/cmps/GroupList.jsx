@@ -13,7 +13,9 @@ export function GroupList({ onRemoveGroup, onUpdateTitle, onAddGroup }) {
 				{board?.groups?.map(group =>
 					<GroupPreview key={group.id} group={group} onRemoveGroup={onRemoveGroup} onUpdateTitle={onUpdateTitle} />
 				)}
-				<CreateItem onAddItem={onAddGroup} initialBtnLbl='Add list' addBtnLabel='Add another list' className="group" insideRef={insideRef}/>
+				<div className="group-preview">
+					<CreateItem onAddItem={onAddGroup} initialBtnLbl='Add another list' addBtnLabel='Add list' placeholder='Enter list title...' insideRef={insideRef}/>
+				</div>
 		</section >
 	)
 }

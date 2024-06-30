@@ -1,0 +1,31 @@
+.create-item {
+    column-gap: 4px;
+	display: grid;
+	row-gap: 8px;
+	
+	&.non-edit {
+		font-weight: 600;
+		grid-auto-flow: column;
+		justify-content: start;
+		width: 100%;
+	}
+	
+	&.edit {
+		grid-template-areas: 
+		"title title title"
+		"save close .";
+		grid-template-columns: auto auto 1fr;
+	}
+
+	.item-title-input {
+		grid-area: title;
+	}
+
+	.new-item-save {
+		grid-area: save;
+	}
+
+	.new-item-close {
+		grid-area: close;
+	}
+}

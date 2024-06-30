@@ -47,21 +47,14 @@ a {
 }
 
 textarea {
-    background-color: var(--clr-background-editable);
     border: none;
-    border-radius: 8px;
-    box-shadow: inset 0 0 0 2px var(--clr-selected-border);
-    color: var(--clr-text-2);
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
     font-size: rem(14px);
     font-weight: bold;
     display: block;
     letter-spacing: inherit;
-    height: 32px;
-    line-height: rem(20px);
     outline: none;
     overflow-wrap: break-word;
-    padding: 6px 8px 6px 12px;
     resize: none;
     text-wrap: wrap;
     transition-duration: 85ms;
@@ -70,12 +63,16 @@ textarea {
 }
 
 .btn {
+    align-items: center;
     background-color: transparent;
     border: none;
     border-radius: 3px;
     color: inherit;
     cursor: pointer;
     display: grid;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
     line-height: rem(20px);
     padding: 6px;
     outline: none;
@@ -87,7 +84,21 @@ textarea {
     }
 }
 
+.btn-blue {
+    background-color: var(--clr-text-active-1);
+    box-shadow: none;
+    font-weight: 500;
+    color: var(--clr-text-4);
+    padding: 6px 12px;
+
+    @include hover-supported {
+        background-color: var(--clr-background-hover-2);
+    }
+}
+
 .icon {
+    display: grid;
     height: 32px;
+    place-content: center;
     width: 32px;
 }
