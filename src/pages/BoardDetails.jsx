@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Outlet } from 'react-router-dom'
@@ -16,6 +16,7 @@ export function BoardDetails() {
 
   const { boardId } = useParams()
   const board = useSelector(storeState => storeState.boardModule.board)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   console.log('board.details:', board, boardId)
 
@@ -53,18 +54,22 @@ export function BoardDetails() {
     }
   }
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+  }
+
 
   if (!board || !boardId || boardId !== board._id) return <section>Loading...</section>
   return (
-    <section className="board-details">
+    <section className={`board-details ${isMenuOpen ? 'menu-open' : ''}`}>
       {board && <>
         <BoardSidebar>
         </BoardSidebar>
 
-        <BoardHeader>
+        <BoardHeader toggleMenu={toggleMenu}>
         </BoardHeader>
 
-        <main className="board-details-main">
+        <main className="board-main">
           <GroupList
             onRemoveGroup={onRemoveGroup}
             onUpdateTitle={onUpdateTitle}
@@ -73,7 +78,7 @@ export function BoardDetails() {
           </GroupList>
         </main>
 
-        <BoardMenu>
+        <BoardMenu toggleMenu={toggleMenu}>
         </BoardMenu>
       </>
       }

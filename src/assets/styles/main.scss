@@ -6,7 +6,6 @@
 // Basics
 @import "basics/layout";
 @import "basics/base";
-@import "basics/forms";
 
 
 // Views
@@ -20,6 +19,8 @@
 @import "cmps/GroupList";
 @import "cmps/GroupPreview";
 @import "cmps/EditableTitle";
+@import "cmps/BoardHeader";
+@import "cmps/BoardMenu";
 
 
 
