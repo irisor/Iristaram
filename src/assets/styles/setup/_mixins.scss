@@ -64,8 +64,8 @@
     position: relative;
 
     >* {
-        border-bottom: 1px solid var(--clr-grid-border);
-        border-left: 1px solid var(--clr-grid-border);
+        border-block-end: 1px solid var(--clr-grid-border);
+        border-inline-start: 1px solid var(--clr-grid-border);
         // border: var(--grid-border-width) solid var(--clr-grid-border);
         // position: relative;
 
