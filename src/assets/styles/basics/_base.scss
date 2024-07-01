@@ -63,6 +63,7 @@ textarea {
 }
 
 ul {
+    margin: 0;
     padding: 0;
 }
 
@@ -81,6 +82,7 @@ li {
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
+    filter: var(--logo-filter);
     line-height: rem(20px);
     padding: 6px;
     outline: none;
