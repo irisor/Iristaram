@@ -16,9 +16,9 @@ export function BoardSidebar() {
 			<div className="board-sidebar-boards">
 				<h2 className="board-sidebar-boards-title">Your boards</h2>
 
-				<ul>
+				<ul className="board-sidebar-boards-list">
 					{boards.map(board => (
-						<li key={board._id}><NavLink to={`/boards/${board._id}`}>{board.title}</NavLink></li>
+						<li key={board._id}><NavLink to={`/boards/${board._id}`} className="board-sidebar-item btn">{board.title}</NavLink></li>
 					))}
 				</ul>
 			</div>

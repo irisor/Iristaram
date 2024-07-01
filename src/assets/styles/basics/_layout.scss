@@ -1,8 +1,13 @@
 .app {
     background-color: var(--clr-background-default-1);
     display: grid;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
     height: 100vh;
 
     @include grid-borders;
+
+    .app-main {
+        border-inline-start: none;
+        border-block-end: none;
+    }
 }
