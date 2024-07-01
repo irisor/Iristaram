@@ -13,7 +13,7 @@ export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Ad
 
 	useEffect(() => {
 		function handleClick(ev) {
-			console.log("CreateItem event", ev)
+			// console.log("CreateItem event", ev)
 			if (insideRef.current &&
 				!insideRef.current.contains(ev.target)
 			) {
@@ -61,7 +61,7 @@ export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Ad
 		<>
 			{newItem &&
 				(
-					<form key="new-item" className="create-item edit">
+					<form key="new-item" className="create-item edit" onSubmit={ev => { handleAddItem(newItem, ev) }}>
 						<textarea type="text"
 							className="item-title-input"
 							value={newItem.title}

@@ -1,7 +1,28 @@
+import { useSelector } from 'react-redux'
+import { NavLink } from 'react-router-dom'
+import { useEffect } from 'react'
+import { loadBoards } from '../store/board.actions'
+
 export function BoardSidebar() {
+
+	const boards = useSelector(storeState => storeState.boardModule.boards)
+
+	useEffect(() => {
+        loadBoards()
+    }, [])
+
 	return (
-		<div className="board-sidebar">
-			<p>Board sidebar</p>
-		</div>
+		<section className="board-sidebar">
+			<div className="board-sidebar-boards">
+				<h2 className="board-sidebar-boards-title">Your boards</h2>
+
+				<ul>
+					{boards.map(board => (
+						<li key={board._id}><NavLink to={`/boards/${board._id}`}>{board.title}</NavLink></li>
+					))}
+				</ul>
+			</div>
+		</section>
+
 	)
 }
