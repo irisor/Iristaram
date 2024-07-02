@@ -5,15 +5,16 @@ import { HiOutlinePlus } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
 
 
-export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Add', placeholder = 'Enter title...', insideRef = null, groupId = null }) {
+export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Add', placeholder = 'Enter title...', groupId = null }) {
 	const [newItem, setNewItem] = useState(null)
 	const board = useSelector(storeState => storeState.boardModule.board)
 	const inputRef = useRef(null)
+	const insideRef = useRef(null)
 
 
 	useEffect(() => {
 		function handleClick(ev) {
-			// console.log("CreateItem event", ev)
+			// console.log("CreateItem event", ev, insideRef.current)
 			if (insideRef.current &&
 				!insideRef.current.contains(ev.target)
 			) {
@@ -61,7 +62,7 @@ export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Ad
 		<>
 			{newItem &&
 				(
-					<form key="new-item" className="create-item edit" onSubmit={ev => { handleAddItem(newItem, ev) }}>
+					<form key="new-item" className="create-item edit" onSubmit={ev => { handleAddItem(newItem, ev) }} ref={insideRef}>
 						<textarea type="text"
 							className="item-title-input"
 							value={newItem.title}
