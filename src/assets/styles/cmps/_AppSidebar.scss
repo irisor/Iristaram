@@ -1,6 +1,10 @@
-.board-sidebar {
+.app-sidebar {
+	background-color: var(--clr-background-default-2);
+	color: var(--clr-text-3);
+	grid-area: sidebar;
 	overflow-y: auto;
 	padding: 12px 0;
+	z-index: 10;
 
 	.btn {
 		border-radius: 0;

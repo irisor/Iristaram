@@ -1,6 +1,10 @@
 .app {
     background-color: var(--clr-background-default-1);
     display: grid;
+    grid-template-areas: 
+    "header header"
+    "sidebar main";
+    grid-template-columns: 250px minmax(0, 1fr);
     grid-template-rows: auto minmax(0, 1fr);
     height: 100vh;
 
@@ -9,5 +13,6 @@
     .app-main {
         border-inline-start: none;
         border-block-end: none;
+        grid-area: main;
     }
 }

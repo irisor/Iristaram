@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Outlet } from 'react-router-dom'
 import { GroupList } from '../cmps/GroupList'
-import { BoardSidebar } from '../cmps/BoardSidebar'
 import { BoardMenu } from '../cmps/BoardMenu'
 import { BoardHeader } from '../cmps/BoardHeader'
 
@@ -63,8 +62,6 @@ export function BoardDetails() {
   return (
     <section className={`board-details ${isMenuOpen ? 'menu-open' : ''}`}>
       {board && <>
-        <BoardSidebar>
-        </BoardSidebar>
 
         <BoardHeader toggleMenu={toggleMenu} isMenuOpen={isMenuOpen}>
         </BoardHeader>
