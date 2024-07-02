@@ -1,4 +1,31 @@
 .board-menu {
 	border-left: none;
 	box-shadow: var(--shadow-overlay);
+
+	&-header {
+		display: grid;
+		grid-template-areas:
+			"title close";
+		grid-template-columns: minmax(0, 1fr) auto;
+		margin: 12px 0 12px 32px;
+		padding: 0 12px;
+		place-items: center;
+	}
+
+	&-title {
+		font-size: 16px;
+		font-weight: 500;
+		grid-area: title;
+		padding: 6px 0;
+	}
+	
+	&-close {
+		grid-area: close;
+	}
+	
+	&-hr {
+		background-color: var(--clr-divider);
+		margin: -1px 12px 0;
+		opacity: 0.25;
+	}
 }
