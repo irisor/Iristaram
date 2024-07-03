@@ -1,15 +1,14 @@
 import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
 
-import { useSelector } from 'react-redux'
 import { loadBoards, addBoard, updateBoard, removeBoard } from '../store/board.actions'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { boardService } from '../services/board.service.local'
+import { BoardList } from '../cmps/BoardList'
 
 export function BoardIndex() {
 
-    const boards = useSelector(storeState => storeState.boardModule.boards)
+    
 
     useEffect(() => {
         loadBoards()
@@ -35,49 +34,11 @@ export function BoardIndex() {
         }        
     }
 
-    async function onUpdateBoard(board) {
-        const title = prompt('New title?', board.title)
-        if (!title) return 
-
-        const boardToSave = { ...board, title }
-        try {
-            const savedBoard = await updateBoard(boardToSave)
-            showSuccessMsg(`Board updated, new title: ${savedBoard.title}`)
-        } catch (err) {
-            showErrorMsg('Cannot update board')
-        }        
-    }
-
-
-    function shouldShowActionBtns(board) {
-        if (!board) return false
-        return true
-        // const user = userService.getLoggedinUser()
-        // if (!user) return false
-        // if (user.isAdmin) return true
-        // return board.owner?._id === user._id
-    }
-
     return (
         <section className="board-index">
+            <h2 className='board-index-title'>Boards</h2>
             <main className="board-list-container">
-                <button className="btn" onClick={onAddBoard}>Add Board</button>
-                <ul className="board-list">
-                    {boards.map(board =>
-                        <li className="board-preview" key={board._id}>
-                            <Link to={`${board._id}`}>
-                                <h4>{board.title}</h4>
-                           </Link>
-                           
-                            <hr />
- 
-                            {shouldShowActionBtns(board) && <div>
-                                <button className="btn" onClick={() => { onRemoveBoard(board._id) }}>x</button>
-                                <button className="btn" onClick={() => { onUpdateBoard(board) }}>Edit</button>
-                            </div>}
-                        </li>)
-                    }
-                </ul>
+                <BoardList />
             </main>
         </section>
     )
