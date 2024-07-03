@@ -5,6 +5,7 @@ import { Outlet } from 'react-router-dom'
 import { GroupList } from '../cmps/GroupList'
 import { BoardMenu } from '../cmps/BoardMenu'
 import { BoardHeader } from '../cmps/BoardHeader'
+import { updateBoard } from '../store/board.actions'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 
@@ -43,7 +44,7 @@ export function BoardDetails() {
     }
   }
 
-  async function onUpdateTitle(group, updatedTitle) {
+  async function onUpdateGroupTitle(group, updatedTitle) {
     try {
       const newGroup = { ...group, title: updatedTitle }
       await updateGroup(boardId, newGroup)
@@ -52,6 +53,18 @@ export function BoardDetails() {
       showErrorMsg('Cannot update group title')
     }
   }
+  
+  async function onUpdateBoardTitle(board, title) {
+    if (!title) return 
+
+    const boardToSave = { ...board, title }
+    try {
+        const savedBoard = await updateBoard(boardToSave)
+        showSuccessMsg(`Board updated, new title: ${savedBoard.title}`)
+    } catch (err) {
+        showErrorMsg('Cannot update board')
+    }        
+}
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -63,13 +76,13 @@ export function BoardDetails() {
     <section className={`board-details ${isMenuOpen ? 'menu-open' : ''}`}>
       {board && <>
 
-        <BoardHeader toggleMenu={toggleMenu} isMenuOpen={isMenuOpen}>
+        <BoardHeader toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} onUpdateBoardTitle={onUpdateBoardTitle}>
         </BoardHeader>
 
         <main className="board-main">
           <GroupList
             onRemoveGroup={onRemoveGroup}
-            onUpdateTitle={onUpdateTitle}
+            onUpdateGroupTitle={onUpdateGroupTitle}
             onAddGroup={onAddGroup}
           >
           </GroupList>

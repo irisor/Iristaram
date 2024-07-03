@@ -14,11 +14,14 @@ export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Ad
 
 	useEffect(() => {
 		function handleClick(ev) {
-			// console.log("CreateItem event", ev, insideRef.current)
 			if (insideRef.current &&
 				!insideRef.current.contains(ev.target)
 			) {
-				setNewItem(null)
+				if (inputRef.current?.value?.length > 0) {
+					handleAddItem({title: inputRef.current?.value}, ev)
+				} else {
+					setNewItem(() => null)
+				}
 			}
 		}
 		document.addEventListener("click", handleClick);
@@ -26,20 +29,21 @@ export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Ad
 	}, [insideRef])
 
 	useEffect(() => {
+		console.log('onChaneTitle useEffect', newItem)
 		inputRef.current?.focus()
 	}, [newItem])
 
 	function onAddEmptyGroup(ev) {
 		ev.stopPropagation()
 		ev.preventDefault()
-		setNewItem({ title: '' })
+		setNewItem(() => (() => { title: '' }))
 	}
 
 	function onChangeTitle(title) {
-		setNewItem({ ...newItem, title })
+		setNewItem(prevItem => ({ ...prevItem, title }))
 	}
 
-	function handleAddItem(newItem, ev) {
+	function handleAddItem(newItem, ev = null) {
 		ev?.preventDefault()
 
 		if (groupId) {
@@ -50,12 +54,12 @@ export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Ad
 			onAddItem(board._id, newItem)
 		}
 
-		setNewItem(null)
+		setNewItem(() => null)
 	}
 
-	function onClose (ev) {
+	function onClose(ev) {
 		ev.preventDefault()
-		setNewItem(null)
+		setNewItem(() => null)
 	}
 
 	return (
@@ -64,7 +68,7 @@ export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Ad
 				(
 					<form key="new-item" className="create-item edit" onSubmit={ev => { handleAddItem(newItem, ev) }} ref={insideRef}>
 						<textarea type="text"
-							className="item-title-input"
+							className="editable-title-input"
 							value={newItem.title}
 							onChange={ev => onChangeTitle(ev.target.value)}
 							onKeyDown={ev => ev.key === 'Enter' && handleAddItem(newItem)}

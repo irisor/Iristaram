@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { EditableTitle } from './EditableTitle'
-export function GroupPreview({ group, onRemoveGroup, onUpdateTitle }) {
+export function GroupPreview({ group, onRemoveGroup, onUpdateGroupTitle }) {
 	const board = useSelector(storeState => storeState.boardModule.board)
 
 	return (
@@ -10,7 +10,7 @@ export function GroupPreview({ group, onRemoveGroup, onUpdateTitle }) {
 			<div className="group-title">
 				<EditableTitle
 					initialTitle={group.title}
-					onUpdateTitle={(title) => onUpdateTitle(group, title)}
+					onUpdateTitle={(title) => onUpdateGroupTitle(group, title)}
 				/>
 			</div>
 			{group?.tasks?.map(task =>
