@@ -1,13 +1,16 @@
 import { useState, useRef, useEffect } from 'react';
 
-export function EditableTitle({ initialTitle, onUpdateTitle }) {
+export function EditableTitle({ initialTitle, onUpdateTitle, tag='h2' }) {
   const [title, setTitle] = useState(initialTitle)
   const [isEditing, setIsEditing] = useState(false)
   const inputRef = useRef()
+  const TagComponent = tag;
+
 
   useEffect(() => {
     if (isEditing) {
       inputRef.current.focus()
+      inputRef.current.select()
     }
   }, [isEditing])
 
@@ -31,7 +34,7 @@ export function EditableTitle({ initialTitle, onUpdateTitle }) {
   return (
     <div className='editable-title'>
       { isEditing ? (
-        <textarea className='editable-title__input'
+        <textarea className='editable-title-input'
           onKeyDown={ev => ev.key === 'Enter' && handleInputBlur(ev)}
           type="text"
           value={title}
@@ -40,7 +43,7 @@ export function EditableTitle({ initialTitle, onUpdateTitle }) {
           ref={inputRef}
         />
       ) : (
-        <h2 className='editable-title__fixed' onClick={ev => handleTitleClick(ev)}>{title}</h2>
+        <TagComponent className='editable-title-fixed' onClick={ev => handleTitleClick(ev)}>{title}</TagComponent>
       )}
     </div>
   );
