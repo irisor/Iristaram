@@ -9,7 +9,6 @@ export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Ad
 	const [itemData, setItemData] = useState(null)
 	const board = useSelector(storeState => storeState.boardModule.board)
 	const inputRef = useRef(null)
-	const insideRef = useRef(null)
 
 
 	useEffect(() => {
@@ -55,7 +54,7 @@ export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Ad
 			{itemData ? (
 				<>
 					<div className="create-item-outside" onClick={ev => { handleAddItem(itemData, ev) }}></div>
-					<form key="new-item" className="create-item edit" ref={insideRef}>
+					<form key="new-item" className="create-item edit">
 						<textarea
 							type="text"
 							className="editable-title-input"
