@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { EditableTitle } from './EditableTitle'
-export function GroupPreview({ group, onRemoveGroup, onUpdateGroupTitle }) {
+import {TaskList} from './TaskList'
+export function GroupPreview({ group, onRemoveGroup, onUpdateGroupTitle, taskProps }) {
 	const board = useSelector(storeState => storeState.boardModule.board)
 
 	return (
@@ -13,17 +14,9 @@ export function GroupPreview({ group, onRemoveGroup, onUpdateGroupTitle }) {
 					onUpdateTitle={(title) => onUpdateGroupTitle(group, title)}
 				/>
 			</div>
-			{group?.tasks?.map(task =>
-				<article key={task.id} className="task">
-					<Link to={`group/${group.id}/task/${task.id}`}>
-						<h4>{task.title}</h4>
-					</Link>
-					<p>
-						Status: {task.status} | Due: {task.dueDate}
-						| MemberIds: {task.memberIds?.join()}
-					</p>
-				</article>
-			)}
+			<TaskList
+				props={{groupId: group.id, ...taskProps}}
+			/>
 			<button className="btn" onClick={() => { onRemoveGroup(board._id, group?.id) }}>X</button>
 		</section>
 	)

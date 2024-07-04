@@ -4,6 +4,8 @@ export const REMOVE_BOARD = 'REMOVE_BOARD'
 export const ADD_BOARD = 'ADD_BOARD'
 export const UPDATE_BOARD = 'UPDATE_BOARD'
 export const ADD_BOARD_MSG = 'ADD_BOARD_MSG'
+export const ADD_TASK = 'ADD_TASK'
+export const REMOVE_TASK = 'REMOVE_TASK'
 export const UPDATE_TASK = 'UPDATE_TASK'
 export const ADD_GROUP = 'ADD_GROUP'
 export const UPDATE_GROUP = 'UPDATE_GROUP'
@@ -36,6 +38,33 @@ export function boardReducer(state = initialState, action) {
             boards = state.boards.map(board => (board._id === action.board._id) ? action.board : board)
             newState = { ...state, boards }
             break
+        case ADD_TASK:
+            board = {...state.board}
+            board.groups = state.board.groups.map(g =>{
+                if(g.id !== action.groupId) return g
+                const group = {...g}
+                group = {...group, tasks:[...group.tasks, action.task]}
+                return group
+            })
+            if(action.activity){
+                board.activities = [...board.activities, action.activity]
+            }
+            newState = {...state, board}
+            break
+            //later would become archive task
+        case  REMOVE_TASK:
+            board = {...state.board}
+            board.groups = state.board.groups.map(g =>{
+                if(g.id !== action.groupId) return g
+                const group = {...g}
+                console.log(group)
+                group.tasks = group.tasks.filter(t => t.id !== action.taskId)
+                return group
+            })
+            // if(action.activity){
+            //     board.activities = [...board.activities, action.activity]
+            // }
+            newState = {...state, board }
         case UPDATE_TASK:
             board = {...state.board}
             board.groups = state.board.groups.map(g => {

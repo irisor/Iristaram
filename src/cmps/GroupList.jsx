@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { GroupPreview } from './GroupPreview'
 import { CreateItem } from './CreateItem'
 
-export function GroupList({ onRemoveGroup, onUpdateGroupTitle, onAddGroup }) {
+export function GroupList({ onRemoveGroup, onUpdateGroupTitle, onAddGroup, taskProps }) {
 	const board = useSelector(storeState => storeState.boardModule.board)
 
 	return (

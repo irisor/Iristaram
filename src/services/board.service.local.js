@@ -14,6 +14,8 @@ export const boardService = {
     removeGroup,
     updateGroup,
     updateTask,
+    addTask,
+    removeTask,
     getTaskEditCmps
 }
 window.boardSer = boardService
@@ -101,6 +103,36 @@ async function updateTask(boardId, groupId, task, activityTitle) {
     return [task, activity]
 }
 
+async function addTask(boardId, groupId, taskTitle, activityTitle){
+    const board = await getById(boardId)
+    const groupIndex = board.groups.findIndex(g => g.id === groupId)
+
+    let task = getTask(taskTitle)
+    board.groups[groupIndex].tasks.push(task)
+
+    const activity = _createActivity(activityTitle, _toMiniTask(task), _toMiniGroup(group))
+    board.activities.push(activity)
+
+    await storageService.put(STORAGE_KEY, board)
+
+    return [task, activity]
+}
+
+async function removeTask(boardId, groupId, taskId){
+    console.log(boardId, groupId, taskId)
+    const board = await getById(boardId)
+    console.log(board)
+    const groupIndex = board.groups.findIndex(g => g.id === groupId)
+    const taskIndex = board.groups[groupIndex].tasks.findIndex(t => t.id === taskId )
+    board.groups[groupIndex].tasks.splice(taskIndex, 1)
+
+    // const activity = _createActivity(activityTitle, _toMiniTask(task), _toMiniGroup(group))    
+    // if(board.activites){
+    //     board.activities.push(activity)
+    // }
+    await storageService.put(STORAGE_KEY, board)
+}
+
 function getTaskEditCmps(task, board) {
     const cmps = [
         {
@@ -165,6 +197,21 @@ function _toMiniGroup(group) {
 
 function _toMiniTask(task) {
     return { id: task.id, title: task.title }
+}
+
+function getTask(title = "") {
+    return {
+        id: 't' + (Date.now() % 100),
+        title,
+        description : "",
+        memberIds: [],
+        labelIds: [],
+        checklist: {},
+        dates: {startDate: "", dueDate: "", setReminder: ""},
+        attachment: "",
+        cover: ""
+
+    }
 }
 
 function _createBoards() {
