@@ -1,0 +1,16 @@
+.modal {
+	position: fixed;
+	z-index: 7;
+
+	&-overlay {
+		display: grid;
+		height: 100%;
+		inset-block-start: 0;
+		inset-inline-start: 0;
+		justify-content: center;
+		place-content: center;
+		position: fixed;
+		width: 100%;
+		z-index: 2;
+	}
+}

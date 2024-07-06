@@ -10,7 +10,7 @@ export function BoardList({ onAddBoard }) {
 			<button className="btn create-board" onClick={onAddBoard}>Create new board</button>
 			{
 				boards.map(board =>
-					<BoardPreview key={board._id} board={board} />
+					<BoardPreview key={board._id} board={board}  />
 				)
 			}
 		</ul >

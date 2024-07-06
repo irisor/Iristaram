@@ -37,7 +37,6 @@ export async function removeBoard(boardId) {
 export async function addBoard(board) {
     try {
         const savedBoard = await boardService.save(board)
-        console.log('Added Board', savedBoard)
         store.dispatch(getCmdAddBoard(savedBoard))
         return savedBoard
     } catch (err) {

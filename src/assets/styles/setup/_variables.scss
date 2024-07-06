@@ -76,11 +76,14 @@
 
 html,
 html {
-	@include theme-light;
-
+	
 	--height-header: 48px;
 	--grid-border-width: 1px;
 	// --grid-border-offset: var(--grid-border-width);
+}
+
+html:not([data-theme="dark"]) {
+	@include theme-light;
 }
 
 html[data-theme="dark"] {
