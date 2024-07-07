@@ -1,4 +1,14 @@
-export function Modal({ isOpen, closeModal, children, position={ insetInlineStart: '50%', insetBlockStart: '50%', transform: 'translate(-50%, -50%)' } }) {
+import { useEffect } from "react"
+
+export function Modal({ isOpen, closeModal, children, focusRef, position = { insetInlineStart: '50%', insetBlockStart: '50%', transform: 'translate(-50%, -50%)' } }) {
+
+  useEffect(() => {
+    if (focusRef.current) {
+      focusRef.current.focus()
+    }
+  }, [isOpen])
+
+
   if (!isOpen) {
     return null
   }
@@ -7,9 +17,6 @@ export function Modal({ isOpen, closeModal, children, position={ insetInlineStar
     <>
       <div className="modal-overlay" onClick={closeModal}></div>
       <div className="modal" onClick={ev => ev.stopPropagation()} style={position}>
-        <button className="close-button" onClick={closeModal}>
-          Close
-        </button>
         <div className="modal-content">
           {children}
         </div>

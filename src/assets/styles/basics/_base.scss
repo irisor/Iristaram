@@ -46,6 +46,10 @@ a {
     text-decoration: none;
 }
 
+p {
+    margin: 0;
+}
+
 textarea {
     border: none;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
@@ -62,6 +66,10 @@ textarea {
     transition-timing-function: ease;
 }
 
+input {
+    font-size: inherit;
+}
+
 ul {
     margin: 0;
     padding: 0;
@@ -73,11 +81,8 @@ li {
 
 .btn {
     align-items: center;
-    background-color: transparent;
     border: none;
     border-radius: 3px;
-    color: inherit;
-    cursor: pointer;
     display: grid;
     font-family: inherit;
     font-size: inherit;
@@ -87,10 +92,29 @@ li {
     outline: none;
     place-content: center;
     transition: 0.1s ease;
+    
+    &:not(.disabled) {
+        cursor: pointer;
 
-    @include hover-supported {
-        background-color: var(--clr-background-hover-1);
+        @include hover-supported {
+            background-color: var(--clr-background-hover-1);
+        }
     }
+
+    &.disabled {
+        background-color: var(--clr-background-disabled);
+        color: var(--clr-text-disabled);
+        cursor: not-allowed;
+        
+        @include hover-supported {
+            background-color: var(--clr-background-disabled);
+            color: var(--clr-text-disabled);
+            cursor: not-allowed;
+        }
+    }
+
+
+
 }
 
 .btn-blue {

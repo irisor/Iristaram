@@ -1,6 +1,8 @@
 .modal {
+	background-color: var(--clr-background-menu);
+	box-shadow: var(--shadow-overlay);
 	position: fixed;
-	z-index: 7;
+	z-index: 25;
 
 	&-overlay {
 		display: grid;
