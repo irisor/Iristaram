@@ -2,19 +2,23 @@ import { useEffect, useRef, useState } from 'react'
 import { useForm } from '../customHooks/useForm'
 import { boardService } from '../services/board.service.local'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-import { addBoard } from '../store/board.actions'
+import { removeBoard } from '../store/board.actions'
 import { Modal } from './Modal'
 import { AiOutlineClose } from 'react-icons/ai'
 import { IconContext } from 'react-icons'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router'
 
-export function BoardAdd({ isOpen, closeModal, clickRef }) {
+export function BoardRemove({ isOpen, closeModal, clickRef }) {
   const [boardForm, setBoardForm, handleChange, resetForm] = useForm(boardService.getEmptyBoard())
   const [position, setPosition] = useState(calculatePosition())
   const focusRef = useRef(null)
+  const board = useSelector(storeState => storeState.boardModule.board)
+  const navigate = useNavigate()
 
   useEffect(() => {
     resetForm()
-}, [isOpen])
+  }, [isOpen])
 
   useEffect(() => {
     setPosition(calculatePosition())
@@ -23,8 +27,7 @@ export function BoardAdd({ isOpen, closeModal, clickRef }) {
   function onSubmitBoard(ev) {
     ev.preventDefault()
     ev.stopPropagation()
-    if (!boardForm.title) return false
-    onSaveBoard()
+    onRemoveBoard()
     setBoardForm(boardService.getEmptyBoard())
   }
 
@@ -40,14 +43,14 @@ export function BoardAdd({ isOpen, closeModal, clickRef }) {
     return { insetInlineStart, insetBlockStart }
   }
 
-  async function onSaveBoard() {
+  async function onRemoveBoard() {
     try {
-      const savedBoard = await addBoard(boardForm)
-
-      showSuccessMsg(`Board added (id: ${savedBoard._id})`)
+      await removeBoard(board._id)
       closeModal()
+      navigate('/boards/', { replace: true })
+      showSuccessMsg('Board removed')
     } catch (err) {
-      showErrorMsg('Cannot add board')
+      showErrorMsg('Cannot remove board')
     }
   }
 
@@ -57,14 +60,12 @@ export function BoardAdd({ isOpen, closeModal, clickRef }) {
     closeModal()
   }
 
-  const { title } = boardForm
-
   return (
     <div className='board-add'>
       <Modal isOpen={isOpen} closeModal={ev => onClose(ev)} position={position} focusRef={focusRef}>
         <form onSubmit={ev => onSubmitBoard(ev)} onKeyDown={ev => ev.key === 'Enter' && onSubmitBoard(ev)} noValidate>
           <header className='board-add-header'>
-            <h2 className='board-add-title'>Create board</h2>
+            <h2 className='board-add-title'>Remove board?</h2>
             <button className='btn icon board-add-close' onClick={ev => onClose(ev)}>
               <IconContext.Provider value={{ color: 'inherit' }}>
                 <AiOutlineClose />
@@ -72,13 +73,7 @@ export function BoardAdd({ isOpen, closeModal, clickRef }) {
             </button>
           </header>
           <section className='board-add-content'>
-            <label htmlFor="title">Board title</label>
-            <input onChange={ev => handleChange(ev)} value={title} type="text" id="title" name="title" required ref={focusRef} />
-            <label htmlFor="title" className='notification'>
-              <span role="img" aria-label="wave">👋</span>
-              <p>Board title is required</p>
-            </label>
-            <button className={`board-add-create btn btn-color-bold blue ${!boardForm.title && 'disabled'}`}>Create</button>
+            <button className={`board-add-create btn btn-color-bold red`}>Remove</button>
           </section>
         </form>
 

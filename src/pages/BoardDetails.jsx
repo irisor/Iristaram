@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { Outlet } from 'react-router-dom'
 import { GroupList } from '../cmps/GroupList'
 import { BoardMenu } from '../cmps/BoardMenu'
 import { BoardHeader } from '../cmps/BoardHeader'
@@ -80,7 +79,7 @@ async function onRemoveTask(groupId, taskId){
 async function onAddTask(groupId, taskTitle){
   if (!taskTitle) return
   try {
-    await addTask(boardId, groupId,taskTitle,"Added Task")
+    await addTask(boardId, groupId, taskTitle)
     showSuccessMsg(`Task added`)
   } catch (err) {
     showErrorMsg('Cannot add task')

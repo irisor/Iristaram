@@ -27,7 +27,7 @@ export function BoardIndex() {
     async function onAddBoard(ev) {
         ev.preventDefault()
         clickRef.current = ev.target
-        openModal()        
+        openModal()
     }
 
     return (
