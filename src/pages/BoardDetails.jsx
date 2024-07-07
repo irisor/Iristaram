@@ -80,7 +80,7 @@ async function onRemoveTask(groupId, taskId){
 async function onAddTask(groupId, taskTitle){
   if (!taskTitle) return
   try {
-    await addTask(boardId, groupId,taskTitle,"Added Task")
+    await addTask(boardId, groupId, taskTitle)
     showSuccessMsg(`Task added`)
   } catch (err) {
     showErrorMsg('Cannot add task')
