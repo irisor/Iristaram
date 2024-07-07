@@ -117,6 +117,8 @@ li {
         cursor: pointer;
 
         @include hover-supported {
+            background-color: var(--clr-background-hover-1);
+            
             &.blue {
                 background-color: var(--clr-background-hover-2);
             }
