@@ -81,7 +81,9 @@ li {
 
 .btn {
     align-items: center;
+    background-color: transparent;
     border: none;
+    color: inherit;
     border-radius: 3px;
     display: grid;
     font-family: inherit;
@@ -125,7 +127,9 @@ li {
     padding: 6px 12px;
 
     @include hover-supported {
-        background-color: var(--clr-background-hover-2);
+        &:not(.disabled) {
+            background-color: var(--clr-background-hover-2);
+        }
     }
 }
 

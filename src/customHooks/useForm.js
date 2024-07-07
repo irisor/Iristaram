@@ -4,7 +4,7 @@ export const useForm = (initialState) => {
     const [fields, setFields] = useState(initialState)
 
     function handleChange({ target }) {
-        let { value, name: field, type, checked } = target;
+        let { value, name: field, type, checked } = target
 
         switch (type) {
             case 'number':
