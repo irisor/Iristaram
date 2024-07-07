@@ -25,7 +25,7 @@ export function TaskList({props}){
         <ul className="task-list">
             {tasks?.map((task, idx) =>
                 <li ref={(el) => handleRef(el, idx)} key={task.id} >
-                     <TaskPreview groupId ={groupId} task={task} onUpdateTaskTitle={onUpdateTaskTitle} />
+                     <TaskPreview groupId ={groupId} task={task} onUpdateTaskTitle={onUpdateTaskTitle} onRemoveTask={onRemoveTask} />
                 </li>
             )}
         </ul>
