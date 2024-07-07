@@ -9,7 +9,7 @@ export function GroupList({ onRemoveGroup, onUpdateGroupTitle, onAddGroup, taskP
 	return (
 		<section className="group-list">
 			{board?.groups?.map(group =>
-				<GroupPreview key={group.id} group={group} onRemoveGroup={onRemoveGroup} onUpdateGroupTitle={onUpdateGroupTitle} />
+				<GroupPreview key={group.id} group={group} onRemoveGroup={onRemoveGroup} onUpdateGroupTitle={onUpdateGroupTitle} taskProps={taskProps} />
 			)}
 
 			<CreateItem onAddItem={onAddGroup} initialBtnLbl='Add another list' addBtnLabel='Add list' placeholder='Enter list title...' />

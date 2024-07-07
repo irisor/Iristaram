@@ -79,9 +79,9 @@ async function onRemoveTask(groupId, taskId){
 }
 
 async function onAddTask(groupId, taskTitle){
-  if (!title) return
+  if (!taskTitle) return
   try {
-    await addTask(boardId, groupId,title,"Added Task")
+    await addTask(boardId, groupId,taskTitle,"Added Task")
     showSuccessMsg(`Task added`)
   } catch (err) {
     showErrorMsg('Cannot add task')
@@ -91,8 +91,8 @@ async function onAddTask(groupId, taskTitle){
 async function onUpdateTaskTitle(groupId, task, newTitle){
   if(!newTitle){ return}
   try {
-    const newTask = { ...task, title: newTitle }
-    await updateTask(boardId, groupId, newTask, "Changed Task Title")
+    task.title = newTitle
+    await updateTask(boardId, groupId, task)
     showSuccessMsg(`Task title updated`)
   } catch (err) {
     showErrorMsg('Cannot update task title')
@@ -117,7 +117,7 @@ async function onUpdateTaskTitle(groupId, task, newTitle){
             onRemoveGroup={onRemoveGroup}
             onUpdateGroupTitle={onUpdateGroupTitle}
             onAddGroup={onAddGroup}
-            taskProps={{onadd: onAddTask,onUpdate: onUpdateTaskTitle,onRemove: onRemoveTask}}
+            taskProps={{onAddTask,onUpdateTaskTitle,onRemoveTask}}
           >
           </GroupList>
         </main>

@@ -43,12 +43,12 @@ export function boardReducer(state = initialState, action) {
             board.groups = state.board.groups.map(g =>{
                 if(g.id !== action.groupId) return g
                 const group = {...g}
-                group = {...group, tasks:[...group.tasks, action.task]}
+                group.tasks = group.tasks ? [...group.tasks, action.task] : [action.task]
                 return group
             })
-            if(action.activity){
-                board.activities = [...board.activities, action.activity]
-            }
+            // if(action.activity){
+            //     board.activities = [...board.activities, action.activity]
+            // }
             newState = {...state, board}
             break
             //later would become archive task
@@ -57,7 +57,6 @@ export function boardReducer(state = initialState, action) {
             board.groups = state.board.groups.map(g =>{
                 if(g.id !== action.groupId) return g
                 const group = {...g}
-                console.log(group)
                 group.tasks = group.tasks.filter(t => t.id !== action.taskId)
                 return group
             })
@@ -65,6 +64,7 @@ export function boardReducer(state = initialState, action) {
             //     board.activities = [...board.activities, action.activity]
             // }
             newState = {...state, board }
+            break
         case UPDATE_TASK:
             board = {...state.board}
             board.groups = state.board.groups.map(g => {

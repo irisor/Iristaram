@@ -29,7 +29,7 @@ export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Ad
 	}, [insideRef])
 
 	useEffect(() => {
-		console.log('onChaneTitle useEffect', newItem)
+		console.log('onChangeTitle useEffect', newItem)
 		inputRef.current?.focus()
 	}, [newItem])
 
@@ -48,11 +48,11 @@ export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Ad
 
 		if (groupId) {
 			// For tasks, include groupId
-			onAddItem(board._id, groupId, newItem)
+			onAddItem(groupId, newItem.title)
 		} else {
 			// For groups, omit groupId
 			onAddItem(board._id, newItem)
-		}
+		}	
 
 		setNewItem(() => null)
 	}

@@ -95,9 +95,9 @@ export async function updateGroup(boardId, group) {
 
 export async function addTask(boardId, groupId, taskTitle) {
     try {
-        const [newTask, activity] = await boardService.addTask(boardId, groupId, taskTitle, activityTitle)
-        console.log('Added task', newTask)
-        store.dispatch(getCmdAddTask(groupId,newTask,activity))
+        const newTask = await boardService.addTask(boardId, groupId, taskTitle)
+        //console.log('Added task', newTask)
+        store.dispatch(getCmdAddTask(groupId,newTask))
         return newTask
     } catch (err) {
         console.log('Cannot add task', err)
@@ -117,11 +117,11 @@ export async function removeTask(boardId, groupId, taskId) {
     }
 }
 
-export async function updateTask(boardId, groupId, task, activityTitle) {
+export async function updateTask(boardId, groupId, task) {
     try {
-        const [savedTask, activity] = await boardService.updateTask(boardId, groupId, task, activityTitle)
+        const savedTask = await boardService.updateTask(boardId, groupId, task)
         console.log('Updated task', savedTask)
-        store.dispatch(getCmdUpdateTask(groupId, task, activity))
+        store.dispatch(getCmdUpdateTask(groupId, task))
         return savedTask
     } catch (err) {
         console.log('Cannot update task', err)
