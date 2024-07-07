@@ -6,6 +6,7 @@
 	--clr-text-3: #ffffff;
 	--clr-text-4: #ffffff;
 	--clr-text-5: #626f86;
+	--clr-text-disabled: #091e424f;
 	--clr-text-active-1: #0c66e4;
 	--clr-background-default-1: #ffffff;
 	--clr-background-default-2: #b4b3b3;
@@ -27,12 +28,17 @@
 	--clr-background-editable: #ffffff;
 	--clr-background-fade: #00000026;
 	--clr-background-fade-hover: #00000040;
+	--clr-background-disabled: #091e4208;
 	// --clr-grid-border: (0,0%,100%,0.16);
 	--clr-grid-border: hsla(0,0%,100%,0.16);;
 	--clr-selected-border: #388bff;
 	--clr-divider: #091e4224;
+	--clr-error: #e2483d;
 	--shadow-raised: 0px 1px 1px #091e4240, 0px 0px 1px #091e424f;
 	--shadow-overlay: 0px 8px 12px #091E4226, 0px 0px 1px #091e424f;
+	--shadow-selected: inset 0 0 0 2px var(--clr-selected-border);
+	--shadow-input: inset 0 0 0 1px #8590A2;
+	--shadow-error: inset 0 0 0 1px #f15b50;
 	--logo-filter: unset;
 }
 
@@ -44,6 +50,7 @@
 	--clr-text-3: #9fadbc;
 	--clr-text-4: #1d2125;
 	--clr-text-5: #8c9bab;
+	--clr-text-disabled: #bfdbf847;
 	--clr-text-active-1: #579dff;
 	--clr-background-default-1: #ffffff;
 	--clr-background-default-2: #1d2125;
@@ -65,22 +72,30 @@
 	--clr-background-editable: #22272b;
 	--clr-background-fade: #00000026;
 	--clr-background-fade-hover: #00000040;
+	--clr-background-disabled: #bcd6f00a;
 	// --clr-grid-border: hsla(211,18%,68%,0.16);
 	--clr-grid-border: #858c8f2e;
 	--clr-selected-border: #85b8ff;
 	--clr-divider: #a6c5e229;
+	--clr-error: #e2483d;
 	--shadow-raised: 0px 0px 0px 1px #00000000, 0px 1px 1px #03040480, 0px 0px 1px #03040480;
 	--shadow-overlay: 0px 8px 12px #03040480, 0px 0px 1px #03040480;
+	--shadow-selected: inset 0 0 0 2px var(--clr-selected-border);
+	--shadow-input: inset 0 0 0 1px #738496;
+	--shadow-error: inset 0 0 0 1px #f15b50;
 	--logo-filter: brightness(0) saturate(100%) invert(66%) sepia(20%) saturate(225%) hue-rotate(170deg) brightness(101%) contrast(85%);
 }
 
 html,
 html {
-	@include theme-light;
-
+	
 	--height-header: 48px;
 	--grid-border-width: 1px;
 	// --grid-border-offset: var(--grid-border-width);
+}
+
+html:not([data-theme="dark"]) {
+	@include theme-light;
 }
 
 html[data-theme="dark"] {

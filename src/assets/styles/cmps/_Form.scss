@@ -1,0 +1,62 @@
+form {
+	label {
+		font-size: rem(12px);
+		font-weight: 700;
+		line-height: rem(16px);
+
+		&:has(+input[required]) {
+			&:after {
+				content: '*';
+				color: var(--clr-error);
+			}
+		}
+	}
+
+	input {
+		box-shadow: var(--shadow-input);
+		border: none;
+		border-radius: 3px;
+		color: var(--clr-text-2);
+		height: 32px;
+		line-height: rem(20px);
+		outline: none;
+		padding: 8px 12px;
+		transition-property: background-color, border-color, box-shadow;
+		transition-duration: 85ms;
+		transition-timing-function: ease;
+		width: 100%;
+
+		&.empty:required:not(:focus-visible) {
+			box-shadow: var(--shadow-error);
+
+			@include hover-supported {
+				box-shadow: var(--shadow-error);
+			}
+		}
+
+		&:focus-visible {
+			background-color: var(--clr-background-task);
+			box-shadow: var(--shadow-selected);
+		}
+
+		@include hover-supported {
+			background-color: var(--clr-background-menu);
+		}
+	}
+
+	.notification {
+		align-items: start;
+		display: grid;
+		grid-auto-flow: column;
+		grid-template-columns: auto 1fr;
+		gap: 8px;
+
+		p {
+			margin-block-end: 8px;
+		}
+	}
+
+	input:not(.empty) + .notification {
+		display: none
+	}
+}

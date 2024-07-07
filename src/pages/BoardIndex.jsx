@@ -1,14 +1,15 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
-import { loadBoards, addBoard, updateBoard, removeBoard } from '../store/board.actions'
+import { loadBoards, removeBoard } from '../store/board.actions'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
-import { boardService } from '../services/board.service.local'
 import { BoardList } from '../cmps/BoardList'
+import { BoardAdd } from '../cmps/BoardAdd'
+import { useModal } from '../customHooks/useModal'
 
 export function BoardIndex() {
-
-    
+    const { isOpen, openModal, closeModal } = useModal()
+    const clickRef = useRef(null)
 
     useEffect(() => {
         loadBoards()
@@ -23,22 +24,18 @@ export function BoardIndex() {
         }
     }
 
-    async function onAddBoard() {
-        const board = boardService.getEmptyBoard()
-        board.title = prompt('Title?')
-        try {
-            const savedBoard = await addBoard(board)
-            showSuccessMsg(`Board added (id: ${savedBoard._id})`)
-        } catch (err) {
-            showErrorMsg('Cannot add board')
-        }        
+    async function onAddBoard(ev) {
+        ev.preventDefault()
+        clickRef.current = ev.target
+        openModal()        
     }
 
     return (
         <section className="board-index">
             <h2 className='board-index-title'>Boards</h2>
             <main className="board-list-container">
-                <BoardList />
+                <BoardList onAddBoard={onAddBoard} />
+                <BoardAdd isOpen={isOpen} closeModal={closeModal} clickRef={clickRef} />
             </main>
         </section>
     )

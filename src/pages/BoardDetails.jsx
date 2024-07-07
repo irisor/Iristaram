@@ -23,7 +23,6 @@ export function BoardDetails() {
   console.log('taskId', taskId)
 
   useEffect(() => {
-    console.log('BoardDetails useEffect: ', boardId)
     loadBoard(boardId)
   }, [boardId])
 
