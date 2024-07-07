@@ -1,6 +1,6 @@
 import { boardService } from '../services/board.service.local'
 import { store } from '../store/store'
-import { ADD_BOARD, REMOVE_BOARD, SET_BOARDS, SET_BOARD, UPDATE_BOARD, ADD_GROUP, UPDATE_GROUP,REMOVE_GROUP, UPDATE_TASK } from './board.reducer'
+import { ADD_BOARD, REMOVE_BOARD, SET_BOARDS, SET_BOARD, UPDATE_BOARD, ADD_GROUP, UPDATE_GROUP,REMOVE_GROUP,ADD_TASK, REMOVE_TASK, UPDATE_TASK } from './board.reducer'
 
 export async function loadBoards() {
     try {
@@ -92,11 +92,35 @@ export async function updateGroup(boardId, group) {
     }
 }
 
-export async function updateTask(boardId, groupId, task, activityTitle) {
+export async function addTask(boardId, groupId, taskTitle) {
     try {
-        const [savedTask, activity] = await boardService.updateTask(boardId, groupId, task, activityTitle)
+        const newTask = await boardService.addTask(boardId, groupId, taskTitle)
+        //console.log('Added task', newTask)
+        store.dispatch(getCmdAddTask(groupId,newTask))
+        return newTask
+    } catch (err) {
+        console.log('Cannot add task', err)
+        throw err
+    }
+}
+
+export async function removeTask(boardId, groupId, taskId) {
+    try {
+        console.log("taskId",taskId)
+        await boardService.removeTask(boardId, groupId, taskId)
+        console.log('Task removed')
+        store.dispatch(getCmdRemoveTask(groupId,taskId))
+        } catch (err) {
+        console.log('Cannot remove task', err)
+        throw err
+    }
+}
+
+export async function updateTask(boardId, groupId, task) {
+    try {
+        const savedTask = await boardService.updateTask(boardId, groupId, task)
         console.log('Updated task', savedTask)
-        store.dispatch(getCmdUpdateTask(groupId, task, activity))
+        store.dispatch(getCmdUpdateTask(groupId, task))
         return savedTask
     } catch (err) {
         console.log('Cannot update task', err)
@@ -160,6 +184,23 @@ function getCmdUpdateGroup(boardId, group) {
         type: UPDATE_GROUP,
         boardId,
         group
+    }
+}
+
+function getCmdAddTask(groupId, task, activity ){
+    return {
+        type: ADD_TASK,
+        groupId,
+        task,
+        activity
+    }
+}
+
+function getCmdRemoveTask(groupId, taskId ){
+    return {
+        type: REMOVE_TASK,
+        groupId,
+        taskId
     }
 }
 

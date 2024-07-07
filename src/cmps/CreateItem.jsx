@@ -36,7 +36,7 @@ export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Ad
 		if (newItem?.title !== '') {
 			if (groupId) {
 				// For tasks, include groupId
-				onAddItem(board._id, groupId, newItem)
+				onAddItem(groupId, newItem.title)
 			} else {
 				// For groups, omit groupId
 				onAddItem(board._id, newItem)

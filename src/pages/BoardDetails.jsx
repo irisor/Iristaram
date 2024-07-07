@@ -9,16 +9,18 @@ import { updateBoard } from '../store/board.actions'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 
-import { loadBoard, addGroup, removeGroup, updateGroup } from '../store/board.actions'
+import { loadBoard, addGroup, removeGroup, updateGroup, removeTask, addTask, updateTask } from '../store/board.actions'
+import { TaskDetails } from './TaskDetails'
 
 
 export function BoardDetails() {
 
-  const { boardId } = useParams()
+  const { boardId, taskId } = useParams()
   const board = useSelector(storeState => storeState.boardModule.board)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   console.log('board.details:', board, boardId)
+  console.log('taskId', taskId)
 
   useEffect(() => {
     loadBoard(boardId)
@@ -65,6 +67,37 @@ export function BoardDetails() {
     }        
 }
 
+async function onRemoveTask(groupId, taskId){
+  try {
+    console.log(taskId)
+    await removeTask(boardId, groupId,taskId,"Removed Task")
+    showSuccessMsg(`Task removed`)
+  } catch (err) {
+    showErrorMsg('Cannot remove task')
+  }
+}
+
+async function onAddTask(groupId, taskTitle){
+  if (!taskTitle) return
+  try {
+    await addTask(boardId, groupId,taskTitle,"Added Task")
+    showSuccessMsg(`Task added`)
+  } catch (err) {
+    showErrorMsg('Cannot add task')
+  }
+}
+
+async function onUpdateTaskTitle(groupId, task, newTitle){
+  if(!newTitle){ return}
+  try {
+    task.title = newTitle
+    await updateTask(boardId, groupId, task)
+    showSuccessMsg(`Task title updated`)
+  } catch (err) {
+    showErrorMsg('Cannot update task title')
+  }
+}
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
@@ -83,15 +116,19 @@ export function BoardDetails() {
             onRemoveGroup={onRemoveGroup}
             onUpdateGroupTitle={onUpdateGroupTitle}
             onAddGroup={onAddGroup}
+            taskProps={{onAddTask,onUpdateTaskTitle,onRemoveTask}}
           >
           </GroupList>
         </main>
 
         <BoardMenu toggleMenu={toggleMenu}>
         </BoardMenu>
-      </>
+        
+      
+        </>
       }
-      <Outlet />
+{taskId && <TaskDetails />}
     </section>
   )
+
 }
