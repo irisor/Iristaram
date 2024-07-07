@@ -64,7 +64,7 @@ export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Ad
 							placeholder={placeholder}
 							ref={inputRef}
 						/>
-						<button className="btn new-item-save btn-blue" onClick={ev => handleAddItem(itemData, ev)}>
+						<button className="btn new-item-save btn-color-bold blue" onClick={ev => handleAddItem(itemData, ev)}>
 							{addBtnLabel}
 						</button>
 						<button className="btn icon new-item-close" onClick={ev => onClose(ev)}>

@@ -28,4 +28,18 @@
 		margin: -1px 12px 0;
 		opacity: 0.25;
 	}
+
+	&-nav {
+		padding: 12px 12px 8px 12px;
+	}
+
+	&-nav-link {
+		display: grid;
+		grid-template-columns: 40px 1fr;
+		justify-items: start;
+
+		.icon {
+			align-self: center;
+		}
+	}
 }

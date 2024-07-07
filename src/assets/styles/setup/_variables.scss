@@ -33,12 +33,14 @@
 	--clr-grid-border: hsla(0,0%,100%,0.16);;
 	--clr-selected-border: #388bff;
 	--clr-divider: #091e4224;
-	--clr-error: #e2483d;
+	--clr-danger: #e2483d;
+	--clr-danger-bold: #c9372c;
+	--clr-danger-bold-hover: #ae2e24;
 	--shadow-raised: 0px 1px 1px #091e4240, 0px 0px 1px #091e424f;
 	--shadow-overlay: 0px 8px 12px #091E4226, 0px 0px 1px #091e424f;
 	--shadow-selected: inset 0 0 0 2px var(--clr-selected-border);
 	--shadow-input: inset 0 0 0 1px #8590A2;
-	--shadow-error: inset 0 0 0 1px #f15b50;
+	--shadow-danger: inset 0 0 0 1px #f15b50;
 	--logo-filter: unset;
 }
 
@@ -77,12 +79,14 @@
 	--clr-grid-border: #858c8f2e;
 	--clr-selected-border: #85b8ff;
 	--clr-divider: #a6c5e229;
-	--clr-error: #e2483d;
+	--clr-danger: #e2483d;
+	--clr-danger-bold: #c9372c;
+	--clr-danger-bold-hover: #ae2e24;
 	--shadow-raised: 0px 0px 0px 1px #00000000, 0px 1px 1px #03040480, 0px 0px 1px #03040480;
 	--shadow-overlay: 0px 8px 12px #03040480, 0px 0px 1px #03040480;
 	--shadow-selected: inset 0 0 0 2px var(--clr-selected-border);
 	--shadow-input: inset 0 0 0 1px #738496;
-	--shadow-error: inset 0 0 0 1px #f15b50;
+	--shadow-danger: inset 0 0 0 1px #f15b50;
 	--logo-filter: brightness(0) saturate(100%) invert(66%) sepia(20%) saturate(225%) hue-rotate(170deg) brightness(101%) contrast(85%);
 }
 

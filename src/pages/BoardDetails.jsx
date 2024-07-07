@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { Outlet } from 'react-router-dom'
 import { GroupList } from '../cmps/GroupList'
 import { BoardMenu } from '../cmps/BoardMenu'
 import { BoardHeader } from '../cmps/BoardHeader'
