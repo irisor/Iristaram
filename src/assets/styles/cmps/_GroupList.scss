@@ -11,7 +11,7 @@
 	.editable-title-input {
 		background-color: var(--clr-background-editable);
 		border-radius: 8px;
-		box-shadow: inset 0 0 0 2px var(--clr-selected-border);
+		box-shadow: var(--shadow-selected);
 		color: var(--clr-text-2);
 		height: 32px;
 		line-height: rem(20px);

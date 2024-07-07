@@ -135,7 +135,7 @@ function getTaskEditCmps(task, board) {
 
 function getEmptyBoard() {
     return {
-        title: 'Board -' + (Date.now() % 1000),
+        title: '',
         activities: []
     }
 }

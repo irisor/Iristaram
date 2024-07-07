@@ -14,6 +14,8 @@
 @import "views/TaskDetails";
 
 // Components
+@import "cmps/Modal";
+@import "cmps/Form";
 @import "cmps/EditableTitle";
 @import "cmps/CreateItem";
 @import "cmps/AppHeader";
@@ -25,3 +27,4 @@
 @import "cmps/BoardMenu";
 @import "cmps/BoardList";
 @import "cmps/BoardPreview";
+@import "cmps/BoardAdd";
