@@ -1,0 +1,15 @@
+.task-preview {
+    position: relative;
+    min-height: 36px;
+    border-radius: 8px;
+    background-color: var(--clr-background-task);
+    box-shadow: var(--shadow-raised);
+    color: var(--clr-text-2);
+    cursor: pointer;
+    scroll-margin: 8px;
+    &:hover{
+        outline: 2px solid var(--clr-selected-border, #388bff);
+        opacity: 1;
+    }
+}
+

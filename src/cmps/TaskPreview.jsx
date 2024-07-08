@@ -23,7 +23,7 @@ function onChange(ev){
 }
 
     return (
-        <article className="task-preview">
+        <div className="task-preview">
             {!isEditMode ?
             <Link to={`/${task.id}`}>
                 <h4>{task.title}</h4>
@@ -39,7 +39,7 @@ function onChange(ev){
                         <button onClick={() => 
                     SetisEditMode(true)}>Edit</button>
             </section>
-        </article>
+        </div>
     )
 }
 

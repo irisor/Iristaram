@@ -22,14 +22,15 @@ export function TaskList({props}){
 
     return (
         <>
-        <ul className="task-list">
+        {tasks && <div className="task-list-top-gap"></div>}
+        <ol className="task-list">
             {tasks?.map((task, idx) =>
-                <li ref={(el) => handleRef(el, idx)} key={task.id} >
+                <li className="task-list-el" key={task.id} >
                      <TaskPreview groupId ={groupId} task={task} onUpdateTaskTitle={onUpdateTaskTitle} onRemoveTask={onRemoveTask} />
                 </li>
             )}
-        </ul>
-        <CreateItem onAddItem={onAddTask} initialBtnLbl='Add another task' addBtnLabel='Add task' placeholder='Enter task title...' groupId={groupId} />
+        </ol>
+        <CreateItem onAddItem={onAddTask} initialBtnLbl='Add a card' addBtnLabel='Add task' placeholder='Enter task title...' groupId={groupId} />
         </>
     )
 
