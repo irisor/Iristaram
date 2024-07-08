@@ -102,7 +102,7 @@ async function onUpdateTaskTitle(groupId, task, newTitle){
   }
 
 
-  if (!board || !boardId || boardId !== board._id) return <section>Loading...</section>
+  if (!board || !boardId ) return <section>Loading...</section>
   return (
     <section className={`board-details ${isMenuOpen ? 'menu-open' : ''}`}>
       {board && <>
