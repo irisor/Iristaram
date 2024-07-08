@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 
-export function Modal({ isOpen, closeModal, children, focusRef, position = { insetInlineStart: '50%', insetBlockStart: '50%', transform: 'translate(-50%, -50%)' } }) {
+export function Modal({ isOpen, closeModal, children, focusRef, refs, style }) {
 
   useEffect(() => {
     if (focusRef.current) {
@@ -16,7 +16,7 @@ export function Modal({ isOpen, closeModal, children, focusRef, position = { ins
   return (
     <>
       <div className="modal-overlay" onClick={closeModal}></div>
-      <div className="modal" onClick={ev => ev.stopPropagation()} style={position}>
+      <div className="modal" onClick={ev => ev.stopPropagation()} ref={refs} style={style}>
         <div className="modal-content">
           {children}
         </div>
