@@ -60,25 +60,25 @@ export function BoardAdd({ isOpen, closeModal, clickRef }) {
   const { title } = boardForm
 
   return (
-    <div className='board-add'>
+    <div className='board-add board-modal'>
       <Modal isOpen={isOpen} closeModal={ev => onClose(ev)} position={position} focusRef={focusRef}>
         <form onSubmit={ev => onSubmitBoard(ev)} onKeyDown={ev => ev.key === 'Enter' && onSubmitBoard(ev)} noValidate>
-          <header className='board-add-header'>
-            <h2 className='board-add-title'>Create board</h2>
-            <button className='btn icon board-add-close' onClick={ev => onClose(ev)}>
+          <header className='board-modal-header'>
+            <h2 className='board-modal-title'>Create board</h2>
+            <button className='btn icon board-modal-close' onClick={ev => onClose(ev)}>
               <IconContext.Provider value={{ color: 'inherit' }}>
                 <AiOutlineClose />
               </IconContext.Provider>
             </button>
           </header>
-          <section className='board-add-content'>
+          <section className='board-modal-content'>
             <label htmlFor="title">Board title</label>
             <input onChange={ev => handleChange(ev)} value={title} type="text" id="title" name="title" required ref={focusRef} />
             <label htmlFor="title" className='notification'>
               <span role="img" aria-label="wave">👋</span>
               <p>Board title is required</p>
             </label>
-            <button className={`board-add-create btn btn-color-bold blue ${!boardForm.title && 'disabled'}`}>Create</button>
+            <button className={`board-modal-create btn btn-color-bold blue ${!boardForm.title && 'disabled'}`}>Create</button>
           </section>
         </form>
 
