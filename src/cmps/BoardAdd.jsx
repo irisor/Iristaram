@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { useForm } from '../customHooks/useForm'
 import { boardService } from '../services/board.service.local'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
@@ -6,19 +6,38 @@ import { addBoard } from '../store/board.actions'
 import { Modal } from './Modal'
 import { AiOutlineClose } from 'react-icons/ai'
 import { IconContext } from 'react-icons'
+import { autoUpdate, flip, offset, shift, useFloating } from '@floating-ui/react-dom'
 
-export function BoardAdd({ isOpen, closeModal, clickRef }) {
+export function BoardAdd({ isOpen, closeModal }) {
   const [boardForm, setBoardForm, handleChange, resetForm] = useForm(boardService.getEmptyBoard())
-  const [position, setPosition] = useState(calculatePosition())
   const focusRef = useRef(null)
+  const {refs, floatingStyles} = useFloating({
+    placement: 'right-start', // Preferred initial placement
+    middleware: [
+      offset(({ placement }) => {
+        // Different offsets based on placement
+        if (placement.startsWith('right'))  {
+          return 200 // Horizontal offset
+        } else if (placement.startsWith('bottom')) {
+          return 100 // Vertical offset (for top or bottom placements)
+        }
+      }),
+      flip({
+        fallbackPlacements: ['top-start', 'bottom-start', 'right-start'], // Define fallback placements
+      }),
+      shift({padding: 5}) // Shift the modal if it overflows the viewport
+    ],
+    whileElementsMounted(referenceEl, floatingEl, update) {
+      const cleanup = autoUpdate(referenceEl, floatingEl, update, {
+        ancestorScroll: false,
+      });
+      return cleanup;
+    },
+  });
 
   useEffect(() => {
     resetForm()
 }, [isOpen])
-
-  useEffect(() => {
-    setPosition(calculatePosition())
-  }, [clickRef?.current])
 
   function onSubmitBoard(ev) {
     ev.preventDefault()
@@ -26,18 +45,6 @@ export function BoardAdd({ isOpen, closeModal, clickRef }) {
     if (!boardForm.title) return false
     onSaveBoard()
     setBoardForm(boardService.getEmptyBoard())
-  }
-
-  function calculatePosition() {
-    if (!clickRef?.current) return
-
-    // The modal is positioned right to the "create new board" element
-    const rect = clickRef.current.getBoundingClientRect()
-    const offset = 8 // px
-    const insetInlineStart = rect?.right + offset
-    const insetBlockStart = rect?.y
-
-    return { insetInlineStart, insetBlockStart }
   }
 
   async function onSaveBoard() {
@@ -60,8 +67,8 @@ export function BoardAdd({ isOpen, closeModal, clickRef }) {
   const { title } = boardForm
 
   return (
-    <div className='board-add board-modal'>
-      <Modal isOpen={isOpen} closeModal={ev => onClose(ev)} position={position} focusRef={focusRef}>
+    <div className='board-add board-modal' ref={refs.setReference}>
+      <Modal isOpen={isOpen} closeModal={ev => onClose(ev)} focusRef={focusRef} refs={refs.setFloating} style={floatingStyles}>
         <form onSubmit={ev => onSubmitBoard(ev)} onKeyDown={ev => ev.key === 'Enter' && onSubmitBoard(ev)} noValidate>
           <header className='board-modal-header'>
             <h2 className='board-modal-title'>Create board</h2>

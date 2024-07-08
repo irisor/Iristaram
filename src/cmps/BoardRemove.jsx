@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { useForm } from '../customHooks/useForm'
 import { boardService } from '../services/board.service.local'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
@@ -12,7 +12,6 @@ import { autoPlacement, autoUpdate, useFloating } from '@floating-ui/react-dom'
 
 export function BoardRemove({ isOpen, closeModal, clickRef }) {
   const [boardForm, setBoardForm, handleChange, resetForm] = useForm(boardService.getEmptyBoard())
-  const [position, setPosition] = useState(calculatePosition())
   const focusRef = useRef(null)
   const board = useSelector(storeState => storeState.boardModule.board)
   const navigate = useNavigate()
@@ -29,27 +28,11 @@ export function BoardRemove({ isOpen, closeModal, clickRef }) {
     resetForm()
   }, [isOpen])
 
-  useEffect(() => {
-    setPosition(calculatePosition())
-  }, [clickRef?.current])
-
   function onSubmitBoard(ev) {
     ev.preventDefault()
     ev.stopPropagation()
     onRemoveBoard()
     setBoardForm(boardService.getEmptyBoard())
-  }
-
-  function calculatePosition() {
-    if (!clickRef?.current) return
-
-    // The modal is positioned right to the "create new board" element
-    const rect = clickRef.current.getBoundingClientRect()
-    const offset = 8 // px
-    const insetInlineStart = rect?.right + offset
-    const insetBlockStart = rect?.y
-
-    return { insetInlineStart, insetBlockStart }
   }
 
   async function onRemoveBoard() {
@@ -71,7 +54,7 @@ export function BoardRemove({ isOpen, closeModal, clickRef }) {
 
   return (
     <div className='board-remove board-modal' ref={refs.setReference}>
-      <Modal isOpen={isOpen} closeModal={ev => onClose(ev)} position={position} focusRef={focusRef} refs={refs.setFloating} style={floatingStyles}>
+      <Modal isOpen={isOpen} closeModal={ev => onClose(ev)} focusRef={focusRef} refs={refs.setFloating} style={floatingStyles}>
         <form onSubmit={ev => onSubmitBoard(ev)} onKeyDown={ev => ev.key === 'Enter' && onSubmitBoard(ev)} noValidate>
           <header className='board-modal-header'>
             <h2 className='board-modal-title'>Remove board?</h2>

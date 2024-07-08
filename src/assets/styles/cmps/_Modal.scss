@@ -21,6 +21,8 @@
 }
 
 .board-modal {
+	position: absolute;
+	
 	&-header {
 		display: grid;
 		grid-template-areas:
@@ -53,5 +55,9 @@
 
 	&-create {
 		margin-block-start: 16px;
+	}
+
+	.modal {
+		width: 304px;
 	}
 }
