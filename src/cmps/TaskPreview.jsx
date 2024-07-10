@@ -24,21 +24,23 @@ function onChange(ev){
 
     return (
         <div className="task-preview">
-            {!isEditMode ?
-            <Link to={`/${task.id}`}>
-                <h4>{task.title}</h4>
-            </Link> :
-            <input
-             type ="text"
-             value={title}
-             onChange={(ev) => setTitle(ev.target.value)}
-             onKeyDown={onKeyDown}
-             onBlur = {() => SetisEditMode(false)} />}
-            <section className="task-actions">
-                        <button onClick={() => onRemoveTask(groupId, task.id)}>X</button>
-                        <button onClick={() => 
-                    SetisEditMode(true)}>Edit</button>
-            </section>
+            <div className="task-preview-container">
+                {!isEditMode ?
+                <Link to={`/${task.id}`}>
+                    <a>{task.title}</a>
+                </Link> :
+                <input
+                type ="text"
+                value={title}
+                onChange={(ev) => setTitle(ev.target.value)}
+                onKeyDown={onKeyDown}
+                onBlur = {() => SetisEditMode(false)} />}
+                <section className="task-actions">
+                            <button onClick={() => onRemoveTask(groupId, task.id)}>X</button>
+                            <button onClick={() => 
+                        SetisEditMode(true)}>Edit</button>
+                </section>
+            </div>
         </div>
     )
 }
