@@ -2,11 +2,6 @@
     box-sizing: border-box;
 }
 
-// ::selection {
-//     background-color: $clr1;
-//     color: $clr6;
-// }
-
 html {}
 
 body {
@@ -94,12 +89,43 @@ li {
     outline: none;
     place-content: center;
     transition: 0.1s ease;
+}
+
+.btn-color-bold {
+    box-shadow: none;
+    font-weight: 500;
+    color: var(--clr-text-4);
+    padding: 6px 12px;
     
+    @include hover-supported {
+        &:not(.disabled) {
+            background-color: var(--clr-background-hover-2);
+        }
+    }
+    
+    &.blue {
+        background-color: var(--clr-text-active-1);
+    }
+
+    &.red {
+        background-color: var(--clr-danger-bold);
+    }
+}
+
+.btn {
     &:not(.disabled) {
         cursor: pointer;
 
         @include hover-supported {
             background-color: var(--clr-background-hover-1);
+            
+            &.blue {
+                background-color: var(--clr-background-hover-2);
+            }
+
+            &.red {
+                background-color: var(--clr-danger-bold-hover);
+            }
         }
     }
 
@@ -112,23 +138,6 @@ li {
             background-color: var(--clr-background-disabled);
             color: var(--clr-text-disabled);
             cursor: not-allowed;
-        }
-    }
-
-
-
-}
-
-.btn-blue {
-    background-color: var(--clr-text-active-1);
-    box-shadow: none;
-    font-weight: 500;
-    color: var(--clr-text-4);
-    padding: 6px 12px;
-
-    @include hover-supported {
-        &:not(.disabled) {
-            background-color: var(--clr-background-hover-2);
         }
     }
 }

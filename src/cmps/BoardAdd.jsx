@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { useForm } from '../customHooks/useForm'
 import { boardService } from '../services/board.service.local'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
@@ -6,47 +6,53 @@ import { addBoard } from '../store/board.actions'
 import { Modal } from './Modal'
 import { AiOutlineClose } from 'react-icons/ai'
 import { IconContext } from 'react-icons'
+import { autoUpdate, flip, offset, shift, useFloating } from '@floating-ui/react-dom'
 
-export function BoardAdd({ isOpen, closeModal, clickRef }) {
-  const [board, setBoard, handleChange, resetForm] = useForm(boardService.getEmptyBoard())
-  const [position, setPosition] = useState(calculatePosition())
+export function BoardAdd({ isOpen, closeModal }) {
+  const [boardForm, setBoardForm, handleChange, resetForm] = useForm(boardService.getEmptyBoard())
   const focusRef = useRef(null)
+  const {refs, floatingStyles} = useFloating({
+    placement: 'right-start', // Preferred initial placement
+    middleware: [
+      offset(({ placement }) => {
+        // Different offsets based on placement
+        if (placement.startsWith('right'))  {
+          return 200 // Horizontal offset
+        } else if (placement.startsWith('bottom')) {
+          return 100 // Vertical offset (for top or bottom placements)
+        }
+      }),
+      flip({
+        fallbackPlacements: ['top-start', 'bottom-start', 'right-start'], // Define fallback placements
+      }),
+      shift({padding: 5}) // Shift the modal if it overflows the viewport
+    ],
+    whileElementsMounted(referenceEl, floatingEl, update) {
+      const cleanup = autoUpdate(referenceEl, floatingEl, update, {
+        ancestorScroll: false,
+      });
+      return cleanup;
+    },
+  });
 
   useEffect(() => {
     resetForm()
-  }, [isOpen])
-
-  useEffect(() => {
-    setPosition(calculatePosition())
-  }, [clickRef.current])
+}, [isOpen])
 
   function onSubmitBoard(ev) {
     ev.preventDefault()
     ev.stopPropagation()
-    if (!board.title) return false
-    onSaveBoard(board)
-    setBoard(boardService.getEmptyBoard())
-  }
-
-  function calculatePosition() {
-    if (!clickRef.current) return
-
-    // The modal is positioned right to the "create new board" element
-    const rect = clickRef.current.getBoundingClientRect()
-    const offset = 8 // px
-    const insetInlineStart = rect?.right + offset
-    const insetBlockStart = rect?.y
-
-    return { insetInlineStart, insetBlockStart }
+    if (!boardForm.title) return false
+    onSaveBoard()
+    setBoardForm(boardService.getEmptyBoard())
   }
 
   async function onSaveBoard() {
     try {
-      const savedBoard = await addBoard(board)
+      const savedBoard = await addBoard(boardForm)
 
       showSuccessMsg(`Board added (id: ${savedBoard._id})`)
       closeModal()
-      resetForm()
     } catch (err) {
       showErrorMsg('Cannot add board')
     }
@@ -58,28 +64,28 @@ export function BoardAdd({ isOpen, closeModal, clickRef }) {
     closeModal()
   }
 
-  const { title } = board
+  const { title } = boardForm
 
   return (
-    <div className='board-add'>
-      <Modal isOpen={isOpen} closeModal={ev => onClose(ev)} position={position} focusRef={focusRef}>
+    <div className='board-add board-modal' ref={refs.setReference}>
+      <Modal isOpen={isOpen} closeModal={ev => onClose(ev)} focusRef={focusRef} refs={refs.setFloating} style={floatingStyles}>
         <form onSubmit={ev => onSubmitBoard(ev)} onKeyDown={ev => ev.key === 'Enter' && onSubmitBoard(ev)} noValidate>
-          <header className='board-add-header'>
-            <h2 className='board-add-title'>Create board</h2>
-            <button className='btn icon board-add-close' onClick={ev => onClose(ev)}>
+          <header className='board-modal-header'>
+            <h2 className='board-modal-title'>Create board</h2>
+            <button className='btn icon board-modal-close' onClick={ev => onClose(ev)}>
               <IconContext.Provider value={{ color: 'inherit' }}>
                 <AiOutlineClose />
               </IconContext.Provider>
             </button>
           </header>
-          <section className='board-add-content'>
+          <section className='board-modal-content'>
             <label htmlFor="title">Board title</label>
             <input onChange={ev => handleChange(ev)} value={title} type="text" id="title" name="title" required ref={focusRef} />
             <label htmlFor="title" className='notification'>
               <span role="img" aria-label="wave">👋</span>
               <p>Board title is required</p>
             </label>
-            <button className={`board-add-create btn btn-blue ${!board.title && 'disabled'}`}>Create</button>
+            <button className={`board-modal-create btn btn-color-bold blue ${!boardForm.title && 'disabled'}`}>Create</button>
           </section>
         </form>
 
