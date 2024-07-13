@@ -22,7 +22,7 @@
 	.create-item.non-edit {
 		background-color: var(--clr-background-new-group);
 		border-radius: 12px;
-		color: var(--clr-text-1);
+		color: var(--clr-text-2);
 
 		@include hover-supported {
 			background-color: var(--clr-background-hover-new-group);

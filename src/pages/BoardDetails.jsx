@@ -19,11 +19,28 @@ export function BoardDetails() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   console.log('board.details:', board, boardId)
-  console.log('taskId', taskId)
+  
+  useEffect(() => {
+    initBoard(boardId)
+  }, [boardId])
 
   useEffect(() => {
-    loadBoard(boardId)
-  }, [boardId])
+    if (board) {
+      if (board.backgroundImg) {
+        document.body.style.backgroundImage = `url(${board?.backgroundImg})`;
+      } else {
+        document.body.style.backgroundImage = '';
+      }
+    }
+
+    return () => {
+      document.body.style.backgroundImage = '';
+    }
+  }, [board]);
+  
+  async function initBoard(boardId) {
+    await loadBoard(boardId)
+  }
 
   async function onAddGroup(boardId, newGroup) {
     if (!newGroup.title) return

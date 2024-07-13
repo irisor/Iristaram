@@ -8,8 +8,8 @@ export function AppSidebar() {
 	const boards = useSelector(storeState => storeState.boardModule.boards)
 
 	useEffect(() => {
-        loadBoards()
-    }, [])
+		loadBoards()
+	}, [])
 
 	return (
 		<section className="app-sidebar">
@@ -18,7 +18,12 @@ export function AppSidebar() {
 
 				<ul className="app-sidebar-boards-list">
 					{boards.map(board => (
-						<li key={board._id}><NavLink to={`/boards/${board._id}`} className="app-sidebar-item btn">{board.title}</NavLink></li>
+						<li key={board._id}>
+							<NavLink to={`/boards/${board._id}`} className="app-sidebar-item btn">
+								<img className='app-sidebar-item-img' src={board?.backgroundImg} width="24" height="20" />
+								<p>{board.title}</p>
+							</NavLink>
+						</li>
 					))}
 				</ul>
 			</div>

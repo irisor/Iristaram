@@ -1,16 +1,10 @@
 import { TaskPreview } from "./TaskPreview";
-import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { CreateItem } from './CreateItem'
 
 export function TaskList({ props }) {
     const { groupId, onAddTask, onRemoveTask, onUpdateTaskTitle } = props
     let tasks = useSelector(storeState => storeState.boardModule.board.groups.find(group => group.id == groupId).tasks)
-    console.log(tasks, "In TaskList")
-
-    useEffect(() => {
-
-    }, [])
 
     return (
         <>

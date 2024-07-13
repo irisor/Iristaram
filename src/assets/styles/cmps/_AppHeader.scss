@@ -1,5 +1,6 @@
 .app-header {
-    background-color: var(--clr-background-default-2);
+    backdrop-filter: blur(6px);
+    background-color: var(--clr-background-header);
     color: var(--clr-text-3);
     display: grid;
     font-weight: 500;

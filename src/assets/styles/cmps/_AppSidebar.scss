@@ -1,5 +1,6 @@
 .app-sidebar {
-	background-color: var(--clr-background-default-2);
+	backdrop-filter: blur(6px);
+	background-color: var(--clr-background-sidebar);
 	color: var(--clr-text-3);
 	grid-area: sidebar;
 	overflow-y: auto;
@@ -32,5 +33,21 @@
 		grid-template-columns: minmax(0, 1fr);
 		justify-content: stretch;
 		white-space: nowrap;
+	}
+
+	&-item {
+		gap: 8px;
+		grid-auto-flow: column;
+		justify-content: start;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		
+		&.btn {
+			display: grid;
+		}
+
+		&-img {
+			background-color: var(--clr-background-default-1);
+		}
 	}
 }
