@@ -1,22 +1,24 @@
 // Themes
 @mixin theme-light() {
 	color-scheme: light;
-	--clr-text-1: #ffffff;
+	--clr-text-1: #172b4d;
 	--clr-text-2: #172b4d;
-	--clr-text-3: #ffffff;
+	--clr-text-3: #172b4d;
 	--clr-text-4: #ffffff;
-	--clr-text-5: #626f86;
+	--clr-text-5: #ffffff;
 	--clr-text-disabled: #091e424f;
 	--clr-text-active-1: #0c66e4;
-	--clr-background-default-1: #ffffff;
+	--clr-background-default-1: #ffeccc;
 	--clr-background-default-2: #b4b3b3;
 	--clr-background-default-3: #ffffff;
 	--clr-background-default-complimentary: #1d2125;
+	--clr-background-sidebar: hsla(211,24%,66.1%,0.9);
+	--clr-background-board-header: #ffffff3d;
 	--clr-background-board: #6c6c6c;
 	--clr-background-group: #f1f2f4;
 	--clr-background-task: #ffffff;
 	--clr-background-menu: #ffffff;
-	--clr-background-header: #b4b3b3;
+	--clr-background-header: hsl(211,24%,71.1%);
 	--clr-background-active-1: #ffffff4d;
 	--clr-background-create-board: #091e420f;
 	// --clr-background-new-group: #fffff3d;
@@ -41,28 +43,30 @@
 	--shadow-selected: inset 0 0 0 2px var(--clr-selected-border);
 	--shadow-input: inset 0 0 0 1px #8590A2;
 	--shadow-danger: inset 0 0 0 1px #f15b50;
-	--logo-filter: unset;
+	--logo-filter: brightness(0) saturate(100%) invert(30%) sepia(53%) saturate(323%) hue-rotate(179deg) brightness(91%) contrast(88%);;
 }
 
 @mixin theme-dark() {
 	color-scheme: dark;
 	// --clr-text-1: #a6c5e229;
-	--clr-text-1: #ffffff;
+	--clr-text-1: #172b4d;
 	--clr-text-2: #b6c2cf;
 	--clr-text-3: #9fadbc;
 	--clr-text-4: #1d2125;
-	--clr-text-5: #8c9bab;
+	--clr-text-5: #ffffff;
 	--clr-text-disabled: #bfdbf847;
 	--clr-text-active-1: #579dff;
 	--clr-background-default-1: #ffffff;
 	--clr-background-default-2: #1d2125;
 	--clr-background-default-3: #1d2125;
 	--clr-background-default-complimentary: #ffffff;
+	--clr-background-sidebar: hsla(206,13.7%,10%,0.9);
+	--clr-background-board-header: #ffffff3d;
 	--clr-background-board: #6c6c6c;
 	--clr-background-group: #101204;
 	--clr-background-task: #22272b;
 	--clr-background-menu: #282e33;
-	--clr-background-header: #b4b3b3;
+	--clr-background-header: #1D2125;
 	--clr-background-active-1: #ffffff4d;
 	--clr-background-create-board: #a1bdd914;
 	// --clr-background-new-group: #ffffff3d;

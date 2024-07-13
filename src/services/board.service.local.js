@@ -30,7 +30,7 @@ async function query(filterBy = { title: '' }) {
         boards = boards.filter(board => regex.test(board.title))
     }
     // Return just preview info about the boards
-    boards = boards.map(({ _id, title, isStarred }) => ({ _id, title, isStarred }))
+    boards = boards.map(({ _id, title, isStarred, backgroundImg }) => ({ _id, title, isStarred, backgroundImg }))
     return boards
 }
 
@@ -225,6 +225,7 @@ function _createBoards() {
         [{
         "_id": "b101",
         "title": "Website Redesign Project",
+        "backgroundImg": "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/2560x1440/481563ddbf5af01d25d4b103d8f3e81b/photo-1674673353738-dc8039354dd0.webp",
         "isStarred": true,
         "archivedAt": null,
         "createdBy": {
