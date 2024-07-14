@@ -1,4 +1,5 @@
 import { boardService } from '../services/board.service.local'
+import { utilService } from '../services/util.service'
 import { store } from '../store/store'
 import { ADD_BOARD, REMOVE_BOARD, SET_BOARDS, SET_BOARD, UPDATE_BOARD, ADD_GROUP, UPDATE_GROUP,REMOVE_GROUP,ADD_TASK, REMOVE_TASK, UPDATE_TASK } from './board.reducer'
 
@@ -94,9 +95,10 @@ export async function updateGroup(boardId, group) {
 
 export async function addTask(boardId, groupId, taskTitle) {
     try {
-        const newTask = await boardService.addTask(boardId, groupId, taskTitle)
-        //console.log('Added task', newTask)
+        let newTask = getTask(taskTitle)
         store.dispatch(getCmdAddTask(groupId,newTask))
+        newTask = await boardService.addTask(boardId, groupId, taskTitle)
+        //console.log('Added task', newTask)
         return newTask
     } catch (err) {
         console.log('Cannot add task', err)
@@ -107,9 +109,9 @@ export async function addTask(boardId, groupId, taskTitle) {
 export async function removeTask(boardId, groupId, taskId) {
     try {
         console.log("taskId",taskId)
+        store.dispatch(getCmdRemoveTask(groupId,taskId))
         await boardService.removeTask(boardId, groupId, taskId)
         console.log('Task removed')
-        store.dispatch(getCmdRemoveTask(groupId,taskId))
         } catch (err) {
         console.log('Cannot remove task', err)
         throw err
@@ -118,13 +120,28 @@ export async function removeTask(boardId, groupId, taskId) {
 
 export async function updateTask(boardId, groupId, task) {
     try {
+        store.dispatch(getCmdUpdateTask(groupId, task))
         const savedTask = await boardService.updateTask(boardId, groupId, task)
         console.log('Updated task', savedTask)
-        store.dispatch(getCmdUpdateTask(groupId, task))
         return savedTask
     } catch (err) {
         console.log('Cannot update task', err)
         throw err
+    }
+}
+
+function getTask(title = "") {
+    return {
+        id:utilService.makeId(),
+        title,
+        description : "",
+        memberIds: [],
+        labelIds: [],
+        checklist: {},
+        dates: {startDate: "", dueDate: "", setReminder: ""},
+        attachment: "",
+        cover: ""
+
     }
 }
 
