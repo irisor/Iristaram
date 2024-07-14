@@ -9,6 +9,7 @@ export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Ad
 	const [itemData, setItemData] = useState(null)
 	const board = useSelector(storeState => storeState.boardModule.board)
 	const inputRef = useRef(null)
+	const [itemType, SetItemType] = useState(groupId ?"task" : "group")
 
 
 	useEffect(() => {
@@ -75,9 +76,11 @@ export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Ad
 					</form>
 				</>
 			) : (
-				<button className="btn create-item non-edit" onClick={ev => onAddEmptyItem(ev)}>
-					<div className="icon">
+				<button className={"btn create-item non-edit " + itemType} onClick={ev => onAddEmptyItem(ev)}>
+					<div className="icon add-item">
+					<IconContext.Provider value={{size: "16"}}>
 						<HiOutlinePlus />
+					</IconContext.Provider>
 					</div>
 					{initialBtnLbl}
 				</button>

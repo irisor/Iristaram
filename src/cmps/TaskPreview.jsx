@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
 
-export function TaskPreview({ groupId, task, onRemoveTask, onUpdateTaskTitle }) {
-    let [isEditMode, SetisEditMode] = useState(false)
-    let [title, setTitle] = useState(task.title)
-    const inputRef = useRef(null)
-    inputRef?.current?.focus()
+export function TaskPreview({groupId, task,onRemoveTask, onUpdateTaskTitle}){
+let [isEditMode, SetisEditMode] = useState(false)
+let [title, setTitle] = useState(task.title)
+const inputRef = useRef(null)
+inputRef?.current?.focus()
+console.log("task in TaskPreview:", task)
 
     async function onKeyDown(ev) {
         console.log(ev.key)
@@ -17,23 +18,25 @@ export function TaskPreview({ groupId, task, onRemoveTask, onUpdateTaskTitle }) 
 
 
     return (
-        <article className="task-preview">
-            {!isEditMode ?
+        <div className="task-preview">
+            <div className="task-preview-container">
+                {!isEditMode ?
                 <Link to={`/${task.id}`}>
-                    <h4>{task.title}</h4>
+                    <h4>{title}</h4>
                 </Link> :
                 <input
-                    type="text"
-                    value={title}
-                    onChange={(ev) => setTitle(ev.target.value)}
-                    onKeyDown={onKeyDown}
-                    onBlur={() => SetisEditMode(false)} />}
-            <section className="task-actions">
-                <button onClick={() => onRemoveTask(groupId, task.id)}>X</button>
-                <button onClick={() =>
-                    SetisEditMode(true)}>Edit</button>
-            </section>
-        </article>
+                type ="text"
+                value={title}
+                onChange={(ev) => setTitle(ev.target.value)}
+                onKeyDown={onKeyDown}
+                onBlur = {() => SetisEditMode(false)} />}
+                <section className="task-actions">
+                            <button onClick={() => onRemoveTask(groupId, task.id)}>X</button>
+                            <button onClick={() => 
+                        SetisEditMode(true)}>Edit</button>
+                </section>
+            </div>
+        </div>
     )
 }
 
