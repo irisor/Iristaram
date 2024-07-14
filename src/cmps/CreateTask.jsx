@@ -21,22 +21,20 @@ export function CreateTask({ onClose, onAddTask, groupId }) {
 
   useKeyDown(() => {
     onClose();
-  }, ["Escape"]);
+  }, ["Escape"])
 
-  useKeyDown(
-    (ev) => {
+  const onEnterDown = useKeyDown(() => {
       AddTask(ev);
     },
-    ["Enter"]
-  );
+    ["Enter"])
 
-  function AddTask(ev) {
+  function AddTask(ev = null) {
     ev?.preventDefault();
     ev?.stopPropagation();
     setItemData(null);
 
     if (itemData) {
-      onAddTask(groupId, itemData);
+      onAddTask(groupId, itemData.title);
     } else {
       ev.stopPropagation();
       setItemData({ title: "" });
@@ -60,9 +58,9 @@ export function CreateTask({ onClose, onAddTask, groupId }) {
         className="task-placeholder"
         value={itemData?.title}
         onChange={(ev) => onChangeTitle(ev.target.value)}
-        onKeyDown={() => {
-          useKeyDown(() => AddTask(), ["Enter"]);
-          useKeyDown(() => onClose(), ["Escape"]);
+        onKeyDown={(ev) => {
+            useKeyDown(() => onClose(), ["Escape"])
+			  useKeyDown(() => AddTask(), ["Enter"])
         }}
         placeholder="Enter a title for this card..."
         ref={inputRef}

@@ -7,7 +7,7 @@ let [isEditMode, SetisEditMode] = useState(false)
 let [title, setTitle] = useState(task.title)
 const inputRef = useRef(null)
 inputRef?.current?.focus()
-console.log(isEditMode)
+console.log("task in TaskPreview:", task)
 
 async function onKeyDown(ev){
     console.log(ev.key)
@@ -27,7 +27,7 @@ function onChange(ev){
             <div className="task-preview-container">
                 {!isEditMode ?
                 <Link to={`/${task.id}`}>
-                    <a>{task.title}</a>
+                    <h4>{title}</h4>
                 </Link> :
                 <input
                 type ="text"
