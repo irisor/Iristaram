@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { EditableTitle } from "./EditableTitle";
 import { useRef, useState } from "react";
 
 export function TaskPreview({groupId, task,onRemoveTask, onUpdateTaskTitle}){
@@ -9,18 +8,14 @@ const inputRef = useRef(null)
 inputRef?.current?.focus()
 console.log("task in TaskPreview:", task)
 
-async function onKeyDown(ev){
-    console.log(ev.key)
-    if(ev.key == 'Enter'){
-        SetisEditMode(false)
-        await onUpdateTaskTitle(groupId,task,ev.target.value)
+    async function onKeyDown(ev) {
+        console.log(ev.key)
+        if (ev.key == 'Enter') {
+            SetisEditMode(false)
+            await onUpdateTaskTitle(groupId, task, ev.target.value)
+        }
     }
-}
 
-function onChange(ev){
-    onUpdateTaskTitle(groupId,task.id,ev.target.value)
-    SetisEditMode(false)
-}
 
     return (
         <div className="task-preview">

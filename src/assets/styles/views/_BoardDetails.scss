@@ -1,5 +1,4 @@
 .board-details {
-    background-color: var(--clr-background-default-1);
     display: grid;
     grid-template-areas:
         "header menu"
@@ -17,8 +16,6 @@
     }
 
     .board-header {
-        background-color: var(--clr-background-header);
-        color: var(--clr-text-1);
         grid-area: header;
     }
 

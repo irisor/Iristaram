@@ -1,6 +1,5 @@
 .board-preview {
-	// background-image: url("https://images.unsplash.com/photo-1673794864967-00cc64cb8ce4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MDE5NDJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzQ5NDQwNjU&ixlib=rb-4.0.3&q=80&w=400");
-	background-color: var(--clr-background-board);
+	background-color: var(--clr-background-default-1);
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -11,7 +10,6 @@
 	position: relative;
 
 	&.board-tile-fade {
-		color: var(--clr-text-1);
 		font-size: rem(16px);
 		font-weight: 700;
 
@@ -27,6 +25,13 @@
 
 		}
 	}
+
+	.board-title-text {
+		color: var(--clr-text-5);
+		position: relative;
+		z-index: 2;
+	}
+
 	@include hover-supported {
 		&.board-tile-fade::after {
 			background-color: var(--clr-background-fade-hover);
