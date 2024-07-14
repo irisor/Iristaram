@@ -11,22 +11,18 @@ export function CreateTask({ onClose, onAddTask, groupId }) {
   const board = useSelector((storeState) => storeState.boardModule.board);
   const inputRef = useRef(null);
   const formRef = useRef(null);
-  useClickOutside(() => {
-    onClose();
-  }, formRef);
+
 
   useEffect(() => {
     inputRef.current?.focus();
   }, [itemData]);
 
-  useKeyDown(() => {
+  useClickOutside(() => {
     onClose();
-  }, ["Escape"])
+  }, formRef);
+  useKeyDown(() => onClose(), ["Escape"]);
+  useKeyDown(() => AddTask(), ["Enter"]);
 
-  const onEnterDown = useKeyDown(() => {
-      AddTask(ev);
-    },
-    ["Enter"])
 
   function AddTask(ev = null) {
     ev?.preventDefault();
@@ -58,10 +54,8 @@ export function CreateTask({ onClose, onAddTask, groupId }) {
         className="task-placeholder"
         value={itemData?.title}
         onChange={(ev) => onChangeTitle(ev.target.value)}
-        onKeyDown={(ev) => {
-            useKeyDown(() => onClose(), ["Escape"])
-			  useKeyDown(() => AddTask(), ["Enter"])
-        }}
+        // onKeyDown={(ev) => {
+        // }}
         placeholder="Enter a title for this card..."
         ref={inputRef}
       />
