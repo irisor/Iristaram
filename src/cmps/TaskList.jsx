@@ -1,10 +1,6 @@
 import { TaskPreview } from "./TaskPreview";
-import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { CreateTask } from "./CreateTask";
-import { HiOutlinePlus } from 'react-icons/hi'
-import { IconContext } from 'react-icons'
-import { GiCarDoor } from "react-icons/gi";
+import { CreateItem } from "./CreateItem";
 
 export function TaskList({ props }) {
   const { groupId, onAddTask, onRemoveTask, onUpdateTaskTitle } = props;
@@ -13,12 +9,13 @@ export function TaskList({ props }) {
       storeState.boardModule.board.groups.find((group) => group.id == groupId)
         ?.tasks
   );
-
-  const [showTaskCreateForm, setShowTaskCreateForm] = useState(false);
-
-  useEffect(() => {}, []);
-
   
+	function onInputTask(ev) {
+		if (!ev || !ev.target) return
+		ev.target.style.height = 'auto';
+		ev.target.style.height = (ev.target.scrollHeight + 20) + 'px';
+	}
+
 
   return (
     <>
@@ -34,22 +31,10 @@ export function TaskList({ props }) {
             />
           </li>
         ))}
-        {showTaskCreateForm && <li>
-          <CreateTask onClose={() => setShowTaskCreateForm(false)} onAddTask={onAddTask} groupId={groupId} />
-        </li>}
       </ol>
-      {!showTaskCreateForm &&(
-        
-        <button className="btn add-task non-edit task" onClick={() => setShowTaskCreateForm(true)}>
-          <span className="icon add-item">
-          <IconContext.Provider value={{size: "16"}}>
-            <HiOutlinePlus />
-        </IconContext.Provider>
-          </span>
-          Add a card
-          </button>
-      )}
-      {/* <CreateItem onAddItem={onAddTask} initialBtnLbl='Add a card' addBtnLabel='Add card' placeholder='Enter a title for this card...' groupId={groupId} /> */}
+      <div className="task-list-add-task">
+        <CreateItem onAddItem={onAddTask} onInput={onInputTask} initialBtnLbl='Add a card' addBtnLabel='Add card' placeholder='Enter a title for this card...' groupId={groupId} />
+      </div>
     </>
   );
 }
