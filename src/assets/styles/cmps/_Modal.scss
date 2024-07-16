@@ -8,15 +8,33 @@
 	z-index: 25;
 
 	&-overlay {
-		display: grid;
-		height: 100%;
-		inset-block-start: 0;
-		inset-inline-start: 0;
-		justify-content: center;
-		place-content: center;
+		background-color: var(--clr-background-overlay);
+		bottom: 0;
+		left: 0;
 		position: fixed;
+		right: 0;
+		top: 0;
 		width: 100%;
-		z-index: 2;
+	}
+}
+
+#modal-root {
+	display: grid;
+	inset-block-start: 0;
+    justify-content: center;
+	position: absolute;
+	width: 100%;
+	z-index: 25;
+}
+
+.modal-container {
+	border-radius: 12px;
+	margin-block-start: 48px;
+	overflow: hidden;
+
+	.modal {
+		position: relative;
+		width: 100%;
 	}
 }
 
