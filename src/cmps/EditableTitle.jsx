@@ -4,8 +4,12 @@ export function EditableTitle({ initialTitle, onUpdateTitle, tag='h2' }) {
   const [title, setTitle] = useState(initialTitle)
   const [isEditing, setIsEditing] = useState(false)
   const inputRef = useRef()
-  const TagComponent = tag;
+  const TagComponent = tag
 
+
+  useEffect(() => {
+    setTitle(initialTitle)
+  }, [initialTitle])
 
   useEffect(() => {
     if (isEditing) {
