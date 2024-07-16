@@ -1,7 +1,7 @@
 import { boardService } from '../services/board.service.local'
 import { utilService } from '../services/util.service'
 import { store } from '../store/store'
-import { ADD_BOARD, REMOVE_BOARD, SET_BOARDS, SET_BOARD, UPDATE_BOARD, ADD_GROUP, UPDATE_GROUP,REMOVE_GROUP,ADD_TASK, REMOVE_TASK, UPDATE_TASK } from './board.reducer'
+import { ADD_BOARD, REMOVE_BOARD, SET_BOARDS, SET_BOARD, UPDATE_BOARD, ADD_GROUP, UPDATE_GROUP, REMOVE_GROUP, ADD_TASK, REMOVE_TASK, UPDATE_TASK } from './board.reducer'
 
 export async function loadBoards() {
     try {
@@ -48,6 +48,7 @@ export async function addBoard(board) {
 
 export async function updateBoard(board) {
     try {
+        store.dispatch(getCmdUpdateBoard(board))
         const savedBoard = await boardService.save(board)
         console.log('Updated Board:', savedBoard)
         return savedBoard
@@ -73,7 +74,7 @@ export async function addGroup(boardId, groupTitle) {
 export async function removeGroup(boardId, groupId) {
     try {
         store.dispatch(getCmdRemoveGroup(boardId, groupId))
-        boardService.removeGroup(boardId, groupId)
+        await boardService.removeGroup(boardId, groupId)
         console.log('Removed Group', groupId)
 
     } catch (err) {
@@ -97,8 +98,8 @@ export async function updateGroup(boardId, group) {
 export async function addTask(boardId, groupId, taskTitle) {
     try {
         let newTask = getEmptyTask(taskTitle)
-        store.dispatch(getCmdAddTask(groupId,newTask))
-        newTask = boardService.addTask(boardId, groupId, newTask)
+        store.dispatch(getCmdAddTask(groupId, newTask))
+        newTask = await boardService.addTask(boardId, groupId, newTask)
         //console.log('Added task', newTask)
         return newTask
     } catch (err) {
@@ -109,11 +110,11 @@ export async function addTask(boardId, groupId, taskTitle) {
 
 export async function removeTask(boardId, groupId, taskId) {
     try {
-        console.log("taskId",taskId)
-        store.dispatch(getCmdRemoveTask(groupId,taskId))
-        boardService.removeTask(boardId, groupId, taskId)
+        console.log("taskId", taskId)
+        store.dispatch(getCmdRemoveTask(groupId, taskId))
+        await boardService.removeTask(boardId, groupId, taskId)
         console.log('Task removed')
-        } catch (err) {
+    } catch (err) {
         console.log('Cannot remove task', err)
         throw err
     }
@@ -131,15 +132,15 @@ export async function updateTask(boardId, groupId, task) {
     }
 }
 
-function getEmptyTask(title = "", boardId, groupId) {
+function getEmptyTask(title = "") {
     return {
-        id:utilService.makeId(),
+        id: utilService.makeId(),
         title,
-        description : "",
+        description: "",
         memberIds: [],
         labelIds: [],
         checklist: {},
-        dates: {startDate: "", dueDate: "", setReminder: ""},
+        dates: { startDate: "", dueDate: "", setReminder: "" },
         attachment: "",
         cover: ""
 
@@ -148,7 +149,7 @@ function getEmptyTask(title = "", boardId, groupId) {
 
 function getEmptyGroup(title = "", boardId) {
     return {
-        id:utilService.makeId(),
+        id: utilService.makeId(),
         title,
         tasks: [],
         boardId,
@@ -216,7 +217,7 @@ function getCmdUpdateGroup(boardId, group) {
     }
 }
 
-function getCmdAddTask(groupId, task, activity ){
+function getCmdAddTask(groupId, task, activity) {
     return {
         type: ADD_TASK,
         groupId,
@@ -225,7 +226,7 @@ function getCmdAddTask(groupId, task, activity ){
     }
 }
 
-function getCmdRemoveTask(groupId, taskId ){
+function getCmdRemoveTask(groupId, taskId) {
     return {
         type: REMOVE_TASK,
         groupId,
@@ -241,20 +242,3 @@ function getCmdUpdateTask(groupId, task, activity) {
         activity
     }
 }
-
-
-
-// // unitTestActions()
-// async function unitTestActions() {
-//     await loadBoards()
-//     await addBoard(boardService.getEmptyBoard())
-//     await updateBoard({
-//         _id: 'm1oC7',
-//         title: 'Board-Good',
-//     })
-//     await removeBoard('m1oC7')
-//     // TODO unit test loadBoard
-//     // TODO unit test addBoardMsg
-//     // TODO unit test updateTask
-// }
-

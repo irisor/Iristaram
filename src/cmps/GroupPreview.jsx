@@ -1,9 +1,8 @@
-import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 import { EditableTitle } from './EditableTitle'
 import {TaskList} from './TaskList'
 export function GroupPreview({ group, onRemoveGroup, onUpdateGroupTitle, taskProps }) {
-	const board = useSelector(storeState => storeState.boardModule.board)
+	// const board = useSelector(storeState => storeState.boardModule.board)
 
 	return (
 
@@ -17,7 +16,7 @@ export function GroupPreview({ group, onRemoveGroup, onUpdateGroupTitle, taskPro
 			<TaskList
 				props={{groupId: group.id, ...taskProps}}
 			/>
-			<button className="btn" onClick={() => { onRemoveGroup(board._id, group?.id) }}>X</button>
+			{/* <button className="btn" onClick={() => { onRemoveGroup(board._id, group?.id) }}>X</button> */}
 		</section>
 	)
 }
