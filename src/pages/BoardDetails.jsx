@@ -42,10 +42,10 @@ export function BoardDetails() {
     await loadBoard(boardId)
   }
 
-  async function onAddGroup(boardId, newGroup) {
-    if (!newGroup.title) return
+  async function onAddGroup(boardId, groupTitle) {
+    if (!groupTitle) return
     try {
-      await addGroup(boardId, newGroup)
+      await addGroup(boardId, groupTitle)
       showSuccessMsg(`Group added`)
     } catch (err) {
       showErrorMsg('Cannot add group')
@@ -104,7 +104,7 @@ async function onAddTask(groupId, taskTitle){
 }
 
 async function onUpdateTaskTitle(groupId, task, newTitle){
-  if(!newTitle){ return}
+  if(!newTitle) return
   try {
     task.title = newTitle
     await updateTask(boardId, groupId, task)

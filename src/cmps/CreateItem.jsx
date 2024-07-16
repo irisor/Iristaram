@@ -5,11 +5,10 @@ import { IconContext } from 'react-icons'
 import { HiOutlinePlus } from 'react-icons/hi'
 import { AiOutlineClose } from 'react-icons/ai'
 
-export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Add', placeholder = 'Enter title...', groupId = null }) {
+export function CreateItem({ onAddItem, onInput = () => {}, initialBtnLbl = 'Add', addBtnLabel = 'Add', placeholder = 'Enter title...', groupId = null }) {
 	const [itemData, setItemData] = useState(null)
 	const board = useSelector(storeState => storeState.boardModule.board)
 	const inputRef = useRef(null)
-
 
 	useEffect(() => {
 		inputRef.current?.focus()
@@ -26,21 +25,24 @@ export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Ad
 	}
 
 	function handleAddItem(newItem, ev = null) {
-		
+
 		// console.log('handleAddItem', newItem)
 		ev?.preventDefault()
 		ev?.stopPropagation()
 
-		setItemData(null)
-
 		if (newItem?.title !== '') {
+			setItemData({ title: '' })
+
 			if (groupId) {
 				// For tasks, include groupId
 				onAddItem(groupId, newItem.title)
 			} else {
 				// For groups, omit groupId
-				onAddItem(board._id, newItem)
+				onAddItem(board._id, newItem.title)
 			}
+		}
+		else {
+			setItemData(null)
 		}
 	}
 
@@ -63,6 +65,7 @@ export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Ad
 							onKeyDown={ev => ev.key === 'Enter' && handleAddItem(itemData)}
 							placeholder={placeholder}
 							ref={inputRef}
+							onInput={ev => onInput(ev)}
 						/>
 						<button className="btn new-item-save btn-color-bold blue" onClick={ev => handleAddItem(itemData, ev)}>
 							{addBtnLabel}
@@ -75,9 +78,11 @@ export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Ad
 					</form>
 				</>
 			) : (
-				<button className="btn create-item non-edit" onClick={ev => onAddEmptyItem(ev)}>
-					<div className="icon">
-						<HiOutlinePlus />
+				<button className="btn create-item non-edit " onClick={ev => onAddEmptyItem(ev)}>
+					<div className="icon add-item">
+						<IconContext.Provider value={{ size: "16" }}>
+							<HiOutlinePlus />
+						</IconContext.Provider>
 					</div>
 					{initialBtnLbl}
 				</button>

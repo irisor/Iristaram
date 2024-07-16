@@ -1,6 +1,7 @@
 import { boardService } from '../services/board.service.local'
+import { utilService } from '../services/util.service'
 import { store } from '../store/store'
-import { ADD_BOARD, REMOVE_BOARD, SET_BOARDS, SET_BOARD, UPDATE_BOARD, ADD_GROUP, UPDATE_GROUP,REMOVE_GROUP,ADD_TASK, REMOVE_TASK, UPDATE_TASK } from './board.reducer'
+import { ADD_BOARD, REMOVE_BOARD, SET_BOARDS, SET_BOARD, UPDATE_BOARD, ADD_GROUP, UPDATE_GROUP, REMOVE_GROUP, ADD_TASK, REMOVE_TASK, UPDATE_TASK } from './board.reducer'
 
 export async function loadBoards() {
     try {
@@ -16,8 +17,8 @@ export async function loadBoards() {
 export async function loadBoard(boardId) {
     try {
         const board = await boardService.getById(boardId)
-        console.log('Board from DB:', board)
         store.dispatch(getCmdSetBoard(board))
+        console.log('Board from DB:', board)
     } catch (err) {
         console.log('Cannot load board', err)
         throw err
@@ -47,9 +48,9 @@ export async function addBoard(board) {
 
 export async function updateBoard(board) {
     try {
+        store.dispatch(getCmdUpdateBoard(board))
         const savedBoard = await boardService.save(board)
         console.log('Updated Board:', savedBoard)
-        store.dispatch(getCmdUpdateBoard(savedBoard))
         return savedBoard
     } catch (err) {
         console.log('Cannot save board', err)
@@ -57,12 +58,13 @@ export async function updateBoard(board) {
     }
 }
 
-export async function addGroup(boardId, group) {
+export async function addGroup(boardId, groupTitle) {
     try {
-        const savedBoard = await boardService.addGroup(boardId, group)
-        console.log('Added Group', group)
-        store.dispatch(getCmdAddGroup(savedBoard))
-        return savedBoard
+        let newGroup = getEmptyGroup(groupTitle, boardId)
+        store.dispatch(getCmdAddGroup(newGroup))
+        const savedGroup = await boardService.addGroup(boardId, newGroup)
+        console.log('Added Group', savedGroup)
+        return savedGroup
     } catch (err) {
         console.log('Cannot add group', err)
         throw err
@@ -71,9 +73,10 @@ export async function addGroup(boardId, group) {
 
 export async function removeGroup(boardId, groupId) {
     try {
+        store.dispatch(getCmdRemoveGroup(boardId, groupId))
         await boardService.removeGroup(boardId, groupId)
         console.log('Removed Group', groupId)
-        store.dispatch(getCmdRemoveGroup(boardId, groupId))
+
     } catch (err) {
         console.log('Cannot remove group', err)
         throw err
@@ -82,9 +85,9 @@ export async function removeGroup(boardId, groupId) {
 
 export async function updateGroup(boardId, group) {
     try {
+        store.dispatch(getCmdUpdateGroup(boardId, group))
         const savedBoard = await boardService.updateGroup(boardId, group)
         console.log('Updated Task', group)
-        store.dispatch(getCmdUpdateGroup(boardId, group))
         return savedBoard
     } catch (err) {
         console.log('Cannot update task', err)
@@ -94,9 +97,10 @@ export async function updateGroup(boardId, group) {
 
 export async function addTask(boardId, groupId, taskTitle) {
     try {
-        const newTask = await boardService.addTask(boardId, groupId, taskTitle)
+        let newTask = getEmptyTask(taskTitle)
+        store.dispatch(getCmdAddTask(groupId, newTask))
+        newTask = await boardService.addTask(boardId, groupId, newTask)
         //console.log('Added task', newTask)
-        store.dispatch(getCmdAddTask(groupId,newTask))
         return newTask
     } catch (err) {
         console.log('Cannot add task', err)
@@ -106,11 +110,11 @@ export async function addTask(boardId, groupId, taskTitle) {
 
 export async function removeTask(boardId, groupId, taskId) {
     try {
-        console.log("taskId",taskId)
+        console.log("taskId", taskId)
+        store.dispatch(getCmdRemoveTask(groupId, taskId))
         await boardService.removeTask(boardId, groupId, taskId)
         console.log('Task removed')
-        store.dispatch(getCmdRemoveTask(groupId,taskId))
-        } catch (err) {
+    } catch (err) {
         console.log('Cannot remove task', err)
         throw err
     }
@@ -118,13 +122,39 @@ export async function removeTask(boardId, groupId, taskId) {
 
 export async function updateTask(boardId, groupId, task) {
     try {
+        store.dispatch(getCmdUpdateTask(groupId, task))
         const savedTask = await boardService.updateTask(boardId, groupId, task)
         console.log('Updated task', savedTask)
-        store.dispatch(getCmdUpdateTask(groupId, task))
         return savedTask
     } catch (err) {
         console.log('Cannot update task', err)
         throw err
+    }
+}
+
+function getEmptyTask(title = "") {
+    return {
+        id: utilService.makeId(),
+        title,
+        description: "",
+        memberIds: [],
+        labelIds: [],
+        checklist: {},
+        dates: { startDate: "", dueDate: "", setReminder: "" },
+        attachment: "",
+        cover: ""
+
+    }
+}
+
+function getEmptyGroup(title = "", boardId) {
+    return {
+        id: utilService.makeId(),
+        title,
+        tasks: [],
+        boardId,
+        closed: false,
+        color: null
     }
 }
 
@@ -187,7 +217,7 @@ function getCmdUpdateGroup(boardId, group) {
     }
 }
 
-function getCmdAddTask(groupId, task, activity ){
+function getCmdAddTask(groupId, task, activity) {
     return {
         type: ADD_TASK,
         groupId,
@@ -196,7 +226,7 @@ function getCmdAddTask(groupId, task, activity ){
     }
 }
 
-function getCmdRemoveTask(groupId, taskId ){
+function getCmdRemoveTask(groupId, taskId) {
     return {
         type: REMOVE_TASK,
         groupId,
@@ -212,20 +242,3 @@ function getCmdUpdateTask(groupId, task, activity) {
         activity
     }
 }
-
-
-
-// // unitTestActions()
-// async function unitTestActions() {
-//     await loadBoards()
-//     await addBoard(boardService.getEmptyBoard())
-//     await updateBoard({
-//         _id: 'm1oC7',
-//         title: 'Board-Good',
-//     })
-//     await removeBoard('m1oC7')
-//     // TODO unit test loadBoard
-//     // TODO unit test addBoardMsg
-//     // TODO unit test updateTask
-// }
-

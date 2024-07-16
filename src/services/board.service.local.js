@@ -64,7 +64,7 @@ async function addGroup(boardId, group) {
     // Later, this is all done by the backend
     const board = await getById(boardId)
     if (!board.groups) board.groups = []
-    group.id = utilService.makeId()
+    if (!group.id) group.id = utilService.makeId()
 
     board.groups.push(group)
     await storageService.put(STORAGE_KEY, board)
@@ -104,21 +104,22 @@ async function updateTask(boardId, groupId, task) {
     return task
 }
 
-async function addTask(boardId, groupId, taskTitle){
+async function addTask(boardId, groupId, newTask){
     const board = await getById(boardId)
     const groupIndex = board.groups.findIndex(g => g.id === groupId)
 
-    let task = getTask(taskTitle)
+
+    if (!newTask.id) newTask.id = utilService.makeId()
     if(!board.groups[groupIndex].tasks) 
         board.groups[groupIndex].tasks = []
-    board.groups[groupIndex].tasks.push(task)
+    board.groups[groupIndex].tasks.push(newTask)
 
     // const activity = _createActivity(activityTitle, _toMiniTask(task), _toMiniGroup(group))
     // board.activities.push(activity)
 
     await storageService.put(STORAGE_KEY, board)
 
-    return task
+    return newTask
 }
 
 async function removeTask(boardId, groupId, taskId){
