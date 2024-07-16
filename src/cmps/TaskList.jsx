@@ -11,11 +11,10 @@ export function TaskList({ props }) {
   let tasks = useSelector(
     (storeState) =>
       storeState.boardModule.board.groups.find((group) => group.id == groupId)
-        .tasks
+        ?.tasks
   );
 
   const [showTaskCreateForm, setShowTaskCreateForm] = useState(false);
-  console.log(tasks, "In TaskList");
 
   useEffect(() => {}, []);
 

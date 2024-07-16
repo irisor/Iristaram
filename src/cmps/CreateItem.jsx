@@ -40,7 +40,7 @@ export function CreateItem({ onAddItem, initialBtnLbl = 'Add', addBtnLabel = 'Ad
 				onAddItem(groupId, newItem.title)
 			} else {
 				// For groups, omit groupId
-				onAddItem(board._id, newItem)
+				onAddItem(board._id, newItem.title)
 			}
 		}
 	}

@@ -104,14 +104,13 @@ async function updateTask(boardId, groupId, task) {
     return task
 }
 
-async function addTask(boardId, groupId, taskTitle){
+async function addTask(boardId, groupId, newTask){
     const board = await getById(boardId)
     const groupIndex = board.groups.findIndex(g => g.id === groupId)
 
-    let task = getTask(taskTitle)
     if(!board.groups[groupIndex].tasks) 
         board.groups[groupIndex].tasks = []
-    board.groups[groupIndex].tasks.push(task)
+    board.groups[groupIndex].tasks.push(newTask)
 
     // const activity = _createActivity(activityTitle, _toMiniTask(task), _toMiniGroup(group))
     // board.activities.push(activity)
