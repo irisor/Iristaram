@@ -14,7 +14,7 @@
     row-gap: 8px;
     -webkit-overflow-scrolling: touch;
     transform: translate3d(0, 0, 0);
-    scrollbar-color: var(--clr-divider, #091e4224) var(--ds-background-neutral, #091e420f);
+    scrollbar-color: var(--clr-scroll-tasks-main, #091e4224) var(--clr-scroll-tasks-bck, #091e420f);
     scrollbar-width: thin;
 
     &-container {
