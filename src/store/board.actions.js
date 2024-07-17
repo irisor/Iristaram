@@ -74,7 +74,7 @@ export async function addGroup(boardId, groupTitle) {
 export async function removeGroup(boardId, groupId) {
     try {
         store.dispatch(getCmdRemoveGroup(boardId, groupId))
-        await boardService.removeGroup(boardId, groupId)
+        boardService.removeGroup(boardId, groupId)
         console.log('Removed Group', groupId)
 
     } catch (err) {
@@ -99,7 +99,7 @@ export async function addTask(boardId, groupId, taskTitle) {
     try {
         let newTask = getEmptyTask(taskTitle)
         store.dispatch(getCmdAddTask(groupId, newTask))
-        newTask = await boardService.addTask(boardId, groupId, newTask)
+        boardService.addTask(boardId, groupId, newTask)
         //console.log('Added task', newTask)
         return newTask
     } catch (err) {
@@ -112,7 +112,7 @@ export async function removeTask(boardId, groupId, taskId) {
     try {
         console.log("taskId", taskId)
         store.dispatch(getCmdRemoveTask(groupId, taskId))
-        await boardService.removeTask(boardId, groupId, taskId)
+        boardService.removeTask(boardId, groupId, taskId)
         console.log('Task removed')
     } catch (err) {
         console.log('Cannot remove task', err)
