@@ -36,7 +36,7 @@ export function EditableTitle({ initialTitle, onUpdateTitle, tag='h2' }) {
   }
 
   return (
-    <div className='editable-title'>
+    <form className='editable-title'>
       { isEditing ? (
         <textarea className='editable-title-input'
           onKeyDown={ev => ev.key === 'Enter' && handleInputBlur(ev)}
@@ -49,6 +49,6 @@ export function EditableTitle({ initialTitle, onUpdateTitle, tag='h2' }) {
       ) : (
         <TagComponent className='editable-title-fixed' onClick={ev => handleTitleClick(ev)}>{title}</TagComponent>
       )}
-    </div>
+    </form>
   );
 }

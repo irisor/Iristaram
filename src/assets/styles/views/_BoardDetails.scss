@@ -21,7 +21,11 @@
 
     .board-main {
         grid-area: main;
+        display: grid;
+        margin-bottom: 8px;
         overflow-x: auto;
+        scrollbar-color: #fff6 #00000026;
+        scrollbar-width: auto;
     }
 
     .board-menu {

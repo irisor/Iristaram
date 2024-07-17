@@ -31,7 +31,6 @@ export function CreateItem({ onAddItem, onInput = () => {}, initialBtnLbl = 'Add
 		ev?.stopPropagation()
 
 		if (newItem?.title !== '') {
-			setItemData({ title: '' })
 
 			if (groupId) {
 				// For tasks, include groupId
@@ -40,6 +39,11 @@ export function CreateItem({ onAddItem, onInput = () => {}, initialBtnLbl = 'Add
 				// For groups, omit groupId
 				onAddItem(board._id, newItem.title)
 			}
+
+			// Reset itemData after a short delay to avoid displaying an empty item form when pressing enter
+			setTimeout(() => {
+				setItemData({ title: '' })
+			}, 0)
 		}
 		else {
 			setItemData(null)
