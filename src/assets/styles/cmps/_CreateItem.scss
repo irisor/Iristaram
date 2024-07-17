@@ -37,15 +37,4 @@
 	.new-item-close {
 		grid-area: close;
 	}
-	&.group{
-
-	}
-	&.task{
-		color: var(--clr-text-2) !important;
-		padding: 6px 12px 6px 8px;
-		background-color: rgba($color: #000000, $alpha: 0.0) !important;
-		&:hover{
-			background-color: var(--clr-background-hover-1) !important;
-		}
-	}
 }
