@@ -15,15 +15,16 @@ export function EditableTitle({ initialTitle, onUpdateTitle, tag='h2' }) {
       inputRef.current.focus()
       inputRef.current.select()
     }
-    else{
-      if(inputRef.current){
-        inputRef.current.blur()
-      }
-    }
+    // else{
+    //   if(inputRef.current){
+    //     inputRef.current.blur()
+
+    //   }
+    // }
   }, [isEditing])
 
   useClickOutside((event) => handleInputBlur(event), inputRef);
-  useKeyDown(() => handleInputBlur(), ['Escape', 'Enter']);
+  // useKeyDown(() => handleInputBlur(), ['Escape', 'Enter']);
 
   function handleTitleClick(ev) {
     ev.stopPropagation()
@@ -37,19 +38,17 @@ export function EditableTitle({ initialTitle, onUpdateTitle, tag='h2' }) {
 
   function handleInputBlur(ev = null) {
     console.log("onHandleInputBlur", ev);
-    console.log(isEditing)
     ev?.stopPropagation()
     ev?.preventDefault()
     setIsEditing(false)
     onUpdateTitle(title)
-    console.log(isEditing)
   }
 
   return (
     <div className='editable-title'>
       { isEditing ? (
         <textarea className='editable-title-input'
-          // onKeyDown={ev => ev.key === 'Enter' || ev.key ==='Escape' && handleInputBlur(ev)}
+          onKeyDown={ev => ev.key === 'Enter' || ev.key ==='Escape' && handleInputBlur(ev)}
           type="text"
           value={title}
           onChange={(ev) => handleInputChange(ev)}
