@@ -6,7 +6,6 @@ let [isEditMode, SetisEditMode] = useState(false)
 let [title, setTitle] = useState(task.title)
 const inputRef = useRef(null)
 inputRef?.current?.focus()
-console.log("task in TaskPreview:", task)
 
     async function onKeyDown(ev) {
         console.log(ev.key)
