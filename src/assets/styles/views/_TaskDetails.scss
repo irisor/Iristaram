@@ -1,7 +1,23 @@
 .task-details {
 
-    &.modal-container {
-        width: 768px;
+    .btn {
+        background-color: var(--clr-background-btn-task);
+        font-weight: 500;
+
+        @include hover-supported {
+            background-color: var(--clr-background-btn-task-hovered);
+        }
+
+        p {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+
+    &.modal-root {
+        display: grid;
+        grid-template-columns: minmax(0, 768px);
     }
 
     &-close {
@@ -21,16 +37,25 @@
         grid-template-areas:
             "header header"
             "main sidebar";
-        grid-template-columns: 1fr 300px;
+        grid-template-columns: minmax(0, 552px) minmax(0, 192px);
+
+        @include for-mobile-layout {
+            grid-template-areas:
+                "header"
+                "main"
+                "sidebar";
+        }
 
     }
 
     &-header {
         grid-area: header;
-        padding:20px 52px 8px 56px;
+        padding: 20px 52px 8px 56px;
 
         .editable-title {
             font-size: rem(20px);
+            font-weight: 600;
+            line-height: 24px;
 
             &-fixed {
                 padding: 0;
@@ -41,7 +66,8 @@
                 padding: 6px 10px;
             }
 
-            h2, textarea {
+            h2,
+            textarea {
                 font-size: inherit;
             }
         }
@@ -53,11 +79,97 @@
         position: absolute;
     }
 
+    &-in-list {
+        margin: 4px 8px 12px 2px;
+
+        a {
+            text-decoration: underline;
+        }
+    }
+
     &-main {
         grid-area: main;
+        padding: 0 8px 8px 16px;
     }
+
+    &-data {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: auto;
+        justify-content: start;
+        margin: 8px 0 0 40px;
+
+        &-item {
+            display: grid;
+            margin: 0 8px 8px 0;
+
+            &-content {
+                align-items: center;
+                display: grid;
+                grid-auto-flow: column;
+                grid-auto-columns: auto;
+                justify-content: start;
+                margin: 0 8px 8px 0;
+            }
+
+            &-title {
+                color: var(--clr-icon);
+                margin: 0 8px 4px 0;
+            }
+        }
+    }
+
+    &-member-list {
+        gap: 4px;
+    }
+
+    &-member {
+        // background-image: url("../../assets/img/member.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 50%;
+        height: 30px;
+        object-fit: cover;
+        opacity: 0.8;
+        padding: 0;
+        width: 30px;
+
+        @include hover-supported {
+
+            .avatar {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    &-add-member {
+        border-radius: 50%;
+    }
+
+    &-notifications-btn {
+        padding: 6px 12px;
+
+        .icon {
+            margin: 0 6px 0 -6px;
+        }
+    }
+
 
     &-sidebar {
         grid-area: sidebar;
+        padding: 0 16px 8px 8px;
+
+        .btn {
+            display: grid;
+            grid-auto-flow: column;
+            justify-content: start;
+            margin-block-start: 8px;
+            padding: 6px 12px;
+            width: 100%;
+        }
+
+        .icon {
+            margin: 0 6px 0 -6px;
+        }
     }
 }

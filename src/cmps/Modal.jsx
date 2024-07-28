@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { createPortal } from "react-dom"
 
-export function Modal({ isOpen, closeModal, children, focusRef, refs, style, cmpClassName='' }) {
+export function Modal({ isOpen, closeModal, children, focusRef, refs, style, cmpClassName = '' }) {
 
   // The Modal can be activated either with refs, in which case it won't have an overlay, and it would be placed according to the refs
   // Or it can be activated with refs, in which case it will have an overlay, and it would be placed outside the parent in the dom, so it could have the highest z-index
@@ -44,12 +44,14 @@ export function Modal({ isOpen, closeModal, children, focusRef, refs, style, cmp
     <>
       {!refs && modalRoot && (modalRoot instanceof Element) && createPortal(
         <>
-          <div className="modal-overlay" onClick={closeModal}></div>
-          <div className={`modal-container ${cmpClassName}`} onClick={ev => ev.stopPropagation()} style={style}>
-            <div className="modal">
-              {children}
+          <section className={`${cmpClassName}`}>
+            <div className="modal-overlay" onClick={closeModal}></div>
+            <div className={"modal-container"} onClick={ev => ev.stopPropagation()} style={style}>
+              <div className="modal">
+                {children}
+              </div>
             </div>
-          </div>
+          </section>
         </>
         , modalRoot)
       }

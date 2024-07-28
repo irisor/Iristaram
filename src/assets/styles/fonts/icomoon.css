@@ -617,7 +617,7 @@
 .icon-lg,
 .icon-md,
 .icon-sm {
-	color: inherit;
+	color: var(--clr-icon);
 }
 
 /* .dark-hover:hover .icon-lg,
