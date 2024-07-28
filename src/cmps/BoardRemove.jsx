@@ -4,18 +4,17 @@ import { boardService } from '../services/board.service.local'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { removeBoard } from '../store/board.actions'
 import { Modal } from './Modal'
-import { AiOutlineClose } from 'react-icons/ai'
-import { IconContext } from 'react-icons'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router'
 import { autoPlacement, autoUpdate, useFloating } from '@floating-ui/react-dom'
 
-export function BoardRemove({ isOpen, closeModal, clickRef }) {
+export function BoardRemove({ isOpen, closeModal }) {
   const [boardForm, setBoardForm, handleChange, resetForm] = useForm(boardService.getEmptyBoard())
   const focusRef = useRef(null)
   const board = useSelector(storeState => storeState.boardModule.board)
   const navigate = useNavigate()
-  const {refs, floatingStyles} = useFloating({placement: 'left', middleware: [autoPlacement()], 
+  const { refs, floatingStyles } = useFloating({
+    placement: 'left', middleware: [autoPlacement()],
     whileElementsMounted(referenceEl, floatingEl, update) {
       const cleanup = autoUpdate(referenceEl, floatingEl, update, {
         ancestorScroll: false,
@@ -58,10 +57,8 @@ export function BoardRemove({ isOpen, closeModal, clickRef }) {
         <form onSubmit={ev => onSubmitBoard(ev)} onKeyDown={ev => ev.key === 'Enter' && onSubmitBoard(ev)} noValidate>
           <header className='board-modal-header'>
             <h2 className='board-modal-title'>Remove board?</h2>
-            <button className='btn icon board-modal-close' onClick={ev => onClose(ev)}>
-              <IconContext.Provider value={{ color: 'inherit' }}>
-                <AiOutlineClose />
-              </IconContext.Provider>
+            <button className='btn icon-wrapper board-modal-close' onClick={ev => onClose(ev)}>
+              <span className="icon icon-sm icon-close" />
             </button>
           </header>
           <section className='board-modal-content'>

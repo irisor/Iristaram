@@ -13,19 +13,19 @@
 	vertical-align: bottom
 }
 
-.icon-lg.mod-quiet,
+/* .icon-lg.mod-quiet,
 .icon-md.mod-quiet,
 .icon-sm.mod-quiet {
 	color: var(--ds-icon-subtle, #626f86)
-}
+} */
 
-.icon-lg.tight,
+/* .icon-lg.tight,
 .icon-md.tight,
 .icon-sm.tight {
 	height: auto;
 	line-height: 1;
 	width: auto
-}
+} */
 
 .icon-lg {
 	font-size: 24px
@@ -610,17 +610,17 @@
 	width: 24px
 }
 
-.icon-custom.icon-checkbox-indeterminate:before {
+/* .icon-custom.icon-checkbox-indeterminate:before {
 	background-image: url(/assets/a605d0d1d4dba840876f.svg)
-}
+} */
 
 .icon-lg,
 .icon-md,
 .icon-sm {
-	color: var(--ds-icon, #44546f)
+	color: inherit;
 }
 
-.dark-hover:hover .icon-lg,
+/* .dark-hover:hover .icon-lg,
 .dark-hover:hover .icon-md,
 .dark-hover:hover .icon-sm,
 .icon-lg.dark,
@@ -631,9 +631,9 @@
 .icon-sm.dark-hover:hover {
 	color: var(--ds-icon, #44546f);
 	text-decoration: none
-}
+} */
 
-.icon-lg.light,
+/* .icon-lg.light,
 .icon-lg.light-hover:hover,
 .icon-md.light,
 .icon-md.light-hover:hover,
@@ -644,9 +644,9 @@
 .light-hover:hover .icon-sm {
 	color: var(--ds-icon-inverse, #fff);
 	text-decoration: none
-}
+} */
 
-.dark-background-hover:hover .icon-lg,
+/* .dark-background-hover:hover .icon-lg,
 .dark-background-hover:hover .icon-md,
 .dark-background-hover:hover .icon-sm,
 .icon-lg.dark-background-hover:hover,
@@ -656,18 +656,18 @@
 	border-radius: 3px;
 	color: var(--ds-icon, #44546f);
 	text-decoration: none
-}
+} */
 
-a.dark-background-hover:hover .icon-lg,
+/* a.dark-background-hover:hover .icon-lg,
 a.dark-background-hover:hover .icon-md,
 a.dark-background-hover:hover .icon-sm,
 a.icon-lg.dark-background-hover:hover,
 a.icon-md.dark-background-hover:hover,
 a.icon-sm.dark-background-hover:hover {
 	text-decoration: none
-}
+} */
 
-.dark-background-hover:active .icon-lg,
+/* .dark-background-hover:active .icon-lg,
 .dark-background-hover:active .icon-md,
 .dark-background-hover:active .icon-sm,
 .icon-lg.dark-background-hover:active,
@@ -677,9 +677,9 @@ a.icon-sm.dark-background-hover:hover {
 	border-radius: 3px;
 	color: var(--ds-icon, #44546f);
 	text-decoration: none
-}
+} */
 
-.icon-private {
+/* .icon-private {
 	color: var(--ds-icon-accent-red, #e34935)
 }
 
@@ -697,4 +697,4 @@ a.icon-sm.dark-background-hover:hover {
 
 .icon-business-class-color {
 	color: var(--ds-icon-accent-purple, #8270db)
-}
+} */
