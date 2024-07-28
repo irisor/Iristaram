@@ -2,10 +2,8 @@
 import { useState, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { IconContext } from 'react-icons'
-import { HiOutlinePlus } from 'react-icons/hi'
-import { AiOutlineClose } from 'react-icons/ai'
 
-export function CreateItem({ onAddItem, onInput = () => {}, initialBtnLbl = 'Add', addBtnLabel = 'Add', placeholder = 'Enter title...', groupId = null }) {
+export function CreateItem({ onAddItem, onInput = () => { }, initialBtnLbl = 'Add', addBtnLabel = 'Add', placeholder = 'Enter title...', groupId = null }) {
 	const [itemData, setItemData] = useState(null)
 	const board = useSelector(storeState => storeState.boardModule.board)
 	const inputRef = useRef(null)
@@ -75,18 +73,14 @@ export function CreateItem({ onAddItem, onInput = () => {}, initialBtnLbl = 'Add
 							{addBtnLabel}
 						</button>
 						<button className="btn icon new-item-close" onClick={ev => onClose(ev)}>
-							<IconContext.Provider value={{ color: 'inherit' }}>
-								<AiOutlineClose />
-							</IconContext.Provider>
+							<span className="icon icon-md icon-close" />
 						</button>
 					</form>
 				</>
 			) : (
 				<button className="btn create-item non-edit " onClick={ev => onAddEmptyItem(ev)}>
 					<div className="icon add-item">
-						<IconContext.Provider value={{ size: "16" }}>
-							<HiOutlinePlus />
-						</IconContext.Provider>
+						<span className="icon icon-md icon-add" />
 					</div>
 					{initialBtnLbl}
 				</button>

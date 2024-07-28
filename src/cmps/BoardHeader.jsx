@@ -1,6 +1,4 @@
 import { useSelector } from 'react-redux'
-import { HiOutlineDotsHorizontal } from "react-icons/hi";
-import { IconContext } from "react-icons";
 import { EditableTitle } from './EditableTitle';
 
 export function BoardHeader({ toggleMenu, isMenuOpen, onUpdateBoardTitle }) {
@@ -13,10 +11,8 @@ export function BoardHeader({ toggleMenu, isMenuOpen, onUpdateBoardTitle }) {
 					onUpdateTitle={(title) => onUpdateBoardTitle(board, title)} />
 			</div>
 			{!isMenuOpen && (
-				<button className="board-btn-menu btn icon" onClick={() => toggleMenu()}>
-					<IconContext.Provider value={{ color: 'inherit' }}>
-						<HiOutlineDotsHorizontal />
-					</IconContext.Provider>
+				<button className="board-btn-menu btn icon-wrapper" onClick={() => toggleMenu()}>
+					<span className="icon icon-sm icon-overflow-menu-horizontal" />
 				</button>
 			)}
 		</div >

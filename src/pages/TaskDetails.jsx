@@ -6,7 +6,6 @@ import { useSelector } from "react-redux"
 import { EditableTitle } from "../cmps/EditableTitle"
 import { updateTask } from "../store/board.actions"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
-import { Icon } from "../cmps/Icon"
 import { CreateItem } from "../cmps/CreateItem"
 
 export function TaskDetails() {
@@ -54,8 +53,8 @@ export function TaskDetails() {
     return (
         <Modal isOpen={isOpen} closeModal={ev => onClose(ev)} cmpClassName='task-details'>
 
-            <button className='btn icon task-details-close' onClick={ev => onClose(ev)}>
-                <Icon name="close" />
+            <button className='btn icon-wrapper task-details-close' onClick={ev => onClose(ev)}>
+                <span className="icon icon-lg icon-close" />
             </button>
             <article className='task-details-content'>
                 <section className='task-details-header'>
@@ -82,7 +81,7 @@ export function TaskDetails() {
                     </section>
                     <section className="task-details-description">
                         <section className="task-details-description-header">
-                            <Icon name="description" />
+                            <span className="icon icon-lg icon-description" />
                             <h3>Description</h3>
                             <button className="btn">Edit</button>
                         </section>
@@ -117,15 +116,15 @@ export function TaskDetails() {
                                 <p>Labels</p>
                             </button>
                             <button className="btn">
-                                <Icon name="checklist" />
+                                <span className="icon icon-lg icon-checklist" />
                                 <p>Checklist</p>
                             </button>
                             <button className="btn">
-                                <Icon name="clock" />
+                                <span className="icon icon-lg icon-clock" />
                                 <p>Dates</p>
                             </button>
                             <button className="btn">
-                                <Icon name="attachment" />
+                                <span className="icon icon-lg icon-attachment" />
                                 <p>Attachment</p>
                             </button>
                             <button className="btn">
@@ -133,7 +132,7 @@ export function TaskDetails() {
                                 <p>Cover</p>
                             </button>
                             <button className="btn">
-                                <Icon name="customField" />
+                                <span className="icon icon-lg icon-custom-field" />
                                 <p>Custom Fields</p>
                             </button>
                         </section>
@@ -146,7 +145,7 @@ export function TaskDetails() {
                     </section>
                     <section className="task-details-sidebar-module">
                         <h3 className="task-details-sidebar-module-title">Automation</h3>
-                        <button className="btn"><Icon name="information" /></button>
+                        <button className="btn"><span className="icon icon-sm icon-information" /></button>
                         <section className="task-details-sidebar-module-list">
                             <CreateItem />
                         </section>
@@ -171,7 +170,7 @@ export function TaskDetails() {
                                 <p>Archive</p>
                             </button>
                             <button className="btn">
-                                <Icon name="share" />
+                                <span className="icon icon-lg icon-share" />
                                 <p>Share</p>
                             </button>
                         </section>

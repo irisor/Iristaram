@@ -146,7 +146,7 @@ li {
     }
 }
 
-.icon {
+.icon-wrapper {
     display: grid;
     font-family: 'trellicons';
     height: 32px;
@@ -157,5 +157,15 @@ li {
         margin-right: 8px;
         height: auto;
         width: auto;
+    }
+}
+
+.icon-wrapper:has(.icon-close) {
+    border-radius: 8px;
+    color: var(--clr-close-icon);
+
+    @include hover-supported {
+        background-color: var(--clr-close-background-hover);
+        color: var(--clr-close-icon-hover);
     }
 }

@@ -4,19 +4,17 @@ import { boardService } from '../services/board.service.local'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { addBoard } from '../store/board.actions'
 import { Modal } from './Modal'
-import { AiOutlineClose } from 'react-icons/ai'
-import { IconContext } from 'react-icons'
 import { autoUpdate, flip, offset, shift, useFloating } from '@floating-ui/react-dom'
 
 export function BoardAdd({ isOpen, closeModal }) {
   const [boardForm, setBoardForm, handleChange, resetForm] = useForm(boardService.getEmptyBoard())
   const focusRef = useRef(null)
-  const {refs, floatingStyles} = useFloating({
+  const { refs, floatingStyles } = useFloating({
     placement: 'right-start', // Preferred initial placement
     middleware: [
       offset(({ placement }) => {
         // Different offsets based on placement
-        if (placement.startsWith('right'))  {
+        if (placement.startsWith('right')) {
           return 200 // Horizontal offset
         } else if (placement.startsWith('bottom')) {
           return 100 // Vertical offset (for top or bottom placements)
@@ -25,7 +23,7 @@ export function BoardAdd({ isOpen, closeModal }) {
       flip({
         fallbackPlacements: ['top-start', 'bottom-start', 'right-start'], // Define fallback placements
       }),
-      shift({padding: 5}) // Shift the modal if it overflows the viewport
+      shift({ padding: 5 }) // Shift the modal if it overflows the viewport
     ],
     whileElementsMounted(referenceEl, floatingEl, update) {
       const cleanup = autoUpdate(referenceEl, floatingEl, update, {
@@ -37,7 +35,7 @@ export function BoardAdd({ isOpen, closeModal }) {
 
   useEffect(() => {
     resetForm()
-}, [isOpen])
+  }, [isOpen])
 
   function onSubmitBoard(ev) {
     ev.preventDefault()
@@ -72,10 +70,8 @@ export function BoardAdd({ isOpen, closeModal }) {
         <form onSubmit={ev => onSubmitBoard(ev)} onKeyDown={ev => ev.key === 'Enter' && onSubmitBoard(ev)} noValidate>
           <header className='board-modal-header'>
             <h2 className='board-modal-title'>Create board</h2>
-            <button className='btn icon board-modal-close' onClick={ev => onClose(ev)}>
-              <IconContext.Provider value={{ color: 'inherit' }}>
-                <AiOutlineClose />
-              </IconContext.Provider>
+            <button className='btn icon-wrapper board-modal-close' onClick={ev => onClose(ev)}>
+              <span className="icon icon-sm icon-close" />
             </button>
           </header>
           <section className='board-modal-content'>
