@@ -64,17 +64,23 @@ export function TaskDetails() {
                 </section>
                 <section className='task-details-main'>
                     <section className="task-details-data">
-                        <section className="task-details-members">
-                            <h3 className="task-details-members">Members</h3>
-                            <section className="task-details-member-list">
-                                <button className="btn"></button>
+                        <section className="task-details-members task-details-data-item">
+                            <h3 className="task-details-members task-details-data-item-title">Members</h3>
+                            <section className="task-details-member-list task-details-data-item-content">
+                                {task.memberIds?.map(member =>
+                                    <button className="btn task-details-member" key={member}>
+                                        <img className="avatar" src="../../src/assets/img/member.png" alt="avatar" />
+                                    </button>
+                                )}
+                                <button className="btn task-details-add-member">
+                                    <span className="icon icon-sm icon-add"></span>
+                                </button>
                             </section>
-                            <CreateItem />
                         </section>
-                        <section className="task-details-notifications">
-                            <h3 className="task-details-notifications-title">Notifications</h3>
-                            <button className="task-details-notifications-btn">
-                                <span className="btn icon icon-sm icon-subscribe"></span>
+                        <section className="task-details-notifications task-details-data-item">
+                            <h3 className="task-details-notifications-title task-details-data-item-title">Notifications</h3>
+                            <button className="btn task-details-notifications-btn task-details-data-item-content">
+                                <span className="icon icon-sm icon-subscribe"></span>
                                 <p>Watch</p>
                             </button>
                         </section>
@@ -116,15 +122,15 @@ export function TaskDetails() {
                                 <p>Labels</p>
                             </button>
                             <button className="btn">
-                                <span className="icon icon-lg icon-checklist" />
+                                <span className="icon icon-sm icon-checklist" />
                                 <p>Checklist</p>
                             </button>
                             <button className="btn">
-                                <span className="icon icon-lg icon-clock" />
+                                <span className="icon icon-sm icon-clock" />
                                 <p>Dates</p>
                             </button>
                             <button className="btn">
-                                <span className="icon icon-lg icon-attachment" />
+                                <span className="icon icon-sm icon-attachment" />
                                 <p>Attachment</p>
                             </button>
                             <button className="btn">
@@ -132,7 +138,7 @@ export function TaskDetails() {
                                 <p>Cover</p>
                             </button>
                             <button className="btn">
-                                <span className="icon icon-lg icon-custom-field" />
+                                <span className="icon icon-sm icon-custom-field" />
                                 <p>Custom Fields</p>
                             </button>
                         </section>
@@ -170,7 +176,7 @@ export function TaskDetails() {
                                 <p>Archive</p>
                             </button>
                             <button className="btn">
-                                <span className="icon icon-lg icon-share" />
+                                <span className="icon icon-sm icon-share" />
                                 <p>Share</p>
                             </button>
                         </section>
