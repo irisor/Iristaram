@@ -1,7 +1,6 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
-import { IconContext } from 'react-icons'
 
 export function CreateItem({ onAddItem, onInput = () => { }, initialBtnLbl = 'Add', addBtnLabel = 'Add', placeholder = 'Enter title...', groupId = null }) {
 	const [itemData, setItemData] = useState(null)
