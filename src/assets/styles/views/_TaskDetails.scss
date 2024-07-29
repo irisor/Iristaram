@@ -1,4 +1,9 @@
 .task-details {
+    hr {
+        background-color: var(--clr-divider);
+        border: 0;
+        height: 1px;
+    }
 
     .btn {
         background-color: var(--clr-background-btn-task);
@@ -15,9 +20,12 @@
         }
     }
 
-    &.modal-root {
-        display: grid;
-        grid-template-columns: minmax(0, 768px);
+    .modal-container {
+        min-height: 600px;
+
+        @include for-mobile-layout {
+            margin-inline: 8px;
+        }
     }
 
     &-close {
@@ -37,13 +45,14 @@
         grid-template-areas:
             "header header"
             "main sidebar";
-        grid-template-columns: minmax(0, 552px) minmax(0, 192px);
+        grid-template-columns: minmax(0, 576px) minmax(0, 192px);
 
         @include for-mobile-layout {
             grid-template-areas:
                 "header"
                 "main"
                 "sidebar";
+            grid-template-columns: minmax(0, 768px);
         }
 
     }
@@ -89,7 +98,12 @@
 
     &-main {
         grid-area: main;
+        margin-block-end: 24px;
         padding: 0 8px 8px 16px;
+
+        h3 {
+            font-size: rem(16px);
+        }
     }
 
     &-data {
@@ -98,6 +112,10 @@
         grid-auto-columns: auto;
         justify-content: start;
         margin: 8px 0 0 40px;
+
+        h3 {
+            font-size: rem(12px);
+        }
 
         &-item {
             display: grid;
@@ -124,7 +142,6 @@
     }
 
     &-member {
-        // background-image: url("../../assets/img/member.png");
         background-position: center;
         background-repeat: no-repeat;
         border-radius: 50%;
@@ -159,17 +176,82 @@
         grid-area: sidebar;
         padding: 0 16px 8px 8px;
 
+        h3 {
+            color: var(--clr-icon);
+            margin-bottom: 4px;
+        }
+
         .btn {
             display: grid;
             grid-auto-flow: column;
             justify-content: start;
-            margin-block-start: 8px;
             padding: 6px 12px;
             width: 100%;
+
+            &:has(.icon-add) {
+                background-color: transparent;
+                margin-block-end: 16px;
+            }
+
+            @include hover-supported {
+                background-color: var(--clr-background-btn-task-hovered);
+            }
         }
 
         .icon {
             margin: 0 6px 0 -6px;
+        }
+
+        .icon-add {
+            height: auto;
+            width: auto;
+            line-height: 1;
+        }
+
+        &-module {
+            display: grid;
+            gap: 8px;
+            margin-block-end: 8px;
+
+            @include for-mobile-layout {
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            }
+
+            &:last-child {
+                margin-block-end: 24px;
+            }
+        }
+
+        .span1 {
+            @include for-mobile-layout {
+                grid-column: span 1;
+            }
+        }
+
+        .span2 {
+            @include for-mobile-layout {
+                grid-column: span 2;
+            }
+        }
+    }
+
+    &-sidebar-module-title.with-btn {
+        align-items: center;
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: space-between;
+
+        .btn {
+            border-radius: 50%;
+            height: 20px;
+            padding: 0;
+            margin: 0;
+            width: 20px;
+        }
+
+        .icon {
+            margin: 0;
+            padding: 0;
         }
     }
 }
