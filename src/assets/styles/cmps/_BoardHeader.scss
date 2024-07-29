@@ -10,6 +10,10 @@
     position: relative;
     z-index: 5;
 
+    .icon {
+        color: inherit;
+    }
+
     &-title {
         padding: 0;
 
