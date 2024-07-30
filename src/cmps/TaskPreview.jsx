@@ -5,11 +5,12 @@ export function TaskPreview({ task }) {
 
     return (
         <div className="task-preview">
-            <div className="task-preview-container">
-                <Link to={`/boards/${boardId}/${task.id}`}>
+            <Link to={`/boards/${boardId}/${task.id}`}>
+                {task.cover && <img className="task-preview-cover" src={task.cover} alt="cover" />}
+                <div className="task-preview-container">
                     <p>{task.title}</p>
-                </Link>
-            </div>
+                </div>
+            </Link>
         </div>
     )
 }

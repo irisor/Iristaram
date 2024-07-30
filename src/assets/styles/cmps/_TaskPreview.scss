@@ -1,33 +1,42 @@
 .task-preview {
-    position: relative;
-    min-height: 36px;
-    border-radius: 8px;
     background-color: var(--clr-background-task);
+    border-radius: 8px;
     box-shadow: var(--shadow-raised);
     color: var(--clr-text-2);
     cursor: pointer;
+    min-height: 36px;
+    overflow: hidden;
+    position: relative;
     scroll-margin: 8px;
 
     @include hover-supported {
         outline: 2px solid var(--clr-selected-border, #388bff);
         opacity: 1;
     }
-}
 
-.task-preview-text {
-    margin-bottom: 4px;
-    display: block;
-    overflow-wrap: break-word;
-}
-
-.task-preview-container {
-    padding: 8px 12px 4px 12px;
-
-    a {
-        color: inherit;
+    &-text {
+        margin-bottom: 4px;
+        display: block;
+        overflow-wrap: break-word;
     }
 
-    p {
-        margin-block-end: 4px;
+    &-container {
+        padding: 8px 12px 4px 12px;
+    
+        a {
+            color: inherit;
+        }
+    
+        p {
+            margin-block-end: 4px;
+        }
+    }
+
+    &-cover {
+        display: block;
+        max-height: 260px;
+        object-fit: cover;
     }
 }
+
+
