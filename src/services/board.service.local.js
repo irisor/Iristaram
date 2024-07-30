@@ -298,7 +298,9 @@ function _createBoards() {
                 "priority": "high",
                 "description": "Gather insights from current users to inform redesign",
                 "memberIds": ["u101", "u102"],
-                "labelIds": ["l101", "l105"]
+                "labelIds": ["l101", "l105"],
+                "attachments": ["https://i.ibb.co/r2CgwKV/626735ba-84de-4190-b3fe-12bc33d47e62.jpg"],
+                "cover": "https://i.ibb.co/r2CgwKV/626735ba-84de-4190-b3fe-12bc33d47e62.jpg"
                 },
                 {
                 "id": "t102",
@@ -307,7 +309,9 @@ function _createBoards() {
                 "priority": "medium",
                 "description": "Design initial wireframes for key pages",
                 "memberIds": ["u102"],
-                "labelIds": ["l102", "l105"]
+                "labelIds": ["l102", "l105"],
+                "attachments": ["https://i.ibb.co/dkCHFRL/Trello-screen.png"],
+                "cover": "https://i.ibb.co/dkCHFRL/Trello-screen.png"
                 },
                 {
                 "id": "t103",
@@ -316,7 +320,8 @@ function _createBoards() {
                 "priority": "low",
                 "description": "Choose colors that align with brand guidelines",
                 "memberIds": ["u102"],
-                "labelIds": ["l103"]
+                "labelIds": ["l103"],
+                "attachments": ["https://i.ibb.co/dkCHFRL/Trello-screen.png"]
                 }
             ]
             },
