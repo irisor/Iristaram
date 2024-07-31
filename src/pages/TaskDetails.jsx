@@ -55,9 +55,9 @@ export function TaskDetails() {
             <button className='btn icon-wrapper task-details-close' onClick={ev => onClose(ev)}>
                 <span className="icon icon-lg icon-close" />
             </button>
-            {task?.cover && (
+            {task?.cover?.url && (
                 <section className='task-details-cover'>
-                    <img className='task-details-cover-img' src={task.cover} alt="cover" />
+                    <img className='task-details-cover-img' src={task.cover?.url} alt="cover" />
                     <div className="task-details-cover-menu">
                         <button className="btn task-details-cover-menu-item">
                             <span className="icon icon-sm icon-card-cover"></span>
@@ -115,12 +115,12 @@ export function TaskDetails() {
                                 <button className="btn">Add</button>
                             </section>
                             <section className="task-details-main-item-content">
-                                {task?.attachments?.map((attachment) => {
-                                    const attachmentName = attachment.split('/').pop().split('?')[0];
+                                { task?.attachments?.map((attachment) => {
+                                    const attachmentName = attachment.url?.split('/').pop().split('?')[0];
                                     return (
-                                        <article key={attachment} className="task-details-attachment-item">
+                                        <article key={attachment._id} className="task-details-attachment-item">
                                             <a className="task-details-attachment-thumbnail-preview" href="#">
-                                                <img className="task-details-attachment-thumbnail-img" src={attachment} alt={attachmentName} width="112" height="80" />
+                                                <img className="task-details-attachment-thumbnail-img" src={attachment.url} alt={attachmentName} width="112" height="80" />
                                             </a>
                                             <section className="task-details-attachment-thumbnail-details">
                                                 <span className="task-details-attachment-thumbnail-details-first-line">
@@ -138,7 +138,7 @@ export function TaskDetails() {
                                                 <span className="task-details-attachment-thumbnail-details-third-line">
                                                     <span className="task-details-attachment-thumbnail-option">
                                                         <span className="icon icon-sm icon-card-cover"></span>
-                                                        { task.cover === attachment ? <a href="#">Remove cover</a> : <a href="#">Make cover</a> }
+                                                        { task.cover.attachmentId === attachment._id ? <a href="#">Remove cover</a> : <a href="#">Make cover</a> }
                                                     </span>
                                                 </span>
                                             </section>
@@ -171,7 +171,7 @@ export function TaskDetails() {
                                     <button className="btn"><span className="icon icon-sm icon-gear" /></button>
                                 </div>
                                 <section className="task-details-sidebar-module">
-                                    <button className="btn members span1">
+                                    <button className="btn join span1">
                                         <span className="icon icon-sm icon-member" />
                                         <p>Join</p>
                                     </button>
@@ -215,7 +215,7 @@ export function TaskDetails() {
                     <h3 className="task-details-sidebar-module-title">Power-Ups</h3>
                     <section className="task-details-sidebar-module">
                         <section className="task-details-sidebar-module-list">
-                            <button className="btn cover span1">
+                            <button className="btn span1">
                                 <span className="icon icon-md icon-add" />
                                 <p>Add Power-Ups</p>
                             </button>
@@ -227,7 +227,7 @@ export function TaskDetails() {
                     </div>
                     <section className="task-details-sidebar-module">
                         <section className="task-details-sidebar-module-list">
-                            <button className="btn cover span1">
+                            <button className="btn span1">
                                 <span className="icon icon-md icon-add" />
                                 <p>Add button</p>
                             </button>
