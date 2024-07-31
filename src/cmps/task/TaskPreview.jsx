@@ -6,7 +6,7 @@ export function TaskPreview({ task }) {
     return (
         <div className="task-preview">
             <Link to={`/boards/${boardId}/${task.id}`}>
-                {task.cover && <img className="task-preview-cover" src={task.cover} alt="cover" />}
+                {task.cover?.url && <img className="task-preview-cover" src={task.cover?.url} alt="cover" />}
                 <div className="task-preview-container">
                     <p>{task.title}</p>
                 </div>

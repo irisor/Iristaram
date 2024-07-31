@@ -104,13 +104,13 @@ async function updateTask(boardId, groupId, task) {
     return task
 }
 
-async function addTask(boardId, groupId, newTask){
+async function addTask(boardId, groupId, newTask) {
     const board = await getById(boardId)
     const groupIndex = board.groups.findIndex(g => g.id === groupId)
 
 
     if (!newTask.id) newTask.id = utilService.makeId()
-    if(!board.groups[groupIndex].tasks) 
+    if (!board.groups[groupIndex].tasks)
         board.groups[groupIndex].tasks = []
     board.groups[groupIndex].tasks.push(newTask)
 
@@ -122,12 +122,12 @@ async function addTask(boardId, groupId, newTask){
     return newTask
 }
 
-async function removeTask(boardId, groupId, taskId){
+async function removeTask(boardId, groupId, taskId) {
     console.log(boardId, groupId, taskId)
     const board = await getById(boardId)
     console.log(board)
     const groupIndex = board.groups.findIndex(g => g.id === groupId)
-    const taskIndex = board.groups[groupIndex].tasks.findIndex(t => t.id === taskId )
+    const taskIndex = board.groups[groupIndex].tasks.findIndex(t => t.id === taskId)
     board.groups[groupIndex].tasks.splice(taskIndex, 1)
 
     // const activity = _createActivity(activityTitle, _toMiniTask(task), _toMiniGroup(group))    
@@ -205,13 +205,13 @@ function _toMiniTask(task) {
 
 function getTask(title = "") {
     return {
-        id:utilService.makeId(),
+        id: utilService.makeId(),
         title,
-        description : "",
+        description: "",
         memberIds: [],
         labelIds: [],
         checklist: {},
-        dates: {startDate: "", dueDate: "", setReminder: ""},
+        dates: { startDate: "", dueDate: "", setReminder: "" },
         attachment: "",
         cover: ""
 
@@ -299,8 +299,18 @@ function _createBoards() {
                 "description": "Gather insights from current users to inform redesign",
                 "memberIds": ["u101", "u102"],
                 "labelIds": ["l101", "l105"],
-                "attachments": ["https://i.ibb.co/r2CgwKV/626735ba-84de-4190-b3fe-12bc33d47e62.jpg"],
-                "cover": "https://i.ibb.co/r2CgwKV/626735ba-84de-4190-b3fe-12bc33d47e62.jpg"
+                "attachments": [
+                    {
+                    "_id": "a101",
+                    "url": "https://i.ibb.co/r2CgwKV/626735ba-84de-4190-b3fe-12bc33d47e62.jpg",
+                    "createdAt": 1674673353738
+                    }
+                ],
+                "cover": 
+                {
+                "url": "https://i.ibb.co/r2CgwKV/626735ba-84de-4190-b3fe-12bc33d47e62.jpg",
+                "attachmentId": "a101"
+                }
                 },
                 {
                 "id": "t102",
@@ -310,8 +320,18 @@ function _createBoards() {
                 "description": "Design initial wireframes for key pages",
                 "memberIds": ["u102"],
                 "labelIds": ["l102", "l105"],
-                "attachments": ["https://i.ibb.co/dkCHFRL/Trello-screen.png"],
-                "cover": "https://i.ibb.co/dkCHFRL/Trello-screen.png"
+                "attachments": [
+                    {
+                        "_id": "a102",
+                        "url": "https://i.ibb.co/dkCHFRL/Trello-screen.png",
+                        "createdAt": 1674673353738
+                    }
+                ],
+                "cover": 
+                {
+                    "url": "https://i.ibb.co/dkCHFRL/Trello-screen.png",
+                    "attachmentId": "a102"
+                }
                 },
                 {
                 "id": "t103",
@@ -321,7 +341,13 @@ function _createBoards() {
                 "description": "Choose colors that align with brand guidelines",
                 "memberIds": ["u102"],
                 "labelIds": ["l103"],
-                "attachments": ["https://i.ibb.co/dkCHFRL/Trello-screen.png"]
+                "attachments": [
+                    {
+                        "_id": "a103",
+                        "url": "https://i.ibb.co/dkCHFRL/Trello-screen.png",
+                        "createdAt": 1674673353738
+                    }
+                ]
                 }
             ]
             },
