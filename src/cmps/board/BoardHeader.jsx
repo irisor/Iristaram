@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { EditableTitle } from './EditableTitle';
+import { EditableTitle } from '../general/EditableTitle';
 
 export function BoardHeader({ toggleMenu, isMenuOpen, onUpdateBoardTitle }) {
 	const board = useSelector(storeState => storeState.boardModule.board)

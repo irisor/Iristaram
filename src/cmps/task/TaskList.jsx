@@ -1,6 +1,6 @@
-import { TaskPreview } from "./TaskPreview";
-import { useSelector } from "react-redux";
-import { CreateItem } from "./CreateItem";
+import { useSelector } from "react-redux"
+import { TaskPreview } from "./TaskPreview"
+import { CreateItem } from "../general/CreateItem"
 
 export function TaskList({ props }) {
   const { groupId, onAddTask, onRemoveTask, onUpdateTaskTitle } = props;
@@ -22,7 +22,7 @@ export function TaskList({ props }) {
       {tasks && <div className="task-list-top-gap"></div>}
       <section className="task-list-container">
         <ol className="task-list">
-          {tasks?.map((task, idx) => (
+          {tasks?.map((task) => (
             <li className="task-list-el" key={task.id}>
               <TaskPreview
                 groupId={groupId}

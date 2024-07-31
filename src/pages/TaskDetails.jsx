@@ -1,12 +1,11 @@
-import { Modal } from "../cmps/Modal"
+import { Modal } from "../cmps/general/Modal"
 import { useNavigate, useParams } from "react-router"
 import { useModal } from "../customHooks/useModal"
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
-import { EditableTitle } from "../cmps/EditableTitle"
+import { EditableTitle } from "../cmps/general/EditableTitle"
 import { updateTask } from "../store/board.actions"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
-import { CreateItem } from "../cmps/CreateItem"
 
 export function TaskDetails() {
     const { boardId, taskId } = useParams()

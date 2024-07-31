@@ -1,5 +1,5 @@
 import { BoardRemove } from "./BoardRemove";
-import { useModal } from "../customHooks/useModal";
+import { useModal } from "../../customHooks/useModal";
 
 export function BoardMenu({ toggleMenu }) {
 	const { isOpen, openModal, closeModal } = useModal()

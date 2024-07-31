@@ -6,8 +6,8 @@ import { BoardIndex } from './pages/BoardIndex.jsx'
 import { BoardDetails } from './pages/BoardDetails'
 import { TaskDetails } from './pages/TaskDetails'
 
-import { AppHeader } from './cmps/AppHeader'
-import { AppSidebar } from './cmps/AppSidebar.jsx'
+import { AppHeader } from './cmps/app/AppHeader.jsx'
+import { AppSidebar } from './cmps/app/AppSidebar.jsx'
 
 export function RootCmp() {
     return (
