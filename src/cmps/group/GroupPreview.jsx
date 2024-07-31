@@ -1,7 +1,7 @@
 // import { useSelector } from 'react-redux'
-import { EditableTitle } from './EditableTitle'
-import {TaskList} from './TaskList'
-export function GroupPreview({ group, onRemoveGroup, onUpdateGroupTitle, taskProps }) {
+import { EditableTitle } from '../general/EditableTitle'
+import {TaskList} from '../task/TaskList'
+export function GroupPreview({ group, onUpdateGroupTitle, taskProps }) {
 	// const board = useSelector(storeState => storeState.boardModule.board)
 
 	return (

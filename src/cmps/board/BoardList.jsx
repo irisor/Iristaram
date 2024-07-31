@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 
 import { BoardPreview } from './BoardPreview'
-import { useModal } from '../customHooks/useModal'
+import { useModal } from '../../customHooks/useModal'
 import { BoardAdd } from './BoardAdd'
 
 export function BoardList() {

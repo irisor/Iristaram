@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Outlet, useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { GroupList } from '../cmps/GroupList'
-import { BoardMenu } from '../cmps/BoardMenu'
-import { BoardHeader } from '../cmps/BoardHeader'
+import { GroupList } from '../cmps/group/GroupList'
+import { BoardMenu } from '../cmps/board/BoardMenu'
+import { BoardHeader } from '../cmps/board/BoardHeader'
 import { updateBoard } from '../store/board.actions'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
