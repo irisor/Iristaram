@@ -1,0 +1,37 @@
+.task-details-members {
+	&-member-list {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 4px;
+		justify-items: start;
+	}
+
+	&-member {
+		background-position: center;
+		background-repeat: no-repeat;
+		border-radius: 50%;
+		object-fit: cover;
+		opacity: 0.8;
+		padding: 0;
+
+		@include hover-supported {
+
+			.avatar {
+				opacity: 0.8;
+			}
+		}
+
+		&.btn {
+			padding: 0;
+		}
+	}
+
+	&-add-member {
+		border-radius: 50%;
+
+		&.btn {
+			padding: 6px;
+		}
+	}
+}

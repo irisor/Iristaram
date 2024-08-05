@@ -1,0 +1,38 @@
+.task-details-header {
+	grid-area: header;
+	padding: 20px 52px 8px 56px;
+
+	.editable-title {
+		font-size: rem(20px);
+		font-weight: 600;
+		line-height: 24px;
+
+		&-fixed {
+			padding: 0;
+		}
+
+		&-input {
+			margin: -6px -10px;
+			padding: 6px 10px;
+		}
+
+		h2,
+		textarea {
+			font-size: inherit;
+		}
+	}
+
+	&-icon {
+		inset-block-start: 16px;
+		inset-inline-start: 16px;
+		position: absolute;
+	}
+
+	&-in-list {
+        margin: 4px 8px 12px 2px;
+
+        a {
+            text-decoration: underline;
+        }
+    }
+}
