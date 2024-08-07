@@ -18,7 +18,6 @@ export const boardService = {
     removeTask,
     getTaskEditCmps
 }
-window.boardSer = boardService
 
 _createBoards()
 
@@ -46,11 +45,9 @@ async function remove(boardId) {
 async function save(board) {
     let savedBoard
     if (board._id) {
-        const boardToUpdate = {
-            _id: board._id,
-            title: board.title
-        }
+        const boardToUpdate = {...board }
         savedBoard = await storageService.put(STORAGE_KEY, boardToUpdate)
+        console.log ("board.service - savedBoard", savedBoard)
     } else {
         // Later, owner is set by the backend
         // board.owner = userService.getLoggedinUser()
@@ -264,6 +261,13 @@ function _createBoards() {
             "color": "#00ffff"
             }
         ],
+        "backgrounImages": [
+            "https://images.unsplash.com/photo-1722084324252-5e33f13a71ba",
+            "https://images.unsplash.com/photo-1719090024525-667c8fcf5bb9",
+            "https://images.unsplash.com/photo-1722104946563-bdf378a766d0",
+            "https://images.unsplash.com/photo-1721633617180-97c67428a48e",
+            "https://images.unsplash.com/photo-1721766827830-961da6ed8c91",
+            "https://images.unsplash.com/photo-1722104946563-bdf378a766d0"
         "members": [
             {
             "_id": "u101",

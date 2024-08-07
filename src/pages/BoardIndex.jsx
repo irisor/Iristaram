@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { loadBoards } from '../store/board.actions'
+import { loadBoards } from '../store/board/board.actions'
 import { BoardList } from '../cmps/board/BoardList'
 
 export function BoardIndex() {

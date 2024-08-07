@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { useForm } from '../../customHooks/useForm'
 import { boardService } from '../../services/board.service.local'
 import { showErrorMsg, showSuccessMsg } from '../../services/event-bus.service'
-import { addBoard } from '../../store/board.actions'
+import { addBoard } from '../../store/board/board.actions'
 import { Modal } from '../general/Modal'
 import { autoUpdate, flip, offset, shift, useFloating } from '@floating-ui/react-dom'
 
