@@ -29,6 +29,7 @@
 @import "cmps/group/GroupPreview";
 @import "cmps/board/BoardHeader";
 @import "cmps/board/BoardMenu";
+@import "cmps/board/boardMenuHeader";
 @import "cmps/board/BoardList";
 @import "cmps/board/BoardPreview";
 @import "cmps/board/BoardAdd";
@@ -40,3 +41,5 @@
 @import "cmps/task/TaskDetailsMembers";
 @import "cmps/task/TaskDetailsAttachments";
 @import "cmps/task/TaskDetailsSidebar";
+@import "cmps/menuCarousel/MenuCarousel";
+@import "cmps/menuCarousel/MenuCarouselItem";

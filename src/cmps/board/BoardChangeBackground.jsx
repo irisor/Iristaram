@@ -20,17 +20,15 @@ export function BoardChangeBackground({ toggleMenu }) {
   }, [selectedBackground])
 
   return (
-    <div className='background-menu'>
-      <header className='background-menu-header'>
-        <h2 className='background-menu-header-title'>Change background</h2>
-        <button className='btn icon-wrapper background-menu-header-close' >
-          <span className="icon icon-sm icon-close" />
-        </button>
-      </header>
+    <div
+      className='background-menu'>
       <section className='background-menu-content'>
         {boardBackground?.backgroundImages?.map(image => (
           <div key={image} className='background-menu-image-item'>
-            <button className='background-menu-image-item-btn btn' onClick={() => setSelectedBackground({ backgroundImg: image })} >
+            <button
+              className='background-menu-image-item-btn btn'
+              onClick={() => setSelectedBackground({ backgroundImg: image })}
+            >
               <img src={image} alt='' width='148' height='96' />
             </button>
           </div>
