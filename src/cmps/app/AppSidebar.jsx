@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { useEffect } from 'react'
-import { loadBoards } from '../../store/board.actions'
+import { loadBoards } from '../../store/board/board.actions'
 
 export function AppSidebar() {
 

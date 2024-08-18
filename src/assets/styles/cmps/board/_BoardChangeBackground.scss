@@ -1,0 +1,37 @@
+.background-menu {
+	&-content {
+		display: grid;
+		gap: 8px;
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	&-image-item {
+		border-radius: 8px;
+		width: 100%;
+		height: 96px;
+		overflow: hidden;
+
+		&-btn {
+			padding: 0;
+			width: 100%;
+			height: 100%;
+			display: block; // Change to block to remove any extra space
+			position: relative;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		@include hover-supported {
+			cursor: pointer;
+			opacity: .8;
+		}
+	}
+}

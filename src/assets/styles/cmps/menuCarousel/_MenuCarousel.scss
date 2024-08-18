@@ -1,0 +1,21 @@
+.menu-carousel {
+	align-content: start;
+	display: grid;
+	grid-template-rows: auto auto minmax(0, 1fr);
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+
+	&-content-container {
+		height: 100%;
+		overflow-x: hidden;
+		overflow-y: auto;
+		position: relative;
+		width: 100%;
+		align-items: start;
+		align-content: start;
+		grid-auto-flow: column;
+		grid-auto-columns: auto;
+	}
+}

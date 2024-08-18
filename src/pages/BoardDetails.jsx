@@ -4,11 +4,10 @@ import { useSelector } from 'react-redux'
 import { GroupList } from '../cmps/group/GroupList'
 import { BoardMenu } from '../cmps/board/BoardMenu'
 import { BoardHeader } from '../cmps/board/BoardHeader'
-import { updateBoard } from '../store/board.actions'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 
-import { loadBoard, addGroup, removeGroup, updateGroup, removeTask, addTask, updateTask } from '../store/board.actions'
+import { updateBoard, loadBoard, addGroup, removeGroup, updateGroup, removeTask, addTask, updateTask } from '../store/board/board.actions'
 
 
 export function BoardDetails() {
