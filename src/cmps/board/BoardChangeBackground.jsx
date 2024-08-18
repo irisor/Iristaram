@@ -29,7 +29,7 @@ export function BoardChangeBackground({ toggleMenu }) {
               className='background-menu-image-item-btn btn'
               onClick={() => setSelectedBackground({ backgroundImg: image })}
             >
-              <img src={image} alt='' width='148' height='96' />
+              <img src={image} alt='' height='96' />
             </button>
           </div>
         ))}
