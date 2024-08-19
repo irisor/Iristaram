@@ -1,0 +1,40 @@
+.create-item {
+    column-gap: 4px;
+	display: grid;
+	row-gap: 8px;
+
+	&-outside {
+		height: 100vh;
+		inset-block-start: 0;
+		inset-inline-start: 0;
+		position: fixed;
+		width: 100vw;
+		z-index: 2;
+	}
+	
+	&.non-edit {
+		font-weight: 500;
+		grid-auto-flow: column;
+		justify-content: start;
+		width: 100%;
+	}
+	
+	&.edit {
+		grid-template-areas: 
+		"title title title"
+		"save close .";
+		grid-template-columns: auto auto 1fr;
+	}
+
+	.editable-title-input {
+		grid-area: title;
+	}
+
+	.new-item-save {
+		grid-area: save;
+	}
+
+	.new-item-close {
+		grid-area: close;
+	}
+}

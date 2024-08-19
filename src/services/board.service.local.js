@@ -18,7 +18,6 @@ export const boardService = {
     removeTask,
     getTaskEditCmps
 }
-window.boardSer = boardService
 
 _createBoards()
 
@@ -46,11 +45,9 @@ async function remove(boardId) {
 async function save(board) {
     let savedBoard
     if (board._id) {
-        const boardToUpdate = {
-            _id: board._id,
-            title: board.title
-        }
+        const boardToUpdate = {...board }
         savedBoard = await storageService.put(STORAGE_KEY, boardToUpdate)
+        console.log ("board.service - savedBoard", savedBoard)
     } else {
         // Later, owner is set by the backend
         // board.owner = userService.getLoggedinUser()
@@ -64,7 +61,7 @@ async function addGroup(boardId, group) {
     // Later, this is all done by the backend
     const board = await getById(boardId)
     if (!board.groups) board.groups = []
-    group.id = utilService.makeId()
+    if (!group.id) group.id = utilService.makeId()
 
     board.groups.push(group)
     await storageService.put(STORAGE_KEY, board)
@@ -104,11 +101,13 @@ async function updateTask(boardId, groupId, task) {
     return task
 }
 
-async function addTask(boardId, groupId, newTask){
+async function addTask(boardId, groupId, newTask) {
     const board = await getById(boardId)
     const groupIndex = board.groups.findIndex(g => g.id === groupId)
 
-    if(!board.groups[groupIndex].tasks) 
+
+    if (!newTask.id) newTask.id = utilService.makeId()
+    if (!board.groups[groupIndex].tasks)
         board.groups[groupIndex].tasks = []
     board.groups[groupIndex].tasks.push(newTask)
 
@@ -117,15 +116,15 @@ async function addTask(boardId, groupId, newTask){
 
     await storageService.put(STORAGE_KEY, board)
 
-    return task
+    return newTask
 }
 
-async function removeTask(boardId, groupId, taskId){
+async function removeTask(boardId, groupId, taskId) {
     console.log(boardId, groupId, taskId)
     const board = await getById(boardId)
     console.log(board)
     const groupIndex = board.groups.findIndex(g => g.id === groupId)
-    const taskIndex = board.groups[groupIndex].tasks.findIndex(t => t.id === taskId )
+    const taskIndex = board.groups[groupIndex].tasks.findIndex(t => t.id === taskId)
     board.groups[groupIndex].tasks.splice(taskIndex, 1)
 
     // const activity = _createActivity(activityTitle, _toMiniTask(task), _toMiniGroup(group))    
@@ -203,13 +202,13 @@ function _toMiniTask(task) {
 
 function getTask(title = "") {
     return {
-        id:utilService.makeId(),
+        id: utilService.makeId(),
         title,
-        description : "",
+        description: "",
         memberIds: [],
         labelIds: [],
         checklist: {},
-        dates: {startDate: "", dueDate: "", setReminder: ""},
+        dates: { startDate: "", dueDate: "", setReminder: "" },
         attachment: "",
         cover: ""
 
@@ -262,6 +261,13 @@ function _createBoards() {
             "color": "#00ffff"
             }
         ],
+        "backgrounImages": [
+            "https://images.unsplash.com/photo-1722084324252-5e33f13a71ba",
+            "https://images.unsplash.com/photo-1719090024525-667c8fcf5bb9",
+            "https://images.unsplash.com/photo-1722104946563-bdf378a766d0",
+            "https://images.unsplash.com/photo-1721633617180-97c67428a48e",
+            "https://images.unsplash.com/photo-1721766827830-961da6ed8c91",
+            "https://images.unsplash.com/photo-1722104946563-bdf378a766d0"
         "members": [
             {
             "_id": "u101",
@@ -296,7 +302,19 @@ function _createBoards() {
                 "priority": "high",
                 "description": "Gather insights from current users to inform redesign",
                 "memberIds": ["u101", "u102"],
-                "labelIds": ["l101", "l105"]
+                "labelIds": ["l101", "l105"],
+                "attachments": [
+                    {
+                    "_id": "a101",
+                    "url": "https://i.ibb.co/r2CgwKV/626735ba-84de-4190-b3fe-12bc33d47e62.jpg",
+                    "createdAt": 1674673353738
+                    }
+                ],
+                "cover": 
+                {
+                "url": "https://i.ibb.co/r2CgwKV/626735ba-84de-4190-b3fe-12bc33d47e62.jpg",
+                "attachmentId": "a101"
+                }
                 },
                 {
                 "id": "t102",
@@ -305,7 +323,19 @@ function _createBoards() {
                 "priority": "medium",
                 "description": "Design initial wireframes for key pages",
                 "memberIds": ["u102"],
-                "labelIds": ["l102", "l105"]
+                "labelIds": ["l102", "l105"],
+                "attachments": [
+                    {
+                        "_id": "a102",
+                        "url": "https://i.ibb.co/dkCHFRL/Trello-screen.png",
+                        "createdAt": 1674673353738
+                    }
+                ],
+                "cover": 
+                {
+                    "url": "https://i.ibb.co/dkCHFRL/Trello-screen.png",
+                    "attachmentId": "a102"
+                }
                 },
                 {
                 "id": "t103",
@@ -314,7 +344,14 @@ function _createBoards() {
                 "priority": "low",
                 "description": "Choose colors that align with brand guidelines",
                 "memberIds": ["u102"],
-                "labelIds": ["l103"]
+                "labelIds": ["l103"],
+                "attachments": [
+                    {
+                        "_id": "a103",
+                        "url": "https://i.ibb.co/dkCHFRL/Trello-screen.png",
+                        "createdAt": 1674673353738
+                    }
+                ]
                 }
             ]
             },

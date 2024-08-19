@@ -1,0 +1,29 @@
+.task-details-cover {
+	position: relative;
+
+	@include hover-supported {
+		opacity: 0.9;
+	}
+
+	&-img {
+		background-color: #bcecfc;
+		display: block;
+		object-fit: contain;
+		height: 160px;
+		width: 100%;
+	}
+
+	&-menu {
+		display: flex;
+		justify-content: end;
+		inset-block-end: 0;
+		padding: 12px;
+		position: absolute;
+		width: 100%;
+
+		&-item.btn {
+			background-color: transparent;
+			font-weight: 400;
+		}
+	}
+}

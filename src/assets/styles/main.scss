@@ -3,6 +3,10 @@
 @import "setup/functions";
 @import "setup/mixins";
 
+// Fonts
+@import "fonts/typography.css";
+@import "fonts/icomoon.css";
+
 // Basics
 @import "basics/layout";
 @import "basics/base";
@@ -14,20 +18,29 @@
 @import "views/TaskDetails";
 
 // Components
-@import "cmps/Modal";
-@import "cmps/Form";
-@import "cmps/EditableTitle";
-@import "cmps/CreateItem";
-@import "cmps/AppHeader";
-@import "cmps/AppSidebar";
-@import "cmps/UserMsg";
-@import "cmps/GroupList";
-@import "cmps/GroupPreview";
-@import "cmps/BoardHeader";
-@import "cmps/BoardMenu";
-@import "cmps/BoardList";
-@import "cmps/BoardPreview";
-@import "cmps/BoardAdd";
-@import "cmps/TaskList";
-@import "cmps/TaskPreview";
-@import "cmps/BoardRemove";
+@import "cmps/general/Modal";
+@import "cmps/general/Form";
+@import "cmps/general/EditableTitle";
+@import "cmps/general/CreateItem";
+@import "cmps/general/UserMsg";
+@import "cmps/app/AppHeader";
+@import "cmps/app/AppSidebar";
+@import "cmps/group/GroupList";
+@import "cmps/group/GroupPreview";
+@import "cmps/board/BoardHeader";
+@import "cmps/board/BoardMenu";
+@import "cmps/board/boardMenuHeader";
+@import "cmps/board/BoardList";
+@import "cmps/board/BoardPreview";
+@import "cmps/board/BoardAdd";
+@import "cmps/board/BoardRemove";
+@import "cmps/board/BoardChangeBackground";
+@import "cmps/task/TaskList";
+@import "cmps/task/TaskPreview";
+@import "cmps/task/TaskDetailsCover";
+@import "cmps/task/TaskDetailsHeader";
+@import "cmps/task/TaskDetailsMembers";
+@import "cmps/task/TaskDetailsAttachments";
+@import "cmps/task/TaskDetailsSidebar";
+@import "cmps/menuCarousel/MenuCarousel";
+@import "cmps/menuCarousel/MenuCarouselItem";

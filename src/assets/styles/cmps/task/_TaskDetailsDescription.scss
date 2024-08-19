@@ -1,0 +1,12 @@
+.task-details-description {
+	&-add {
+		align-content: start;
+		box-sizing: content-box;
+		justify-content: start;
+		min-height: 40px;
+
+		&.btn {
+			padding: 8px 12px;
+		}
+	}
+}

@@ -1,15 +1,13 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Outlet, useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { GroupList } from '../cmps/GroupList'
-import { BoardMenu } from '../cmps/BoardMenu'
-import { BoardHeader } from '../cmps/BoardHeader'
-import { updateBoard } from '../store/board.actions'
+import { GroupList } from '../cmps/group/GroupList'
+import { BoardMenu } from '../cmps/board/BoardMenu'
+import { BoardHeader } from '../cmps/board/BoardHeader'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 
-import { loadBoard, addGroup, removeGroup, updateGroup, removeTask, addTask, updateTask } from '../store/board.actions'
-import { TaskDetails } from './TaskDetails'
+import { updateBoard, loadBoard, addGroup, removeGroup, updateGroup, removeTask, addTask, updateTask } from '../store/board/board.actions'
 
 
 export function BoardDetails() {
@@ -22,8 +20,9 @@ export function BoardDetails() {
   
   useEffect(() => {
     initBoard(boardId)
+    // console.log('boardDetails useEffect boardId:', boardId)
   }, [boardId])
-
+  
   useEffect(() => {
     if (board) {
       if (board.backgroundImg) {
@@ -104,7 +103,7 @@ async function onAddTask(groupId, taskTitle){
 }
 
 async function onUpdateTaskTitle(groupId, task, newTitle){
-  if(!newTitle){ return}
+  if(!newTitle) return
   try {
     task.title = newTitle
     updateTask(boardId, groupId, task)
@@ -143,7 +142,7 @@ async function onUpdateTaskTitle(groupId, task, newTitle){
       
         </>
       }
-{taskId && <TaskDetails />}
+{taskId && <Outlet />}
     </section>
   )
 

@@ -1,3 +1,129 @@
 .task-details {
-    top: 0px
+    hr {
+        background-color: var(--clr-divider);
+        border: 0;
+        height: 1px;
+    }
+
+    .btn {
+        align-items: center;
+        background-color: var(--clr-background-btn-task);
+        display: grid;
+        font-weight: 500;
+        grid-auto-flow: column;
+        padding: 6px 12px;
+
+        @include hover-supported {
+            background-color: var(--clr-background-btn-task-hovered);
+        }
+
+        p {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+
+    .icon-external-link {
+        padding-inline-start: 3px;
+    }
+
+    // Modal
+
+    .modal-container {
+        min-height: 600px;
+
+        @include for-mobile-layout {
+            margin-inline: 8px;
+        }
+    }
+
+    &-close {
+        border-radius: 50%;
+        height: 40px;
+        position: absolute;
+        inset-block-start: 8px;
+        inset-inline-end: 0;
+        margin: 0 8px auto;
+        padding: 6px;
+        width: 40px;
+        z-index: 2;
+    }
+
+    &-content {
+        display: grid;
+        grid-template-areas:
+            "header header"
+            "main sidebar";
+        grid-template-columns: minmax(0, 576px) minmax(0, 192px);
+        position: relative;
+
+        @include for-mobile-layout {
+            grid-template-areas:
+                "header"
+                "main"
+                "sidebar";
+            grid-template-columns: minmax(0, 768px);
+        }
+    }
+
+    // Main
+
+    &-main {
+        align-content: start;
+        display: grid;
+        gap: 16px;
+        grid-area: main;
+        margin-block-end: 24px;
+        padding: 0 8px 8px 16px;
+
+        &-item-header {
+            align-items: center;
+            display: grid;
+            grid-auto-flow: column;
+            grid-template-columns: 40px 1fr auto;
+            padding: 8px 0;
+            margin-block-end: 4px;
+
+            h3 {
+                font-size: rem(16px);
+            }
+        }
+
+        &-item-content {
+            margin-inline-start: 40px;
+        }
+    }
+
+    // Main Data
+
+    &-data {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 24px;
+        justify-items: start;
+        margin: 8px 0 0 40px;
+
+        @include for-mobile-layout {
+            margin: 8px;
+        }
+
+        &-item {
+            display: grid;
+
+            &-content {
+                align-items: center;
+                display: grid;
+                grid-auto-flow: column;
+                grid-auto-columns: auto;
+                justify-content: start;
+            }
+
+            &-title {
+                color: var(--clr-icon);
+                margin: 0 8px 4px 0;
+            }
+        }
+    }
 }
