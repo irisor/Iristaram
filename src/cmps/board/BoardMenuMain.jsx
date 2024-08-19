@@ -14,6 +14,11 @@ export function BoardMenuMain({ onNavigate, onContentReady }) {
 		}
 	}, [])
 
+	function toggleDarkMode() {
+		document.documentElement.dataset.theme = 
+			document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'
+	}
+
 	return (
 		<nav className="board-menu-main">
 			<button className="board-menu-main-link btn btn-menu-simple" onClick={() => onNavigate('background')}>
@@ -29,6 +34,12 @@ export function BoardMenuMain({ onNavigate, onContentReady }) {
 				<p>Remove board</p>
 			</button>
 			<BoardRemove isOpen={isOpen} closeModal={closeModal} />
+			<button className="board-menu-main-link btn btn-menu-simple" onClick={toggleDarkMode}>
+				<span className="icon-wrapper">
+					<span className="icon icon-sm icon-card-cover" />
+				</span>
+				<p>Toggle dark mode</p>
+			</button>
 		</nav>
 	)
 }
