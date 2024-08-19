@@ -1,17 +1,26 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 
-export function useKeyDown(HandleOnKeyDown, specialKeys){
+export function useKeyDown(HandleOnKeyDown,isRendered, specialKeys){
     useEffect(()=>{
-        document.addEventListener('keydown', onKeyDown)
-        return () => {document.removeEventListener('keydown', onKeyDown)}
-    }, [onKeyDown])
+
+        if(isRendered){
+            console.log("Added listener")
+            document.addEventListener('keydown', onKeyDown)
+        }
+        else{
+            document.removeEventListener('keydown', onKeyDown)
+        }
+        return () => {
+            console.log("Removed listener")
+            document.removeEventListener('keydown', onKeyDown)}
+    })
 
     
-    function onKeyDown(event){
+    const onKeyDown = useCallback((event)=>{
         const isSpecialKeyDown = specialKeys.some(key => key === event.key)
-        console.log("isSpecialKeyDown", isSpecialKeyDown)
         if(isSpecialKeyDown){
-            HandleOnKeyDown(event)
+            event.preventDefault()
+            HandleOnKeyDown()
         }
-    }
+    })
 }

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { BoardPreview } from './BoardPreview'
 import { useModal } from '../customHooks/useModal'
 import { BoardAdd } from './BoardAdd'
+import { useKeyDown } from '../customHooks/useKeyDown'
 
 export function BoardList() {
 	const boards = useSelector(storeState => storeState.boardModule.boards)
@@ -12,6 +13,7 @@ export function BoardList() {
         ev.preventDefault()
         openModal()
     }
+	useKeyDown(closeModal,isOpen,['Escape'])
 
 	return (
 		<ul className="board-list" >

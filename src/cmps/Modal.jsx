@@ -1,4 +1,6 @@
 import { useEffect } from "react"
+import { useKeyDown } from "../customHooks/useKeyDown"
+import { useClickOutside } from "../customHooks/useClickOutside"
 
 export function Modal({ isOpen, closeModal, children, focusRef, refs, style }) {
 
