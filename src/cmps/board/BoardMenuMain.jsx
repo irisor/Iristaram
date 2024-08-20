@@ -9,7 +9,6 @@ export function BoardMenuMain({ onNavigate, onContentReady }) {
 
 	useEffect(() => {
 		if (onContentReady) {
-			console.log("*** BoardMenuMain useEffect *** content ready")
 			onContentReady()
 		}
 	}, [])

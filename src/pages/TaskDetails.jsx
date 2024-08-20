@@ -21,10 +21,10 @@ export function TaskDetails() {
     const navigate = useNavigate()
 
     const [currentTask, groupId, groupTitle] = useSelector((storeState) => {
-        const board = storeState.boardModule.board;
-        const group = board.groups.find(group => group.tasks.some(t => t.id === taskId));
-        const task = group?.tasks.find(task => task.id === taskId);
-        return [task, group?.id, group?.title];
+        const board = storeState.boardModule.board
+        const group = board.groups.find(group => group.tasks.some(t => t.id === taskId))
+        const task = group?.tasks.find(task => task.id === taskId)
+        return [task, group?.id, group?.title]
     });
 
     useEffect(() => {

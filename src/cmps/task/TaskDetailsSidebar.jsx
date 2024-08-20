@@ -1,4 +1,23 @@
+import { Popover } from "antd"
+import { TaskLabelsMenu } from "./TaskLabelsMenu"
+import { MenuCarousel } from "../menuCarousel/MenuCarousel"
+import { useState } from "react"
+
 export function TaskDetailsSidebar({ task }) {
+
+	const LabelsMenuComponents = {
+		labels: { component: TaskLabelsMenu, title: 'Labels' },
+	}
+
+	const [open, setOpen] = useState(false)
+	const hide = () => {
+		setOpen(false)
+	}
+
+	const handleOpenChange = (newOpen) => {
+		setOpen(newOpen)
+	}
+	
 	return (
 		<section className="task-details-sidebar">
 			<section className="task-details-sidebar-module-list">
@@ -24,10 +43,13 @@ export function TaskDetailsSidebar({ task }) {
 						<span className="icon icon-sm icon-member" />
 						<p>Members</p>
 					</button>
-					<button className="btn labels span1">
-						<span className="icon icon-sm icon-label" />
-						<p>Labels</p>
-					</button>
+					<Popover content={props => MenuCarousel({ ...props, menuComponents: LabelsMenuComponents, onClose: hide })}
+						placement="center" trigger={"click"} arrow={false} open={open} onOpenChange={handleOpenChange}>
+						<button className="btn labels span1">
+							<span className="icon icon-sm icon-label" />
+							<p>Labels</p>
+						</button>
+					</Popover>
 					<button className="btn checklist span2">
 						<span className="icon icon-sm icon-checklist" />
 						<p>Checklist</p>

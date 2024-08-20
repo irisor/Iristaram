@@ -2,7 +2,8 @@
 	align-content: start;
 	display: grid;
 	grid-template-rows: auto auto minmax(0, 1fr);
-	height: 100%;
+	height: 476px;
+	max-height: 100%;
 	overflow: hidden;
 	position: relative;
 	width: 100%;
@@ -18,4 +19,9 @@
 		grid-auto-flow: column;
 		grid-auto-columns: auto;
 	}
+}
+
+.ant-popover-inner:has(.menu-carousel) {
+	padding: 0;
+	// height: 476px;
 }
