@@ -1,0 +1,32 @@
+.menu-carousel:has(.task-label-menu) {
+	width: 304px;
+}
+
+.task-label-menu {
+	display: grid;
+    gap: 4px;
+    padding-inline-start: 4px;
+
+	&-item {
+		display: grid;
+		gap: 12px;
+		grid-auto-flow: column;
+		grid-template-columns: auto minmax(0, 1fr);
+	}
+
+	.task-label {
+		align-content: center;
+		border-radius: 3px;
+		display: grid;
+		padding: 0 12px;
+		width: 212px;
+		
+		label {
+			font-size: rem(14px);
+		}
+
+		@include hover-supported {
+			filter: brightness(1.1) saturate(1.2);
+        }
+	}
+}

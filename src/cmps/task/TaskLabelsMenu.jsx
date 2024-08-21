@@ -37,14 +37,14 @@ export function TaskLabelsMenu() {
 
 	return (
 
-		<form onSubmit={ev => ev.preventDefault()}>
+		<form onSubmit={ev => ev.preventDefault()} className='task-label-menu'>
 			{boardLabels?.map(label => (
-				<article key={label.id}>
+				<div key={label.id} className='task-label-menu-item'>
 					<input type="checkbox" id={label.id} checked={labelsForm[label.id]} onChange={handleChange} name={label.id} />
 					<div className="task-label" style={{ backgroundColor: label.color }}>
 						<label htmlFor={label.id}>{label.title}</label>
 					</div>
-				</article>
+				</div>
 			))}
 		</form>
 	)

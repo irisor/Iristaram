@@ -59,4 +59,8 @@ form {
 	input:not(.empty) + .notification {
 		display: none
 	}
+
+	input[type="checkbox"] {
+		box-shadow: none;
+	}
 }
