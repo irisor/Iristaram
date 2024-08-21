@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export const useForm = (initialState) => {
+export function useForm(initialState) {
     const [fields, setFields] = useState(initialState)
 
     function handleChange({ target }) {
@@ -25,18 +25,8 @@ export const useForm = (initialState) => {
         }
     }
 
-    function resetForm() {
-        const resetFields = Object.keys(fields).reduce((acc, field) => {
-            if (fields[field] instanceof Array) {
-                acc[field] = []
-            } else if (fields[field] instanceof Object) {
-                acc[field] = {}
-            } else {
-                acc[field] = ''
-            }
-            return acc
-        }, {})
-        setFields(resetFields)
+    function resetForm(newInitialState = initialState) {
+        setFields(newInitialState);
         Array.from(document.querySelectorAll('input')).forEach((input) => {
             if (!input.value) {
                 input.classList.add('empty')

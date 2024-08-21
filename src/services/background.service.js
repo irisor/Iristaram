@@ -7,10 +7,6 @@ export const backgroundService = {
     getBackgroundImages,
 }
 
-export const boardService = {
-    getBackgroundImages,
-}
-
 _createBackgroundImages()
 
 

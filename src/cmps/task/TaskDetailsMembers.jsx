@@ -1,4 +1,4 @@
-export const TaskDetailsMembers = ({ task }) => {
+export function TaskDetailsMembers ({ task }) {
 	return (
 		<section className="task-details-members task-details-data-item">
 			<h3 className="task-details-members-title task-details-data-item-title">Members</h3>

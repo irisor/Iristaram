@@ -1,4 +1,16 @@
+import { Popover } from "antd"
+import { TaskLabelsMenu } from "./TaskLabelsMenu"
+import { MenuCarousel } from "../menuCarousel/MenuCarousel"
+import { useMultiPopover } from "../../customHooks/useMultiPopover"
+
 export function TaskDetailsSidebar({ task }) {
+
+	const LabelsMenuComponents = {
+		labels: { component: TaskLabelsMenu, title: 'Labels' },
+	}
+
+	const { openPopover, closePopover, isPopoverOpen } = useMultiPopover()
+
 	return (
 		<section className="task-details-sidebar">
 			<section className="task-details-sidebar-module-list">
@@ -24,10 +36,15 @@ export function TaskDetailsSidebar({ task }) {
 						<span className="icon icon-sm icon-member" />
 						<p>Members</p>
 					</button>
-					<button className="btn labels span1">
-						<span className="icon icon-sm icon-label" />
-						<p>Labels</p>
-					</button>
+					<Popover content={props => MenuCarousel({ ...props, menuComponents: LabelsMenuComponents, onClose: closePopover })}
+						open={isPopoverOpen(`popover-labels-menu${task.id}`)}
+						onOpenChange={(open) => (open ? openPopover(`popover-labels-menu${task.id}`) : closePopover())}
+						placement="center" trigger={"click"} arrow={false}>
+						<button className="btn labels span1">
+							<span className="icon icon-sm icon-label" />
+							<p>Labels</p>
+						</button>
+					</Popover>
 					<button className="btn checklist span2">
 						<span className="icon icon-sm icon-checklist" />
 						<p>Checklist</p>

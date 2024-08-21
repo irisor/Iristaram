@@ -1,0 +1,7 @@
+.task-details-labels {
+	&-label {
+        @include hover-supported {
+            filter: brightness(1.1) saturate(1.2);
+        }
+	}
+}
