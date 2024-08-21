@@ -5,7 +5,6 @@ import { SET_BACKGROUND_IMAGES } from './background.reducer'
 export async function loadBackgroundImages() {
     try {
         const backgroundImages = await backgroundService.getBackgroundImages()
-        // console.log('BackgroundImages from DB:', backgroundImages)
         store.dispatch(getCmdSetBackgroundImages(backgroundImages))
     } catch (err) {
         console.log('Cannot load background images', err)

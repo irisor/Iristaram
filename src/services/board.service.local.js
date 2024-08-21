@@ -120,9 +120,7 @@ async function addTask(boardId, groupId, newTask) {
 }
 
 async function removeTask(boardId, groupId, taskId) {
-    console.log(boardId, groupId, taskId)
     const board = await getById(boardId)
-    console.log(board)
     const groupIndex = board.groups.findIndex(g => g.id === groupId)
     const taskIndex = board.groups[groupIndex].tasks.findIndex(t => t.id === taskId)
     board.groups[groupIndex].tasks.splice(taskIndex, 1)

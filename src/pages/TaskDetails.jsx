@@ -18,7 +18,6 @@ import { TaskDetailsLabels } from "../cmps/task/TaskDetailsLabels"
 export function TaskDetails() {
     const { boardId, taskId } = useParams()
     const { isOpen, openModal, closeModal } = useModal()
-    const [task, setTask] = useState({})
     const navigate = useNavigate()
 
     const [currentTask, groupId, groupTitle, taskLabels] = useSelector((storeState) => {
@@ -30,13 +29,9 @@ export function TaskDetails() {
 
     useEffect(() => {
         if (!taskId) return
-        openModal();
-        loadTask();
-    }, [taskId]);
+        openModal()
+    }, [taskId])
 
-    function loadTask() {
-        setTask(currentTask);
-    }
 
     function onClose(ev) {
         ev.preventDefault()
@@ -48,7 +43,7 @@ export function TaskDetails() {
     function onUpdateTaskTitle(newTitle) {
         if (!newTitle) return
         try {
-            const newTask = { ...task, title: newTitle }
+            const newTask = { ...currentTask, title: newTitle }
             updateTask(boardId, groupId, newTask)
             showSuccessMsg(`Task title updated`)
         } catch (err) {
@@ -56,28 +51,28 @@ export function TaskDetails() {
         }
     }
 
-    if (!task) return null
+    if (!currentTask) return null
     return (
         <Modal isOpen={isOpen} closeModal={ev => onClose(ev)} cmpClassName='task-details'>
 
             <button className='btn icon-wrapper task-details-close' onClick={ev => onClose(ev)}>
                 <span className="icon icon-lg icon-close" />
             </button>
-           <TaskDetailsCover task={task} />
+           <TaskDetailsCover task={currentTask} />
 
             <article className='task-details-content'>
-                <TaskDetailsHeader task={task} groupTitle={groupTitle} onUpdateTaskTitle={onUpdateTaskTitle} />
+                <TaskDetailsHeader task={currentTask} groupTitle={groupTitle} onUpdateTaskTitle={onUpdateTaskTitle} />
                 <section className='task-details-main'>
                     <section className="task-details-data">
-                        <TaskDetailsLabels task={task} />
-                        <TaskDetailsMembers task={task} />
-                        <TaskDetailsNotifications task={task} />
+                        <TaskDetailsLabels task={currentTask} />
+                        <TaskDetailsMembers task={currentTask} />
+                        <TaskDetailsNotifications task={currentTask} />
                     </section>
-                    <TaskDetailsDescription task={task} />
-                    <TaskDetailsAttachents task={task} />
-                    <TaskDetailsActivities task={task} />
+                    <TaskDetailsDescription task={currentTask} />
+                    <TaskDetailsAttachents task={currentTask} />
+                    <TaskDetailsActivities task={currentTask} />
                 </section>
-                <TaskDetailsSidebar task={task} />
+                <TaskDetailsSidebar task={currentTask} />
             </article>
         </Modal >
     )

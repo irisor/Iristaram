@@ -1,30 +1,47 @@
 import { useSelector } from 'react-redux'
 import { useForm } from '../../customHooks/useForm'
 import { useParams } from 'react-router';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { updateTask } from '../../store/board/board.actions';
 
 export function TaskLabelsMenu() {
 	const { taskId } = useParams()
-	// const board = useSelector(storeState => storeState.boardModule.board)
-	// const group = board.groups.find(group => group.tasks.some(t => t.id === taskId))
-	// const task = group?.tasks.find(task => task.id === taskId)
-	const { labels: taskLabels, board, group, task } = useSelector((storeState) => {
-		const board = storeState.boardModule.board
-		const group = board.groups.find(group => group.tasks.some(t => t.id === taskId))
-		const task = group?.tasks.find(task => task.id === taskId)
-		return { labels: task.labels, board, group, task }
-	})
+		const boardSelector = useCallback(
+		(storeState) => {
+			const board = storeState.boardModule.board
+			return board
+		},
+		[]
+	)
+	const groupSelector = useCallback(
+		(storeState, taskId) => {
+			const board = boardSelector(storeState)
+			const group = board.groups.find(group => group.tasks.some(t => t.id === taskId))
+			return group
+		},
+		[boardSelector]
+	)
+	const taskSelector = useCallback(
+		(storeState, taskId) => {
+			const group = groupSelector(storeState, taskId)
+			const task = group?.tasks.find(task => task.id === taskId)
+			return task
+		},
+		[groupSelector]
+	)
+	
+	const board = useSelector(boardSelector)
+	const group = useSelector((storeState) => groupSelector(storeState, taskId))
+	const task = useSelector((storeState) => taskSelector(storeState, taskId))
 
 	const { labels: boardLabels, _id: boardId } = board
-	// const { labels: taskLabels } = task
+	const { labels: taskLabels } = task
 
 	const initialLabelsForm = boardLabels?.reduce((acc, label) => {
 		acc[label.id] = (taskLabels ?? []).some(tl => tl.id === label.id)
 		return acc
 	}, {}) ?? {}
 	const [labelsForm, setlabelsForm, handleChange, resetForm] = useForm(initialLabelsForm)
-console.log('TaskLabelsMenu taskLabels', taskLabels)
 
 	useEffect(() => {
 		resetForm()
@@ -35,7 +52,7 @@ console.log('TaskLabelsMenu taskLabels', taskLabels)
 		if (JSON.stringify(newTaskLabels) !== JSON.stringify(taskLabels)) {
 			updateTask(boardId, group.id, { ...task, labels: newTaskLabels })
 		}
-	}, [labelsForm, boardId, task])
+	}, [labelsForm])
 
 	return (
 
