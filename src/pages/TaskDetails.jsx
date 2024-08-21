@@ -1,8 +1,8 @@
 import { Modal } from "../cmps/general/Modal"
 import { useNavigate, useParams } from "react-router"
 import { useModal } from "../customHooks/useModal"
-import { useEffect, useState } from "react"
-import { useSelector } from "react-redux"
+import { useEffect } from "react"
+import { shallowEqual, useSelector } from "react-redux"
 import { updateTask } from "../store/board/board.actions"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { TaskDetailsCover } from "../cmps/task/TaskDetailsCover"
@@ -20,12 +20,14 @@ export function TaskDetails() {
     const { isOpen, openModal, closeModal } = useModal()
     const navigate = useNavigate()
 
-    const [currentTask, groupId, groupTitle, taskLabels] = useSelector((storeState) => {
+    const memoizedSelector = (storeState) => {
         const board = storeState.boardModule.board
-        const group = board.groups.find(group => group.tasks.some(t => t.id === taskId))
-        const task = group?.tasks.find(task => task.id === taskId)
-        return [task, group?.id, group?.title, task.labels]
-    });
+        const group = board.groups.find(g => g.tasks.some(t => t.id === taskId))
+        const task = group?.tasks.find(t => t.id === taskId)
+        return { currentTask: task, groupId: group?.id, groupTitle: group?.title }
+    }
+
+    const { currentTask, groupId, groupTitle } = useSelector(memoizedSelector, shallowEqual)
 
     useEffect(() => {
         if (!taskId) return
@@ -58,7 +60,7 @@ export function TaskDetails() {
             <button className='btn icon-wrapper task-details-close' onClick={ev => onClose(ev)}>
                 <span className="icon icon-lg icon-close" />
             </button>
-           <TaskDetailsCover task={currentTask} />
+            <TaskDetailsCover task={currentTask} />
 
             <article className='task-details-content'>
                 <TaskDetailsHeader task={currentTask} groupTitle={groupTitle} onUpdateTaskTitle={onUpdateTaskTitle} />

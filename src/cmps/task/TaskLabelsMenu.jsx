@@ -1,41 +1,22 @@
-import { useSelector } from 'react-redux'
+import { shallowEqual, useSelector } from 'react-redux'
 import { useForm } from '../../customHooks/useForm'
 import { useParams } from 'react-router';
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 import { updateTask } from '../../store/board/board.actions';
 
 export function TaskLabelsMenu() {
 	const { taskId } = useParams()
-		const boardSelector = useCallback(
-		(storeState) => {
-			const board = storeState.boardModule.board
-			return board
-		},
-		[]
-	)
-	const groupSelector = useCallback(
-		(storeState, taskId) => {
-			const board = boardSelector(storeState)
-			const group = board.groups.find(group => group.tasks.some(t => t.id === taskId))
-			return group
-		},
-		[boardSelector]
-	)
-	const taskSelector = useCallback(
-		(storeState, taskId) => {
-			const group = groupSelector(storeState, taskId)
-			const task = group?.tasks.find(task => task.id === taskId)
-			return task
-		},
-		[groupSelector]
-	)
-	
-	const board = useSelector(boardSelector)
-	const group = useSelector((storeState) => groupSelector(storeState, taskId))
-	const task = useSelector((storeState) => taskSelector(storeState, taskId))
+	const memoizedSelector = (storeState) => {
+        const board = storeState.boardModule.board
+        const group = board.groups.find(g => g.tasks.some(t => t.id === taskId))
+        const task = group?.tasks.find(t => t.id === taskId)
+        return { board, currentTask: task, groupId: group?.id }
+    }
+
+	const { board, currentTask, groupId } = useSelector(memoizedSelector, shallowEqual)
 
 	const { labels: boardLabels, _id: boardId } = board
-	const { labels: taskLabels } = task
+	const { labels: taskLabels } = currentTask
 
 	const initialLabelsForm = boardLabels?.reduce((acc, label) => {
 		acc[label.id] = (taskLabels ?? []).some(tl => tl.id === label.id)
@@ -50,7 +31,7 @@ export function TaskLabelsMenu() {
 	useEffect(() => {
 		const newTaskLabels = boardLabels.filter(label => labelsForm[label.id])
 		if (JSON.stringify(newTaskLabels) !== JSON.stringify(taskLabels)) {
-			updateTask(boardId, group.id, { ...task, labels: newTaskLabels })
+			updateTask(boardId, groupId, { ...currentTask, labels: newTaskLabels })
 		}
 	}, [labelsForm])
 
