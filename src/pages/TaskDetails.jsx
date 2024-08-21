@@ -13,6 +13,7 @@ import { TaskDetailsDescription } from "../cmps/task/TaskDetailsDescription"
 import { TaskDetailsAttachents } from "../cmps/task/TaskDetailsAttachents"
 import { TaskDetailsActivities } from "../cmps/task/TaskDetailsActivities"
 import { TaskDetailsSidebar } from "../cmps/task/TaskDetailsSidebar"
+import { TaskDetailsLabels } from "../cmps/task/TaskDetailsLabels"
 
 export function TaskDetails() {
     const { boardId, taskId } = useParams()
@@ -20,11 +21,11 @@ export function TaskDetails() {
     const [task, setTask] = useState({})
     const navigate = useNavigate()
 
-    const [currentTask, groupId, groupTitle] = useSelector((storeState) => {
+    const [currentTask, groupId, groupTitle, taskLabels] = useSelector((storeState) => {
         const board = storeState.boardModule.board
         const group = board.groups.find(group => group.tasks.some(t => t.id === taskId))
         const task = group?.tasks.find(task => task.id === taskId)
-        return [task, group?.id, group?.title]
+        return [task, group?.id, group?.title, task.labels]
     });
 
     useEffect(() => {
@@ -68,6 +69,7 @@ export function TaskDetails() {
                 <TaskDetailsHeader task={task} groupTitle={groupTitle} onUpdateTaskTitle={onUpdateTaskTitle} />
                 <section className='task-details-main'>
                     <section className="task-details-data">
+                        <TaskDetailsLabels task={task} />
                         <TaskDetailsMembers task={task} />
                         <TaskDetailsNotifications task={task} />
                     </section>

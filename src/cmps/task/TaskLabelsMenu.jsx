@@ -6,18 +6,25 @@ import { updateTask } from '../../store/board/board.actions';
 
 export function TaskLabelsMenu() {
 	const { taskId } = useParams()
-	const board = useSelector(storeState => storeState.boardModule.board)
-	const group = board.groups.find(group => group.tasks.some(t => t.id === taskId))
-	const task = group?.tasks.find(task => task.id === taskId)
+	// const board = useSelector(storeState => storeState.boardModule.board)
+	// const group = board.groups.find(group => group.tasks.some(t => t.id === taskId))
+	// const task = group?.tasks.find(task => task.id === taskId)
+	const { labels: taskLabels, board, group, task } = useSelector((storeState) => {
+		const board = storeState.boardModule.board
+		const group = board.groups.find(group => group.tasks.some(t => t.id === taskId))
+		const task = group?.tasks.find(task => task.id === taskId)
+		return { labels: task.labels, board, group, task }
+	})
 
 	const { labels: boardLabels, _id: boardId } = board
-	const { labels: taskLabels } = task
+	// const { labels: taskLabels } = task
 
 	const initialLabelsForm = boardLabels?.reduce((acc, label) => {
 		acc[label.id] = (taskLabels ?? []).some(tl => tl.id === label.id)
 		return acc
 	}, {}) ?? {}
 	const [labelsForm, setlabelsForm, handleChange, resetForm] = useForm(initialLabelsForm)
+console.log('TaskLabelsMenu taskLabels', taskLabels)
 
 	useEffect(() => {
 		resetForm()
@@ -28,14 +35,14 @@ export function TaskLabelsMenu() {
 		if (JSON.stringify(newTaskLabels) !== JSON.stringify(taskLabels)) {
 			updateTask(boardId, group.id, { ...task, labels: newTaskLabels })
 		}
-	}, [labelsForm, boardId,  task])
+	}, [labelsForm, boardId, task])
 
 	return (
 
 		<form onSubmit={ev => ev.preventDefault()}>
 			{boardLabels?.map(label => (
 				<article key={label.id}>
-					<input type="checkbox" id={label.id} checked={labelsForm[label.id]} onChange={handleChange} name={label.id}/>
+					<input type="checkbox" id={label.id} checked={labelsForm[label.id]} onChange={handleChange} name={label.id} />
 					<div className="task-label" style={{ backgroundColor: label.color }}>
 						<label htmlFor={label.id}>{label.title}</label>
 					</div>
