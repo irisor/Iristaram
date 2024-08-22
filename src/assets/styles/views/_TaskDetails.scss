@@ -80,6 +80,7 @@
         &-item-header {
             align-items: center;
             display: grid;
+            gap: 8px;
             grid-auto-flow: column;
             grid-template-columns: 40px 1fr auto;
             padding: 8px 0;
