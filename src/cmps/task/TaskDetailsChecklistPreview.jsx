@@ -10,7 +10,7 @@ export function TaskDetailsChecklistPreview({ checklist }) {
 	const completedItems = checklist.checkItems?.filter(checkedItem => checkedItem.checked).length
 	const [ progress, setProgress ] = useState(completedItems / totalItems * 100)
 	const [ hideCompleted, setHideCompleted ] = useState(false)
-	const hideCompletedText = useRef('Hide checked items')
+	const [ hideCompletedText, setHideCompletedText ] = useState('Hide checked items')
 	const { taskId } = useParams();
 	const memoizedSelector = (storeState) => {
         const board = storeState.boardModule.board
@@ -22,11 +22,7 @@ export function TaskDetailsChecklistPreview({ checklist }) {
 	const { board, currentTask, groupId } = useSelector(memoizedSelector, shallowEqual)
 
 	useEffect(() => {
-		if (hideCompleted) {
-			hideCompletedText.current = `Hide checked items`
-		} else {
-			hideCompletedText.current = `Show checked items (${completedItems})`
-		}
+		setHideCompletedText(hideCompleted ? `Show checked items (${completedItems})` : `Hide checked items`)
 	}, [hideCompleted])
 
 	function onChangeProgress(completed) {
@@ -42,7 +38,7 @@ export function TaskDetailsChecklistPreview({ checklist }) {
 			<section className="task-details-main-item-header">
 				<span className="icon icon-lg icon-checkbox-checked" />
 				<h3>{checklist.title}</h3>
-				{completedItems > 0 && <button className="btn" onClick={() => setHideCompleted(!hideCompleted)}>{hideCompletedText.current}</button>}
+				{completedItems > 0 && <button className="btn" onClick={() => setHideCompleted(!hideCompleted)}>{hideCompletedText}</button>}
 				<button className="btn" onClick={deleteChecklist}>Delete</button>
 			</section>
 			<section className="task-details-checklist-progress">
