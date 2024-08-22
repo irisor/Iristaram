@@ -8,7 +8,7 @@ export function TaskDetailsChecklistPreview({ checklist }) {
 		checklist.checkItems?.filter(checkedItem => checkedItem.checked).length / totalItems * 100
 	)
 	function onChangeProgress(completed) {
-		setProgress(totalItems ? completed/totalItems*100 : 0)
+		setProgress(totalItems ? completed / totalItems * 100 : 0)
 	}
 	return (
 		<section className="task-details-checklist task-details-main-item" key={checklist.id}>
@@ -19,8 +19,8 @@ export function TaskDetailsChecklistPreview({ checklist }) {
 			</section>
 			<section className="task-details-checklist-progress">
 				<Progress percent={progress} percentPosition={{ align: 'start', type: 'outer' }} format={percent => `${percent}%`} />
-				<TaskDetailsChecklistItemList checklist={checklist} onChangeProgress={onChangeProgress} />
 			</section>
+			<TaskDetailsChecklistItemList checklist={checklist} onChangeProgress={onChangeProgress} />
 		</section>
 	)
 }

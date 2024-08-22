@@ -1,5 +1,7 @@
 .task-details-checklist {
 	&-progress {
+		margin-block-end: 6px;
+		
 		.ant-progress-bg {
 			background-color: var(--clr-background-progress);
 		}
