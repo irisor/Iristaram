@@ -14,6 +14,7 @@ import { TaskDetailsAttachents } from "../cmps/task/TaskDetailsAttachents"
 import { TaskDetailsActivities } from "../cmps/task/TaskDetailsActivities"
 import { TaskDetailsSidebar } from "../cmps/task/TaskDetailsSidebar"
 import { TaskDetailsLabels } from "../cmps/task/TaskDetailsLabels"
+import { TaskDetailsChecklists } from "../cmps/task/TaskDetailsChecklists"
 
 export function TaskDetails() {
     const { boardId, taskId } = useParams()
@@ -70,6 +71,7 @@ export function TaskDetails() {
                         <TaskDetailsMembers task={currentTask} />
                         <TaskDetailsNotifications task={currentTask} />
                     </section>
+                    <TaskDetailsChecklists task={currentTask} />
                     <TaskDetailsDescription task={currentTask} />
                     <TaskDetailsAttachents task={currentTask} />
                     <TaskDetailsActivities task={currentTask} />

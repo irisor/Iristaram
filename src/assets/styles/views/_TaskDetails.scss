@@ -88,6 +88,10 @@
             h3 {
                 font-size: rem(16px);
             }
+
+            > *:first-child {
+                justify-self: center;
+            }
         }
 
         &-item-content {

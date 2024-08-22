@@ -1,0 +1,7 @@
+.task-details-checklist-item {
+    align-items: center;
+    color: var(--clr-icon);
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 40px 1fr;
+}
