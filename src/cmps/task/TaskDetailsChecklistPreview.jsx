@@ -78,7 +78,8 @@ export function TaskDetailsChecklistPreview({ checklist }) {
 				<Progress percent={progress} percentPosition={{ align: 'start', type: 'outer' }} format={percent => `${percent}%`} />
 			</section>
 			<TaskDetailsChecklistItemList checklist={checklist} hideCompleted={hideCompleted} />
-			<CreateItem onAddItem={onAddCheckItem(board._id, groupId)} initialBtnLbl='Add an item' addBtnLabel='Add' placeholder='Add an item' closeWithBtnOnly={true} />
+			<CreateItem onAddItem={onAddCheckItem(board._id, groupId)} initialBtnLabel='Add an item' 
+				addBtnLabel='Add' placeholder='Add an item' closeWithBtnOnly={true} closeBtnLabel={'Cancel'}/>
 		</section>
 	)
 }

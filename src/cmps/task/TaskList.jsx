@@ -49,7 +49,7 @@ export function TaskList({ props }) {
           ))}
         </ol>
         <div className="task-list-add-task">
-          <CreateItem onAddItem={onAddTask(board._id, groupId)} onInput={onInputTask} initialBtnLbl='Add a card' addBtnLabel='Add card' placeholder='Enter a title for this card...' />
+          <CreateItem onAddItem={onAddTask(board._id, groupId)} onInput={onInputTask} initialBtnLabel='Add a card' addBtnLabel='Add card' placeholder='Enter a title for this card...' />
         </div>
       </section>
     </>

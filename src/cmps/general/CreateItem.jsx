@@ -2,7 +2,10 @@
 import { useState, useEffect, useRef } from 'react'
 import { useClickOutside } from '../../customHooks/useClickOutside'
 
-export function CreateItem({ onAddItem, onInput = () => {}, initialBtnLbl = 'Add', addBtnLabel = 'Add', placeholder = 'Enter title...', closeWithBtnOnly=false }) {
+export function CreateItem({
+	onAddItem, onInput = () => { }, initialBtnLabel = 'Add',
+	addBtnLabel = 'Add', placeholder = 'Enter title...', closeWithBtnOnly = false, closeBtnLabel = null
+}) {
 	const [itemData, setItemData] = useState(null)
 	const inputRef = useRef(null)
 	const clickOutsideRef = useRef(null)
@@ -65,7 +68,7 @@ export function CreateItem({ onAddItem, onInput = () => {}, initialBtnLbl = 'Add
 							{addBtnLabel}
 						</button>
 						<button className="btn icon new-item-close" onClick={ev => onCloseBtn(ev)}>
-							<span className="icon icon-md icon-close" />
+							{ closeBtnLabel ? closeBtnLabel : <span className="icon icon-md icon-close" /> }
 						</button>
 					</form>
 				</>
@@ -74,7 +77,7 @@ export function CreateItem({ onAddItem, onInput = () => {}, initialBtnLbl = 'Add
 					<div className="icon add-item">
 						<span className="icon icon-md icon-add" />
 					</div>
-					{initialBtnLbl}
+					{initialBtnLabel}
 				</button>
 			)}
 		</>

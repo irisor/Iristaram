@@ -1,22 +1,39 @@
 .task-details-checklist-item {
-    align-items: center;
+    align-items: start;
     color: var(--clr-icon);
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: 40px 1fr;
-    height: 36px;
-    padding: 6px 6px 6px 0;
 
-    > *:first-child {
-        justify-self: center;
+    input[type="checkbox"] {
+        margin: 10px 6px 6px 8px;
     }
 
     label {
         font-size: rem(14px);
         font-weight: 400;
+        line-height: ren(20px);
     }
-    
-    input:checked + label {
+
+    input:checked+label {
         text-decoration: line-through;
+    }
+
+    &-text {
+        align-items: center;
+        border-radius: 12px;
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: minmax(0, 1fr) auto;
+        margin-inline-start: -8px;
+        padding: 6px 8px;
+
+        @include hover-supported {
+            background-color: var(--clr-background-hover-attachment);
+        }
+    }
+
+    &-controls {
+        height: 24px;
     }
 }
