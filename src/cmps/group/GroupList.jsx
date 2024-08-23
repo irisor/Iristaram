@@ -12,7 +12,7 @@ export function GroupList({ onRemoveGroup, onUpdateGroupTitle, onAddGroup, taskP
 				<GroupPreview key={group.id} group={group} onRemoveGroup={onRemoveGroup} onUpdateGroupTitle={onUpdateGroupTitle} taskProps={taskProps} />
 			)}
 
-			<CreateItem onAddItem={onAddGroup} initialBtnLbl='Add another list' addBtnLabel='Add list' placeholder='Enter list title...' />
+			<CreateItem onAddItem={onAddGroup} initialBtnLabel='Add another list' addBtnLabel='Add list' placeholder='Enter list title...' />
 
 		</section >
 	)

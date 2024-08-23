@@ -32,7 +32,7 @@ export function TaskDetailsAttachents({ task }) {
 										<span className="task-details-attachments-attachment-thumbnail-details-third-line">
 											<span className="task-details-attachments-attachment-thumbnail-option">
 												<span className="icon icon-sm icon-card-cover"></span>
-												{task.cover.attachmentId === attachment._id ? <a href="#">Remove cover</a> : <a href="#">Make cover</a>}
+												{task.cover?.attachmentId === attachment._id ? <a href="#">Remove cover</a> : <a href="#">Make cover</a>}
 											</span>
 										</span>
 									</section>

@@ -296,6 +296,23 @@ function _createBoards() {
                     "color": "#9F8FEF"
                 }
                 ],
+                "checklists": [
+                {
+                    "id": "c101",
+                    "title": "Create wireframes",
+                    "checkItems": [
+                    {
+                        "id": "ci101",
+                        "title": "Create wireframes stage 1",
+                        "checked": true
+                    },
+                    {
+                        "id": "ci102",
+                        "title": "Create wireframes stage 2",
+                        "checked": false
+                    }
+                    ]
+                }],
                 "attachments": [
                     {
                     "_id": "a101",

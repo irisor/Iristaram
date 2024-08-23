@@ -165,12 +165,12 @@ li {
     }
 }
 
-.icon-wrapper:has(.icon-close) {
-    border-radius: 8px;
-    color: var(--clr-close-icon);
+// .icon-wrapper:has(.icon-close) {
+//     border-radius: 8px;
+//     color: var(--clr-close-icon);
 
-    @include hover-supported {
-        background-color: var(--clr-close-background-hover);
-        color: var(--clr-close-icon-hover);
-    }
-}
+//     @include hover-supported {
+//         background-color: var(--clr-close-background-hover);
+//         color: var(--clr-close-icon-hover);
+//     }
+// }

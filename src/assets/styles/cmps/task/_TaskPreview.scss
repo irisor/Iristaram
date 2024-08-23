@@ -44,6 +44,10 @@
         gap: 4px;
         justify-content: start;
         margin-block-end: 4px;
+
+        &:empty {
+            display: none;
+        }
     }
 
     &-label {
@@ -71,6 +75,29 @@
             font-weight: 500;
             place-content: center;
             height: 100%;
+        }
+    }
+
+    &-badge {
+        border-radius: 3px;
+        color: var(--clr-icon);
+        display: flex;
+        font-size: rem(12px);
+        padding: 2px;
+        margin-block-end: 4px;
+        width: fit-content;
+
+        .info {
+            padding: 0 4px 0 2px;
+        }
+
+        &.completed {
+            background-color: var(--clr-background-progress-complete);
+            color: white;
+
+            .icon::before {
+                color: white;
+            }
         }
     }
 }

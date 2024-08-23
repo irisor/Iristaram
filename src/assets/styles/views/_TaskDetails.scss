@@ -5,16 +5,20 @@
         height: 1px;
     }
 
-    .btn {
+    .btn,
+    .btn:not(.blue):not(:hover) {
         align-items: center;
-        background-color: var(--clr-background-btn-task);
         display: grid;
         font-weight: 500;
         grid-auto-flow: column;
         padding: 6px 12px;
-
+        
         @include hover-supported {
             background-color: var(--clr-background-btn-task-hovered);
+        }
+
+        &:not(.blue):not(:hover) {
+            background-color: var(--clr-background-btn-task);
         }
 
         p {
@@ -22,6 +26,15 @@
             text-overflow: ellipsis;
             white-space: nowrap;
         }
+    }
+
+    textarea {
+        box-shadow: var(--shadow-selected);
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+        resize: vertical;
     }
 
     .icon-external-link {
@@ -51,6 +64,7 @@
     }
 
     &-content {
+        background-color: var(--clr-background-create-board);
         display: grid;
         grid-template-areas:
             "header header"
@@ -80,6 +94,7 @@
         &-item-header {
             align-items: center;
             display: grid;
+            gap: 8px;
             grid-auto-flow: column;
             grid-template-columns: 40px 1fr auto;
             padding: 8px 0;
@@ -88,6 +103,10 @@
             h3 {
                 font-size: rem(16px);
             }
+
+            // > *:first-child {
+            //     justify-self: center;
+            // }
         }
 
         &-item-content {

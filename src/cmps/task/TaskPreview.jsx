@@ -2,6 +2,10 @@ import { Link, useParams } from "react-router-dom";
 
 export function TaskPreview({ task }) {
     const { boardId } = useParams()
+    const totalCheckItems = task.checklists?.flatMap(checklist => checklist.checkItems).length || 0;
+    const checkedItems = task.checklists?.flatMap(checklist => checklist.checkItems).filter(checkItem => checkItem.checked).length || 0;
+    const isCompleted = totalCheckItems > 0 && totalCheckItems === checkedItems;
+
 
     function toggleLabelCollapse(ev) {
         ev.stopPropagation()
@@ -18,6 +22,14 @@ export function TaskPreview({ task }) {
                         {task.labels?.map(label => <div key={label.id} className="task-preview-label" style={{ backgroundColor: label.color }} onClick={ev => toggleLabelCollapse(ev)}><div className="task-preview-label-title">{label.title}</div></div>)}
                     </div>
                     <p>{task.title}</p>
+                    <section className="task-preview-badges">
+                        {task.checklists?.length > 0 &&
+                            <div className={`task-preview-badge ${isCompleted && "completed"}`}>
+                                <span className="icon icon-sm icon-checkbox-checked" />
+                                <span className="info">{checkedItems}/{totalCheckItems}</span>
+                            </div>
+                        }
+                    </section>
                 </div>
             </Link>
         </div>
