@@ -5,7 +5,7 @@ import { updateTask } from "../../store/board/board.actions";
 import { shallowEqual, useSelector } from "react-redux";
 import { useParams } from "react-router";
 
-export function TaskDetailsChecklistItemList({ checklist, onChangeProgress, hideCompleted }) {
+export function TaskDetailsChecklistItemList({ checklist, hideCompleted }) {
 	const { taskId } = useParams();
 	const memoizedSelector = (storeState) => {
 		const board = storeState.boardModule.board
@@ -31,7 +31,6 @@ export function TaskDetailsChecklistItemList({ checklist, onChangeProgress, hide
 				})
 			}
 			updateTask(board._id, groupId, newTask)
-			onChangeProgress(Object.values(checklistForm).filter(checked => checked).length)
 		}
 	}, [checklistForm])
 

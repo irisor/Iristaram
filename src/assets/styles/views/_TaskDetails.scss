@@ -7,14 +7,17 @@
 
     .btn {
         align-items: center;
-        background-color: var(--clr-background-btn-task);
         display: grid;
         font-weight: 500;
         grid-auto-flow: column;
         padding: 6px 12px;
-
+        
         @include hover-supported {
             background-color: var(--clr-background-btn-task-hovered);
+        }
+
+        &:not(.blue) {
+            background-color: var(--clr-background-btn-task);
         }
 
         p {

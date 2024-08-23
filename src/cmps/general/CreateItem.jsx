@@ -1,11 +1,13 @@
 
 import { useState, useEffect, useRef } from 'react'
-import { useSelector } from 'react-redux'
+import { useClickOutside } from '../../customHooks/useClickOutside'
 
-export function CreateItem({ onAddItem, onInput = () => { }, initialBtnLbl = 'Add', addBtnLabel = 'Add', placeholder = 'Enter title...', groupId = null }) {
+export function CreateItem({ onAddItem, onInput = () => {}, initialBtnLbl = 'Add', addBtnLabel = 'Add', placeholder = 'Enter title...', closeWithBtnOnly=false }) {
 	const [itemData, setItemData] = useState(null)
-	const board = useSelector(storeState => storeState.boardModule.board)
 	const inputRef = useRef(null)
+	const clickOutsideRef = useRef(null)
+
+	useClickOutside(onClose, clickOutsideRef)
 
 	useEffect(() => {
 		inputRef.current?.focus()
@@ -21,33 +23,25 @@ export function CreateItem({ onAddItem, onInput = () => { }, initialBtnLbl = 'Ad
 		setItemData(prevData => ({ ...prevData, title }))
 	}
 
-	function handleAddItem(newItem, ev = null) {
-
-		// console.log('handleAddItem', newItem)
+	async function handleAddItem(newItem, ev = null) {
 		ev?.preventDefault()
 		ev?.stopPropagation()
 
-		if (newItem?.title !== '') {
+		const addItemFunction = await onAddItem
+		await addItemFunction(newItem.title)
 
-			if (groupId) {
-				// For tasks, include groupId
-				onAddItem(groupId, newItem.title)
-			} else {
-				// For groups, omit groupId
-				onAddItem(board._id, newItem.title)
-			}
-
-			// Reset itemData after a short delay to avoid displaying an empty item form when pressing enter
-			setTimeout(() => {
-				setItemData({ title: '' })
-			}, 0)
-		}
-		else {
-			setItemData(null)
-		}
+		// Reset itemData after a short delay to avoid displaying an empty item form when pressing enter
+		setTimeout(() => {
+			setItemData({ title: '' })
+		}, 0)
 	}
 
 	function onClose(ev) {
+		ev.preventDefault()
+		if (!closeWithBtnOnly) setItemData(null)
+	}
+
+	function onCloseBtn(ev) {
 		ev.preventDefault()
 		setItemData(null)
 	}
@@ -56,8 +50,7 @@ export function CreateItem({ onAddItem, onInput = () => { }, initialBtnLbl = 'Ad
 		<>
 			{itemData ? (
 				<>
-					<div className="create-item-outside" onClick={ev => { handleAddItem(itemData, ev) }}></div>
-					<form key="new-item" className="create-item edit">
+					<form key="new-item" className="create-item edit" ref={clickOutsideRef}>
 						<textarea
 							type="text"
 							className="editable-title-input"
@@ -71,7 +64,7 @@ export function CreateItem({ onAddItem, onInput = () => { }, initialBtnLbl = 'Ad
 						<button className="btn new-item-save btn-color-bold blue" onClick={ev => handleAddItem(itemData, ev)}>
 							{addBtnLabel}
 						</button>
-						<button className="btn icon new-item-close" onClick={ev => onClose(ev)}>
+						<button className="btn icon new-item-close" onClick={ev => onCloseBtn(ev)}>
 							<span className="icon icon-md icon-close" />
 						</button>
 					</form>

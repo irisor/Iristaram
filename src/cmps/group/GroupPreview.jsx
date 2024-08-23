@@ -2,7 +2,6 @@
 import { EditableTitle } from '../general/EditableTitle'
 import {TaskList} from '../task/TaskList'
 export function GroupPreview({ group, onUpdateGroupTitle, taskProps }) {
-	// const board = useSelector(storeState => storeState.boardModule.board)
 
 	return (
 
@@ -14,7 +13,7 @@ export function GroupPreview({ group, onUpdateGroupTitle, taskProps }) {
 				/>
 			</div>
 			<TaskList
-				props={{groupId: group.id, ...taskProps}}
+				props={{...taskProps, groupId: group.id}}
 			/>
 			{/* <button className="btn" onClick={() => { onRemoveGroup(board._id, group?.id) }}>X</button> */}
 		</section>
