@@ -1,11 +1,16 @@
 // import { useSelector } from 'react-redux'
 import { EditableTitle } from '../general/EditableTitle'
 import {TaskList} from '../task/TaskList'
-export function GroupPreview({ group, onUpdateGroupTitle, taskProps }) {
+export function GroupPreview({ group, onUpdateGroupTitle, taskProps, onDragStart, onDragDrop }) {
+
+    function handleDragDrop(ev) {
+        onDragDrop(ev, group.id)
+    }
+
 
 	return (
 
-		<section key={group.id} className="group-preview">
+		<section key={group.id} className="group-preview" onDrop={ev => handleDragDrop(ev)}>
 			<div className="group-title">
 				<EditableTitle
 					initialTitle={group.title}
@@ -13,7 +18,7 @@ export function GroupPreview({ group, onUpdateGroupTitle, taskProps }) {
 				/>
 			</div>
 			<TaskList
-				props={{...taskProps, groupId: group.id}}
+				props={{...taskProps, groupId: group.id, onDragStart}}
 			/>
 			{/* <button className="btn" onClick={() => { onRemoveGroup(board._id, group?.id) }}>X</button> */}
 		</section>

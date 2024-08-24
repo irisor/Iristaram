@@ -7,7 +7,7 @@ import { setOpenCreateItem } from '../../store/general/general.actions'
 export function CreateItem({
 	onAddItem, onInput = () => { }, initialBtnLabel = 'Add',
 	addBtnLabel = 'Add', placeholder = 'Enter title...', closeWithBtnOnly = false, closeBtnLabel = null,
-	triggerResetAll, resetAll, thisId
+	triggerResetAll=null, resetAll=false, thisId=null
 }) {
 	const [ itemData, setItemData ] = useState(null)
 	const inputRef = useRef(null)
@@ -30,7 +30,7 @@ export function CreateItem({
 		if (openCreateItem) {
 			if (openCreateItem === thisId) {
 				setItemData({ title: '' })
-				triggerResetAll({ except: thisId })
+				if (triggerResetAll) triggerResetAll({ except: thisId })
 				setOpenCreateItem(null)
 			}
 		}
@@ -40,7 +40,7 @@ export function CreateItem({
 		ev.stopPropagation()
 		ev.preventDefault()
 		setItemData({ title: '' })
-		triggerResetAll({ except: thisId })
+		if (triggerResetAll) triggerResetAll({ except: thisId })
 		setOpenCreateItem(null)
 	}
 

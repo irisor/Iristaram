@@ -16,11 +16,10 @@ export function BoardDetails() {
   const board = useSelector(storeState => storeState.boardModule.board)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  console.log('board.details:', board, boardId)
+  // console.log('board.details:', board, boardId)
 
   useEffect(() => {
     initBoard(boardId)
-    // console.log('boardDetails useEffect boardId:', boardId)
   }, [boardId])
 
   useEffect(() => {
@@ -86,7 +85,6 @@ export function BoardDetails() {
 
   async function onRemoveTask(groupId, taskId) {
     try {
-      console.log(taskId)
       await removeTask(boardId, groupId, taskId, "Removed Task")
       showSuccessMsg(`Task removed`)
     } catch (err) {
@@ -106,14 +104,35 @@ export function BoardDetails() {
     }
   }
 
-  const toggleMenu = () => {
+  function toggleMenu () {
     setIsMenuOpen(!isMenuOpen)
+  }
+
+  function onDragStart(ev, task, groupId) {
+    ev.dataTransfer.setData('text', JSON.stringify({ task, groupId }))
+    ev.dataTransfer.dropEffect = "move";
+  }
+
+  function onDragOver(ev) {
+    ev.preventDefault()
+  }
+
+  async function onDragDrop(ev, dropGroupId) {
+    const { task, groupId } = JSON.parse(ev.dataTransfer.getData('text'))
+    const newBoard = { ...board }
+    const groupIndex = newBoard.groups.findIndex(g => g.id === groupId)
+    const taskIndex = newBoard.groups[groupIndex].tasks.findIndex(t => t.id === task.id)
+    newBoard.groups[groupIndex].tasks.splice(taskIndex, 1)
+    const dropGroupIndex = newBoard.groups.findIndex(g => g.id === dropGroupId)
+    newBoard.groups[dropGroupIndex].tasks.push(task)
+    await updateGroup(boardId, newBoard.groups[dropGroupIndex])
+    await updateGroup(boardId, newBoard.groups[groupIndex])
   }
 
 
   if (!board || !boardId) return <section>Loading...</section>
   return (
-    <section className={`board-details ${isMenuOpen ? 'menu-open' : ''}`}>
+    <section className={`board-details ${isMenuOpen ? 'menu-open' : ''}`} onDragOver={onDragOver}>
       {board && <>
 
         <BoardHeader toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} onUpdateBoardTitle={onUpdateBoardTitle}>
@@ -124,6 +143,8 @@ export function BoardDetails() {
             onRemoveGroup={onRemoveGroup}
             onUpdateGroupTitle={onUpdateGroupTitle}
             onAddGroup={onAddGroup(boardId)}
+            onDragStart={onDragStart}
+            onDragDrop={onDragDrop}
             taskProps={{ onUpdateTaskTitle, onRemoveTask }}
           >
           </GroupList>

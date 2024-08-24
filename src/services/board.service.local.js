@@ -34,7 +34,8 @@ async function query(filterBy = { title: '' }) {
 }
 
 function getById(boardId) {
-    return storageService.get(STORAGE_KEY, boardId)
+    const res = storageService.get(STORAGE_KEY, boardId)
+    return res
 }
 
 async function remove(boardId) {
@@ -83,6 +84,7 @@ async function updateGroup(boardId, group) {
     const groupIdx = board.groups.findIndex(g => g.id === group.id)
     board.groups[groupIdx] = group
     await storageService.put(STORAGE_KEY, board)
+
     return group
 }
 
