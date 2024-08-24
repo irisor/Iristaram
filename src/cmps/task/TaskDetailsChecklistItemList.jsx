@@ -27,7 +27,7 @@ export function TaskDetailsChecklistItemList({ checklist, hideCompleted }) {
 			const newTask = {
 				...currentTask, checklists: currentTask.checklists.map(newChecklist => {
 					if (newChecklist.id === checklist.id) return { ...checklist, checkItems: newChecklist.checkItems.map(checkItem => ({ ...checkItem, checked: checklistForm[checkItem.id] })) }
-					return checklist
+					return newChecklist
 				})
 			}
 			updateTask(board._id, groupId, newTask)
