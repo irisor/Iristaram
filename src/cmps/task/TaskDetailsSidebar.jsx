@@ -57,7 +57,6 @@ export function TaskDetailsSidebar({ task }) {
 								setFocusInput(false)
 							}
 						}}
-						// onOpenChange={(open) => (open ? openPopover(`popover-add-checklist${task.id}`) && setFocusInput(true) : closePopover())}
 						placement="bottomLeft" trigger={"click"} arrow={false}>
 						<button className="btn checklist">
 							<span className="icon icon-sm icon-checklist" />

@@ -54,25 +54,25 @@ export function TaskDetailsAddChecklist({ onClose, focusInput, setFocusInput }) 
   }
 
   return (
-    <div className='task-details-add-checklist'>
+    <div className='task-details-add-checklist popover-small'>
       <form onSubmit={ev => onSubmit(ev)} onKeyDown={ev => ev.key === 'Enter' && onSubmit(ev)} noValidate>
-        <header className='board-modal-header'>
-          <h2 className='board-modal-title'>Add Checklist</h2>
-          <button className='btn icon-wrapper board-modal-close' onClick={ev => handleClose(ev)}>
+        <header className='popover-small-header'>
+          <h2 className='popover-small-title'>Add Checklist</h2>
+          <button className='btn icon-wrapper popover-small-close' onClick={ev => handleClose(ev)}>
             <span className="icon icon-sm icon-close" />
           </button>
         </header>
-        <section className='board-modal-content'>
+        <section className='popover-small-content'>
           <input
             ref={inputRef}
-            className='board-modal-input'
+            className='popover-small-input'
             value={checklistForm.title}
             type="text"
             name="title"
             placeholder="Title"
             onChange={handleChange}
           />
-          <button className={`board-modal-create btn btn-color-bold blue`} onClick={ev => onSubmit(ev)}>Add</button>
+          <button className={`popover-small-create btn btn-color-bold blue`} onClick={ev => onSubmit(ev)}>Add</button>
         </section>
       </form>
     </div >

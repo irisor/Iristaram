@@ -1,11 +1,12 @@
 import { useSelector } from "react-redux"
-import { useModal } from "../../customHooks/useModal"
 import { useEffect } from "react"
 import { BoardRemove } from "./BoardRemove"
+import { Popover } from "antd"
+import { useMultiPopover } from "../../customHooks/useMultiPopover"
 
 export function BoardMenuMain({ onNavigate, onContentReady }) {
-	const { isOpen, openModal, closeModal } = useModal()
 	const board = useSelector(storeState => storeState.boardModule.board)
+	const { isPopoverOpen, openPopover, closePopover } = useMultiPopover()
 
 	useEffect(() => {
 		if (onContentReady) {
@@ -14,7 +15,7 @@ export function BoardMenuMain({ onNavigate, onContentReady }) {
 	}, [])
 
 	function toggleDarkMode() {
-		document.documentElement.dataset.theme = 
+		document.documentElement.dataset.theme =
 			document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'
 	}
 
@@ -26,13 +27,25 @@ export function BoardMenuMain({ onNavigate, onContentReady }) {
 				</span>
 				<p>Change background</p>
 			</button>
-			<button className="board-menu-main-link btn btn-menu-simple" onClick={openModal}>
-				<span className="icon-wrapper">
-					<span className="icon icon-sm icon-remove" />
-				</span>
-				<p>Remove board</p>
-			</button>
-			<BoardRemove isOpen={isOpen} closeModal={closeModal} />
+
+			<Popover content={props => BoardRemove ({ ...props, onClose: closePopover })}
+				open={isPopoverOpen(`popover-remove-board${board._id}`)}
+				onOpenChange={(open) => {
+					if (open) {
+						openPopover(`popover-remove-board${board._id}`)
+					} else {
+						closePopover()
+					}
+				}}
+				placement="bottomLeft" trigger={"click"} arrow={false}>
+				<button className="board-menu-main-link btn btn-menu-simple">
+					<span className="icon-wrapper">
+						<span className="icon icon-sm icon-remove" />
+					</span>
+					<p>Remove board</p>
+				</button>
+			</Popover>
+			
 			<button className="board-menu-main-link btn btn-menu-simple" onClick={toggleDarkMode}>
 				<span className="icon-wrapper">
 					<span className="icon icon-sm icon-card-cover" />
