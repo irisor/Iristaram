@@ -37,7 +37,7 @@ export function TaskDetailsSidebar({ task }) {
 						<span className="icon icon-sm icon-member" />
 						<p>Members</p>
 					</button>
-					<Popover content={props => MenuCarousel({ ...props, menuComponents: LabelsMenuComponents, onClose: closePopover })}
+					<Popover content={props => TaskLabelsMenu({ ...props, onClose: closePopover })}
 						open={isPopoverOpen(`popover-labels-menu${task.id}`)}
 						onOpenChange={(open) => (open ? openPopover(`popover-labels-menu${task.id}`) : closePopover())}
 						placement="center" trigger={"click"} arrow={false}>

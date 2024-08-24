@@ -1,20 +1,24 @@
 import { Link, useParams } from "react-router-dom";
 
-export function TaskPreview({ task }) {
+export function TaskPreview({  groupId, task, onDragStart }) {
     const { boardId } = useParams()
-    const totalCheckItems = task.checklists?.flatMap(checklist => checklist.checkItems).length || 0;
-    const checkedItems = task.checklists?.flatMap(checklist => checklist.checkItems).filter(checkItem => checkItem?.checked).length || 0;
-    const isCompleted = totalCheckItems > 0 && totalCheckItems === checkedItems;
-
+    const totalCheckItems = task.checklists?.flatMap(checklist => checklist.checkItems).length || 0
+    const checkedItems = task.checklists?.flatMap(checklist => checklist.checkItems).filter(checkItem => checkItem?.checked).length || 0
+    const isCompleted = totalCheckItems > 0 && totalCheckItems === checkedItems
 
     function toggleLabelCollapse(ev) {
         ev.stopPropagation()
         ev.preventDefault()
         ev.currentTarget.closest(".task-preview-labels").classList.toggle("collapsed")
     }
+    
+    function handleDragStart(ev) {
+        onDragStart(ev, task, groupId)
+    }
+
 
     return (
-        <div className="task-preview">
+        <div className="task-preview" onDragStart={handleDragStart}>
             <Link to={`/boards/${boardId}/${task.id}`}>
                 {task.cover?.url && <img className="task-preview-cover" src={task.cover?.url} alt="cover" />}
                 <div className="task-preview-container">

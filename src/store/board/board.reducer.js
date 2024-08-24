@@ -38,7 +38,6 @@ export function boardReducer(state = initialState, action) {
             board = {...state.board, ...action.board}
             boards = state.boards.map(board => (board._id === action.board._id) ? action.board : board)
             newState = { ...state, boards, board }
-            console.log("board reducer - update board", newState)
             break
         case ADD_TASK:
             board = {...state.board}

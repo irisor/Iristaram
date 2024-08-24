@@ -5,8 +5,9 @@ import { addTask } from "../../store/board/board.actions";
 import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service";
 
 export function TaskList({ props }) {
-  const { groupId, onRemoveTask, onUpdateTaskTitle } = props;
+  const { groupId, onRemoveTask, onUpdateTaskTitle, onDragStart } = props;
   const board = useSelector(storeState => storeState.boardModule.board)
+
 
   let tasks = useSelector(
     (storeState) =>
@@ -44,6 +45,7 @@ export function TaskList({ props }) {
                 task={task}
                 onUpdateTaskTitle={onUpdateTaskTitle}
                 onRemoveTask={onRemoveTask}
+                onDragStart={onDragStart}
               />
             </li>
           ))}
