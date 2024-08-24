@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 export function TaskPreview({ task }) {
     const { boardId } = useParams()
     const totalCheckItems = task.checklists?.flatMap(checklist => checklist.checkItems).length || 0;
-    const checkedItems = task.checklists?.flatMap(checklist => checklist.checkItems).filter(checkItem => checkItem.checked).length || 0;
+    const checkedItems = task.checklists?.flatMap(checklist => checklist.checkItems).filter(checkItem => checkItem?.checked).length || 0;
     const isCompleted = totalCheckItems > 0 && totalCheckItems === checkedItems;
 
 

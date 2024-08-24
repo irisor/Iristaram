@@ -1,14 +1,18 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { useClickOutside } from '../../customHooks/useClickOutside'
+import { useSelector } from 'react-redux'
+import { setOpenCreateItem } from '../../store/general/general.actions'
 
 export function CreateItem({
 	onAddItem, onInput = () => { }, initialBtnLabel = 'Add',
-	addBtnLabel = 'Add', placeholder = 'Enter title...', closeWithBtnOnly = false, closeBtnLabel = null
+	addBtnLabel = 'Add', placeholder = 'Enter title...', closeWithBtnOnly = false, closeBtnLabel = null,
+	triggerResetAll, resetAll, thisId
 }) {
-	const [itemData, setItemData] = useState(null)
+	const [ itemData, setItemData ] = useState(null)
 	const inputRef = useRef(null)
 	const clickOutsideRef = useRef(null)
+	const openCreateItem = useSelector(storeState => storeState.generalModule.openCreateItem)
 
 	useClickOutside(onClose, clickOutsideRef)
 
@@ -16,10 +20,28 @@ export function CreateItem({
 		inputRef.current?.focus()
 	}, [itemData])
 
+	useEffect(() => {
+		if (resetAll?.reset && resetAll?.except !== thisId) {
+			setItemData(null)
+		}
+	}, [resetAll])
+
+	useEffect(() => {
+		if (openCreateItem) {
+			if (openCreateItem === thisId) {
+				setItemData({ title: '' })
+				triggerResetAll({ except: thisId })
+				setOpenCreateItem(null)
+			}
+		}
+	}, [openCreateItem])
+
 	function onAddEmptyItem(ev) {
 		ev.stopPropagation()
 		ev.preventDefault()
 		setItemData({ title: '' })
+		triggerResetAll({ except: thisId })
+		setOpenCreateItem(null)
 	}
 
 	function onChangeTitle(title) {
@@ -49,6 +71,10 @@ export function CreateItem({
 		setItemData(null)
 	}
 
+	function handleInputClick() {
+		inputRef.current?.focus()
+	}
+
 	return (
 		<>
 			{itemData ? (
@@ -63,12 +89,13 @@ export function CreateItem({
 							placeholder={placeholder}
 							ref={inputRef}
 							onInput={ev => onInput(ev)}
+							onClick={handleInputClick}
 						/>
 						<button className="btn new-item-save btn-color-bold blue" onClick={ev => handleAddItem(itemData, ev)}>
 							{addBtnLabel}
 						</button>
 						<button className="btn icon new-item-close" onClick={ev => onCloseBtn(ev)}>
-							{ closeBtnLabel ? closeBtnLabel : <span className="icon icon-md icon-close" /> }
+							{closeBtnLabel ? closeBtnLabel : <span className="icon icon-md icon-close" />}
 						</button>
 					</form>
 				</>

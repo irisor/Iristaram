@@ -16,7 +16,7 @@ export function TaskDetailsChecklistItemList({ checklist, hideCompleted }) {
 
 	const { board, currentTask, groupId } = useSelector(memoizedSelector, shallowEqual)
 
-	const initialChecklistForm = checklist.checkItems.reduce((acc, checkItem) => {
+	const initialChecklistForm = checklist.checkItems?.reduce((acc, checkItem) => {
 		return { ...acc, [checkItem.id]: checkItem.checked }
 	}, {})
 
@@ -40,7 +40,7 @@ export function TaskDetailsChecklistItemList({ checklist, hideCompleted }) {
 
 	return (
 		<form onSubmit={ev => ev.preventDefault()} className="task-details-checklist-list" >
-			{checklist.checkItems.map(checkItem =>
+			{checklist.checkItems?.map(checkItem =>
 				<React.Fragment key={checkItem.id}>
 					{hideCompleted && checkItem.checked ? null : <TaskDetailsChecklistItemPreview key={checkItem.id} checkItem={checkItem} onChange={ev => onChange(ev)}/>}
 				</React.Fragment>
