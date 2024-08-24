@@ -37,9 +37,10 @@ export function TaskDetailsAddChecklist({ onClose, focusInput, setFocusInput }) 
       checkItems: [],
       checked: false
     }
-    updateTask(boardId, groupId, {
-      ...currentTask, checklists: [...currentTask.checklists, newChecklist]
-    })
+    const newTask = {
+      ...currentTask, checklists: currentTask.checklists ? [...currentTask.checklists, newChecklist] : [newChecklist]
+    }
+    updateTask(boardId, groupId, { ...newTask })
     setOpenCreateItem(newChecklist.id)
     handleClose()
   }
