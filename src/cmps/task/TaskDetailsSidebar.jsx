@@ -2,6 +2,7 @@ import { Popover } from "antd"
 import { TaskLabelsMenu } from "./TaskLabelsMenu"
 import { MenuCarousel } from "../menuCarousel/MenuCarousel"
 import { useMultiPopover } from "../../customHooks/useMultiPopover"
+import { TaskDetailsAddChecklist } from "./TaskDetailsAddChecklist"
 
 export function TaskDetailsSidebar({ task }) {
 
@@ -9,7 +10,7 @@ export function TaskDetailsSidebar({ task }) {
 		labels: { component: TaskLabelsMenu, title: 'Labels' },
 	}
 
-	const { openPopover, closePopover, isPopoverOpen } = useMultiPopover()
+	const { openPopover, closePopover, isPopoverOpen, focusInput, setFocusInput } = useMultiPopover()
 
 	return (
 		<section className="task-details-sidebar">
@@ -40,15 +41,28 @@ export function TaskDetailsSidebar({ task }) {
 						open={isPopoverOpen(`popover-labels-menu${task.id}`)}
 						onOpenChange={(open) => (open ? openPopover(`popover-labels-menu${task.id}`) : closePopover())}
 						placement="center" trigger={"click"} arrow={false}>
-						<button className="btn labels span1">
+						<button className="btn labels">
 							<span className="icon icon-sm icon-label" />
 							<p>Labels</p>
 						</button>
 					</Popover>
-					<button className="btn checklist span2">
-						<span className="icon icon-sm icon-checklist" />
-						<p>Checklist</p>
-					</button>
+					<Popover content={props => TaskDetailsAddChecklist({ ...props, onClose: closePopover, focusInput, setFocusInput })}
+						open={isPopoverOpen(`popover-add-checklist${task.id}`)}
+						onOpenChange={(open) => {
+							if (open) {
+								setFocusInput(true)
+								openPopover(`popover-add-checklist${task.id}`)
+							} else {
+								closePopover()
+								setFocusInput(false)
+							}
+						}}
+						placement="bottomLeft" trigger={"click"} arrow={false}>
+						<button className="btn checklist">
+							<span className="icon icon-sm icon-checklist" />
+							<p>Checklist</p>
+						</button>
+					</Popover>
 					<button className="btn dates span1">
 						<span className="icon icon-sm icon-clock" />
 						<p>Dates</p>

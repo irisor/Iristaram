@@ -3,6 +3,7 @@ import { useState } from 'react'
 export function useMultiPopover () {
   const [openPopoverId, setOpenPopoverId] = useState(null)
   const [onCloseCallback, setOnCloseCallback] = useState(null)
+  const [focusInput, setFocusInput] = useState(false)
 
 
   function openPopover(id, onClose = null) {
@@ -26,5 +27,7 @@ export function useMultiPopover () {
     openPopover,
     closePopover,
     isPopoverOpen,
+    focusInput,
+    setFocusInput,
   }
 }
