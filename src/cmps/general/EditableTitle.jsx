@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
-import { useClickOutside } from '../customHooks/useClickOutside';
-import { useKeyDown } from '../customHooks/useKeyDown';
+import { useClickOutside } from '../../customHooks/useClickOutside';
+import { useKeyDown } from '../../customHooks/useKeyDown';
 
 export function EditableTitle({ initialTitle, onUpdateTitle, tag='h2' }) {
   const [title, setTitle] = useState(initialTitle)
@@ -10,7 +10,6 @@ export function EditableTitle({ initialTitle, onUpdateTitle, tag='h2' }) {
 
 
   useEffect(() => {
-    console.log("OnuseEffect",isEditing, inputRef)
     if (isEditing) {
       inputRef.current.focus()
       inputRef.current.select()

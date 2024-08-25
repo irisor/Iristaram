@@ -54,6 +54,16 @@ export function TaskDetails() {
             showErrorMsg('Cannot update task title')
         }
     }
+    function onUpdateTask(newTask){
+        if(!task) return
+        try{
+            updateTask(boardId, groupId, newTask)
+            showSuccessMsg(`Task updated`)
+        }
+        catch(err){
+            showErrorMsg('Cannot update task')
+        }
+    }
 
     if (!task) return null
     return (
@@ -71,7 +81,7 @@ export function TaskDetails() {
                         <TaskDetailsMembers task={task} />
                         <TaskDetailsNotifications task={task} />
                     </section>
-                    <TaskDetailsDescription task={task} />
+                    <TaskDetailsDescription task={task} onUpdateTask={onUpdateTask} />
                     <TaskDetailsAttachents task={task} />
                     <TaskDetailsActivities task={task} />
                 </section>

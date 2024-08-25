@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { BoardPreview } from './BoardPreview'
 import { useModal } from '../../customHooks/useModal'
 import { BoardAdd } from './BoardAdd'
-import { useKeyDown } from '../customHooks/useKeyDown'
+import { useKeyDown } from '../../customHooks/useKeyDown'
 
 export function BoardList() {
 	const boards = useSelector(storeState => storeState.boardModule.boards)
