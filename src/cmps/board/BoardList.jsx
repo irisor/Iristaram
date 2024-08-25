@@ -2,14 +2,12 @@ import { useSelector } from 'react-redux'
 
 import { BoardPreview } from './BoardPreview'
 import { BoardAdd } from './BoardAdd'
-import { useKeyDown } from '../../customHooks/useKeyDown'
 import { Popover } from 'antd'
 import { useMultiPopover } from '../../customHooks/useMultiPopover'
 
 export function BoardList() {
 	const boards = useSelector(storeState => storeState.boardModule.boards)
 	const { isPopoverOpen, openPopover, closePopover, focusInput, setFocusInput } = useMultiPopover()
-	useKeyDown(closeModal,isOpen,['Escape'])
 
 	return (
 		<ul className="board-list" >
