@@ -20,8 +20,10 @@
 
 #modal-root {
 	display: grid;
+	height: 100vh;
 	inset-block-start: 0;
 	justify-content: center;
+	overflow: auto;
 	position: absolute;
 	width: 100%;
 	z-index: 25;

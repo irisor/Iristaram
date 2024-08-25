@@ -55,7 +55,7 @@ export function TaskDetails() {
     }
 
     function onUpdateTask(newTask){
-        if(!task) return
+        if(!currentTask) return
         try{
             updateTask(boardId, groupId, newTask)
             showSuccessMsg(`Task updated`)
