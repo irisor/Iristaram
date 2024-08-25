@@ -1,12 +1,28 @@
 .task-details-description {
+	min-height: 40px;
 	&-add {
 		align-content: start;
 		box-sizing: content-box;
 		justify-content: start;
+		padding: 8px 12px;
 		min-height: 40px;
 
 		&.btn {
 			padding: 8px 12px;
 		}
+	}
+	&-edit {
+		background-color: transparent;
+		border-radius: 8px;
+		box-shadow: var(--shadow-selected);
+		color: var(--clr-text-2);
+		height: 32px;
+		line-height: rem(20px);
+		padding: 6px 8px 6px 12px;
+	}
+	&-button-container{
+		display:flex;
+		gap: 10px;
+		background-color: black;
 	}
 }

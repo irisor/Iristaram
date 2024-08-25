@@ -54,6 +54,17 @@ export function TaskDetails() {
         }
     }
 
+    function onUpdateTask(newTask){
+        if(!task) return
+        try{
+            updateTask(boardId, groupId, newTask)
+            showSuccessMsg(`Task updated`)
+        }
+        catch(err){
+            showErrorMsg('Cannot update task')
+        }
+    }
+
     if (!currentTask) return null
     return (
         <Modal isOpen={isOpen} closeModal={ev => onClose(ev)} cmpClassName='task-details'>
@@ -72,7 +83,7 @@ export function TaskDetails() {
                         <TaskDetailsNotifications task={currentTask} />
                     </section>
                     <TaskDetailsChecklists task={currentTask} />
-                    <TaskDetailsDescription task={currentTask} />
+                    <TaskDetailsDescription task={currentTask} onUpdateTask={onUpdateTask} />
                     <TaskDetailsAttachents task={currentTask} />
                     <TaskDetailsActivities task={currentTask} />
                 </section>
