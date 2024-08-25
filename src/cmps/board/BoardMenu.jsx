@@ -1,9 +1,5 @@
-import { useModal } from "../../customHooks/useModal"
-import { BoardRemove } from "./BoardRemove"
 import { BoardChangeBackground } from "./BoardChangeBackground"
-import { useSelector } from "react-redux"
 import { MenuCarousel } from "../menuCarousel/MenuCarousel"
-import { useEffect } from "react"
 import { BoardMenuMain } from "./BoardMenuMain"
 
 export function BoardMenu({ toggleMenu }) {

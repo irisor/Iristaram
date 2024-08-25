@@ -2,10 +2,12 @@ import { createStore, combineReducers } from 'redux'
 
 import { boardReducer } from './board/board.reducer'
 import { backgroundReducer } from './background/background.reducer'
+import { generalReducer } from './general/general.reducer'
 
 const rootReducer = combineReducers({
     boardModule: boardReducer,
-    backgroundModule: backgroundReducer
+    backgroundModule: backgroundReducer,
+    generalModule: generalReducer
 })
 
 

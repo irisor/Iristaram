@@ -1,8 +1,8 @@
 import { Modal } from "../cmps/general/Modal"
 import { useNavigate, useParams } from "react-router"
 import { useModal } from "../customHooks/useModal"
-import { useEffect, useState } from "react"
-import { useSelector } from "react-redux"
+import { useEffect } from "react"
+import { shallowEqual, useSelector } from "react-redux"
 import { updateTask } from "../store/board/board.actions"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { TaskDetailsCover } from "../cmps/task/TaskDetailsCover"
@@ -13,29 +13,28 @@ import { TaskDetailsDescription } from "../cmps/task/TaskDetailsDescription"
 import { TaskDetailsAttachents } from "../cmps/task/TaskDetailsAttachents"
 import { TaskDetailsActivities } from "../cmps/task/TaskDetailsActivities"
 import { TaskDetailsSidebar } from "../cmps/task/TaskDetailsSidebar"
+import { TaskDetailsLabels } from "../cmps/task/TaskDetailsLabels"
+import { TaskDetailsChecklists } from "../cmps/task/TaskDetailsChecklists"
 
 export function TaskDetails() {
     const { boardId, taskId } = useParams()
     const { isOpen, openModal, closeModal } = useModal()
-    const [task, setTask] = useState({})
     const navigate = useNavigate()
 
-    const [currentTask, groupId, groupTitle] = useSelector((storeState) => {
-        const board = storeState.boardModule.board;
-        const group = board.groups.find(group => group.tasks.some(t => t.id === taskId));
-        const task = group?.tasks.find(task => task.id === taskId);
-        return [task, group?.id, group?.title];
-    });
+    const memoizedSelector = (storeState) => {
+        const board = storeState.boardModule.board
+        const group = board.groups.find(g => g.tasks.some(t => t.id === taskId))
+        const task = group?.tasks.find(t => t.id === taskId)
+        return { currentTask: task, groupId: group?.id, groupTitle: group?.title }
+    }
+
+    const { currentTask, groupId, groupTitle } = useSelector(memoizedSelector, shallowEqual)
 
     useEffect(() => {
         if (!taskId) return
-        openModal();
-        loadTask();
-    }, [taskId]);
+        openModal()
+    }, [taskId])
 
-    function loadTask() {
-        setTask(currentTask);
-    }
 
     function onClose(ev) {
         ev.preventDefault()
@@ -47,13 +46,14 @@ export function TaskDetails() {
     function onUpdateTaskTitle(newTitle) {
         if (!newTitle) return
         try {
-            const newTask = { ...task, title: newTitle }
+            const newTask = { ...currentTask, title: newTitle }
             updateTask(boardId, groupId, newTask)
             showSuccessMsg(`Task title updated`)
         } catch (err) {
             showErrorMsg('Cannot update task title')
         }
     }
+
     function onUpdateTask(newTask){
         if(!task) return
         try{
@@ -65,27 +65,29 @@ export function TaskDetails() {
         }
     }
 
-    if (!task) return null
+    if (!currentTask) return null
     return (
         <Modal isOpen={isOpen} closeModal={ev => onClose(ev)} cmpClassName='task-details'>
 
             <button className='btn icon-wrapper task-details-close' onClick={ev => onClose(ev)}>
                 <span className="icon icon-lg icon-close" />
             </button>
-           <TaskDetailsCover task={task} />
+            <TaskDetailsCover task={currentTask} />
 
             <article className='task-details-content'>
-                <TaskDetailsHeader task={task} groupTitle={groupTitle} onUpdateTaskTitle={onUpdateTaskTitle} />
+                <TaskDetailsHeader task={currentTask} groupTitle={groupTitle} onUpdateTaskTitle={onUpdateTaskTitle} />
                 <section className='task-details-main'>
                     <section className="task-details-data">
-                        <TaskDetailsMembers task={task} />
-                        <TaskDetailsNotifications task={task} />
+                        <TaskDetailsLabels task={currentTask} />
+                        <TaskDetailsMembers task={currentTask} />
+                        <TaskDetailsNotifications task={currentTask} />
                     </section>
-                    <TaskDetailsDescription task={task} onUpdateTask={onUpdateTask} />
-                    <TaskDetailsAttachents task={task} />
-                    <TaskDetailsActivities task={task} />
+                    <TaskDetailsChecklists task={currentTask} />
+                    <TaskDetailsDescription task={currentTask} onUpdateTask={onUpdateTask} />
+                    <TaskDetailsAttachents task={currentTask} />
+                    <TaskDetailsActivities task={currentTask} />
                 </section>
-                <TaskDetailsSidebar task={task} />
+                <TaskDetailsSidebar task={currentTask} />
             </article>
         </Modal >
     )

@@ -34,7 +34,8 @@ async function query(filterBy = { title: '' }) {
 }
 
 function getById(boardId) {
-    return storageService.get(STORAGE_KEY, boardId)
+    const res = storageService.get(STORAGE_KEY, boardId)
+    return res
 }
 
 async function remove(boardId) {
@@ -45,9 +46,9 @@ async function remove(boardId) {
 async function save(board) {
     let savedBoard
     if (board._id) {
-        const boardToUpdate = {...board }
+        const boardToUpdate = { ...board }
         savedBoard = await storageService.put(STORAGE_KEY, boardToUpdate)
-        console.log ("board.service - savedBoard", savedBoard)
+        console.log("board.service - savedBoard", savedBoard)
     } else {
         // Later, owner is set by the backend
         // board.owner = userService.getLoggedinUser()
@@ -83,6 +84,7 @@ async function updateGroup(boardId, group) {
     const groupIdx = board.groups.findIndex(g => g.id === group.id)
     board.groups[groupIdx] = group
     await storageService.put(STORAGE_KEY, board)
+
     return group
 }
 
@@ -120,9 +122,7 @@ async function addTask(boardId, groupId, newTask) {
 }
 
 async function removeTask(boardId, groupId, taskId) {
-    console.log(boardId, groupId, taskId)
     const board = await getById(boardId)
-    console.log(board)
     const groupIndex = board.groups.findIndex(g => g.id === groupId)
     const taskIndex = board.groups[groupIndex].tasks.findIndex(t => t.id === taskId)
     board.groups[groupIndex].tasks.splice(taskIndex, 1)
@@ -192,28 +192,6 @@ function _getStatuses() {
     return ['open', 'inProgress', 'done']
 }
 
-function _toMiniGroup(group) {
-    return { id: group.id, title: group.title }
-}
-
-function _toMiniTask(task) {
-    return { id: task.id, title: task.title }
-}
-
-function getTask(title = "") {
-    return {
-        id: utilService.makeId(),
-        title,
-        description: "",
-        memberIds: [],
-        labelIds: [],
-        checklist: {},
-        dates: { startDate: "", dueDate: "", setReminder: "" },
-        attachment: "",
-        cover: ""
-
-    }
-}
 
 function _createBoards() {
     let boards = utilService.loadFromStorage(STORAGE_KEY)
@@ -237,37 +215,43 @@ function _createBoards() {
         "labels": [
             {
             "id": "l101",
-            "title": "High Priority",
-            "color": "#ff0000"
+            "title": "Green",
+            "color": "#4BCE97"
             },
             {
             "id": "l102",
-            "title": "Medium Priority",
-            "color": "#ffff00"
+            "title": "Yellow",
+            "color": "#F5CD47"
             },
             {
             "id": "l103",
-            "title": "Low Priority",
-            "color": "#00ff00"
+            "title": "Orange",
+            "color": "#FEA362"
             },
             {
             "id": "l104",
-            "title": "Bug",
-            "color": "#ff00ff"
+            "title": "Red",
+            "color": "#F87168"
             },
             {
             "id": "l105",
-            "title": "Feature",
-            "color": "#00ffff"
+            "title": "Purple",
+            "color": "#9F8FEF"
+            },
+            {
+            "id": "l106",
+            "title": "Blue",
+            "color": "#579DFF"
             }
         ],
-        "backgrounImages": [
+        "backgroundImages": [
+            "https://trello-backgrounds.s3.amazonaws.com/SharedBackground/2560x1440/481563ddbf5af01d25d4b103d8f3e81b/photo-1674673353738-dc8039354dd0.webp",
             "https://images.unsplash.com/photo-1722084324252-5e33f13a71ba",
             "https://images.unsplash.com/photo-1719090024525-667c8fcf5bb9",
-            "https://images.unsplash.com/photo-1722104946563-bdf378a766d0",
             "https://images.unsplash.com/photo-1721633617180-97c67428a48e",
             "https://images.unsplash.com/photo-1721766827830-961da6ed8c91",
             "https://images.unsplash.com/photo-1722104946563-bdf378a766d0"
+        ],
         "members": [
             {
             "_id": "u101",
@@ -302,7 +286,35 @@ function _createBoards() {
                 "priority": "high",
                 "description": "Gather insights from current users to inform redesign",
                 "memberIds": ["u101", "u102"],
-                "labelIds": ["l101", "l105"],
+                "labels": [
+                 {
+                    "id": "l101",
+                    "title": "Green",
+                    "color": "#4BCE97"
+                },  
+                {
+                    "id": "l105",
+                    "title": "Purple",
+                    "color": "#9F8FEF"
+                }
+                ],
+                "checklists": [
+                {
+                    "id": "c101",
+                    "title": "Create wireframes",
+                    "checkItems": [
+                    {
+                        "id": "ci101",
+                        "title": "Create wireframes stage 1",
+                        "checked": true
+                    },
+                    {
+                        "id": "ci102",
+                        "title": "Create wireframes stage 2",
+                        "checked": false
+                    }
+                    ]
+                }],
                 "attachments": [
                     {
                     "_id": "a101",
@@ -366,7 +378,18 @@ function _createBoards() {
                 "priority": "high",
                 "description": "Redesign homepage based on new wireframes",
                 "memberIds": ["u102"],
-                "labelIds": ["l101", "l105"]
+                "labels": [
+                {
+                    "id": "l101",
+                    "title": "Green",
+                    "color": "#4BCE97"
+                },  
+                {
+                    "id": "l105",
+                    "title": "Purple",
+                    "color": "#9F8FEF"
+                }
+                ]
                 },
                 {
                 "id": "t105",
@@ -398,8 +421,19 @@ function _createBoards() {
                 "status": "inProgress",
                 "priority": "high",
                 "description": "Create responsive navigation menu",
-                "memberIds": ["u103"],
-                "labelIds": ["l101", "l105"]
+                "memberIds": ["u103"], 
+                "labels": [
+                {
+                    "id": "l104",
+                    "title": "Red",
+                    "color": "#F87168"
+                },
+                {
+                    "id": "l103",
+                    "title": "Orange",
+                    "color": "#FEA362"
+                }
+                ]
                 },
                 {
                 "id": "t108",
@@ -407,8 +441,7 @@ function _createBoards() {
                 "status": "inProgress",
                 "priority": "medium",
                 "description": "Add search feature to website",
-                "memberIds": ["u101"],
-                "labelIds": ["l102", "l105"]
+                "memberIds": ["u101"]
                 },
                 {
                 "id": "t109",
@@ -416,8 +449,7 @@ function _createBoards() {
                 "status": "inProgress",
                 "priority": "low",
                 "description": "Design and create custom icons for website",
-                "memberIds": ["u102"],
-                "labelIds": ["l103"]
+                "memberIds": ["u102"]
                 }
             ]
             },
@@ -431,8 +463,7 @@ function _createBoards() {
                 "status": "review",
                 "priority": "high",
                 "description": "Team to review and provide feedback on new homepage design",
-                "memberIds": ["u101", "u102", "u103", "u104"],
-                "labelIds": ["l101"]
+                "memberIds": ["u101", "u102", "u103", "u104"]
                 },
                 {
                 "id": "t111",
@@ -440,8 +471,7 @@ function _createBoards() {
                 "status": "review",
                 "priority": "medium",
                 "description": "Ensure website works on all major browsers",
-                "memberIds": ["u103", "u104"],
-                "labelIds": ["l102"]
+                "memberIds": ["u103", "u104"]
                 }
             ]
             },
@@ -455,8 +485,7 @@ function _createBoards() {
                 "status": "qa",
                 "priority": "high",
                 "description": "Conduct usability tests with sample users",
-                "memberIds": ["u104"],
-                "labelIds": ["l101", "l105"]
+                "memberIds": ["u104"]
                 },
                 {
                 "id": "t113",
@@ -464,8 +493,7 @@ function _createBoards() {
                 "status": "qa",
                 "priority": "medium",
                 "description": "Ensure all links are working correctly",
-                "memberIds": ["u103"],
-                "labelIds": ["l102"]
+                "memberIds": ["u103"]
                 },
                 {
                 "id": "t114",
@@ -473,8 +501,7 @@ function _createBoards() {
                 "status": "qa",
                 "priority": "low",
                 "description": "Ensure code meets W3C standards",
-                "memberIds": ["u101"],
-                "labelIds": ["l103"]
+                "memberIds": ["u101"]
                 }
             ]
             },
@@ -488,8 +515,7 @@ function _createBoards() {
                 "status": "done",
                 "priority": "high",
                 "description": "Define and document project requirements",
-                "memberIds": ["u101", "u104"],
-                "labelIds": ["l101"]
+                "memberIds": ["u101", "u104"]
                 },
                 {
                 "id": "t116",
@@ -497,8 +523,7 @@ function _createBoards() {
                 "status": "done",
                 "priority": "medium",
                 "description": "Prepare local and staging environments",
-                "memberIds": ["u103"],
-                "labelIds": ["l102"]
+                "memberIds": ["u103"]
                 }
             ]
             },
@@ -512,8 +537,7 @@ function _createBoards() {
                 "status": "archived",
                 "priority": "low",
                 "description": "Previous version of homepage design",
-                "memberIds": ["u102"],
-                "labelIds": ["l103"]
+                "memberIds": ["u102"]
                 }
             ]
             }

@@ -12,7 +12,8 @@ form {
 		}
 	}
 
-	input, textarea {
+	input,
+	textarea {
 		box-shadow: var(--shadow-input);
 		border: none;
 		border-radius: 3px;
@@ -25,6 +26,7 @@ form {
 		transition-duration: 85ms;
 		transition-timing-function: ease;
 		width: 100%;
+		word-break: break-word;
 
 		&.empty:required:not(:focus-visible) {
 			box-shadow: var(--shadow-danger);
@@ -56,7 +58,16 @@ form {
 		}
 	}
 
-	input:not(.empty) + .notification {
+	input:not(.empty)+.notification {
 		display: none
+	}
+
+	input[type="checkbox"] {
+		height: 16px;
+		margin: 0;
+		width: 16px;
+		transition-duration: 85ms;
+		transition-property: background-color, border-color, box-shadow;
+		transition-timing-function: ease;
 	}
 }

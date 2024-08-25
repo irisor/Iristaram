@@ -1,0 +1,38 @@
+.task-details-checklist {
+	&-progress {
+		margin-block-end: 6px;
+
+		.ant-progress-bg {
+			background-color: var(--clr-background-progress);
+		}
+
+		.ant-progress.ant-progress-status-success .ant-progress-bg {
+			background-color: var(--clr-background-progress-complete);
+		}
+
+		.ant-progress .ant-progress-text.ant-progress-text-outer {
+			color: var(--clr-icon);
+			font-size: 11px;
+			flex-basis: 40px;
+			margin: 0;
+			text-align: center;
+		}
+	}
+
+	.create-item {
+		margin: 8px 0 0 40px;
+		
+		.new-item-close.btn:not(.blue):not(:hover) {
+			background-color: initial;
+		}
+	}
+
+	.btn.create-item {
+		padding: 6px 12px;
+		width: auto;
+
+		.icon {
+			display: none;
+		}
+	}
+}
