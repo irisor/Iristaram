@@ -19,7 +19,7 @@ export function TaskPreview({  groupId, task, onDragStart }) {
 
     return (
         <div className="task-preview" onDragStart={handleDragStart}>
-            <Link to={`/boards/${boardId}/${task.id}`}>
+            <Link to={`/${boardId}/${task.id}`}>
                 {task.cover?.url && <img className="task-preview-cover" src={task.cover?.url} alt="cover" />}
                 <div className="task-preview-container">
                     <div className="task-preview-labels collapsed">

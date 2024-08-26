@@ -8,7 +8,7 @@ export function AppHeader() {
                 <NavLink to="" aria-label="Back to home" className="app-header-logo btn">
                     <div className="logo-img"></div>
                 </NavLink>
-                <NavLink to="/boards" className="app-header-nav-link btn">Boards</NavLink>
+                <NavLink to="/" className="app-header-nav-link btn">Boards</NavLink>
             </nav>
         </header>
     )

@@ -16,10 +16,9 @@ export function RootCmp() {
             <AppSidebar />
             <main className='app-main'>
                 <Routes>
-                    <Route path="" element={<HomePage />} />
-                    <Route path="/boards" element={<BoardIndex />}></Route>
-                    <Route path="/boards/:boardId" element={<BoardDetails />}>
-                        <Route path="/boards/:boardId/:taskId" element={<TaskDetails />} />
+                    <Route path="" element={<BoardIndex />} />
+                    <Route path="/:boardId" element={<BoardDetails />}>
+                        <Route path="/:boardId/:taskId" element={<TaskDetails />} />
                     </Route>
                 </Routes>
             </main>

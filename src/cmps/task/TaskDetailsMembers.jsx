@@ -1,3 +1,4 @@
+import img from '../../../public/img/member.png'
 export function TaskDetailsMembers ({ task }) {
 	return (
 		<section className="task-details-members task-details-data-item">
@@ -5,7 +6,8 @@ export function TaskDetailsMembers ({ task }) {
 			<section className="task-details-members-member-list task-details-data-item-content">
 				{task.memberIds?.map(member =>
 					<button className="btn task-details-members-member" key={member}>
-						<img className="avatar" src="../../src/assets/img/member.png" alt="avatar" width="32" height="32" />
+						{/* <img className="avatar" src="/img/member.png" alt="avatar" width="32" height="32" /> */}
+						<img className="avatar" src={img} alt="avatar" width="32" height="32" />
 					</button>
 				)}
 				<button className="btn task-details-members-add-member">
