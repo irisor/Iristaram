@@ -1,42 +1,18 @@
-.modal {
-	background-color: var(--clr-background-menu);
-	box-shadow: var(--shadow-overlay);
-	inset-block-start: 0;
-	inset-inline-start: 0;
-	position: absolute;
-	width: max-content;
-	z-index: 25;
-
-	&-overlay {
+.ant-modal-root {
+	.ant-modal-mask {
 		background-color: var(--clr-background-overlay);
-		bottom: 0;
-		left: 0;
-		position: fixed;
-		right: 0;
-		top: 0;
-		width: 100%;
 	}
-}
 
-#modal-root {
-	display: grid;
-	height: 100vh;
-	inset-block-start: 0;
-	justify-content: center;
-	overflow-y: auto;
-	position: absolute;
-	width: 100%;
-	z-index: 25;
-}
+	.ant-modal-wrap {
+		.ant-modal-content {
+			margin-inline: 8px;
+			padding: 0;
+		}
 
-.modal-container {
-	border-radius: 12px;
-	margin-block: 48px;
-	overflow: hidden;
+		.ant-modal {
+			max-width: 100%;
+		}
 
-	.modal {
-		position: relative;
-		width: 100%;
 	}
 }
 

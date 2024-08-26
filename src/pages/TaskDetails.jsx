@@ -1,4 +1,3 @@
-import { Modal } from "../cmps/general/Modal"
 import { useNavigate, useParams } from "react-router"
 import { useModal } from "../customHooks/useModal"
 import { useEffect } from "react"
@@ -15,6 +14,7 @@ import { TaskDetailsActivities } from "../cmps/task/TaskDetailsActivities"
 import { TaskDetailsSidebar } from "../cmps/task/TaskDetailsSidebar"
 import { TaskDetailsLabels } from "../cmps/task/TaskDetailsLabels"
 import { TaskDetailsChecklists } from "../cmps/task/TaskDetailsChecklists"
+import { Modal } from "antd"
 
 export function TaskDetails() {
     const { boardId, taskId } = useParams()
@@ -54,21 +54,28 @@ export function TaskDetails() {
         }
     }
 
-    function onUpdateTask(newTask){
-        if(!currentTask) return
-        try{
+    function onUpdateTask(newTask) {
+        if (!currentTask) return
+        try {
             updateTask(boardId, groupId, newTask)
             showSuccessMsg(`Task updated`)
         }
-        catch(err){
+        catch (err) {
             showErrorMsg('Cannot update task')
         }
     }
 
     if (!currentTask) return null
     return (
-        <Modal isOpen={isOpen} closeModal={ev => onClose(ev)} cmpClassName='task-details'>
-
+        <Modal
+            open={isOpen}
+            onOk={ev => onClose(ev)}
+            onCancel={ev => onClose(ev)}
+            footer={null}
+            width={768}
+            wrapClassName="task-details"
+            closeIcon={null}
+        >
             <button className='btn icon-wrapper task-details-close' onClick={ev => onClose(ev)}>
                 <span className="icon icon-lg icon-close" />
             </button>

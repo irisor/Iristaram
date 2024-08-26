@@ -51,6 +51,11 @@
         }
     }
 
+    .ant-modal-content {
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
     &-close {
         border-radius: 50%;
         height: 40px;
