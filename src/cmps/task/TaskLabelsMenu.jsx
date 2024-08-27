@@ -29,7 +29,7 @@ export function TaskLabelsMenu({ onClose }) {
 	}, [taskId])
 
 	useEffect(() => {
-		const newTaskLabels = boardLabels.filter(label => labelsForm[label.id])
+		const newTaskLabels = boardLabels?.filter(label => labelsForm[label.id])
 		if (JSON.stringify(newTaskLabels) !== JSON.stringify(taskLabels)) {
 			updateTask(boardId, groupId, { ...currentTask, labels: newTaskLabels })
 		}
