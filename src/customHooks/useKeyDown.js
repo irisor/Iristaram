@@ -4,14 +4,12 @@ export function useKeyDown(HandleOnKeyDown,isRendered, specialKeys){
     useEffect(()=>{
 
         if(isRendered){
-            console.log("Added listener")
             document.addEventListener('keydown', onKeyDown)
         }
         else{
             document.removeEventListener('keydown', onKeyDown)
         }
         return () => {
-            console.log("Removed listener")
             document.removeEventListener('keydown', onKeyDown)}
     })
 

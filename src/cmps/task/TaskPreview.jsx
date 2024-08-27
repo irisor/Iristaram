@@ -19,7 +19,7 @@ export function TaskPreview({  groupId, task, onDragStart }) {
 
     return (
         <div className="task-preview" onDragStart={handleDragStart}>
-            <Link to={`/boards/${boardId}/${task.id}`}>
+            <Link to={`/${boardId}/${task.id}`}>
                 {task.cover?.url && <img className="task-preview-cover" src={task.cover?.url} alt="cover" />}
                 <div className="task-preview-container">
                     <div className="task-preview-labels collapsed">
@@ -28,10 +28,15 @@ export function TaskPreview({  groupId, task, onDragStart }) {
                     <p>{task.title}</p>
                     <section className="task-preview-badges">
                         {task.checklists?.length > 0 &&
-                            <div className={`task-preview-badge ${isCompleted && "completed"}`}>
+                            <span className={`task-preview-badge ${isCompleted && "completed"}`}>
                                 <span className="icon icon-sm icon-checkbox-checked" />
                                 <span className="info">{checkedItems}/{totalCheckItems}</span>
-                            </div>
+                            </span>
+                        }
+                        {task.description &&
+                            <span className={`task-preview-badge`}>
+                                <span className="icon icon-sm icon-description" />
+                            </span>
                         }
                     </section>
                 </div>

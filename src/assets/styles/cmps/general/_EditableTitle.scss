@@ -1,10 +1,24 @@
 .editable-title {
-	&-fixed {
-		cursor: pointer;
-		padding: 6px 8px 6px 12px;
-	}
-	
-	&-input {
-		padding: 6px 8px 6px 12px;
-	}
-}
+	position: relative;
+	width: 100%;
+  }
+  
+  .editable-title-fixed {
+	cursor: pointer;
+	padding: 0.5rem;
+	word-break: break-word;
+  }
+  
+  textarea.editable-title-input {
+	display: block;
+	width: 100%;
+	min-width: 1ch;
+	padding: 0.5rem;
+	resize: none;
+	overflow: hidden;
+	border: 1px solid #d1d5db;
+	border-radius: 0.25rem;
+	font: inherit;
+	line-height: inherit;
+  }
+  

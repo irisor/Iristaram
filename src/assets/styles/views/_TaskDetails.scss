@@ -29,6 +29,7 @@
     }
 
     textarea {
+        border-radius: 3px;
         box-shadow: var(--shadow-selected);
         font-family: inherit;
         font-size: inherit;
@@ -49,6 +50,11 @@
         @include for-mobile-layout {
             margin-inline: 8px;
         }
+    }
+
+    .ant-modal-content {
+        border-radius: 12px;
+        overflow: hidden;
     }
 
     &-close {
@@ -93,6 +99,7 @@
 
         &-item-header {
             align-items: center;
+            color: var(--clr-text-2);
             display: grid;
             gap: 8px;
             grid-auto-flow: column;
@@ -100,13 +107,13 @@
             padding: 8px 0;
             margin-block-end: 4px;
 
+            > *:nth-child(2) {
+                margin-inline-start: -8px;
+            }
+
             h3 {
                 font-size: rem(16px);
             }
-
-            // > *:first-child {
-            //     justify-self: center;
-            // }
         }
 
         &-item-content {
@@ -145,5 +152,14 @@
                 margin: 0 8px 4px 0;
             }
         }
+    }
+}
+
+
+.ant-modal-root .ant-modal-wrap.task-details {
+    color: var(--clr-icon);
+
+    p, div {
+        color: var(--clr-icon);
     }
 }
