@@ -16,9 +16,16 @@
 			padding: 6px 10px;
 		}
 
-		h2,
+		h2 {
+			font-size: inherit;
+			font-weight: inherit;
+			line-height: inherit
+		}
+		
 		textarea {
 			font-size: inherit;
+			height: 32px;
+			resize: none;
 		}
 	}
 

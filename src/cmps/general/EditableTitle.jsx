@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { useClickOutside } from '../../customHooks/useClickOutside'
 import { useKeyDown } from '../../customHooks/useKeyDown'
+import { useResizeInput } from '../../customHooks/useResizeInput'
 
 export function EditableTitle({ initialTitle, onUpdateTitle, tag='h2' }) {
   const [title, setTitle] = useState(initialTitle)
@@ -9,12 +10,14 @@ export function EditableTitle({ initialTitle, onUpdateTitle, tag='h2' }) {
   const TagComponent = tag
 
   useKeyDown(() => handleInputBlur(), isEditing, ['Escape', 'Enter'])
+  const { resizeInput } = useResizeInput(inputRef)
   
 
   useEffect(() => {
     if (isEditing) {
       inputRef.current.focus()
       inputRef.current.select()
+      resizeInput()
     }
   }, [isEditing])
 
@@ -44,6 +47,7 @@ export function EditableTitle({ initialTitle, onUpdateTitle, tag='h2' }) {
           value={title}
           onChange={(ev) => handleInputChange(ev)}
           ref={inputRef}
+          onInput={resizeInput}
         />
       ) : (
         <TagComponent className='editable-title-fixed' onClick={ev => handleTitleClick(ev)}>{title}</TagComponent>

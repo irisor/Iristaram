@@ -53,14 +53,16 @@ export function TaskLabelsMenu({ onClose }) {
 					<span className="icon icon-sm icon-close" />
 				</button>
 			</header>
-			{boardLabels?.map(label => (
-				<div key={label.id} className='task-label-menu-item'>
-					<input type="checkbox" id={label.id} checked={labelsForm[label.id]} onChange={handleChange} name={label.id} />
-					<div className="task-label" style={{ backgroundColor: label.color }}>
-						<label htmlFor={label.id}>{label.title}</label>
+			<section className='task-label-menu-content'>
+				{boardLabels?.map(label => (
+					<div key={label.id} className='task-label-menu-item'>
+						<input type="checkbox" id={label.id} checked={labelsForm[label.id]} onChange={handleChange} name={label.id} />
+						<div className="task-label" style={{ backgroundColor: label.color }}>
+							<label htmlFor={label.id}>{label.title}</label>
+						</div>
 					</div>
-				</div>
-			))}
+				))}
+			</section>
 		</form>
 	)
 }

@@ -37,6 +37,7 @@
 }
 
 .task-list-add-task {
+    min-height: 36px;
     padding: 8px;
 
     .create-item.non-edit {
@@ -46,7 +47,7 @@
 
     .editable-title-input {
         position: relative;
-        min-height: 36px;
+        min-height: 56px;
         border-radius: 8px;
         background-color: var(--clr-background-task);
         box-shadow: var(--shadow-raised);

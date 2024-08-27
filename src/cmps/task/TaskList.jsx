@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux"
 import { TaskPreview } from "./TaskPreview"
 import { CreateItem } from "../general/CreateItem"
-import { addTask } from "../../store/board/board.actions";
-import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service";
+import { addTask } from "../../store/board/board.actions"
+import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service"
 
 export function TaskList({ props }) {
-  const { groupId, onRemoveTask, onUpdateTaskTitle, onDragStart } = props;
+  const { groupId, onRemoveTask, onUpdateTaskTitle, onDragStart } = props
   const board = useSelector(storeState => storeState.boardModule.board)
 
 
@@ -13,13 +13,7 @@ export function TaskList({ props }) {
     (storeState) =>
       storeState.boardModule.board.groups.find((group) => group.id == groupId)
         ?.tasks
-  );
-
-  function onInputTask(ev) {
-    if (!ev || !ev.target) return
-    ev.target.style.height = 'auto';
-    ev.target.style.height = (ev.target.scrollHeight + 20) + 'px';
-  }
+  )
 
   function onAddTask(boardId, groupId) {
     return function (taskTitle) {   
@@ -51,7 +45,7 @@ export function TaskList({ props }) {
           ))}
         </ol>
         <div className="task-list-add-task">
-          <CreateItem onAddItem={onAddTask(board._id, groupId)} onInput={onInputTask} initialBtnLabel='Add a card' addBtnLabel='Add card' placeholder='Enter a title for this card...' />
+          <CreateItem onAddItem={onAddTask(board._id, groupId)} initialBtnLabel='Add a card' addBtnLabel='Add card' placeholder='Enter a title for this card...' />
         </div>
       </section>
     </>
