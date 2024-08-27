@@ -22,20 +22,18 @@ export function TaskDetailsDescription({ task, onUpdateTask }) {
 	}
 
 	function onClose(ev){
-		console.log("descValue", descValue, "tempValue", tempValue, "close")
-		ev?.stopPropagation()
-		ev?.preventDefault()
+		console.log("onClose: descValue", descValue, "tempValue", tempValue)
+		// ev?.stopPropagation()
+		// ev?.preventDefault()
 		setIsEditing(false)
 	}
 
-	function onSave(ev = null){
-		console.log("descValue", descValue, "tempValue", tempValue, "save")
-		// ev?.stopPropagation()
-		// ev?.preventDefault()
+	async function onSave(ev = null){
+		ev?.stopPropagation()
+		ev?.preventDefault()
 		setDescValue(tempValue)
-		console.log(descValue)
+		await onUpdateTask({...task, description: tempValue})
 		setIsEditing(false)
-		onUpdateTask({...task, description: descValue})
 	}
 
 	return (
@@ -50,7 +48,7 @@ export function TaskDetailsDescription({ task, onUpdateTask }) {
 				<textarea className='task-details-description-edit'
 				type="text"
 				value={tempValue}
-				onChange={(ev) => setTempValue(ev.target.value)}
+				onChange={(ev) => {setTempValue(ev.target.value), console.log(ev.target.value)}}
 				ref={inputRef}
 				/> 
 				<section className="task-details-description-button-container" style={{display:"flex", gap:"10px"}}>
