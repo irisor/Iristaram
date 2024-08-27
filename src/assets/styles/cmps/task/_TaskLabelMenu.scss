@@ -5,7 +5,6 @@
 .task-label-menu {
 	display: grid;
     gap: 4px;
-    padding-inline-start: 4px;
 
 	&-item {
 		align-items: center;
@@ -13,6 +12,7 @@
 		gap: 12px;
 		grid-auto-flow: column;
 		grid-template-columns: auto minmax(0, 1fr);
+		padding-inline-start: 4px;
 	}
 
 	.task-label {
@@ -30,5 +30,11 @@
 		@include hover-supported {
 			filter: brightness(1.1) saturate(1.2);
         }
+	}
+
+	&-content {
+		gap: 4px;
+		display: grid;
+		padding: 0 12px 12px 12px;
 	}
 }

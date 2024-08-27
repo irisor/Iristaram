@@ -1,14 +1,9 @@
 import { Popover } from "antd"
 import { TaskLabelsMenu } from "./TaskLabelsMenu"
-import { MenuCarousel } from "../menuCarousel/MenuCarousel"
 import { useMultiPopover } from "../../customHooks/useMultiPopover"
 import { TaskDetailsAddChecklist } from "./TaskDetailsAddChecklist"
 
 export function TaskDetailsSidebar({ task }) {
-
-	const LabelsMenuComponents = {
-		labels: { component: TaskLabelsMenu, title: 'Labels' },
-	}
 
 	const { openPopover, closePopover, isPopoverOpen, focusInput, setFocusInput } = useMultiPopover()
 

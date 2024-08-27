@@ -1,35 +1,38 @@
-.task-details-description {
-	min-height: 40px;
-
-	&-add {
-		align-content: start;
-		box-sizing: content-box;
-		justify-content: start;
-		padding: 8px 12px;
+.task-details {
+	.task-details-description {
 		min-height: 40px;
 
-		&.btn {
-			padding: 8px 12px !important;
+		&-add {
+			align-content: start;
+			box-sizing: content-box;
+			justify-content: start;
+			padding: 8px 12px;
+			min-height: 40px;
+
+			&.btn {
+				padding: 8px 12px !important;
+			}
+
+			&:hover {
+				color: inherit;
+			}
 		}
 
-		&:hover {
+		&-edit {
 			color: inherit;
+			font-size: inherit;
+			font-weight: inherit;
+			height: auto;
+			line-height: inherit;
+			min-height: 275px;
+			padding: 20px;
+			width: 100%;
 		}
-	}
 
-	&-edit {
-		color: inherit;
-		font-size: inherit;
-		font-weight: inherit;
-		height: auto;
-		line-height: inherit;
-		min-height: 275px;
-		width: 100%;
-	}
-
-	&-button-container {
-		display: flex;
-		gap: 10px;
-		margin-block-start: 8px;
+		&-button-container {
+			display: flex;
+			gap: 10px;
+			margin-block-start: 8px;
+		}
 	}
 }
