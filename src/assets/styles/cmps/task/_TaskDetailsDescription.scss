@@ -1,5 +1,6 @@
 .task-details-description {
 	min-height: 40px;
+
 	&-add {
 		align-content: start;
 		box-sizing: content-box;
@@ -12,17 +13,18 @@
 		}
 	}
 	&-edit {
-		background-color: transparent;
-		border-radius: 8px;
-		box-shadow: var(--shadow-selected);
-		color: var(--clr-text-2);
-		height: 32px;
-		line-height: rem(20px);
-		padding: 6px 8px 6px 12px;
+		color: inherit;
+		font-size: inherit;
+		font-weight: inherit;
+		height: auto;
+		line-height: inherit;
+		min-height: 275px;
+		width: 100%;
 	}
+
 	&-button-container{
-		display:flex;
+		display: flex;
 		gap: 10px;
-		background-color: black;
+		margin-block-start: 8px;
 	}
 }

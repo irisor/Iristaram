@@ -78,6 +78,12 @@
         }
     }
 
+    &-badges {
+        display: flex;
+        gap: 4px;
+        justify-content: start;
+    }
+
     &-badge {
         border-radius: 3px;
         color: var(--clr-icon);

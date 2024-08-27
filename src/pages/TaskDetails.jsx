@@ -29,7 +29,6 @@ export function TaskDetails() {
     }
 
     const { currentTask, groupId, groupTitle } = useSelector(memoizedSelector, shallowEqual)
-    console.log(currentTask, "from taskDetails")
 
     useEffect(() => {
         if (!taskId) return
@@ -59,7 +58,6 @@ export function TaskDetails() {
         if(!newTask) return
         try{
             updateTask(boardId, groupId, newTask)
-            console.log("task updated")
             showSuccessMsg(`Task updated`)
         }
         catch (err) {

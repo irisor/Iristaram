@@ -29,6 +29,7 @@
     }
 
     textarea {
+        border-radius: 3px;
         box-shadow: var(--shadow-selected);
         font-family: inherit;
         font-size: inherit;
@@ -98,6 +99,7 @@
 
         &-item-header {
             align-items: center;
+            color: var(--clr-text-2);
             display: grid;
             gap: 8px;
             grid-auto-flow: column;
@@ -112,10 +114,6 @@
             h3 {
                 font-size: rem(16px);
             }
-
-            // > *:first-child {
-            //     justify-self: center;
-            // }
         }
 
         &-item-content {
@@ -154,5 +152,14 @@
                 margin: 0 8px 4px 0;
             }
         }
+    }
+}
+
+
+.ant-modal-root .ant-modal-wrap.task-details {
+    color: var(--clr-icon);
+
+    p, div {
+        color: var(--clr-icon);
     }
 }
