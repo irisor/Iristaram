@@ -3,21 +3,24 @@ import { useState, useEffect, useRef } from 'react'
 import { useClickOutside } from '../../customHooks/useClickOutside'
 import { useSelector } from 'react-redux'
 import { setOpenCreateItem } from '../../store/general/general.actions'
+import { useResizeInput } from '../../customHooks/useResizeInput'
 
 export function CreateItem({
-	onAddItem, onInput = () => { }, initialBtnLabel = 'Add',
+	onAddItem, initialBtnLabel = 'Add',
 	addBtnLabel = 'Add', placeholder = 'Enter title...', closeWithBtnOnly = false, closeBtnLabel = null,
-	triggerResetAll=null, resetAll=false, thisId=null
+	triggerResetAll=null , resetAll=false, thisId=null
 }) {
 	const [ itemData, setItemData ] = useState(null)
 	const inputRef = useRef(null)
 	const clickOutsideRef = useRef(null)
 	const openCreateItem = useSelector(storeState => storeState.generalModule.openCreateItem)
+	const { resizeInput } = useResizeInput(inputRef)
 
 	useClickOutside(onClose, clickOutsideRef)
 
 	useEffect(() => {
 		inputRef.current?.focus()
+		resizeInput()
 	}, [itemData])
 
 	useEffect(() => {
@@ -75,6 +78,10 @@ export function CreateItem({
 		inputRef.current?.focus()
 	}
 
+	function handleInput(ev) {
+		resizeInput()
+	}
+
 	return (
 		<>
 			{itemData ? (
@@ -88,7 +95,7 @@ export function CreateItem({
 							onKeyDown={ev => ev.key === 'Enter' && handleAddItem(itemData)}
 							placeholder={placeholder}
 							ref={inputRef}
-							onInput={ev => onInput(ev)}
+							onInput={ev => handleInput(ev)}
 							onClick={handleInputClick}
 						/>
 						<button className="btn new-item-save btn-color-bold blue" onClick={ev => handleAddItem(itemData, ev)}>

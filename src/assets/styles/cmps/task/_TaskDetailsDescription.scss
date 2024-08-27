@@ -9,9 +9,14 @@
 		min-height: 40px;
 
 		&.btn {
-			padding: 8px 12px;
+			padding: 8px 12px !important;
+		}
+
+		&:hover {
+			color: inherit;
 		}
 	}
+
 	&-edit {
 		color: inherit;
 		font-size: inherit;
@@ -22,7 +27,7 @@
 		width: 100%;
 	}
 
-	&-button-container{
+	&-button-container {
 		display: flex;
 		gap: 10px;
 		margin-block-start: 8px;

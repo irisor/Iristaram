@@ -1,10 +1,12 @@
 import { useState, useRef, useEffect } from "react"
+import { useResizeInput } from "../../customHooks/useResizeInput"
 
 export function TaskDetailsDescription({ task, onUpdateTask }) {
 	const [isEditing, setIsEditing] = useState(false)
 	const [descValue, setDescValue] = useState(task.description)
 	const [tempValue, setTempValue] = useState(task.description)
 	const inputRef = useRef()
+	const { resizeInput } = useResizeInput(inputRef)
 
 
 	useEffect(() => {
@@ -30,10 +32,10 @@ export function TaskDetailsDescription({ task, onUpdateTask }) {
 		setIsEditing(false)
 	}
 
-	function resizeInput () {
-		inputRef.current.style.height = 'auto'
-		inputRef.current.style.height = inputRef.current.scrollHeight + 'px'
-	}
+	// function resizeInput () {
+	// 	inputRef.current.style.height = 'auto'
+	// 	inputRef.current.style.height = inputRef.current.scrollHeight + 'px'
+	// }
 
 	return (
 		<section className="task-details-description task-details-main-item">
@@ -49,7 +51,7 @@ export function TaskDetailsDescription({ task, onUpdateTask }) {
 						value={tempValue}
 						onChange={(ev) => setTempValue(ev.target.value)}
 						ref={inputRef}
-						onInput={(ev) => resizeInput(ev)}
+						onInput={resizeInput}
 					/>
 					<section className="task-details-description-button-container">
 						<button className="btn new-item-save btn-color-bold blue" onClick={(ev) => onSave(ev)}>
