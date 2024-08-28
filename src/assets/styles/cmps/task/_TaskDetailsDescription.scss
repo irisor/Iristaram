@@ -1,6 +1,9 @@
 .task-details {
 	.task-details-description {
 		min-height: 40px;
+		p {
+			white-space: pre-line
+		}
 
 		&-add {
 			align-content: start;

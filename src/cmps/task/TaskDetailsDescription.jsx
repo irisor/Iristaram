@@ -58,11 +58,7 @@ export function TaskDetailsDescription({ task, onUpdateTask }) {
 					</section>
 				</>)
 					:
-					(descValue ? (
-						<div 
-							dangerouslySetInnerHTML={{ __html: descValue.replace(/(?:\r\n|\r|\n)/g, '<br>') }}
-							onClick={handleClickDesc}
-						/>) :
+					(descValue ? <p onClick={handleClickDesc}>{descValue}</p> :
 						<a className="task-details-description-add btn" href="#" onClick={handleClickDesc}>Add a more detailed description...</a>
 					)}
 			</section>
