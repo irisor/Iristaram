@@ -22,13 +22,15 @@ export function BoardMenuMain({ onNavigate, onContentReady }) {
 	return (
 		<nav className="board-menu-main">
 			<button className="board-menu-main-link btn btn-menu-simple" onClick={() => onNavigate('background')}>
-				<span className="icon-wrapper">
-					<img className='app-sidebar-item-img' src={board?.backgroundImg} width="24" height="20" />
+				<span className="icon-wrapper background">
+					{board.backgroundImg &&
+						<img className='app-sidebar-item-img' src={board.backgroundImg} width="24" height="20" />
+					}
 				</span>
 				<p>Change background</p>
 			</button>
 
-			<Popover content={props => BoardRemove ({ ...props, onClose: closePopover })}
+			<Popover content={props => BoardRemove({ ...props, onClose: closePopover })}
 				open={isPopoverOpen(`popover-remove-board${board._id}`)}
 				onOpenChange={(open) => {
 					if (open) {
@@ -45,7 +47,7 @@ export function BoardMenuMain({ onNavigate, onContentReady }) {
 					<p>Remove board</p>
 				</button>
 			</Popover>
-			
+
 			<button className="board-menu-main-link btn btn-menu-simple" onClick={toggleDarkMode}>
 				<span className="icon-wrapper">
 					<span className="icon icon-sm icon-card-cover" />

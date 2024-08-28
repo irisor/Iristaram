@@ -1,4 +1,8 @@
 .board-menu {
 	border-left: none;
 	box-shadow: var(--shadow-overlay);
+
+	&-main-link .icon-wrapper.background:empty {
+		background-color: var(--clr-background-default-1);
+	}
 }
