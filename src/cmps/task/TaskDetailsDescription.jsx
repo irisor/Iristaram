@@ -32,11 +32,6 @@ export function TaskDetailsDescription({ task, onUpdateTask }) {
 		setIsEditing(false)
 	}
 
-	// function resizeInput () {
-	// 	inputRef.current.style.height = 'auto'
-	// 	inputRef.current.style.height = inputRef.current.scrollHeight + 'px'
-	// }
-
 	return (
 		<section className="task-details-description task-details-main-item">
 			<section className="task-details-main-item-header">
@@ -63,7 +58,11 @@ export function TaskDetailsDescription({ task, onUpdateTask }) {
 					</section>
 				</>)
 					:
-					(descValue ? <p onClick={handleClickDesc}>{descValue}</p> :
+					(descValue ? (
+						<div 
+							dangerouslySetInnerHTML={{ __html: descValue.replace(/(?:\r\n|\r|\n)/g, '<br>') }}
+							onClick={handleClickDesc}
+						/>) :
 						<a className="task-details-description-add btn" href="#" onClick={handleClickDesc}>Add a more detailed description...</a>
 					)}
 			</section>
