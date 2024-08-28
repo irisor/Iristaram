@@ -78,7 +78,7 @@ export function CreateItem({
 		inputRef.current?.focus()
 	}
 
-	function handleInput(ev) {
+	function handleInput() {
 		resizeInput()
 	}
 
