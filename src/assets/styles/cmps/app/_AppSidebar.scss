@@ -44,6 +44,8 @@
 		
 		&.btn {
 			display: grid;
+			grid-template-columns: 24px minmax(0, 1fr);
+			max-width: 100%;
 		}
 
 		&-img {
