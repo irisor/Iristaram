@@ -1,11 +1,12 @@
 .app {
     display: grid;
     grid-template-areas: 
-    "header header"
-    "sidebar main";
-    grid-template-columns: 250px minmax(0, 1fr);
+    "header header header"
+    "sidebar-open sidebar main";
+    grid-template-columns: 0 250px minmax(0, 1fr);
     grid-template-rows: auto minmax(0, 1fr);
     height: 100vh;
+    transition: grid-template-columns 100ms ease-in;
 
     @include grid-borders;
 
@@ -13,5 +14,9 @@
         border-inline-start: none;
         border-block-end: none;
         grid-area: main;
+    }
+
+    &:has(.app-sidebar.collapsed) {
+        grid-template-columns: 16px 0 minmax(0, 1fr);
     }
 }
