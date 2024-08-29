@@ -348,7 +348,7 @@ function _createBoards() {
                     "id": "l102",
                     "title": "Development",
                     "color": "#F5CD47",
-                    "textColor": "#FFFFFF"
+                    "textColor": "#533F04"
                 },  
                 {
                     "id": "l105",
