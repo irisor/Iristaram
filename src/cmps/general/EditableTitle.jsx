@@ -48,6 +48,7 @@ export function EditableTitle({ initialTitle, onUpdateTitle, tag='h2' }) {
           onChange={(ev) => handleInputChange(ev)}
           ref={inputRef}
           onInput={resizeInput}
+          rows="1"
         />
       ) : (
         <TagComponent className='editable-title-fixed' onClick={ev => handleTitleClick(ev)}>{title}</TagComponent>

@@ -55,6 +55,19 @@
         height: 16px;
         min-width: 56px;
         padding: 0 8px;
+        animation-duration: 450ms;
+        animation-delay: 0ms;
+        animation-name: labels-open;
+        animation-timing-function: ease;
+
+        &-title {
+            display: block;
+            opacity: 1;
+            animation-duration: 450ms;
+            animation-delay: 0ms;
+            animation-name: labels-text-open;
+            animation-timing-function: ease;
+        }
 
         @include hover-supported {
             filter: brightness(1.1) saturate(1.2);
@@ -62,7 +75,14 @@
 
         .collapsed & {
             height: 8px;
+            max-height: 8px;
             width: 40px;
+            min-width: 40px;
+            --expanded-max-width: 40px;
+            animation-duration: 450ms;
+            animation-delay: 0ms;
+            animation-name: labels-collapse;
+            animation-timing-function: ease;
 
             .task-preview-label-title {
                 display: none;
@@ -75,6 +95,59 @@
             font-weight: 500;
             place-content: center;
             height: 100%;
+        }
+    }
+
+    
+    @keyframes labels-open {
+        0% {
+            padding-right: 0;
+            padding-left: 0;
+            transform: scaleY(0.5);
+            color: transparent;
+        }
+
+        66% {
+            padding-right: 8px;
+            padding-left: 8px;
+            transform: scaleY(1);
+        }
+
+        100% {
+            padding-right: 8px;
+            padding-left: 8px;
+            transform: scaleY(1);
+            color: transparent;
+        }
+    }
+
+    @keyframes labels-collapse {
+        0% {
+            max-width: 56px;
+            transform: scaleY(1.5);
+            color: transparent;
+        }
+
+        66% {
+            transform: scaleY(1.5);
+        }
+
+        100% {
+            max-width: 40px;
+            transform: scaleY(1);
+            color: transparent;
+        }
+    }
+
+    @keyframes labels-text-open {
+
+        0%,
+        99% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
         }
     }
 

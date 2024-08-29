@@ -57,7 +57,7 @@ export function TaskLabelsMenu({ onClose }) {
 				{boardLabels?.map(label => (
 					<div key={label.id} className='task-label-menu-item'>
 						<input type="checkbox" id={label.id} checked={labelsForm[label.id]} onChange={handleChange} name={label.id} />
-						<div className="task-label" style={{ backgroundColor: label.color }}>
+						<div className="task-label" style={{ backgroundColor: label.color, color: label.textColor }}>
 							<label htmlFor={label.id}>{label.title}</label>
 						</div>
 					</div>

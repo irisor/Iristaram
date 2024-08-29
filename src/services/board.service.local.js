@@ -215,33 +215,39 @@ function _createBoards() {
         "labels": [
             {
             "id": "l101",
-            "title": "Green",
-            "color": "#4BCE97"
+            "title": "Design",
+            "color": "#4BCE97",
+            "textColor": "#164b35"
             },
             {
             "id": "l102",
-            "title": "Yellow",
-            "color": "#F5CD47"
+            "title": "Development",
+            "color": "#F5CD47",
+            "textColor": "#533F04"
             },
             {
             "id": "l103",
-            "title": "Orange",
-            "color": "#FEA362"
+            "title": "Testing",
+            "color": "#FEA362",
+            "textColor": "#702E00"
             },
             {
             "id": "l104",
-            "title": "Red",
-            "color": "#F87168"
+            "title": "Deployment",
+            "color": "#F87168",
+            "textColor": "#5D1F1A"
             },
             {
             "id": "l105",
-            "title": "Purple",
-            "color": "#9F8FEF"
+            "title": "UX",
+            "color": "#9F8FEF",
+            "textColor": "#352C63"
             },
             {
             "id": "l106",
-            "title": "Blue",
-            "color": "#579DFF"
+            "title": "Backend",
+            "color": "#579DFF",
+            "textColor": "#FFFFFF"
             }
         ],
         "backgroundImages": [
@@ -289,13 +295,15 @@ function _createBoards() {
                 "labels": [
                  {
                     "id": "l101",
-                    "title": "Green",
-                    "color": "#4BCE97"
+                    "title": "Design",
+                    "color": "#4BCE97",
+                    "textColor": "#164b35"
                 },  
                 {
                     "id": "l105",
-                    "title": "Purple",
-                    "color": "#9F8FEF"
+                    "title": "UX",
+                    "color": "#9F8FEF",
+                    "textColor": "#352C63"
                 }
                 ],
                 "checklists": [
@@ -335,7 +343,20 @@ function _createBoards() {
                 "priority": "medium",
                 "description": "Design initial wireframes for key pages",
                 "memberIds": ["u102"],
-                "labelIds": ["l102", "l105"],
+                "labels": [
+                {
+                    "id": "l102",
+                    "title": "Development",
+                    "color": "#F5CD47",
+                    "textColor": "#FFFFFF"
+                },  
+                {
+                    "id": "l105",
+                    "title": "UX",
+                    "color": "#9F8FEF",
+                    "textColor": "#352C63"
+                }
+                ],
                 "attachments": [
                     {
                         "_id": "a102",
@@ -356,7 +377,14 @@ function _createBoards() {
                 "priority": "low",
                 "description": "Choose colors that align with brand guidelines",
                 "memberIds": ["u102"],
-                "labelIds": ["l103"],
+                "labels": [
+                {
+                    "id": "l103",
+                    "title": "Testing",
+                    "color": "#FEA362",
+                    "textColor": "#702E00"
+                }
+                ],
                 "attachments": [
                     {
                         "_id": "a103",
@@ -381,13 +409,15 @@ function _createBoards() {
                 "labels": [
                 {
                     "id": "l101",
-                    "title": "Green",
-                    "color": "#4BCE97"
+                    "title": "Design",
+                    "color": "#4BCE97",
+                    "textColor": "#164b35"
                 },  
                 {
                     "id": "l105",
-                    "title": "Purple",
-                    "color": "#9F8FEF"
+                    "title": "UX",
+                    "color": "#9F8FEF",
+                    "textColor": "#352C63"
                 }
                 ]
                 },
@@ -398,7 +428,20 @@ function _createBoards() {
                 "priority": "medium",
                 "description": "Compress and optimize all images for web",
                 "memberIds": ["u103"],
-                "labelIds": ["l102"]
+                "labels": [
+                {
+                    "id": "l102",
+                    "title": "Development",
+                    "color": "#F5CD47",
+                    "textColor": "#533F04"
+                },
+                {
+                    "id": "l106",
+                    "title": "Backend",
+                    "color": "#579DFF",
+                    "textColor": "#FFFFFF"
+                }
+                ]
                 },
                 {
                 "id": "t106",
@@ -407,7 +450,20 @@ function _createBoards() {
                 "priority": "high",
                 "description": "Ensure website is mobile-friendly",
                 "memberIds": ["u101", "u103"],
-                "labelIds": ["l101", "l105"]
+                "labels": [
+                {
+                    "id": "l101",
+                    "title": "Design",
+                    "color": "#4BCE97",
+                    "textColor": "#164b35"
+                },  
+                {
+                    "id": "l105",
+                    "title": "UX",
+                    "color": "#9F8FEF",
+                    "textColor": "#352C63"
+                }
+                ]
                 }
             ]
             },
@@ -425,13 +481,15 @@ function _createBoards() {
                 "labels": [
                 {
                     "id": "l104",
-                    "title": "Red",
-                    "color": "#F87168"
+                    "title": "Deployment",
+                    "color": "#F87168",
+                    "textColor": "#FFFFFF"
                 },
                 {
                     "id": "l103",
-                    "title": "Orange",
-                    "color": "#FEA362"
+                    "title": "Testing",
+                    "color": "#FEA362",
+                    "textColor": "#000000"
                 }
                 ]
                 },

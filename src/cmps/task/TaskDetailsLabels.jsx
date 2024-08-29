@@ -21,7 +21,7 @@ export function TaskDetailsLabels({ task }) {
 								open={isPopoverOpen(`popover-labels${label.id}-${task.id}`)}
 								onOpenChange={(open) => (open ? openPopover(`popover-labels${label.id}-${task.id}`) : closePopover())}
 								placement="bottomLeft" trigger={"click"} arrow={false}>
-								<button className="btn task-details-labels-label" style={{ backgroundColor: label.color }}>
+								<button className="btn task-details-labels-label" style={{ backgroundColor: label.color, color: label.textColor }}>
 									{label.title}
 								</button>
 							</Popover>

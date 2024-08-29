@@ -38,10 +38,14 @@
 	--clr-background-overlay: rgba(0, 0, 0, 0.75);
 	--clr-background-progress: #579dff;
 	--clr-background-progress-complete: #1f845a;
+	--clr-background-sidebar-open: hsla(211, 24%, 66.1%, 0.9);
+	--clr-background-sidebar-open-hover: hsl(211, 24%, 71.1%);
+	--clr-background-sidebar-open-btn-hover: rgba(0, 0, 0, 0.2);
 	// --clr-grid-border: (0,0%,100%,0.16);
 	--clr-grid-border: hsla(0,0%,100%,0.16);;
 	--clr-selected-border: #388bff;
 	--clr-divider: #091e4224;
+	--clr-divider-sidebar: hsla(218, 54%, 19.6%, 0.16);
 	--clr-danger: #e2483d;
 	--clr-danger-bold: #c9372c;
 	--clr-danger-bold-hover: #ae2e24;
@@ -82,6 +86,9 @@
 	--clr-background-header: #1D2125;
 	--clr-background-active-1: #ffffff4d;
 	--clr-background-create-board: #a1bdd914;
+	--clr-background-sidebar-open: #1d2125;
+	--clr-background-sidebar-open-hover: #1d2125;
+	--clr-background-sidebar-open-btn-hover: rgba(0, 0, 0, 0.2);
 	// --clr-background-new-group: #ffffff3d;
 	--clr-background-new-group: #504f4f3d;
 	--clr-background-btn-task: #2c333a;
@@ -103,6 +110,7 @@
 	--clr-grid-border: #858c8f2e;
 	--clr-selected-border: #85b8ff;
 	--clr-divider: #a6c5e229;
+	--clr-divider-sidebar:hsla(211, 18%, 68%, 0.16);
 	--clr-danger: #e2483d;
 	--clr-danger-bold: #c9372c;
 	--clr-danger-bold-hover: #ae2e24;

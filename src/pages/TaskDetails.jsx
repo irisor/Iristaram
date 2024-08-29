@@ -89,8 +89,8 @@ export function TaskDetails() {
                         <TaskDetailsMembers task={currentTask} />
                         <TaskDetailsNotifications task={currentTask} />
                     </section>
-                    <TaskDetailsChecklists task={currentTask} />
                     <TaskDetailsDescription task={currentTask} onUpdateTask={onUpdateTask} />
+                    <TaskDetailsChecklists task={currentTask} />
                     <TaskDetailsAttachents task={currentTask} />
                     <TaskDetailsActivities task={currentTask} />
                 </section>

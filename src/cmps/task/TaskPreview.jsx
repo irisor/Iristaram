@@ -9,7 +9,8 @@ export function TaskPreview({  groupId, task, onDragStart }) {
     function toggleLabelCollapse(ev) {
         ev.stopPropagation()
         ev.preventDefault()
-        ev.currentTarget.closest(".task-preview-labels").classList.toggle("collapsed")
+        const taskPreviews = ev.target.closest(".task-list").querySelectorAll(".task-preview")
+        taskPreviews.forEach(taskPreview => taskPreview.querySelector(".task-preview-labels").classList.toggle("collapsed"))
     }
     
     function handleDragStart(ev) {
@@ -23,7 +24,7 @@ export function TaskPreview({  groupId, task, onDragStart }) {
                 {task.cover?.url && <img className="task-preview-cover" src={task.cover?.url} alt="cover" />}
                 <div className="task-preview-container">
                     <div className="task-preview-labels collapsed">
-                        {task.labels?.map(label => <div key={label.id} className="task-preview-label" style={{ backgroundColor: label.color }} onClick={ev => toggleLabelCollapse(ev)}><div className="task-preview-label-title">{label.title}</div></div>)}
+                        {task.labels?.map(label => <div key={label.id} className="task-preview-label" style={{ backgroundColor: label.color, color: label.textColor }} onClick={ev => toggleLabelCollapse(ev)}><div className="task-preview-label-title">{label.title}</div></div>)}
                     </div>
                     <p>{task.title}</p>
                     <section className="task-preview-badges">

@@ -13,6 +13,10 @@ export function TaskDetailsDescription({ task, onUpdateTask }) {
 		if (isEditing) {
 			resizeInput()
 		}
+		if (isEditing) {
+			inputRef.current.focus()
+			inputRef.current.selectionStart = inputRef.current.selectionEnd = inputRef.current.value.length
+		}
 	}, [isEditing])
 
 	function handleClickDesc() {
