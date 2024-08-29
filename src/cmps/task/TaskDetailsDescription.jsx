@@ -1,18 +1,13 @@
 import { useState, useRef, useEffect } from "react"
-import { useResizeInput } from "../../customHooks/useResizeInput"
 
 export function TaskDetailsDescription({ task, onUpdateTask }) {
 	const [isEditing, setIsEditing] = useState(false)
 	const [descValue, setDescValue] = useState(task.description)
 	const [tempValue, setTempValue] = useState(task.description)
 	const inputRef = useRef()
-	const { resizeInput } = useResizeInput(inputRef)
 
 
 	useEffect(() => {
-		if (isEditing) {
-			resizeInput()
-		}
 		if (isEditing) {
 			inputRef.current.focus()
 			inputRef.current.selectionStart = inputRef.current.selectionEnd = inputRef.current.value.length
@@ -50,7 +45,6 @@ export function TaskDetailsDescription({ task, onUpdateTask }) {
 						value={tempValue}
 						onChange={(ev) => setTempValue(ev.target.value)}
 						ref={inputRef}
-						onInput={resizeInput}
 					/>
 					<section className="task-details-description-button-container">
 						<button className="btn new-item-save btn-color-bold blue" onClick={(ev) => onSave(ev)}>
