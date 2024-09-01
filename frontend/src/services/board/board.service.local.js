@@ -1,6 +1,6 @@
 
-import { storageService } from './async-storage.service'
-import { utilService } from './util.service'
+import { storageService } from '../async-storage.service'
+import { utilService } from '../util.service'
 
 const STORAGE_KEY = 'boardDB'
 
@@ -9,14 +9,12 @@ export const boardService = {
     getById,
     save,
     remove,
-    getEmptyBoard,
     addGroup,
     removeGroup,
     updateGroup,
     updateTask,
     addTask,
     removeTask,
-    getTaskEditCmps
 }
 
 _createBoards()
@@ -132,45 +130,6 @@ async function removeTask(boardId, groupId, taskId) {
     //     board.activities.push(activity)
     // }
     await storageService.put(STORAGE_KEY, board)
-}
-
-function getTaskEditCmps(task, board) {
-    const cmps = [
-        {
-            type: 'StatusPicker',
-            info: {
-                label: 'Status:',
-                propName: 'status',
-                selectedStatus: task.status,
-                statuses: _getStatuses()
-            }
-        },
-        {
-            type: 'DatePicker',
-            info: {
-                label: 'Due date:',
-                propName: 'dueDate',
-                selectedDate: task.dueDate,
-            }
-        },
-        {
-            type: 'MemberPicker',
-            info: {
-                label: 'Members: ',
-                propName: 'memberIds',
-                selectedMemberIds: task.memberIds || [],
-                members: board.members
-            }
-        }
-    ]
-    return cmps
-}
-
-function getEmptyBoard() {
-    return {
-        title: '',
-        activities: []
-    }
 }
 
 // function getDemoBoard() {

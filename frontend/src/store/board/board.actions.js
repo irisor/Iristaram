@@ -1,4 +1,4 @@
-import { boardService } from '../../services/board.service.local'
+import { boardService } from '../../services/board/'
 import { utilService } from '../../services/util.service'
 import { store } from '../store'
 import { ADD_BOARD, REMOVE_BOARD, SET_BOARDS, SET_BOARD, UPDATE_BOARD, ADD_GROUP, UPDATE_GROUP, REMOVE_GROUP, ADD_TASK, REMOVE_TASK, UPDATE_TASK } from './board.reducer'

@@ -7,7 +7,6 @@ export async function getBoards(req, res) {
 
     try {
         const boards = await boardService.query(filterBy)
-        console.log(boards)
         res.send(boards)
     } catch (err) {
         console.log('err:', err)
@@ -54,8 +53,9 @@ export async function addBoard(req, res) {
 }
 
 export async function updateBoard(req, res) {
-    const { loggedinUser, body: board } = req
-    const { _id: userId, isAdmin } = loggedinUser
+    const { body: board } = req
+    // const { loggedinUser, body: board } = req
+    // const { _id: userId, isAdmin } = loggedinUser
 
     // if(!isAdmin && board.owner?._id !== userId) {
     //     res.status(403).send('Not your board...')

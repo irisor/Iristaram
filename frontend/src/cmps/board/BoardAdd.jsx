@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { useForm } from '../../customHooks/useForm'
-import { boardService } from '../../services/board.service.local'
+import { boardService } from '../../services/board/'
 import { showErrorMsg, showSuccessMsg } from '../../services/event-bus.service'
 import { addBoard } from '../../store/board/board.actions'
 

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useForm } from '../../customHooks/useForm'
-import { boardService } from '../../services/board.service.local'
+import { boardService } from '../../services/board/'
 import { showErrorMsg, showSuccessMsg } from '../../services/event-bus.service'
 import { removeBoard } from '../../store/board/board.actions'
 import { useSelector } from 'react-redux'
@@ -26,7 +26,7 @@ export function BoardRemove({ onClose }) {
   async function onRemoveBoard() {
     try {
       await removeBoard(board._id)
-      navigate('/boards/', { replace: true })
+      navigate('/', { replace: true })
       onClose()
       showSuccessMsg('Board removed')
     } catch (err) {
