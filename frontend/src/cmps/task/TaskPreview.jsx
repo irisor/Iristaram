@@ -9,7 +9,7 @@ export function TaskPreview({  groupId, task, onDragStart }) {
     function toggleLabelCollapse(ev) {
         ev.stopPropagation()
         ev.preventDefault()
-        const taskPreviews = ev.target.closest(".task-list").querySelectorAll(".task-preview")
+        const taskPreviews = document.querySelectorAll(".task-preview")
         taskPreviews.forEach(taskPreview => taskPreview.querySelector(".task-preview-labels").classList.toggle("collapsed"))
     }
     

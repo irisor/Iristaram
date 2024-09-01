@@ -20,7 +20,6 @@ export function GroupPreview({ group, onUpdateGroupTitle, taskProps, onDragStart
 			<TaskList
 				props={{...taskProps, groupId: group.id, onDragStart}}
 			/>
-			{/* <button className="btn" onClick={() => { onRemoveGroup(board._id, group?.id) }}>X</button> */}
 		</section>
 	)
 }

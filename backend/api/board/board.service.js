@@ -86,6 +86,14 @@ async function remove(boardId) {
 async function add(board) {
     try {
         const collection = await dbService.getCollection('board')
+        if (!board.labels || !board.labels.length) board.labels = [
+            { id: 'l101', title: 'Design', color: '#4BCE97', textColor: '#164b35' },
+            { id: 'l102', title: 'Development', color: '#F5CD47', textColor: '#533F04' },
+            { id: 'l103', title: 'Testing', color: '#FEA362', textColor: '#702E00' },
+            { id: 'l104', title: 'Deployment', color: '#F87168', textColor: '#5D1F1A' },
+            { id: 'l105', title: 'UX', color: '#9F8FEF', textColor: '#352C63' },
+            { id: 'l106', title: 'Backend', color: '#579DFF', textColor: '#FFFFFF' }
+        ],
         await collection.insertOne(board)
 
         return board
@@ -105,14 +113,14 @@ async function update(board) {
             title: board.title,
             labels: board.labels ? [...board.labels] : [],
             backgroundImages: board.backgroundImages ? [...board.backgroundImages] : [],
-            groups: board.groups ? [...board.groups, ].map(group => (
+            groups: Array.isArray(board.groups) ? [...board.groups].map(group => (
                 {
                     ...group,
-                    tasks: group.tasks.map(task => ({
+                    tasks: group.tasks?.map(task => ({
                         ...task,
-                        labels: [...task?.labels],
-                        checklists: [...task?.checklists],
-                        attachments: [...task?.attachments],
+                        labels: Array.isArray(task.labels) ? [...task.labels] : [],
+                        checklists: Array.isArray(task.checklists) ? [...task.checklists] : [],
+                        attachments: Array.isArray(task.attachments) ? [...task.attachments] : [],
                     })),
                 }
             )) : [],

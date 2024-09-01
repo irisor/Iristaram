@@ -137,10 +137,10 @@ function getEmptyTask(title = "") {
         title,
         description: "",
         memberIds: [],
-        labelIds: [],
-        checklist: {},
+        labels: [],
+        checklists: [],
+        attachments: [],
         dates: { startDate: "", dueDate: "", setReminder: "" },
-        attachment: "",
         cover: ""
 
     }
