@@ -23,7 +23,7 @@ const corsOptions = {
 //* App Configuration
 
 console.log("NODE_ENV:", process.env.NODE_ENV)
-if (process.env.NODE_ENV !== 'production') {
+if (!process.env.NODE_ENV?.includes('production')) {
     console.log("development mode")
     // app.use(cors(corsOptions))
 } else {
