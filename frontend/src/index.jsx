@@ -10,7 +10,7 @@ import './assets/styles/main.scss'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <Provider store={store}>
-    <Router basename={"/trello"}>
+    <Router >
       <RootCmp />
     </Router>
   </Provider>
@@ -22,3 +22,4 @@ root.render(
 // serviceWorkerRegistration.register()
 
 //Comment to check if push works
+

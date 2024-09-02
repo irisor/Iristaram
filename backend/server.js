@@ -30,6 +30,7 @@ if (!process.env.NODE_ENV?.includes('production')) {
     console.log("production mode")
     // app.use(express.static('public'))
 }
+
 app.use(cors(corsOptions))
 app.use(express.static('public'))
 app.use(cookieParser())
@@ -45,7 +46,7 @@ app.use('/api/board', boardRoutes)
 // app.use('/api/task', taskRoutes)
 
 
-app.get('/', (req, res) => res.send('Hello there'))
+// app.get('/', (req, res) => res.send('Hello there'))
 
 //* For SPA (Single Page Application) - catch all routes and send to the index.html
 app.get('/**', (req, res) => {
