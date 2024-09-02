@@ -71,16 +71,6 @@ export async function updateBoard(req, res) {
 	}
 }
 
-export async function getLabels(req, res) {
-    try {
-        const labels = await boardService.getLabels()
-        res.send(labels)
-    } catch (err) {
-        loggerService.error('Cannot get labels, err:', err)
-        res.status(400).send(`Couldn't get labels`)
-    }
-}
-
 export async function getPdf(req, res) {
     try {
         const { filename, pdf } = await boardService.getPdf()

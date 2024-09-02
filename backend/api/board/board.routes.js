@@ -1,5 +1,5 @@
 import express from 'express'
-import { addBoard, getBoard, getBoards, getLabels, getPdf, removeBoard, updateBoard } from './board.controller.js'
+import { addBoard, getBoard, getBoards, removeBoard, updateBoard } from './board.controller.js'
 import { log } from '../../middlewares/log.middleware.js'
 import { requireAuth } from '../../middlewares/require-auth.middleware.js'
 
