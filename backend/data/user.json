@@ -1,0 +1,30 @@
+[
+	{
+	"_id": "u101",
+	"username": "johndoe",
+	"password": "password123",
+	"fullname": "John Doe",
+	"imgUrl": "http://example.com/john-doe.jpg"
+	},
+	{
+	"_id": "u102",
+	"username": "janesmith",
+	"password": "password123",
+	"fullname": "Jane Smith",
+	"imgUrl": "http://example.com/jane-smith.jpg"
+	},
+	{
+	"_id": "u103",
+	"username": "bobjohnson",
+	"password": "password123",
+	"fullname": "Bob Johnson",
+	"imgUrl": "http://example.com/bob-johnson.jpg"
+	},
+	{
+	"_id": "u104",
+	"username": "alicebrown",
+	"password": "password123",
+	"fullname": "Alice Brown",
+	"imgUrl": "http://example.com/alice-brown.jpg"
+	}
+]
