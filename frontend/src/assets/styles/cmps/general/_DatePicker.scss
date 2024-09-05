@@ -1,0 +1,87 @@
+.date-picker {
+	width: 256px;
+	padding: 16px;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+	input::-webkit-calendar-picker-indicator{
+		display: none;
+	}
+	
+	input[type="date"]::-webkit-input-placeholder{ 
+		visibility: hidden !important;
+	}
+  }
+  
+  .month-selector {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 16px;
+  }
+  
+  .month-selector button {
+	background: none;
+	border: none;
+	font-size: 18px;
+	cursor: pointer;
+  }
+  
+  .calendar {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	gap: 4px;
+	margin-bottom: 16px;
+  }
+  
+  .calendar-day {
+	width: 32px;
+	height: 32px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 14px;
+	border: none;
+	background: none;
+	cursor: pointer;
+  }
+  
+  .calendar-day.empty {
+	cursor: default;
+  }
+  
+  .calendar-day.day-name {
+	font-weight: bold;
+	cursor: default;
+  }
+  
+  .calendar-day.in-range {
+	background-color: #e6f0ff;
+  }
+  
+  .calendar-day.range-end {
+	background-color: #3b82f6;
+	color: white;
+  }
+  
+  .start-date-checkbox {
+	display: flex;
+	align-items: center;
+	margin-bottom: 8px;
+  }
+  
+  .start-date-checkbox input {
+	margin-right: 8px;
+  }
+  
+  .date-input {
+	margin-bottom: 8px;
+  }
+  
+  .date-input input {
+	width: 100%;
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+  }
