@@ -59,10 +59,6 @@ export function TaskDetailsSidebar({ task }) {
 							<p>Checklist</p>
 						</button>
 					</Popover>
-					{/* <button className="btn dates span1">
-						<span className="icon icon-sm icon-clock" />
-						<p>Dates</p>
-					</button> */}
 					<Popover content={props => TaskDatesMenu({ ...props, onClose: closePopover })}
 						open={isPopoverOpen(`popover-dates-menu${task.id}`)}
 						onOpenChange={(open) => (open ? openPopover(`popover-dates-menu${task.id}`) : closePopover())}

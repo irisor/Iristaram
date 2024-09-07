@@ -1,12 +1,5 @@
-.menu-carousel:has(.task-label-menu) {
-	width: 304px;
-}
-
 .task-label-menu {
-	display: grid;
-    gap: 4px;
-
-	&-item {
+	.task-label-menu-item {
 		align-items: center;
 		display: grid;
 		gap: 12px;
@@ -22,20 +15,14 @@
 		font-weight: 500;
 		height: 32px;
 		padding: 0 12px;
-		width: 212px;
-		
+		// width: 212px;
+
 		label {
 			font-size: rem(14px);
 		}
 
 		@include hover-supported {
 			filter: brightness(1.1) saturate(1.2);
-        }
-	}
-
-	&-content {
-		gap: 4px;
-		display: grid;
-		padding: 0 12px 12px 12px;
+		}
 	}
 }

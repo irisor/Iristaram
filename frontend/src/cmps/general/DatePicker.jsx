@@ -1,18 +1,21 @@
 import { useState, useEffect, useCallback } from 'react'
 
-export function DatePicker({ initialStartDate, initialDueDate, initialDueTime, onDatesChange }) {
+export function DatePicker({ initialStartDate, initialDueDate, initialDueTime, initialReminder, onClose, onDatesChange, onReset }) {
     const [startDate, setStartDate] = useState(initialStartDate || '')
     const [dueDate, setDueDate] = useState(initialDueDate || '')
-    const [dueTime, setDueTime] = useState(initialDueTime || '')
+    const [dueTime, setDueTime] = useState(initialDueTime || new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' }))
+    const [reminder, setReminder] = useState(initialReminder || 'none')
     const [currentMonth, setCurrentMonth] = useState(new Date())
     const [showStartDate, setShowStartDate] = useState(!!initialStartDate)
     const [showDueDate, setShowDueDate] = useState(!!initialDueDate || !initialStartDate)
     const [focusedInput, setFocusedInput] = useState(initialStartDate ? 'startDate' : 'dueDate')
 
     function isDateInRange(date) {
-        if (!startDate || !dueDate) return false
         const start = parseDate(startDate)
         const end = parseDate(dueDate)
+
+        if (!startDate) return +date === +end
+        if (!dueDate) return +date === +start
         return date >= start && date <= end
     }
 
@@ -127,8 +130,29 @@ export function DatePicker({ initialStartDate, initialDueDate, initialDueTime, o
         }
     }, [startDate])
 
-    function handleSaveDates () {
-        onDatesChange({ startDate, dueDate })
+    useEffect(() => {
+        if (!showStartDate) setStartDate('')
+    }, [showStartDate])
+
+    useEffect(() => {
+        if (!showDueDate) setDueDate('')
+    }, [showDueDate])
+
+    function handleSaveDates() {
+        onDatesChange({ startDate, dueDate, dueTime, reminder })
+        onClose()
+    }
+
+    function handleRemoveDates() {
+        onDatesChange({ startDate: '', dueDate: '', dueTime: '', reminder: '' })
+        setStartDate('')
+        setDueDate('')
+        setDueTime('')
+        setReminder('')
+        setShowStartDate(false)
+        setShowDueDate(true)
+        onReset()
+        onClose()
     }
 
     function formatDateLocal(date) {
@@ -136,12 +160,6 @@ export function DatePicker({ initialStartDate, initialDueDate, initialDueTime, o
         const month = String(date.getMonth() + 1).padStart(2, '0')
         const day = String(date.getDate()).padStart(2, '0')
         return `${year}-${month}-${day}`
-    }
-
-    function formatDateDisplay(dateString) {
-        if (!dateString) return ''
-        const [year, month, day] = dateString.split('-')
-        return `${day}/${month}/${year}`
     }
 
     function parseDate(dateString) {
@@ -165,83 +183,109 @@ export function DatePicker({ initialStartDate, initialDueDate, initialDueTime, o
 
     return (
         <div className="date-picker">
-            <div className="month-selector">
-                <button onClick={() => changeMonth(-1)}>&lt;</button>
-                <span>{currentMonth.toLocaleString('default', { month: 'long', year: 'numeric' })}</span>
-                <button onClick={() => changeMonth(1)}>&gt;</button>
-            </div>
-            <div className="calendar">
-                {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
-                    <div key={day} className="calendar-day day-name">{day}</div>
-                ))}
-                {renderCalendar()}
-            </div>
-            <div className="start-date-checkbox">
-                <input
-                    type="checkbox"
-                    id="startDateCheckbox"
-                    checked={showStartDate}
-                    onChange={(ev) => {
-                        setShowStartDate(ev.target.checked)
-                        if (ev.target.checked) {
-                            setFocusedInput('startDate')
-                            const newStartDate = new Date(parseDate(dueDate) - 24 * 60 * 60 * 1000) // newStartDate is 1 day before dueDate
-                            setStartDate(formatDateLocal(newStartDate))
-                        } else {
-                            setStartDate('')
-                            setFocusedInput('dueDate')
-                        }
-                    }}
-                />
-                <label htmlFor="startDateCheckbox">Start date</label>
-            </div>
+            <section className="calendar-container">
+                <div className="month-selector">
+                    <button className="btn" onClick={() => changeMonth(-1)}>
+                        <span className="icon icon-sm icon-back" />
+                    </button>
+                    <h2>{currentMonth.toLocaleString('default', { month: 'long', year: 'numeric' })}</h2>
+                    <button className="btn" onClick={() => changeMonth(1)}>
+                        <span className="icon icon-sm icon-forward" />
+                    </button>
+                    {/* <button onClick={() => changeMonth(1)}>&gt;</button> */}
+                </div>
+                <div className="calendar">
+                    {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
+                        <div key={day} className="calendar-day day-name">{day}</div>
+                    ))}
+                    {renderCalendar()}
+                </div>
+            </section>
+            <section className={`start-date input-date ${showStartDate ? '' : 'disabled'}`}>
+                <h4 className="input-date-title">Start date</h4>
+                <div className="input-date-checkbox">
+                    <input
+                        type="checkbox"
+                        id="startDateCheckbox"
+                        checked={showStartDate}
+                        onChange={(ev) => {
+                            setShowStartDate(ev.target.checked)
+                            if (ev.target.checked) {
+                                setFocusedInput('startDate')
+                                const newStartDate = new Date(parseDate(dueDate) - 24 * 60 * 60 * 1000) // newStartDate is 1 day before dueDate
+                                setStartDate(formatDateLocal(newStartDate))
+                            } else {
+                                setStartDate('')
+                                setFocusedInput('dueDate')
+                            }
+                        }}
+                    />
+                </div>
 
-            <div className={`date-input ${showStartDate ? 'active' : ''}`}>
-                <input
-                    type="text"
-                    value={formatDateDisplay(startDate)}
-                    onChange={(e) => handleInputChange(e, setStartDate)}
-                    onFocus={() => setFocusedInput('startDate')}
-                    placeholder="DD/MM/YYYY"
-                />
-            </div>
-            <div className="due-date-checkbox">
-                <input
-                    type="checkbox"
-                    id="dueDateCheckbox"
-                    checked={showDueDate}
-                    onChange={(ev) => {
-                        setShowDueDate(ev.target.checked)
-                        if (ev.target.checked) {
-                            setFocusedInput('dueDate')
-                            const newDueDate = new Date(parseDate(dueDate) + 24 * 60 * 60 * 1000) // newDueDate is 1 day after startDate
-                            // const newDueDate = new Date(now.getFullYear(), now.getMonth(), 1) // newDueDate is 1st of current month
-                            setDueDate(formatDateLocal(newDueDate))
-                        } else {
-                            setDueDate('')
-                            setFocusedInput('startDate')
-                        }
-                    }}
-                />
-                <label htmlFor="startDateCheckbox">Due date</label>
-            </div>
-            <div className={`date-input ${showDueDate ? 'active' : ''}`}>
-                <input
-                    type="text"
-                    value={formatDateDisplay(dueDate)}
-                    onChange={(ev) => handleInputChange(ev, setDueDate)}
-                    placeholder="DD/MM/YYYY"
-                    onFocus={() => setFocusedInput('dueDate')}
-                />
-            </div>
-            <div className='time-input'>
-                <input
-                    type="time"
-                    value={dueTime}
-                    onChange={(ev) => setDueTime(ev.target.value)}
-                />
-            </div>
-            <button onClick={handleSaveDates}>Save</button>
+                <div className={`input-date-input`}>
+                    <input
+                        type="date"
+                        value={startDate}
+                        onChange={(ev) => handleInputChange(ev, setStartDate)}
+                        onFocus={() => setFocusedInput('startDate')}
+                        placeholder={Intl.DateTimeFormat().format(new Date()).toUpperCase().replace(/[^A-Z]/g, '')}
+                    />
+                </div>
+            </section>
+            <section className={`due-date input-date  ${showDueDate ? '' : 'disabled'}`}>
+                <h4 className="input-date-title">Due date</h4>
+                <div className="input-date-checkbox">
+                    <input
+                        type="checkbox"
+                        id="dueDateCheckbox"
+                        checked={showDueDate}
+                        onChange={(ev) => {
+                            setShowDueDate(ev.target.checked)
+                            if (ev.target.checked) {
+                                setFocusedInput('dueDate')
+                                const newDueDate = new Date(parseDate(dueDate) + 24 * 60 * 60 * 1000) // newDueDate is 1 day after startDate
+                                setDueDate(formatDateLocal(newDueDate))
+                            } else {
+                                setDueDate('')
+                                setFocusedInput('startDate')
+                            }
+                        }}
+                    />
+                </div>
+                <div className={`input-date-input`}>
+                    <input
+                        type="date"
+                        value={dueDate}
+                        onChange={(ev) => handleInputChange(ev, setDueDate)}
+                        placeholder={Intl.DateTimeFormat().format(new Date()).toUpperCase().replace(/[^A-Z]/g, '')}
+                        onFocus={() => setFocusedInput('dueDate')}
+                    />
+                </div>
+                <div className='time-input'>
+                    <input
+                        type="time"
+                        value={dueTime}
+                        onChange={(ev) => setDueTime(ev.target.value)}
+                    />
+                </div>
+            </section>
+            <section className="reminder">
+                <h4>Set due date reminder</h4>
+                <select value={reminder} onChange={(ev) => setReminder(ev.target.value)}>
+                    <option value="none">None</option>
+                    <option value="due">At time of due date</option>
+                    <option value="5min">5 minutes before</option>
+                    <option value="10min">10 minutes before</option>
+                    <option value="15min">15 minutes before</option>
+                    <option value="1hour">1 hour before</option>
+                    <option value="2hours">2 hours before</option>
+                    <option value="1day">1 day before</option>
+                    <option value="2days">2 days before</option>
+                </select>
+                <p>Reminders will be sent to all members and watchers of this card.</p>
+            </section>
+            <button className="btn btn-color-bold blue" onClick={handleSaveDates}>Save</button>
+            <button className="btn " onClick={handleRemoveDates}>Remove</button>
         </div>
     )
 }

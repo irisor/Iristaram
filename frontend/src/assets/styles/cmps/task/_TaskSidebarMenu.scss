@@ -1,0 +1,11 @@
+.task-sidebar-menu {
+	display: grid;
+    gap: 4px;
+	width: 304px;
+	
+	&-content {
+		gap: 4px;
+		display: grid;
+		padding: 0 12px 12px 12px;
+	}
+}

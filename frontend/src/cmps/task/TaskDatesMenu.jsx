@@ -17,10 +17,10 @@ export function TaskDatesMenu({ onClose }) {
 	const { board, currentTask, groupId } = useSelector(memoizedSelector, shallowEqual)
 
 	const { _id: boardId } = board
-	const { startDate, dueDate } = currentTask
+	const { startDate, dueDate, dueTime, reminder } = currentTask
 
-	const initialDatesForm = { startDate, dueDate }
-	const [datesForm, setDateForm, handleChange, resetForm] = useForm(initialDatesForm)
+	const initialDatesForm = { startDate, dueDate, dueTime, reminder }
+	const [datesForm, setDatesForm, handleChange, resetForm] = useForm(initialDatesForm)
 
 	useEffect(() => {
 		resetForm()
@@ -28,7 +28,8 @@ export function TaskDatesMenu({ onClose }) {
 
 	useEffect(() => {
 		if (JSON.stringify(datesForm) !== JSON.stringify(initialDatesForm)) {
-			updateTask(boardId, groupId, { ...currentTask, startDate: datesForm.startDate, dueDate: datesForm.dueDate })
+			console.log("#2", startDate, dueDate, dueTime, reminder)
+			updateTask(boardId, groupId, { ...currentTask, ...datesForm })
 		}
 	}, [datesForm])
 
@@ -41,24 +42,32 @@ export function TaskDatesMenu({ onClose }) {
 		onClose()
 	}
 
-	function handleDatesChange({ startDate, dueDate }) {
-		setDateForm({ startDate, dueDate })
+	function handleDatesChange({ startDate, dueDate, dueTime, reminder }) {
+		setDatesForm({ startDate, dueDate, dueTime, reminder })
+		console.log("#1", startDate, dueDate, dueTime, reminder)
 	}
 
 	return (
 
-		<form onSubmit={ev => ev.preventDefault()} className='task-dates-menu'>
+		<form onSubmit={ev => ev.preventDefault()} className='task-dates-menu task-sidebar-menu'>
 			<header className='popover-small-header'>
 				<h2 className='popover-small-title'>Dates</h2>
 				<button className='btn icon-wrapper popover-small-close' onClick={ev => handleClose(ev)}>
 					<span className="icon icon-sm icon-close" />
 				</button>
 			</header>
-			<section className='task-label-menu-content'>
-				<DatePicker
+			<section className='task-dates-menu-content task-sidebar-menu-content'>
+				{console.log("#3", startDate, dueDate, dueTime, reminder)}
+				<DatePicker 
 					initialStartDate={startDate}
 					initialDueDate={dueDate}
-					onDatesChange={handleDatesChange} 
+					initialDueTime={dueTime}
+					initialReminder={reminder}
+					onDatesChange={handleDatesChange}
+					onClose={onClose}
+					onReset={() => {
+						resetForm();
+					}}
 				/>
 			</section>
 		</form>

@@ -46,14 +46,14 @@ export function TaskLabelsMenu({ onClose }) {
 
 	return (
 
-		<form onSubmit={ev => ev.preventDefault()} className='task-label-menu'>
+		<form onSubmit={ev => ev.preventDefault()} className='task-sidebar-menu task-label-menu'>
 			<header className='popover-small-header'>
 				<h2 className='popover-small-title'>Labels</h2>
 				<button className='btn icon-wrapper popover-small-close' onClick={ev => handleClose(ev)}>
 					<span className="icon icon-sm icon-close" />
 				</button>
 			</header>
-			<section className='task-label-menu-content'>
+			<section className='task-sidebar-menu-content task-label-menu-content'>
 				{boardLabels?.map(label => (
 					<div key={label.id} className='task-label-menu-item'>
 						<input type="checkbox" id={label.id} checked={labelsForm[label.id]} onChange={handleChange} name={label.id} />

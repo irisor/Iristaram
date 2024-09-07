@@ -67,3 +67,24 @@
 .ant-popover .ant-popover-inner {
 	padding: 0;
 }
+
+.ant-popover,
+.ant-popover .ant-popover-inner-content,
+.ant-modal-content,
+.ant-select-dropdown {
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+
+	h2 {
+		font-weight: 600;
+	}
+
+	button {
+		color: inherit;
+		font-family: inherit;
+		font-size: inherit;
+		font-weight: inherit;
+	}
+}
