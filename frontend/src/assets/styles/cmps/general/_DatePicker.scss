@@ -20,7 +20,8 @@
 
 
 	.month-selector {
-		display: flex;
+		display: grid;
+		grid-template-columns: 24px auto 24px;
 		justify-content: space-between;
 		align-items: center;
 		margin-bottom: 12px;
@@ -132,7 +133,7 @@
 			transition-duration: 85ms;
 			transition-timing-function: ease;
 		}
-		
+
 		input::-webkit-datetime-edit-text,
 		input::-webkit-datetime-edit-day-field,
 		input::-webkit-datetime-edit-month-field,
@@ -167,5 +168,50 @@
 
 	.reminder {
 		margin: 12px 0 4px;
+
+		p {
+			margin: 8px 0 12px;
+		}
+	}
+
+	&__input {
+		display: none;
+	}
+
+	.date-picker__control {
+		background-color: var(--clr-background-editable);
+		box-shadow: var(--shadow-input);
+		border: none;
+		border-radius: 3px;
+		color: var(--clr-text-2);
+		line-height: rem(20px);
+		outline: none;
+		transition-property: background-color, border-color, box-shadow;
+		transition-duration: 85ms;
+		transition-timing-function: ease;
+		width: 100%;
+		word-break: break-word;
+
+		@include hover-supported {
+			background-color: var(--clr-background-hover-input);
+		}
+	}
+
+	.date-picker__single-value {
+		color: inherit;
+	}
+
+	.btn-container {
+		display: grid;
+		font-weight: 500;
+		gap: 8px;
+	}
+
+	.btn {
+		width: 100%;
+	}
+
+	.btn-light {
+		background-color: var(--clr-background-btn-task);
 	}
 }

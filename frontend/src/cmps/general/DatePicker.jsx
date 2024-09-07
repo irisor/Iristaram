@@ -1,14 +1,26 @@
 import { useState, useEffect, useCallback } from 'react'
+import Select from '@atlaskit/select'
 
 export function DatePicker({ initialStartDate, initialDueDate, initialDueTime, initialReminder, onClose, onDatesChange, onReset }) {
     const [startDate, setStartDate] = useState(initialStartDate || '')
     const [dueDate, setDueDate] = useState(initialDueDate || '')
     const [dueTime, setDueTime] = useState(initialDueTime || new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' }))
-    const [reminder, setReminder] = useState(initialReminder || 'none')
+    const [reminderOption, setReminderOption] = useState({})
     const [currentMonth, setCurrentMonth] = useState(new Date())
     const [showStartDate, setShowStartDate] = useState(!!initialStartDate)
     const [showDueDate, setShowDueDate] = useState(!!initialDueDate || !initialStartDate)
     const [focusedInput, setFocusedInput] = useState(initialStartDate ? 'startDate' : 'dueDate')
+    const reminderOptions = [
+        { label: 'None', value: 'none' },
+        { label: 'At time of due date', value: 'due' },
+        { label: '5 minutes before', value: '5min' },
+        { label: '10 minutes before', value: '10min' },
+        { label: '15 minutes before', value: '15min' },
+        { label: '1 hour before', value: '1hour' },
+        { label: '2 hours before', value: '2hours' },
+        { label: '1 day before', value: '1day' },
+        { label: '2 days before', value: '2days' },
+    ]
 
     function isDateInRange(date) {
         const start = parseDate(startDate)
@@ -138,8 +150,13 @@ export function DatePicker({ initialStartDate, initialDueDate, initialDueTime, i
         if (!showDueDate) setDueDate('')
     }, [showDueDate])
 
+    useEffect(() => {
+        const savedReminderOption = reminderOptions.find(option => option.value === initialReminder);
+        setReminderOption(savedReminderOption);
+    }, [])
+
     function handleSaveDates() {
-        onDatesChange({ startDate, dueDate, dueTime, reminder })
+        onDatesChange({ startDate, dueDate, dueTime, reminder: reminderOption.value })
         onClose()
     }
 
@@ -148,7 +165,7 @@ export function DatePicker({ initialStartDate, initialDueDate, initialDueTime, i
         setStartDate('')
         setDueDate('')
         setDueTime('')
-        setReminder('')
+        setReminderOption({})
         setShowStartDate(false)
         setShowDueDate(true)
         onReset()
@@ -271,21 +288,23 @@ export function DatePicker({ initialStartDate, initialDueDate, initialDueTime, i
             </section>
             <section className="reminder">
                 <h4>Set due date reminder</h4>
-                <select value={reminder} onChange={(ev) => setReminder(ev.target.value)}>
-                    <option value="none">None</option>
-                    <option value="due">At time of due date</option>
-                    <option value="5min">5 minutes before</option>
-                    <option value="10min">10 minutes before</option>
-                    <option value="15min">15 minutes before</option>
-                    <option value="1hour">1 hour before</option>
-                    <option value="2hours">2 hours before</option>
-                    <option value="1day">1 day before</option>
-                    <option value="2days">2 days before</option>
-                </select>
+                <Select
+                    inputId="reminder-select"
+                    className="reminder-select"
+                    classNamePrefix="date-picker"
+                    onChange={(option) => setReminderOption(option)}
+                    value={reminderOption}
+                    options={reminderOptions}
+                    menuPortalTarget={document.body}
+                    styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}  // Ensures the dropdown is visible
+
+                />
                 <p>Reminders will be sent to all members and watchers of this card.</p>
             </section>
-            <button className="btn btn-color-bold blue" onClick={handleSaveDates}>Save</button>
-            <button className="btn " onClick={handleRemoveDates}>Remove</button>
+            <section className='btn-container'>
+                <button className="btn btn-color-bold blue" onClick={handleSaveDates}>Save</button>
+                <button className="btn btn-light" onClick={handleRemoveDates}>Remove</button>
+            </section>
         </div>
     )
 }

@@ -3,6 +3,8 @@ import { useEffect } from "react"
 import { BoardRemove } from "./BoardRemove"
 import { Popover } from "antd"
 import { useMultiPopover } from "../../customHooks/useMultiPopover"
+// import $ from 'jquery'
+// import AJS from '@atlassian/aui'
 
 export function BoardMenuMain({ onNavigate, onContentReady }) {
 	const board = useSelector(storeState => storeState.boardModule.board)
@@ -17,6 +19,8 @@ export function BoardMenuMain({ onNavigate, onContentReady }) {
 	function toggleDarkMode() {
 		document.documentElement.dataset.theme =
 			document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'
+		// AJS.DesignTokens.setGlobalTheme('dark')
+
 	}
 
 	return (
