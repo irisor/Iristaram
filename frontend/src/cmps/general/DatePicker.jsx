@@ -1,8 +1,9 @@
 import { useState, useEffect, useCallback } from 'react'
 
-export function DatePicker({ initialStartDate, initialDueDate, onDatesChange }) {
+export function DatePicker({ initialStartDate, initialDueDate, initialDueTime, onDatesChange }) {
     const [startDate, setStartDate] = useState(initialStartDate || '')
     const [dueDate, setDueDate] = useState(initialDueDate || '')
+    const [dueTime, setDueTime] = useState(initialDueTime || '')
     const [currentMonth, setCurrentMonth] = useState(new Date())
     const [showStartDate, setShowStartDate] = useState(!!initialStartDate)
     const [showDueDate, setShowDueDate] = useState(!!initialDueDate || !initialStartDate)
@@ -22,7 +23,7 @@ export function DatePicker({ initialStartDate, initialDueDate, onDatesChange }) 
 
         // Get the first day of the current month
         const firstDayOfMonth = new Date(year, month, 1).getDay()
-        
+
         // Get the last day of the previous month
         const lastDayOfPrevMonth = new Date(year, month, 0).getDate()
 
@@ -85,18 +86,18 @@ export function DatePicker({ initialStartDate, initialDueDate, onDatesChange }) 
 
         if (showStartDate && focusedInput === 'startDate') {
             setStartDate(formattedDate)
-			if (dueDate && dueDate < formattedDate) {
-				const parsedDate = parseDate(formattedDate)
-				const newDueDate = new Date(parsedDate.getFullYear(), parsedDate.getMonth(), parsedDate.getDate() + 1) // newDueDate is 1 day after startDate
-				setDueDate(formatDateLocal(newDueDate))
-			}
+            if (dueDate && dueDate < formattedDate) {
+                const parsedDate = parseDate(formattedDate)
+                const newDueDate = new Date(parsedDate.getFullYear(), parsedDate.getMonth(), parsedDate.getDate() + 1) // newDueDate is 1 day after startDate
+                setDueDate(formatDateLocal(newDueDate))
+            }
         } else {
             setDueDate(formattedDate)
-			if (startDate && startDate > formattedDate) {
-				const parsedDate = parseDate(formattedDate)
-				const newStartDate = new Date(parsedDate.getFullYear(), parsedDate.getMonth(), parsedDate.getDate() - 1) // newStartDate is 1 day before dueDate
-				setStartDate(formatDateLocal(newStartDate))
-			}
+            if (startDate && startDate > formattedDate) {
+                const parsedDate = parseDate(formattedDate)
+                const newStartDate = new Date(parsedDate.getFullYear(), parsedDate.getMonth(), parsedDate.getDate() - 1) // newStartDate is 1 day before dueDate
+                setStartDate(formatDateLocal(newStartDate))
+            }
         }
     }, [startDate, dueDate, focusedInput])
 
@@ -119,16 +120,16 @@ export function DatePicker({ initialStartDate, initialDueDate, onDatesChange }) 
         }
     }, [initialStartDate, initialDueDate])
 
-	useEffect(() => {
-		if (!startDate) return
-		if (parseDate(startDate).getMonth() !== currentMonth.getMonth()) {
-			changeMonth(-1)
-		}
-	}, [startDate])
-
     useEffect(() => {
+        if (!startDate) return
+        if (parseDate(startDate).getMonth() !== currentMonth.getMonth()) {
+            changeMonth(-1)
+        }
+    }, [startDate])
+
+    function handleSaveDates () {
         onDatesChange({ startDate, dueDate })
-    }, [startDate, dueDate])
+    }
 
     function formatDateLocal(date) {
         const year = date.getFullYear()
@@ -151,7 +152,7 @@ export function DatePicker({ initialStartDate, initialDueDate, onDatesChange }) 
     function handleInputChange(e, setDateFunction) {
         const inputValue = e.target.value
         const [day, month, year] = inputValue.split('/')
-        
+
         if (day && month && year) {
             const date = new Date(year, month - 1, day)
             if (!isNaN(date.getTime())) {
@@ -184,8 +185,8 @@ export function DatePicker({ initialStartDate, initialDueDate, onDatesChange }) 
                         setShowStartDate(ev.target.checked)
                         if (ev.target.checked) {
                             setFocusedInput('startDate')
-							const newStartDate = new Date(parseDate(dueDate) - 24 * 60 * 60 * 1000) // newStartDate is 1 day before dueDate
-							setStartDate(formatDateLocal(newStartDate)) 
+                            const newStartDate = new Date(parseDate(dueDate) - 24 * 60 * 60 * 1000) // newStartDate is 1 day before dueDate
+                            setStartDate(formatDateLocal(newStartDate))
                         } else {
                             setStartDate('')
                             setFocusedInput('dueDate')
@@ -194,18 +195,17 @@ export function DatePicker({ initialStartDate, initialDueDate, onDatesChange }) 
                 />
                 <label htmlFor="startDateCheckbox">Start date</label>
             </div>
-            {showStartDate && (
-                <div className="date-input">
-                    <input
-                        type="text"
-                        value={formatDateDisplay(startDate)}
-                        onChange={(e) => handleInputChange(e, setStartDate)}
-                        onFocus={() => setFocusedInput('startDate')}
-                        placeholder="DD/MM/YYYY"
-                    />
-                </div>
-            )}
-			<div className="due-date-checkbox">
+
+            <div className={`date-input ${showStartDate ? 'active' : ''}`}>
+                <input
+                    type="text"
+                    value={formatDateDisplay(startDate)}
+                    onChange={(e) => handleInputChange(e, setStartDate)}
+                    onFocus={() => setFocusedInput('startDate')}
+                    placeholder="DD/MM/YYYY"
+                />
+            </div>
+            <div className="due-date-checkbox">
                 <input
                     type="checkbox"
                     id="dueDateCheckbox"
@@ -214,10 +214,9 @@ export function DatePicker({ initialStartDate, initialDueDate, onDatesChange }) 
                         setShowDueDate(ev.target.checked)
                         if (ev.target.checked) {
                             setFocusedInput('dueDate')
-							const now = new Date()
-							const newDueDate = new Date(parseDate(dueDate) + 24 * 60 * 60 * 1000) // newDueDate is 1 day after startDate
-							// const newDueDate = new Date(now.getFullYear(), now.getMonth(), 1) // newDueDate is 1st of current month
-							setDueDate(formatDateLocal(newDueDate)) 
+                            const newDueDate = new Date(parseDate(dueDate) + 24 * 60 * 60 * 1000) // newDueDate is 1 day after startDate
+                            // const newDueDate = new Date(now.getFullYear(), now.getMonth(), 1) // newDueDate is 1st of current month
+                            setDueDate(formatDateLocal(newDueDate))
                         } else {
                             setDueDate('')
                             setFocusedInput('startDate')
@@ -226,15 +225,23 @@ export function DatePicker({ initialStartDate, initialDueDate, onDatesChange }) 
                 />
                 <label htmlFor="startDateCheckbox">Due date</label>
             </div>
-            <div className="date-input">
+            <div className={`date-input ${showDueDate ? 'active' : ''}`}>
                 <input
                     type="text"
                     value={formatDateDisplay(dueDate)}
-                    onChange={(e) => handleInputChange(e, setDueDate)}
+                    onChange={(ev) => handleInputChange(ev, setDueDate)}
                     placeholder="DD/MM/YYYY"
                     onFocus={() => setFocusedInput('dueDate')}
                 />
             </div>
+            <div className='time-input'>
+                <input
+                    type="time"
+                    value={dueTime}
+                    onChange={(ev) => setDueTime(ev.target.value)}
+                />
+            </div>
+            <button onClick={handleSaveDates}>Save</button>
         </div>
     )
 }
