@@ -65,6 +65,8 @@
 }
 
 .ant-popover .ant-popover-inner {
+	box-shadow: var(--shadow-overlay-popover);
+	overflow: hidden;
 	padding: 0;
 }
 
@@ -87,4 +89,8 @@
 		font-size: inherit;
 		font-weight: inherit;
 	}
+}
+
+.ant-popover-inner-content {
+	background-color: var(--clr-background-menu);
 }

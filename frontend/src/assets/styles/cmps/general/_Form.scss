@@ -13,7 +13,9 @@ form {
 	}
 
 	input,
+	select,
 	textarea {
+		background-color: var(--clr-background-editable);
 		box-shadow: var(--shadow-input);
 		border: none;
 		border-radius: 3px;
@@ -41,7 +43,7 @@ form {
 		}
 
 		@include hover-supported {
-			background-color: var(--clr-background-menu);
+			background-color: var(--clr-background-hover-input);
 		}
 	}
 
@@ -68,5 +70,21 @@ form {
 		transition-duration: 85ms;
 		transition-property: background-color, border-color, box-shadow;
 		transition-timing-function: ease;
+	}
+
+	select {
+		appearance: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.292 10.293a1.01 1.01 0 0 0 0 1.419l2.939 2.965c.218.215.5.322.779.322s.556-.107.769-.322l2.93-2.955a1.01 1.01 0 0 0 0-1.419.987.987 0 0 0-1.406 0l-2.298 2.317-2.307-2.327a.99.99 0 0 0-1.406 0' fill='currentColor'/%3E%3C/svg%3E");
+		background-repeat: no-repeat;
+		background-position: right 10px center;
+		background-size: 24px 24px;
+		padding: 4px 6px;
+	}
+
+	/* For IE10+ */
+	select::-ms-expand {
+		display: none;
 	}
 }

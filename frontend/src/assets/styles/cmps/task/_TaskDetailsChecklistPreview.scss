@@ -2,6 +2,10 @@
 	&-progress {
 		margin-block-end: 6px;
 
+		.ant-progress .ant-progress-inner {
+			background-color: var(--clr-background-progress-fill);
+		}
+
 		.ant-progress-bg {
 			background-color: var(--clr-background-progress);
 		}

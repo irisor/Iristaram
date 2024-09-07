@@ -98,6 +98,10 @@
 
 	.calendar-day.in-range {
 		background-color: var(--clr-background-selected-date);
+
+		@include hover-supported {
+			background-color: var(--clr-background-selected-hovered-date);
+		}
 	}
 
 	.calendar-day.range-end {
@@ -145,11 +149,23 @@
 
 		&.disabled :not(.input-date-checkbox) input {
 			box-shadow: none;
-			background-color: #091e4208;
-			color: #091e424f;
+			background-color: var(--clr-background-disabled);
+			color: var(--clr-text-disabled);
 			cursor: not-allowed;
 			-webkit-user-select: none;
 			user-select: none;
 		}
+	}
+
+	select {
+		border-color: #8590a2;
+		border-radius: 3px;
+		height: 40px;
+		outline: none;
+		width: 100%;
+	}
+
+	.reminder {
+		margin: 12px 0 4px;
 	}
 }
