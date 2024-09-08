@@ -15,6 +15,7 @@ import { TaskDetailsSidebar } from "../cmps/task/TaskDetailsSidebar"
 import { TaskDetailsLabels } from "../cmps/task/TaskDetailsLabels"
 import { TaskDetailsChecklists } from "../cmps/task/TaskDetailsChecklists"
 import { Modal } from "antd"
+import { TaskDetailsDates } from "../cmps/task/TaskDetailsDates"
 
 export function TaskDetails() {
     const { boardId, taskId } = useParams()
@@ -88,6 +89,7 @@ export function TaskDetails() {
                         <TaskDetailsLabels task={currentTask} />
                         <TaskDetailsMembers task={currentTask} />
                         <TaskDetailsNotifications task={currentTask} />
+                        <TaskDetailsDates task={currentTask} onUpdateTask={onUpdateTask} />
                     </section>
                     <TaskDetailsDescription task={currentTask} onUpdateTask={onUpdateTask} />
                     <TaskDetailsChecklists task={currentTask} />

@@ -1,5 +1,6 @@
 import { Popover } from "antd"
 import { TaskLabelsMenu } from "./TaskLabelsMenu"
+import { TaskDatesMenu } from "./TaskDatesMenu"
 import { useMultiPopover } from "../../customHooks/useMultiPopover"
 import { TaskDetailsAddChecklist } from "./TaskDetailsAddChecklist"
 
@@ -58,10 +59,16 @@ export function TaskDetailsSidebar({ task }) {
 							<p>Checklist</p>
 						</button>
 					</Popover>
-					<button className="btn dates span1">
-						<span className="icon icon-sm icon-clock" />
-						<p>Dates</p>
-					</button>
+					<Popover content={props => TaskDatesMenu({ ...props, onClose: closePopover })}
+						open={isPopoverOpen(`popover-dates-menu${task.id}`)}
+						destroyTooltipOnHide={true}
+						onOpenChange={(open) => (open ? openPopover(`popover-dates-menu${task.id}`) : closePopover())}
+						placement="center" trigger={"click"} arrow={false}>
+						<button className="btn dates">
+							<span className="icon icon-sm icon-clock" />
+							<p>Dates</p>
+						</button>
+					</Popover>
 					<button className="btn attachment span2">
 						<span className="icon icon-sm icon-attachment" />
 						<p>Attachment</p>

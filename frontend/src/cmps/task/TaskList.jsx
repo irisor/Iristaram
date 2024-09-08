@@ -35,8 +35,7 @@ export function TaskList({ props }) {
           {tasks?.map((task) => (
             <li className="task-list-el" key={task.id}>
               <TaskPreview
-                groupId={groupId}
-                task={task}
+                taskId={task.id}
                 onUpdateTaskTitle={onUpdateTaskTitle}
                 onRemoveTask={onRemoveTask}
                 onDragStart={onDragStart}

@@ -23,6 +23,7 @@
 @import "cmps/general/EditableTitle";
 @import "cmps/general/CreateItem";
 @import "cmps/general/UserMsg";
+@import "cmps/general/DatePicker";
 @import "cmps/app/AppHeader";
 @import "cmps/app/AppSidebar";
 @import "cmps/group/GroupList";
@@ -44,8 +45,10 @@
 @import "cmps/task/TaskDetailsSidebar";
 @import "cmps/task/TaskDetailsLabels";
 @import "cmps/task/TaskDetailsDescription";
+@import "cmps/task/TaskSidebarMenu";
 @import "cmps/task/TaskLabelMenu";
 @import "cmps/task/TaskDetailsChecklistPreview";
 @import "cmps/task/TaskDetailsChecklistItemPreview";
+@import "cmps/task/TaskDetailsDates";
 @import "cmps/menuCarousel/MenuCarousel";
 @import "cmps/menuCarousel/MenuCarouselItem";

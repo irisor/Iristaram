@@ -151,6 +151,10 @@ li {
     }
 }
 
+.icon {
+    color: inherit;
+}
+
 .icon-wrapper {
     display: grid;
     font-family: 'trellicons';
@@ -164,13 +168,3 @@ li {
         width: auto;
     }
 }
-
-// .icon-wrapper:has(.icon-close) {
-//     border-radius: 8px;
-//     color: var(--clr-close-icon);
-
-//     @include hover-supported {
-//         background-color: var(--clr-close-background-hover);
-//         color: var(--clr-close-icon-hover);
-//     }
-// }

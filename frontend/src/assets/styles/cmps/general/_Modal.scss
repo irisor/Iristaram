@@ -65,5 +65,31 @@
 }
 
 .ant-popover .ant-popover-inner {
+	box-shadow: var(--shadow-overlay-popover);
+	overflow: hidden;
 	padding: 0;
+}
+
+.ant-popover,
+.ant-popover .ant-popover-inner-content,
+.ant-modal-content,
+.ant-select-dropdown {
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+
+	h2 {
+		font-weight: 600;
+	}
+
+	button {
+		font-family: inherit;
+		font-size: inherit;
+		font-weight: inherit;
+	}
+}
+
+.ant-popover-inner-content {
+	background-color: var(--clr-background-menu);
 }
