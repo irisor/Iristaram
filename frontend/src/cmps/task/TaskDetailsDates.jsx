@@ -15,27 +15,31 @@ export function TaskDetailsDates({ task, onUpdateTask }) {
 	useEffect(() => {
 		let startDate, dueDate
 
-		if (completed) return
-
 		if (task.startDate && task.dueDate) {
 			startDate = new Date(task.startDate)
 			dueDate = new Date(task.dueDate + ' ' + task.dueTime)
-			const startDateString = startDate.toLocaleString('en-GB', { month: 'short', day: 'numeric' })
-			const dueDateString = dueDate.toLocaleString('en-GB', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })
+			const startDateString = startDate.toLocaleString('en-US', { month: 'short', day: 'numeric' })
+			const dueDateString = dueDate.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false })
 			setDatesTitle("Dates")
 			setDatesContent(`${startDateString} - ${dueDateString}`)
 		} else if (task.startDate) {
 			startDate = new Date(task.startDate)
-			const startDateString = startDate.toLocaleString('en-GB', { month: 'short', day: 'numeric' })
+			const startDateString = startDate.toLocaleString('en-US', { month: 'short', day: 'numeric' })
 			setDatesTitle("Start date")
 			setDatesContent(startDateString)
 		} else if (task.dueDate) {
 			dueDate = new Date(task.dueDate + ' ' + task.dueTime)
-			const dueDateString = dueDate.toLocaleString('en-GB', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })
+			const dueDateString = dueDate.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false })
 			setDatesTitle("Due date")
 			setDatesContent(dueDateString)
 		}
-		if (dueDate) {
+		
+		setDatesNotification("")
+		setDatesNotificationClass("")
+		if (completed) {
+			setDatesNotification("Complete")
+			setDatesNotificationClass("complete")
+		} else if (dueDate) {
 			const now = new Date()
 			const timeDiff = dueDate - now.getTime()
 			if (timeDiff < 0) {
@@ -51,10 +55,6 @@ export function TaskDetailsDates({ task, onUpdateTask }) {
 	useEffect(() => {
 		if (task.id) {
 			onUpdateTask({ ...task, completed: completed })
-		}
-		if (completed) {
-			setDatesNotification("Complete")
-			setDatesNotificationClass("complete")
 		}
 	}, [completed])
 

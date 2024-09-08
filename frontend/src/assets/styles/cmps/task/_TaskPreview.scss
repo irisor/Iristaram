@@ -178,5 +178,55 @@
                 color: white;
             }
         }
+        
+		&.overdue {
+			background-color: var(--clr-danger-bold);
+			color: var(--clr-text-4);
+		}
+
+		&.due-soon {
+			background-color: var(--clr-warning-bold);
+			color: var(--clr-warning-text);
+		}
+
+		&.complete {
+			background-color: var(--clr-success-bold);
+			color: var(--clr-text-4);
+		}
+
+        .icon-hover {
+            display: none;
+        }
+
+        @include hover-supported {
+            &.btn:not(.disabled) {
+                background-color: transparent;
+
+                &.overdue {
+                    background-color: var(--clr-danger-bold);
+                    color: var(--clr-text-4);
+                }
+        
+                &.due-soon {
+                    background-color: var(--clr-warning-bold);
+                    color: var(--clr-warning-text);
+                }
+        
+                &.complete {
+                    background-color: var(--clr-success-bold);
+                    color: var(--clr-text-4);
+                }
+            }
+
+            .icon-no-hover {
+                display: none;
+            }
+
+            .icon-hover {
+                display: block;
+            }
+
+            filter: saturate(85%) brightness(85%);
+        }
     }
 }

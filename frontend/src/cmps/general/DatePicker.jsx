@@ -97,6 +97,8 @@ export function DatePicker({ initialStartDate, initialDueDate, initialDueTime, i
     }
 
     const handleDateClick = useCallback((date) => {
+        if (date === undefined || !date) return
+
         const formattedDate = formatDateLocal(date)
 
         if (showStartDate && focusedInput === 'startDate') {
@@ -156,7 +158,7 @@ export function DatePicker({ initialStartDate, initialDueDate, initialDueTime, i
     }, [])
 
     function handleSaveDates() {
-        onDatesChange({ startDate, dueDate, dueTime, reminder: reminderOption.value })
+        onDatesChange({ startDate, dueDate, dueTime, reminder: reminderOption?.value })
         onClose()
     }
 
@@ -180,6 +182,7 @@ export function DatePicker({ initialStartDate, initialDueDate, initialDueTime, i
     }
 
     function parseDate(dateString) {
+        if (!dateString) return ''
         const [year, month, day] = dateString.split('-')
         return new Date(year, month - 1, day)
     }
