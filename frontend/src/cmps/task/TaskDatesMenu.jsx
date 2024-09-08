@@ -28,7 +28,7 @@ export function TaskDatesMenu({ onClose }) {
 
 	useEffect(() => {
 		if (JSON.stringify(datesForm) !== JSON.stringify(initialDatesForm)) {
-			console.log("#2", startDate, dueDate, dueTime, reminder)
+			// console.log("#2", startDate, dueDate, dueTime, reminder)
 			updateTask(boardId, groupId, { ...currentTask, ...datesForm })
 		}
 	}, [datesForm])
@@ -44,7 +44,7 @@ export function TaskDatesMenu({ onClose }) {
 
 	function handleDatesChange({ startDate, dueDate, dueTime, reminder }) {
 		setDatesForm({ startDate, dueDate, dueTime, reminder })
-		console.log("#1", startDate, dueDate, dueTime, reminder)
+		// console.log("#1", startDate, dueDate, dueTime, reminder)
 	}
 
 	return (
@@ -57,7 +57,7 @@ export function TaskDatesMenu({ onClose }) {
 				</button>
 			</header>
 			<section className='task-dates-menu-content task-sidebar-menu-content'>
-				{console.log("#3", startDate, dueDate, dueTime, reminder)}
+				{/* {console.log("#3", startDate, dueDate, dueTime, reminder)} */}
 				<DatePicker 
 					initialStartDate={startDate}
 					initialDueDate={dueDate}

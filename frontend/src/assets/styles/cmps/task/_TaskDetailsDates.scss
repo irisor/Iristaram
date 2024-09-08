@@ -1,0 +1,36 @@
+.task-details-dates {
+	&-notification {
+		margin: 2px 0 2px 8px;
+		padding: 0 4px;
+		font-size: 12px;
+		line-height: 16px;
+		font-weight: 500;
+		border-radius: 2px;
+
+		&.overdue {
+			background-color: var(--clr-danger-bold);
+			color: var(--clr-text-4);
+		}
+
+		&.due-soon {
+			background-color: var(--clr-warning-bold);
+			color: var(--clr-warning-text);
+		}
+
+		&.complete {
+			background-color: var(--clr-success-bold);
+			color: var(--clr-text-4);
+		}
+	}
+
+	&-btn {
+		.icon {
+			margin-inline-start: 4px;
+		}
+	}
+
+	&-checkbox {
+		height: 16px;
+		width: 16px;
+	}
+}
