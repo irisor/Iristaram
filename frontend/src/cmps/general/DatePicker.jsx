@@ -1,15 +1,20 @@
-import { useState, useEffect, useCallback } from 'react'
+
+import { useState, useEffect, useCallback, useRef } from 'react'
 import Select from '@atlaskit/select'
 
 export function DatePicker({ initialStartDate, initialDueDate, initialDueTime, initialReminder, onClose, onDatesChange, onReset }) {
-    const [startDate, setStartDate] = useState(initialStartDate || '')
-    const [dueDate, setDueDate] = useState(initialDueDate || '')
-    const [dueTime, setDueTime] = useState(initialDueTime || new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' }))
-    const [reminderOption, setReminderOption] = useState({})
+    const [startDate, setStartDate] = useState('')
+    const [dueDate, setDueDate] = useState('')
+    const [dueTime, setDueTime] = useState('')
+    const [reminderOption, setReminderOption] = useState(null)
     const [currentMonth, setCurrentMonth] = useState(new Date())
-    const [showStartDate, setShowStartDate] = useState(!!initialStartDate)
-    const [showDueDate, setShowDueDate] = useState(!!initialDueDate || !initialStartDate)
-    const [focusedInput, setFocusedInput] = useState(initialStartDate ? 'startDate' : 'dueDate')
+    const [showStartDate, setShowStartDate] = useState(false)
+    const [showDueDate, setShowDueDate] = useState(false)
+    const [focusedInput, setFocusedInput] = useState('dueDate')
+
+    const startDateInput = useRef()
+    const dueDateInput = useRef()
+
     const reminderOptions = [
         { label: 'None', value: 'none' },
         { label: 'At time of due date', value: 'due' },
@@ -21,6 +26,47 @@ export function DatePicker({ initialStartDate, initialDueDate, initialDueTime, i
         { label: '1 day before', value: '1day' },
         { label: '2 days before', value: '2days' },
     ]
+
+    const resetToInitialValues = useCallback(() => {
+        if (initialStartDate) {
+            setStartDate(initialStartDate)
+            setShowStartDate(true)
+        } else {
+            setStartDate('')
+            setShowStartDate(false)
+        }
+
+        if (initialDueDate) {
+            setDueDate(initialDueDate)
+            setShowDueDate(true)
+        } else if (!initialStartDate) {
+            const tomorrow = new Date()
+            tomorrow.setDate(tomorrow.getDate() + 1)
+            setDueDate(formatDateLocal(tomorrow))
+            setDueTime(new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' })) // Now
+            setShowDueDate(true)
+        }
+
+        setDueTime(initialDueTime || new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' }))
+
+        const savedReminderOption = reminderOptions.find(option => option.value === initialReminder) || reminderOptions[0]
+        setReminderOption(savedReminderOption)
+    }, [initialStartDate, initialDueDate, initialDueTime, initialReminder])
+
+    useEffect(() => {
+        resetToInitialValues()
+    }, [resetToInitialValues])
+
+    useEffect(() => {
+        requestAnimationFrame(() => {
+            const input = focusedInput === 'dueDate' ? dueDateInput.current : startDateInput.current
+            if (input) input.focus()
+        })
+    }, [focusedInput])
+
+    useEffect(() => {
+        setFocusedInput(initialDueDate ? 'Date' : 'startDate')
+    }, [])
 
     function isDateInRange(date) {
         const start = parseDate(startDate)
@@ -96,82 +142,8 @@ export function DatePicker({ initialStartDate, initialDueDate, initialDueTime, i
         )
     }
 
-    const handleDateClick = useCallback((date) => {
-        if (date === undefined || !date) return
-
-        const formattedDate = formatDateLocal(date)
-
-        if (showStartDate && focusedInput === 'startDate') {
-            setStartDate(formattedDate)
-            if (dueDate && dueDate < formattedDate) {
-                const parsedDate = parseDate(formattedDate)
-                const newDueDate = new Date(parsedDate.getFullYear(), parsedDate.getMonth(), parsedDate.getDate() + 1) // newDueDate is 1 day after startDate
-                setDueDate(formatDateLocal(newDueDate))
-            }
-        } else {
-            setDueDate(formattedDate)
-            if (startDate && startDate > formattedDate) {
-                const parsedDate = parseDate(formattedDate)
-                const newStartDate = new Date(parsedDate.getFullYear(), parsedDate.getMonth(), parsedDate.getDate() - 1) // newStartDate is 1 day before dueDate
-                setStartDate(formatDateLocal(newStartDate))
-            }
-        }
-    }, [startDate, dueDate, focusedInput])
-
-
     function changeMonth(increment) {
         setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + increment, 1))
-    }
-
-    useEffect(() => {
-        if (initialStartDate) {
-            setStartDate(initialStartDate)
-            setShowStartDate(true)
-        }
-    }, [initialStartDate])
-
-    useEffect(() => {
-        if (initialDueDate || !initialStartDate) {
-            setDueDate(initialDueDate)
-            setShowDueDate(true)
-        }
-    }, [initialStartDate, initialDueDate])
-
-    useEffect(() => {
-        if (!startDate) return
-        if (parseDate(startDate).getMonth() !== currentMonth.getMonth()) {
-            changeMonth(-1)
-        }
-    }, [startDate])
-
-    useEffect(() => {
-        if (!showStartDate) setStartDate('')
-    }, [showStartDate])
-
-    useEffect(() => {
-        if (!showDueDate) setDueDate('')
-    }, [showDueDate])
-
-    useEffect(() => {
-        const savedReminderOption = reminderOptions.find(option => option.value === initialReminder);
-        setReminderOption(savedReminderOption);
-    }, [])
-
-    function handleSaveDates() {
-        onDatesChange({ startDate, dueDate, dueTime, reminder: reminderOption?.value })
-        onClose()
-    }
-
-    function handleRemoveDates() {
-        onDatesChange({ startDate: '', dueDate: '', dueTime: '', reminder: '' })
-        setStartDate('')
-        setDueDate('')
-        setDueTime('')
-        setReminderOption({})
-        setShowStartDate(false)
-        setShowDueDate(true)
-        onReset()
-        onClose()
     }
 
     function formatDateLocal(date) {
@@ -187,18 +159,72 @@ export function DatePicker({ initialStartDate, initialDueDate, initialDueTime, i
         return new Date(year, month - 1, day)
     }
 
+    const handleDateClick = useCallback((date) => {
+        if (date === undefined || !date) return
+
+        const formattedDate = formatDateLocal(date)
+
+        if (showStartDate && focusedInput === 'startDate') {
+            setStartDate(formattedDate)
+            if (showDueDate && (!dueDate || new Date(dueDate) < new Date(formattedDate))) {
+                const newDueDate = new Date(formattedDate)
+                newDueDate.setDate(newDueDate.getDate() + 1)
+                setDueDate(formatDateLocal(newDueDate))
+            }
+        } else if (showDueDate) {
+            setDueDate(formattedDate)
+            if (showStartDate && (!startDate || new Date(startDate) > new Date(formattedDate))) {
+                const newStartDate = new Date(formattedDate)
+                newStartDate.setDate(newStartDate.getDate() - 1)
+                setStartDate(formatDateLocal(newStartDate))
+            }
+        }
+    }, [startDate, dueDate, focusedInput, showStartDate, showDueDate])
+
+    function handleSaveDates() {
+        onDatesChange({
+            startDate: showStartDate ? startDate : '',
+            dueDate: showDueDate ? dueDate : '',
+            dueTime: showDueDate ? dueTime : '',
+            reminder: reminderOption?.value || ''
+        })
+        onClose()
+    }
+
+    function handleRemoveDates() {
+        onDatesChange({ startDate: '', dueDate: '', dueTime: '', reminder: '' })
+        onClose()
+    }
+
     function handleInputChange(e, setDateFunction) {
         const inputValue = e.target.value
-        const [day, month, year] = inputValue.split('/')
+        setDateFunction(inputValue)
 
-        if (day && month && year) {
-            const date = new Date(year, month - 1, day)
-            if (!isNaN(date.getTime())) {
-                setDateFunction(formatDateLocal(date))
-            }
-        } else {
-            setDateFunction(inputValue)
+        // Update the calendar view when the date is changed
+        if (inputValue) {
+            const [year, month, day] = inputValue.split('-')
+            setCurrentMonth(new Date(year, month - 1, 1))
         }
+    }
+
+    function getDefaultStartDate() {
+        if (dueDate) {
+            const newStartDate = new Date(dueDate)
+            newStartDate.setDate(newStartDate.getDate() - 1)
+            return formatDateLocal(newStartDate)
+        }
+        return formatDateLocal(new Date())
+    }
+
+    function getDefaultDueDate() {
+        if (startDate) {
+            const newDueDate = new Date(startDate)
+            newDueDate.setDate(newDueDate.getDate() + 1)
+            return formatDateLocal(newDueDate)
+        }
+        const tomorrow = new Date()
+        tomorrow.setDate(tomorrow.getDate() + 1)
+        return formatDateLocal(tomorrow)
     }
 
     return (
@@ -212,7 +238,6 @@ export function DatePicker({ initialStartDate, initialDueDate, initialDueTime, i
                     <button className="btn" onClick={() => changeMonth(1)}>
                         <span className="icon icon-sm icon-forward" />
                     </button>
-                    {/* <button onClick={() => changeMonth(1)}>&gt;</button> */}
                 </div>
                 <div className="calendar">
                     {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
@@ -232,8 +257,7 @@ export function DatePicker({ initialStartDate, initialDueDate, initialDueTime, i
                             setShowStartDate(ev.target.checked)
                             if (ev.target.checked) {
                                 setFocusedInput('startDate')
-                                const newStartDate = new Date(parseDate(dueDate) - 24 * 60 * 60 * 1000) // newStartDate is 1 day before dueDate
-                                setStartDate(formatDateLocal(newStartDate))
+                                setStartDate(getDefaultStartDate())
                             } else {
                                 setStartDate('')
                                 setFocusedInput('dueDate')
@@ -241,18 +265,18 @@ export function DatePicker({ initialStartDate, initialDueDate, initialDueTime, i
                         }}
                     />
                 </div>
-
                 <div className={`input-date-input`}>
                     <input
+                        ref={startDateInput}
                         type="date"
                         value={startDate}
                         onChange={(ev) => handleInputChange(ev, setStartDate)}
                         onFocus={() => setFocusedInput('startDate')}
-                        placeholder={Intl.DateTimeFormat().format(new Date()).toUpperCase().replace(/[^A-Z]/g, '')}
+                        disabled={!showStartDate}
                     />
                 </div>
             </section>
-            <section className={`due-date input-date  ${showDueDate ? '' : 'disabled'}`}>
+            <section className={`due-date input-date ${showDueDate ? '' : 'disabled'}`}>
                 <h4 className="input-date-title">Due date</h4>
                 <div className="input-date-checkbox">
                     <input
@@ -263,10 +287,11 @@ export function DatePicker({ initialStartDate, initialDueDate, initialDueTime, i
                             setShowDueDate(ev.target.checked)
                             if (ev.target.checked) {
                                 setFocusedInput('dueDate')
-                                const newDueDate = new Date(parseDate(dueDate) + 24 * 60 * 60 * 1000) // newDueDate is 1 day after startDate
-                                setDueDate(formatDateLocal(newDueDate))
+                                setDueDate(getDefaultDueDate())
+                                setDueTime(new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' }))
                             } else {
                                 setDueDate('')
+                                setDueTime('')
                                 setFocusedInput('startDate')
                             }
                         }}
@@ -274,20 +299,23 @@ export function DatePicker({ initialStartDate, initialDueDate, initialDueTime, i
                 </div>
                 <div className={`input-date-input`}>
                     <input
+                        ref={dueDateInput}
                         type="date"
                         value={dueDate}
                         onChange={(ev) => handleInputChange(ev, setDueDate)}
-                        placeholder={Intl.DateTimeFormat().format(new Date()).toUpperCase().replace(/[^A-Z]/g, '')}
                         onFocus={() => setFocusedInput('dueDate')}
+                        disabled={!showDueDate}
                     />
                 </div>
-                <div className='time-input'>
-                    <input
-                        type="time"
-                        value={dueTime}
-                        onChange={(ev) => setDueTime(ev.target.value)}
-                    />
-                </div>
+                {showDueDate && (
+                    <div className='time-input'>
+                        <input
+                            type="time"
+                            value={dueTime}
+                            onChange={(ev) => setDueTime(ev.target.value)}
+                        />
+                    </div>
+                )}
             </section>
             <section className="reminder">
                 <h4>Set due date reminder</h4>
@@ -299,8 +327,7 @@ export function DatePicker({ initialStartDate, initialDueDate, initialDueTime, i
                     value={reminderOption}
                     options={reminderOptions}
                     menuPortalTarget={document.body}
-                    styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}  // Ensures the dropdown is visible
-
+                    styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
                 />
                 <p>Reminders will be sent to all members and watchers of this card.</p>
             </section>

@@ -61,6 +61,7 @@ export function TaskDetailsSidebar({ task }) {
 					</Popover>
 					<Popover content={props => TaskDatesMenu({ ...props, onClose: closePopover })}
 						open={isPopoverOpen(`popover-dates-menu${task.id}`)}
+						destroyTooltipOnHide={true}
 						onOpenChange={(open) => (open ? openPopover(`popover-dates-menu${task.id}`) : closePopover())}
 						placement="center" trigger={"click"} arrow={false}>
 						<button className="btn dates">
