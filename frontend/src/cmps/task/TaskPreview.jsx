@@ -24,6 +24,7 @@ export function TaskPreview({  onDragStart, taskId }) {
 
 	useEffect(() => {
 		let startDate, dueDate
+        setCompleted(task.completed || false)
 
 		if (task.startDate && task.dueDate) {
 			startDate = new Date(task.startDate)
@@ -42,7 +43,7 @@ export function TaskPreview({  onDragStart, taskId }) {
 		}
 
         setDatesNotificationClass("")
-        if (completed) {
+        if (task.completed) {
 			setDatesNotificationClass("complete")
 		} else if (dueDate) {
 			const now = new Date()
@@ -53,7 +54,7 @@ export function TaskPreview({  onDragStart, taskId }) {
 				setDatesNotificationClass("due-soon")
 			}
 		}
-	}, [task.startDate, task.dueDate, task.dueTime, completed])
+	}, [task.startDate, task.dueDate, task.dueTime, task.completed])
 
 	useEffect(() => {
 		if (task.id) {
@@ -98,11 +99,11 @@ export function TaskPreview({  onDragStart, taskId }) {
                         {task.labels?.map(label => <div key={label.id} className="task-preview-label" style={{ backgroundColor: label.color, color: label.textColor }} onClick={ev => toggleLabelCollapse(ev)}><div className="task-preview-label-title">{label.title}</div></div>)}
                     </div>
                     <p>{task.title}</p>
-                    <section className="task-preview-badges">
+                    <section className={`task-preview-badges`}>
                         {(task.dueDate || task.startDate) &&
                             <button className={`task-preview-badge ${datesNotificationClass} btn`} onClick={(ev) => onCompletedChange(ev)}>
-                                {!!completed && <span className="icon icon-hover icon-sm icon-checkbox-checked" />}
-                                {!completed && <span className="icon icon-hover icon-sm icon-checkbox-unchecked" />}
+                                {!!task?.completed && <span className="icon icon-hover icon-sm icon-checkbox-checked" />}
+                                {!task?.completed && <span className="icon icon-hover icon-sm icon-checkbox-unchecked" />}
                                 <span className="icon icon-no-hover icon-sm icon-clock" />
                                 <span className="info">{datesContent}</span>
                             </button>
