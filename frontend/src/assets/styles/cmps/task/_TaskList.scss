@@ -20,6 +20,27 @@
     &-container {
         display: grid;
         overflow-y: auto;
+        padding-block-end: 8px;
+    }
+
+    &:has(.create-item.edit)~.create-item.non-edit {
+        display: none;
+    }
+
+    &-container {
+        padding-block-end: 8px;
+
+        .create-item.non-edit {
+            border-radius: 8px;
+            margin: 8px 8px 0 8px;
+            width: auto;
+
+            .icon {
+                height: 20px;
+                line-height: 20px;
+                width: 20px;
+            }
+        }
     }
 }
 
@@ -37,12 +58,10 @@
 }
 
 .task-list-add-task {
-    min-height: 36px;
-    padding: 8px;
+    padding: 0px;
 
     .create-item.non-edit {
-        border-radius: 8px;
-        padding: 6px 8px;
+        display: none;
     }
 
     .editable-title-input {

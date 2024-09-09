@@ -19,10 +19,11 @@
 
 		label {
 			font-size: rem(14px);
+			font-weight: 500;
 		}
 
 		@include hover-supported {
-			filter: brightness(1.1) saturate(1.2);
+			filter: brightness(1.2);
 		}
 	}
 }

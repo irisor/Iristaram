@@ -1,10 +1,10 @@
 import { useEffect, useRef } from 'react'
 import { useForm } from '../../customHooks/useForm'
-import { useParams } from 'react-router';
-import { shallowEqual, useSelector } from 'react-redux';
-import { updateTask } from '../../store/board/board.actions';
-import { utilService } from '../../services/util.service';
-import { setOpenCreateItem } from '../../store/general/general.actions';
+import { useParams } from 'react-router'
+import { shallowEqual, useSelector } from 'react-redux'
+import { updateTask } from '../../store/board/board.actions'
+import { utilService } from '../../services/util.service'
+import { setOpenCreateItem } from '../../store/general/general.actions'
 
 export function TaskDetailsAddChecklist({ onClose, focusInput, setFocusInput }) {
   const [checklistForm, seChecklistForm, handleChange, resetForm] = useForm({ title: 'Checklist' })
