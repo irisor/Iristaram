@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { updateTask } from "../../store/board/board.actions";
 import { shallowEqual, useSelector } from "react-redux";
 import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service";
 
-export function TaskPreview({  onDragStart, taskId }) {
+export function TaskPreview({ onDragStart, taskId }) {
     const memoizedSelector = (storeState) => {
         const board = storeState.boardModule.board
         const group = board.groups.find(g => g.tasks.some(t => t.id === taskId))
@@ -20,47 +20,51 @@ export function TaskPreview({  onDragStart, taskId }) {
     const [datesContent, setDatesContent] = useState("")
     const [datesNotificationClass, setDatesNotificationClass] = useState("")
     const [completed, setCompleted] = useState(task.completed || false)
+    const previousCompleted = useRef(task.completed || false)
 
 
-	useEffect(() => {
-		let startDate, dueDate
+    useEffect(() => {
+        let startDate, dueDate
         setCompleted(task.completed || false)
 
-		if (task.startDate && task.dueDate) {
-			startDate = new Date(task.startDate)
-			dueDate = new Date(task.dueDate + ' ' + task.dueTime)
-			const startDateString = startDate.toLocaleString('en-US', { month: 'short', day: 'numeric' })
-			const dueDateString = dueDate.toLocaleString('en-US', { month: 'short', day: 'numeric' })
-			setDatesContent(`${startDateString} - ${dueDateString}`)
-		} else if (task.startDate) {
-			startDate = new Date(task.startDate)
-			const startDateString = startDate.toLocaleString('en-US', { month: 'short', day: 'numeric' })
-			setDatesContent(startDateString)
-		} else if (task.dueDate) {
-			dueDate = new Date(task.dueDate + ' ' + task.dueTime)
-			const dueDateString = dueDate.toLocaleString('en-US', { month: 'short', day: 'numeric' })
-			setDatesContent(dueDateString)
-		}
+        if (task.startDate && task.dueDate) {
+            startDate = new Date(task.startDate)
+            dueDate = new Date(task.dueDate + ' ' + task.dueTime)
+            const startDateString = startDate.toLocaleString('en-US', { month: 'short', day: 'numeric' })
+            const dueDateString = dueDate.toLocaleString('en-US', { month: 'short', day: 'numeric' })
+            setDatesContent(`${startDateString} - ${dueDateString}`)
+        } else if (task.startDate) {
+            startDate = new Date(task.startDate)
+            const startDateString = startDate.toLocaleString('en-US', { month: 'short', day: 'numeric' })
+            setDatesContent(startDateString)
+        } else if (task.dueDate) {
+            dueDate = new Date(task.dueDate + ' ' + task.dueTime)
+            const dueDateString = dueDate.toLocaleString('en-US', { month: 'short', day: 'numeric' })
+            setDatesContent(dueDateString)
+        }
 
         setDatesNotificationClass("")
         if (task.completed) {
-			setDatesNotificationClass("complete")
-		} else if (dueDate) {
-			const now = new Date()
-			const timeDiff = dueDate - now.getTime()
-			if (timeDiff < 0) {
-				setDatesNotificationClass("overdue")
-			} else if (timeDiff < 1000 * 60 * 60 * 24) {
-				setDatesNotificationClass("due-soon")
-			}
-		}
-	}, [task.startDate, task.dueDate, task.dueTime, task.completed])
+            setDatesNotificationClass("complete")
+        } else if (dueDate) {
+            const now = new Date()
+            const timeDiff = dueDate - now.getTime()
+            if (timeDiff < 0) {
+                setDatesNotificationClass("overdue")
+            } else if (timeDiff < 1000 * 60 * 60 * 24) {
+                setDatesNotificationClass("due-soon")
+            }
+        }
+    }, [task.startDate, task.dueDate, task.dueTime, task.completed])
 
-	useEffect(() => {
-		if (task.id) {
-			onUpdateTask({ ...task, completed: completed })
-		}
-	}, [completed])
+    useEffect(() => {
+        if (task.id && previousCompleted.current !== completed) {
+            const newTask = { ...task, completed: completed }
+
+            onUpdateTask(newTask)
+            previousCompleted.current = completed
+        }
+    }, [completed])
 
     function toggleLabelCollapse(ev) {
         ev.stopPropagation()
@@ -68,14 +72,14 @@ export function TaskPreview({  onDragStart, taskId }) {
         const taskPreviews = document.querySelectorAll(".task-preview")
         taskPreviews.forEach(taskPreview => taskPreview.querySelector(".task-preview-labels").classList.toggle("collapsed"))
     }
-    
+
     function handleDragStart(ev) {
         onDragStart(ev, task, groupId)
     }
 
-    function onUpdateTask(newTask){
-        if(!newTask) return
-        try{
+    function onUpdateTask(newTask) {
+        if (!newTask) return
+        try {
             updateTask(boardId, groupId, newTask)
             showSuccessMsg(`Task updated`)
         }
@@ -85,10 +89,10 @@ export function TaskPreview({  onDragStart, taskId }) {
     }
 
     function onCompletedChange(ev) {
-		ev.preventDefault()
-		ev.stopPropagation()
-		setCompleted(prev => !prev)
-	}
+        ev.preventDefault()
+        ev.stopPropagation()
+        setCompleted(prev => !prev)
+    }
 
     return (
         <div className="task-preview" onDragStart={handleDragStart}>

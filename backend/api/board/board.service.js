@@ -6,7 +6,7 @@ import { dbService } from '../../services/db.service.js'
 import { asyncLocalStorage } from '../../services/als.service.js'
 
 
-const PAGE_SIZE = 4
+const PAGE_SIZE = 50
 
 export const boardService = {
     query,

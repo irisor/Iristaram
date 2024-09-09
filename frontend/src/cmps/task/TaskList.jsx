@@ -3,6 +3,7 @@ import { TaskPreview } from "./TaskPreview"
 import { CreateItem } from "../general/CreateItem"
 import { addTask } from "../../store/board/board.actions"
 import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service"
+import { setOpenCreateItem } from '../../store/general/general.actions'
 
 export function TaskList({ props }) {
   const { groupId, onRemoveTask, onUpdateTaskTitle, onDragStart } = props
@@ -16,7 +17,7 @@ export function TaskList({ props }) {
   )
 
   function onAddTask(boardId, groupId) {
-    return function (taskTitle) {   
+    return function (taskTitle) {
       if (!taskTitle) return
       try {
         addTask(boardId, groupId, taskTitle)
@@ -42,11 +43,25 @@ export function TaskList({ props }) {
               />
             </li>
           ))}
+          <div className="task-list-add-task">
+            <CreateItem
+              onAddItem={onAddTask(board._id, groupId)}
+              addBtnLabel='Add card'
+              initialBtnLabel='Add a card'
+              placeholder='Enter a title for this card...'
+              thisId={`new-task-${groupId}`}
+            />
+          </div>
         </ol>
-        <div className="task-list-add-task">
-          <CreateItem onAddItem={onAddTask(board._id, groupId)} initialBtnLabel='Add a card' addBtnLabel='Add card' placeholder='Enter a title for this card...' />
-        </div>
+        <button className="btn create-item non-edit " onClick={() => {
+          setOpenCreateItem(`new-task-${groupId}`)
+        }}>
+          <div className="icon add-item">
+            <span className="icon icon-md icon-add" />
+          </div>
+          {'Add a card'}
+        </button>
       </section>
     </>
-  );
+  )
 }
