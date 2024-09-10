@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { loadBackgroundImages } from '../../store/background/background.actions'
 import { updateBoard } from '../../store/board/board.actions'
 
-export function BoardChangeBackground({ toggleMenu }) {
+export function BoardChangeBackground({ onClose }) {
   const boardBackground = useSelector(storeState => storeState.backgroundModule.background)
   const [selectedBackground, setSelectedBackground] = useState(null)
   const board = useSelector(storeState => storeState.boardModule.board)
@@ -15,8 +15,9 @@ export function BoardChangeBackground({ toggleMenu }) {
 
   useEffect(() => {
     if (selectedBackground?.backgroundImg === boardBackground.backgroundImg) return
-    updateBoard({ ...board, backgroundImg: selectedBackground?.backgroundImg })
-    toggleMenu()
+    const newBoard = { ...board, backgroundImg: selectedBackground?.backgroundImg }
+    updateBoard(newBoard)
+    onClose()
   }, [selectedBackground])
 
   return (

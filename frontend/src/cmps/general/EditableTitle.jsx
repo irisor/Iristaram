@@ -11,6 +11,10 @@ export function EditableTitle({ initialTitle, onUpdateTitle, tag='h2' }) {
 
   useKeyDown(() => handleInputBlur(), isEditing, ['Escape', 'Enter'])
   const { resizeInput } = useResizeInput(inputRef)
+
+  useEffect(() => {
+    setTitle(initialTitle)
+  }, [initialTitle])
   
 
   useEffect(() => {

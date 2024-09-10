@@ -8,6 +8,12 @@ export function MenuCarousel({ onClose, menuComponents }) {
   const [activeKey, setActiveKey] = useState(componentKeys[0])
   const [history, setHistory] = useState([])
 
+  function handleClose() {
+    setActiveKey(componentKeys[0])
+    setHistory([])
+    onClose()
+  }
+
   function handleBack() {
     if (history.length > 0) {
       const newHistory = [...history]
@@ -28,7 +34,7 @@ export function MenuCarousel({ onClose, menuComponents }) {
         title={menuComponents[activeKey].title}
         showBack={history.length > 0}
         onBack={handleBack}
-        onClose={onClose}
+        onClose={handleClose}
       />
       <div className="menu-carousel-content-container">
         {componentKeys.map(function(key) {
@@ -40,6 +46,7 @@ export function MenuCarousel({ onClose, menuComponents }) {
               isVisited={history.includes(key)}
               component={item.component}
               onNavigate={handleNavigation}
+              onClose={handleClose}
             />
           )
         })}

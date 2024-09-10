@@ -112,6 +112,7 @@ async function update(board) {
         const boardToSave = {
             title: board.title,
             labels: board.labels ? [...board.labels] : [],
+            backgroundImg: board.backgroundImg || '',
             backgroundImages: board.backgroundImages ? [...board.backgroundImages] : [],
             groups: Array.isArray(board.groups) ? [...board.groups].map(group => (
                 {

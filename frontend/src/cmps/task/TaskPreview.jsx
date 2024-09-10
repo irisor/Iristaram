@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { updateTask } from "../../store/board/board.actions";
-import { shallowEqual, useSelector } from "react-redux";
-import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service";
+import { useEffect, useRef, useState } from "react"
+import { Link, useParams } from "react-router-dom"
+import { updateTask } from "../../store/board/board.actions"
+import { shallowEqual, useSelector } from "react-redux"
+import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service"
 
 export function TaskPreview({ onDragStart, taskId }) {
     const memoizedSelector = (storeState) => {
@@ -20,12 +20,14 @@ export function TaskPreview({ onDragStart, taskId }) {
     const [datesContent, setDatesContent] = useState("")
     const [datesNotificationClass, setDatesNotificationClass] = useState("")
     const [completed, setCompleted] = useState(task.completed || false)
+    const [noDueDate, setNoDueDate] = useState(false)
     const previousCompleted = useRef(task.completed || false)
 
 
     useEffect(() => {
         let startDate, dueDate
         setCompleted(task.completed || false)
+        setNoDueDate(false)
 
         if (task.startDate && task.dueDate) {
             startDate = new Date(task.startDate)
@@ -35,8 +37,12 @@ export function TaskPreview({ onDragStart, taskId }) {
             setDatesContent(`${startDateString} - ${dueDateString}`)
         } else if (task.startDate) {
             startDate = new Date(task.startDate)
-            const startDateString = startDate.toLocaleString('en-US', { month: 'short', day: 'numeric' })
+            const now = new Date()
+            const isFuture = startDate > now
+            const startedString = isFuture ? "Starts: " : "Started: "
+            const startDateString = startedString + startDate.toLocaleString('en-US', { month: 'short', day: 'numeric' })
             setDatesContent(startDateString)
+            setNoDueDate(true)
         } else if (task.dueDate) {
             dueDate = new Date(task.dueDate + ' ' + task.dueTime)
             const dueDateString = dueDate.toLocaleString('en-US', { month: 'short', day: 'numeric' })
@@ -89,6 +95,7 @@ export function TaskPreview({ onDragStart, taskId }) {
     }
 
     function onCompletedChange(ev) {
+        if (noDueDate) return
         ev.preventDefault()
         ev.stopPropagation()
         setCompleted(prev => !prev)
@@ -105,7 +112,7 @@ export function TaskPreview({ onDragStart, taskId }) {
                     <p>{task.title}</p>
                     <section className={`task-preview-badges`}>
                         {(task.dueDate || task.startDate) &&
-                            <button className={`task-preview-badge ${datesNotificationClass} btn`} onClick={(ev) => onCompletedChange(ev)}>
+                            <button className={`task-preview-badge ${datesNotificationClass} btn ${noDueDate ? "no-due-date" : "has-due-date"}`} onClick={(ev) => onCompletedChange(ev)}>
                                 {!!task?.completed && <span className="icon icon-hover icon-sm icon-checkbox-checked" />}
                                 {!task?.completed && <span className="icon icon-hover icon-sm icon-checkbox-unchecked" />}
                                 <span className="icon icon-no-hover icon-sm icon-clock" />

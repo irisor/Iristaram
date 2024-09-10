@@ -98,7 +98,6 @@
         }
     }
 
-    
     @keyframes labels-open {
         0% {
             padding-right: 0;
@@ -178,21 +177,21 @@
                 color: white;
             }
         }
-        
-		&.overdue {
-			background-color: var(--clr-danger-bold);
-			color: var(--clr-text-4);
-		}
 
-		&.due-soon {
-			background-color: var(--clr-warning-bold);
-			color: var(--clr-warning-text);
-		}
+        &.overdue {
+            background-color: var(--clr-danger-bold);
+            color: var(--clr-text-4);
+        }
 
-		&.complete {
-			background-color: var(--clr-success-bold);
-			color: var(--clr-text-4);
-		}
+        &.due-soon {
+            background-color: var(--clr-warning-bold);
+            color: var(--clr-warning-text);
+        }
+
+        &.complete {
+            background-color: var(--clr-success-bold);
+            color: var(--clr-text-4);
+        }
 
         .icon-hover {
             display: none;
@@ -206,12 +205,12 @@
                     background-color: var(--clr-danger-bold);
                     color: var(--clr-text-4);
                 }
-        
+
                 &.due-soon {
                     background-color: var(--clr-warning-bold);
                     color: var(--clr-warning-text);
                 }
-        
+
                 &.complete {
                     background-color: var(--clr-success-bold);
                     color: var(--clr-text-4);
