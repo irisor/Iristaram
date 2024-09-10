@@ -15,7 +15,9 @@ export function BoardChangeBackground({ toggleMenu }) {
 
   useEffect(() => {
     if (selectedBackground?.backgroundImg === boardBackground.backgroundImg) return
-    updateBoard({ ...board, backgroundImg: selectedBackground?.backgroundImg })
+    const newBoard = { ...board, backgroundImg: selectedBackground?.backgroundImg }
+    console.log('*** BoardChangeBackground after selectedBackground changed', newBoard)
+    updateBoard(newBoard)
     toggleMenu()
   }, [selectedBackground])
 
