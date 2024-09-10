@@ -24,15 +24,12 @@
         padding: 8px;
         
         .logo-img {
-            background-image: url('/img/trello-logo-static.gif');
+            background-image: url('/img/morello-logo.png');
             background-size: contain;
             background-position: center;
+            background-repeat: no-repeat;
             height: 16px;
             width: 75px;
-
-            &:hover {
-                background-image: url('/img/trello-logo-animation.gif');
-            }
         }
     }
 
