@@ -1,8 +1,13 @@
-# React + Vite
+# Trello Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Check out this Trello clone built with React, Redux, Node.js, and MongoDB: https://morello.onrender.com/
+Please note that it’s hosted on a free Render account, so the server may take about a minute to start up.
 
-Currently, two official plugins are available:
+Run frontend dev: vite
+Build frontend: vite build
+Run backend: npm run dev
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Environment variables:
+MONGO_URL
+NODE_ENV
+SECRET1
