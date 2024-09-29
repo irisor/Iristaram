@@ -250,7 +250,7 @@ function _createBoards() {
                 "status": "todo",
                 "priority": "high",
                 "description": "Gather insights from current users to inform redesign",
-                "memberIds": ["u101", "u102"],
+                "memberIds": ["u102"],
                 "labels": [
                  {
                     "id": "l101",
@@ -285,13 +285,13 @@ function _createBoards() {
                 "attachments": [
                     {
                     "_id": "a101",
-                    "url": "https://i.ibb.co/r2CgwKV/626735ba-84de-4190-b3fe-12bc33d47e62.jpg",
+                    "url": "https://i.ibb.co/NYcmgSF/626735ba-84de-4190-b3fe-12bc33d47e62.jpg",
                     "createdAt": 1674673353738
                     }
                 ],
                 "cover": 
                 {
-                "url": "https://i.ibb.co/r2CgwKV/626735ba-84de-4190-b3fe-12bc33d47e62.jpg",
+                "url": "https://i.ibb.co/NYcmgSF/626735ba-84de-4190-b3fe-12bc33d47e62.jpg",
                 "attachmentId": "a101"
                 }
                 },
@@ -319,13 +319,13 @@ function _createBoards() {
                 "attachments": [
                     {
                         "_id": "a102",
-                        "url": "https://i.ibb.co/dkCHFRL/Trello-screen.png",
+                        "url": "https://i.ibb.co/vmK8xwd/Trello-screen.png",
                         "createdAt": 1674673353738
                     }
                 ],
                 "cover": 
                 {
-                    "url": "https://i.ibb.co/dkCHFRL/Trello-screen.png",
+                    "url": "https://i.ibb.co/vmK8xwd/Trello-screen.png",
                     "attachmentId": "a102"
                 }
                 },
@@ -347,7 +347,7 @@ function _createBoards() {
                 "attachments": [
                     {
                         "_id": "a103",
-                        "url": "https://i.ibb.co/dkCHFRL/Trello-screen.png",
+                        "url": "https://i.ibb.co/vmK8xwd/Trello-screen.png",
                         "createdAt": 1674673353738
                     }
                 ]
@@ -408,7 +408,7 @@ function _createBoards() {
                 "status": "todo",
                 "priority": "high",
                 "description": "Ensure website is mobile-friendly",
-                "memberIds": ["u101", "u103"],
+                "memberIds": ["u103"],
                 "labels": [
                 {
                     "id": "l101",
@@ -480,7 +480,7 @@ function _createBoards() {
                 "status": "review",
                 "priority": "high",
                 "description": "Team to review and provide feedback on new homepage design",
-                "memberIds": ["u101", "u102", "u103", "u104"]
+                "memberIds": ["u104"]
                 },
                 {
                 "id": "t111",
@@ -488,7 +488,7 @@ function _createBoards() {
                 "status": "review",
                 "priority": "medium",
                 "description": "Ensure website works on all major browsers",
-                "memberIds": ["u103", "u104"]
+                "memberIds": ["u103"]
                 }
             ]
             },
@@ -532,7 +532,7 @@ function _createBoards() {
                 "status": "done",
                 "priority": "high",
                 "description": "Define and document project requirements",
-                "memberIds": ["u101", "u104"]
+                "memberIds": ["u101"]
                 },
                 {
                 "id": "t116",
